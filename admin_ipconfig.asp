@@ -6,7 +6,7 @@
 <!-- #include file="inc_dtd.asp" -->
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> 留言本 IP屏蔽策略</title>
 	
 	<!-- #include file="style.asp" -->

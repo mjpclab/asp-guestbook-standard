@@ -9,7 +9,7 @@ Response.Expires=-1
 <!-- #include file="inc_dtd.asp" -->
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> 留言本 生成调用代码</title>
 
 	<script type="text/javascript">
