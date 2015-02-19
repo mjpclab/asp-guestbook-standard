@@ -1,0 +1,25 @@
+function createXmlHttp()
+{
+	var obj=null;
+	if(window.ActiveXObject)
+	{
+		obj=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	else if(window.XMLHttpRequest)
+	{
+		obj=new XMLHttpRequest();
+	}
+	return obj;
+}
+
+function clearChildren(element)
+{
+	if(element.childNodes)
+		while(element.hasChildNodes()) element.removeChild(element.lastChild);
+}
+
+function setPureText(element,text)
+{
+	clearChildren(element);
+	if(document && element.appendChild) element.appendChild(document.createTextNode(text));
+}

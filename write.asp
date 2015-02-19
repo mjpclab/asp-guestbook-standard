@@ -1,0 +1,310 @@
+<!-- #include file="config.asp" -->
+<!-- #include file="style.asp" -->
+<!-- #include file="ubbcode.asp" -->
+<!-- #include file="common2.asp" -->
+<!-- #include file="md5.asp" -->
+
+<%
+'======================================================
+sub wordsbaned
+	rs.Close : cn.Close : set rs=nothing : set cn=nothing
+	call addstat("banned")
+	Response.Redirect "err.asp?number=4"
+	Response.End
+end sub
+'======================================================
+sub floodbaned
+	rs.Close : rs2.Close : cn.Close : set rs=nothing : set rs2=nothing : set cn=nothing
+	call addstat("banned")
+	Response.Redirect "err.asp?number=7"
+	Response.End
+end sub
+'======================================================
+sub bancheck(byref re,byref field,byval tfiltermode,byval bitflag)
+	if clng(tfiltermode and bitflag)<>0 then
+		if re.Test(field)=true then Call wordsbaned
+	end if
+end sub
+'======================================================
+sub filtercheck(byref re,byref field,byval tfiltermode,byval bitflag,byref treplacestr,byref filtered)
+	if clng(tfiltermode and bitflag)<>0 then
+		if re.Test(field)=true then
+			if clng(tfiltermode and 4096)<>0 then	'wait to audit
+				guestflag=clng(guestflag or 16)
+			else
+				filtered=true
+				field=re.Replace(field,treplacestr)
+			end if
+		end if
+	end if
+end sub
+'======================================================
+
+Response.Expires=-1
+if isbanip(Request.ServerVariables("REMOTE_ADDR"))=true or isbanip(Request.ServerVariables("HTTP_X_FORWARDED_FOR"))=true then
+	Response.Redirect "err.asp?number=1"
+	Response.End
+elseif StatusOpen=false then
+	Response.Redirect "err.asp?number=2"
+	Response.End
+elseif StatusWrite=false then
+	Response.Redirect "err.asp?number=3"
+	Response.End
+elseif flood_minwait>0 and isdate(session.Contents("wrote_time")) then
+	if datediff("s",session.Contents("wrote_time"),now())<=flood_minwait then
+		call addstat("banned")
+		Response.Redirect "err.asp?number=6"
+		Response.End
+	end if
+elseif flood_minwait>0 and isdate(Request.Cookies("wrote_time")) then
+	if datediff("s",Request.Cookies("wrote_time"),now())<=flood_minwait then
+		call addstat("banned")
+		Response.Redirect "err.asp?number=6"
+		Response.End
+	end if
+end if
+if Request.Form("iname")="" or Request.Form("ititle")="" then Response.Redirect("index.asp")
+
+Session(InstanceName & "_ititle")=Request.Form("ititle")
+Session(InstanceName & "_icontent")=Request.Form("icontent")
+
+if WriteVcodeCount>0 and (Request.Form("ivcode")<>session("vcode") or session("vcode")="") then
+	session("vcode")=""
+	Call MessagePage("ÑéÖ¤Âë´íÎó¡£","leaveword.asp?" & Request.Form("qstr"))
+	Response.End
+else
+	session("vcode")=""
+end if
+'===================================================================
+
+SetTimelessCookie "iname",Request.form("iname")
+SetTimelessCookie "imail",Request.form("imail")
+SetTimelessCookie "iqq",Request.form("iqq")
+SetTimelessCookie "imsn",Request.form("imsn")
+SetTimelessCookie "ihomepage",Request.form("ihomepage")
+SetTimelessCookie "ihead",Request.form("ihead")
+
+'===================================================================
+
+Dim cn,rs,sql
+
+set cn=server.CreateObject("ADODB.Connection")
+set rs=server.CreateObject("ADODB.Recordset")
+set rs2=server.CreateObject("ADODB.Recordset")
+
+dim content1,name1,title1,email1,qqid1,msnid1,homepage1,ipaddr1,originalip1,head1,guestflag,whisperpwd
+'---------------------
+name1=Request.form("iname")
+title1=request.form("ititle")
+email1=request.form("imail")
+qqid1=request.form("iqq")
+msnid1=request.form("imsn")
+homepage1=request.form("ihomepage")
+
+ipaddr1=request.ServerVariables("REMOTE_ADDR")
+originalip1="" & Request.ServerVariables("HTTP_X_FORWARDED_FOR") & ""
+face1=request.form("ihead")
+
+content1=request.form("icontent")
+if WordsLimit<>0 and len(content1)>WordsLimit then content1=left(content1,WordsLimit)
+
+guestflag=0
+whisperpwd=""
+if StatusNeedAudit=true then guestflag=guestflag+16
+if StatusWhisper=true and Request.Form("chk_whisper")="1" then guestflag=guestflag+32
+if StatusEncryptWhisper=true and Request.Form("chk_encryptwhisper")="1" and Request.Form("iwhisperpwd")<>"" then
+	guestflag=guestflag+64
+	whisperpwd=md5(Request.Form("iwhisperpwd"),32)
+end if
+if Request.Form("imailreplyinform")="1" then guestflag=guestflag+128
+if Request.Form("hidecontact")="1" then guestflag=guestflag+256
+guestflag=guestflag + (guestlimit mod 8)
+'-------------------------
+dim tregexp,tfiltermode,treplacestr,re,filtered
+set re=new RegExp
+filtered=false
+
+CreateConn cn,dbtype
+rs.Open sql_write_filter,cn,0,1,1
+while rs.EOF=false
+	tregexp=rs("regexp")
+	tfiltermode=rs("filtermode")
+	treplacestr=rs("replacestr")
+
+	if tregexp<>"" then
+		re.Multiline=(clng(tfiltermode and 2048)<>0)
+		re.IgnoreCase=(clng(tfiltermode and 8192)=0)
+		re.Global=true
+		re.Pattern=tregexp
+
+		if clng(tfiltermode and 16384)<>0 then    'baned
+			bancheck re,name1,tfiltermode,1
+			bancheck re,email1,tfiltermode,2
+			bancheck re,qqid1,tfiltermode,4
+			bancheck re,msnid1,tfiltermode,8
+			bancheck re,homepage1,tfiltermode,16
+			bancheck re,title1,tfiltermode,32
+			bancheck re,content1,tfiltermode,64
+		else
+			filtercheck re,name1,tfiltermode,1,treplacestr,filtered
+			filtercheck re,email1,tfiltermode,2,treplacestr,filtered
+			filtercheck re,qqid1,tfiltermode,4,treplacestr,filtered
+			filtercheck re,msnid1,tfiltermode,8,treplacestr,filtered
+			filtercheck re,homepage1,tfiltermode,16,treplacestr,filtered
+			filtercheck re,title1,tfiltermode,32,treplacestr,filtered
+			filtercheck re,content1,tfiltermode,64,treplacestr,filtered
+		end if
+	end if
+	rs.MoveNext
+wend
+rs.Close
+set re=nothing
+if filtered=true then addstat("filtered")
+'-------------------------
+if name1="" or title1="" then Response.Redirect "index.asp"
+
+name1=server.htmlEncode(name1)
+name1=textfilter(name1,false)
+name1=left(name1,20)
+
+title1=server.htmlEncode(title1)
+title1=textfilter(title1,false)
+title1=left(title1,30)
+
+email1=replace(server.htmlEncode(email1)," ","")
+email1=textfilter(email1,true)
+email1=left(email1,50)
+
+qqid1=replace(server.htmlEncode(qqid1)," ","")
+qqid1=textfilter(qqid1,false)
+qqid1=left(qqid1,16)
+
+msnid1=replace(server.htmlEncode(msnid1)," ","")
+msnid1=textfilter(msnid1,false)
+msnid1=left(msnid1,50)
+
+content1=replace(content1,"<%","< %")
+
+logdate1=now()
+
+homepage1=replace(server.htmlEncode(homepage1)," ","")
+if lcase(left(homepage1,7))<>"http://" and lcase(left(homepage1,6))<>"ftp://" and homepage1<>"" then homepage1="http://" & homepage1
+homepage1=textfilter(homepage1,true)
+homepage1=left(homepage1,127)
+
+if isnumeric(face1)=false or face1="" then
+	face1=0
+elseif len(cstr(face1))>len(cstr(FaceCount))then
+	face1=0
+elseif clng(face1)>clng(FaceCount) then
+	face1=0
+else
+	face1=abs(cbyte(face1))
+end if
+
+'flood check
+if flood_searchrange>0 and (flood_sfnewword or flood_sfnewreply) and (flood_include or flood_equal) and (flood_sititle or flood_sicontent) then
+	if isnumeric(Request.Form("follow")) and Request.Form("follow")<>"" and StatusGuestReply then
+		rs2.Open sql_write_flood_ids & Request.Form("follow"),cn,,,1
+	else
+		rs2.Open sql_write_flood_idnull,cn,,,1
+	end if
+
+	if flood_sfnewword and rs2.EOF then
+		sql=sql_write_flood_head
+
+		if flood_sititle then
+			if flood_include and title1<>"" then sql=sql & Replace(sql_write_flood_titlelike,"{0}",FilterSqlStr(title1))
+			if flood_equal or title1="" then sql=sql & Replace(sql_write_flood_titleequal,"{0}",FilterSqlStr(title1))
+			if flood_sicontent then sql=sql & " OR"
+		end if
+
+		if flood_sicontent then
+			if flood_include and content1<>"" then sql=sql & Replace(sql_write_flood_articlelike,"{0}",FilterSqlStr(content1))
+			if flood_equal or content1="" then sql=sql & Replace(sql_write_flood_articleequal,"{0}",FilterSqlStr(content1))
+		end if
+		
+		sql=sql & Replace(sql_write_flood_wordstail,"{0}",flood_searchrange)
+		rs.Open sql,cn,,,1
+		if not rs.EOF then floodbaned()
+		rs.Close
+	end if
+
+	if flood_sfnewreply and (not rs2.EOF) then
+		sql=sql_write_flood_head
+
+		if flood_sititle and title1<>"Re:" then
+			if flood_include and title1<>"" then sql=sql & Replace(sql_write_flood_titlelike,"{0}",FilterSqlStr(title1))
+			if flood_equal or title1="" then sql=sql & Replace(sql_write_flood_titleequal,"{0}",FilterSqlStr(title1))
+			if flood_sicontent then sql=sql & " OR"
+		end if
+
+		if flood_sicontent then
+			if flood_include and content1<>"" then sql=sql & Replace(sql_write_flood_articlelike,"{0}",FilterSqlStr(content1))
+			if flood_equal or content1="" then sql=sql & Replace(sql_write_flood_articleequal,"{0}",FilterSqlStr(content1))
+		end if
+		
+		sql=sql & Replace(Replace(sql_write_flood_replytail,"{0}",flood_searchrange),"{1}",rs2.Fields("id"))
+		rs.Open sql,cn,,,1
+		if not rs.EOF then floodbaned()
+		rs.Close
+	end if
+	
+	rs2.Close
+end if
+
+'------------------------
+rs.Open sql_write_idnull,cn,0,3,1
+rs.AddNew
+rs("name")=name1
+rs("title")=title1
+rs("email")=email1
+rs("qqid")=qqid1
+rs("msnid")=msnid1
+rs("homepage")=homepage1
+rs("logdate")=logdate1
+rs("lastupdated")=logdate1
+rs("ipaddr")=ipaddr1
+rs("originalip")=originalip1
+rs("faceid")=face1
+rs("guestflag")=guestflag
+rs("whisperpwd")=whisperpwd
+rs("article")=content1
+rs("parent_id")=0
+if isnumeric(Request.Form("follow")) and Request.Form("follow")<>"" and StatusGuestReply then
+	rs2.Open sql_write_verify_repliable & Request.Form("follow"),cn,0,1,1
+	if not rs2.EOF then
+		rs("parent_id")=Request.Form("follow")
+		cn.Execute Replace(Replace(sql_write_updatelastupdated,"{0}",now()),"{1}",Request.Form("follow")),,1
+		cn.Execute sql_write_updateparentflag & Request.Form("follow"),,1
+	end if
+	rs2.Close : set rs2=nothing
+end if
+
+if IsAccess then	'update root_id info
+	if rs("parent_id")<=0 then
+		rs("root_id")=rs("id")
+	else
+		rs("root_id")=rs("parent_id")
+	end if
+end if
+rs.Update
+
+rs.Close : cn.Close : set rs=nothing : set cn=nothing
+
+call addstat("written")
+
+SetTimelessCookie "wrote_time",now()
+Session.Contents("wrote_time")=now()
+Session(InstanceName & "_ititle")=""
+Session(InstanceName & "_icontent")=""
+Session("guestflag")=guestflag
+
+if MailNewInform=true then newinform()
+
+if Request.Form("return")="showword" and isnumeric(Request.Form("follow")) and Request.Form("follow")<>"" then
+	Response.Redirect "showword.asp?id=" & Request.Form("follow")
+else
+	Response.Redirect "index.asp"
+end if
+%>
