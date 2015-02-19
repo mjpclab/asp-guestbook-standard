@@ -14,8 +14,9 @@ call addstat("view")
 %>
 
 <!-- #include file="inc_dtd.asp" -->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn">
+<html>
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
 	<title><%=HomeName%> 留言本</title>
 	
 	<!-- #include file="style.asp" -->
