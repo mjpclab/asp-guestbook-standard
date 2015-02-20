@@ -1,5 +1,6 @@
 <!-- #include file="config.asp" -->
 <%
+Response.ContentType="application/x-javascript"
 if session("gotclientinfo")<>true then
 	Dim cn
 	Dim os,browser,screenwidth,screenheight,sourceaddr,fullsource

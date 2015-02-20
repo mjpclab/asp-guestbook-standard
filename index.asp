@@ -20,7 +20,6 @@ call addstat("view")
 	<title><%=HomeName%> ¡Ù—‘±æ</title>
 	<link rel="stylesheet" type="text/css" href="style.css"/>
 	<!-- #include file="style.asp" -->
-	<!-- #include file="getclientinfo.inc" -->
 </head>
 
 <body<%=bodylimit%> onload="<%=framecheck%>">
@@ -77,5 +76,6 @@ get_divided_page cn,rs,sql_pk_main,local_sql_count,local_sql_query,"parent_id IN
 </div>
 
 <!-- #include file="bottom.asp" -->
+<script type="text/javascript" src="getclientinfo.asp" defer="defer" async="async"></script>
 </body>
 </html>

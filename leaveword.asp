@@ -34,7 +34,6 @@ end function
 	<title><%=HomeName%> ¡Ù—‘±æ «©–¥¡Ù—‘</title>
 	<link rel="stylesheet" type="text/css" href="style.css"/>
 	<!-- #include file="style.asp" -->
-	<!-- #include file="getclientinfo.inc" -->
 	<script type="text/javascript">
 		function submitcheck(cobject)
 		{
@@ -237,5 +236,6 @@ end function
 </div>
 
 <!-- #include file="bottom.asp" -->
+<script type="text/javascript" src="getclientinfo.asp" defer="defer" async="async"></script>
 </body>
 </html>

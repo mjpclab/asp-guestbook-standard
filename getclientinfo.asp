@@ -1,12 +1,17 @@
+<%Response.ContentType="application/x-javascript"%>
 <%if session("gotclientinfo")<>true then%>
-<script type="text/javascript">
 <!-- #include file="xmlhttp.inc" -->
 
 function trim(s)
 {
-	s=s.replace(/^\s*/,'');
-	s=s.replace(/\s*$/,'');
-	return s;
+	if(s.trim) {
+		return s.trim();
+	}
+	else {
+		s=s.replace(/^\s*/,'');
+		s=s.replace(/\s*$/,'');
+		return s;
+	}
 }
 
 function xmlHttpHandler()
@@ -61,6 +66,7 @@ function getbrowsername()
 	if (navigator.userAgent)
 	{
 		if ((/Opera/i).test(navigator.userAgent)) return 'Opera';
+		else if ((/Trident\/7\.0/i).test(navigator.userAgent)) return 'MSIE 11';
 		else if (navigator.appName=='Microsoft Internet Explorer')
 		{
 			var bname=navigator.appVersion.match(/\(.*\)/);
@@ -80,9 +86,9 @@ function getbrowsername()
 	else return '';
 }
 
-function getscreenwidth() {if (screen.width) return screen.width; else return 0;}
+function getscreenwidth() {return screen.width || 0;}
 
-function getscreenheight() {if (screen.height) return screen.height; else return 0;}
+function getscreenheight() {return screen.height || 0;}
 
 function getsourceaddr()
 {
@@ -100,8 +106,13 @@ function getsourceaddr()
 }
 
 var xmlHttp=createXmlHttp();
-var url=window.location.href.substring(0,window.location.href.lastIndexOf('/')+1);
-url+='saveclientinfo.asp?sys=' +getsysname()+ '&brow=' +getbrowsername()+ '&sw=' +getscreenwidth()+ '&sh=' +getscreenheight()+ '&src=' +getsourceaddr()+ '&fsrc=' +escape(document.referrer);
+var url=location.href.substring(0,location.href.lastIndexOf('/')+1);
+url+='saveclientinfo.asp?sys=' + encodeURIComponent(getsysname()) +
+	'&brow=' + encodeURIComponent(getbrowsername()) +
+	'&sw=' + encodeURIComponent(getscreenwidth()) +
+	'&sh=' + encodeURIComponent(getscreenheight()) +
+	'&src=' + encodeURIComponent(getsourceaddr()) +
+	'&fsrc=' + encodeURIComponent(document.referrer);
 
 if(xmlHttp)
 {
@@ -111,10 +122,11 @@ if(xmlHttp)
 }
 else
 {
-	var spt,output;
-	spt='script';
-	output='<' +spt+ ' type="text/javascript" src="' +url+ '" defer="defer"><\/script>';
-	document.write(output);
+	var script=document.createElement('script');
+	script.type="text/javascript";
+	script.src=url;
+	script.defer="defer";
+	script.async="async";
+	document.body.appendChild(script);
 }
-</script>
 <%end if%>
