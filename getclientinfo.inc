@@ -32,19 +32,23 @@ function getsysname()
 	
 		//for IE & Opera
 		else if ((/Windows 95/i).test(navigator.userAgent)) return 'Windows 95';
-		else if ((/Win 9x 4.90/i).test(navigator.userAgent)) return 'Windows ME';
+		else if ((/Win 9x 4\.90/i).test(navigator.userAgent)) return 'Windows ME';
 		else if ((/Windows 98/i).test(navigator.userAgent)) return 'Windows 98';
 
 		//for IE & Opera & Mozilla
-		else if ((/Windows NT 5.0/i).test(navigator.userAgent)) return 'Windows 2000';
-		else if ((/Windows NT 5.1/i).test(navigator.userAgent)) return 'Windows XP';
-		else if ((/Windows NT 5.2/i).test(navigator.userAgent)) return 'Windows 2003';
-		else if ((/Windows NT 6.0/i).test(navigator.userAgent)) return 'Windows Vista';
+		else if ((/Windows NT 5\.0/i).test(navigator.userAgent)) return 'Windows 2000';
+		else if ((/Windows NT 5\.1/i).test(navigator.userAgent)) return 'Windows XP';
+		else if ((/Windows NT 5\.2/i).test(navigator.userAgent)) return 'Windows Server 2003';
+		else if ((/Windows NT 6\.0/i).test(navigator.userAgent)) return 'Windows Vista/Server 2008';
+		else if ((/Windows NT 6\.1/i).test(navigator.userAgent)) return 'Windows 7/Server 2008 R2';
+		else if ((/Windows NT 6\.2/i).test(navigator.userAgent)) return 'Windows 8/Server 2012';
+		else if ((/Windows NT 6\.3/i).test(navigator.userAgent)) return 'Windows 8.1/Server 2012 R2';
+		else if ((/Windows NT 10\.0/i).test(navigator.userAgent)) return 'Windows 10';
 		else if ((/Windows NT/).test(navigator.userAgent)) return 'Windows NT';
 		else if ((/Linux/i).test(navigator.userAgent)) return 'Linux';
 		else if ((/NetWare/i).test(navigator.userAgent)) return 'NetWare';
 		else if ((/Solaris/i).test(navigator.userAgent)) return 'Solaris';
-		else if ((/FreeBSD/i).test(navigator.userAgent)) return 'FreeBSD';
+		else if ((/BSD/i).test(navigator.userAgent)) return 'BSD';
 		else if ((/Unix/i).test(navigator.userAgent)) return 'Unix';
 		else if ((/Mac\s?OS/i).test(navigator.userAgent)) return 'Mac OS';
 		else return '';
@@ -64,10 +68,11 @@ function getbrowsername()
 			bname=trim(bname);
 			return bname;
 		}
-		else if ((/NetScape/i).test(navigator.userAgent)) return 'NetScape';
-		else if ((/Mozilla.+Firefox/i).test(navigator.userAgent)) return 'Mozilla Firefox';
-		else if ((/Mozilla/i).test(navigator.userAgent)) return 'Mozilla';
+		else if ((/Chrome/i).test(navigator.userAgent)) return 'Chrome';
 		else if ((/Safari/i).test(navigator.userAgent)) return 'Safari';
+		else if ((/NetScape/i).test(navigator.userAgent)) return 'NetScape';
+		else if ((/Firefox/i).test(navigator.userAgent)) return 'Firefox';
+		else if ((/Mozilla/i).test(navigator.userAgent)) return 'Mozilla';
 		else if (navigator.appName) return navigator.appName;
 		else if (navigator.appCodeName) return navigator.appCodeName;
 		else return '';

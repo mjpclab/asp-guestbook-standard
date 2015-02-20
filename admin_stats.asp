@@ -131,7 +131,7 @@ if tclientcount>0 then
 	Response.Write "<p style=""font-weight:bold"">客户端操作系统</p>"
 	Response.Write "<blockquote><table style=""border-width:0px; width:100%;"">"
 	while rs.EOF=false
-		Response.Write "<tr><td style=""width:120px;"">"
+		Response.Write "<tr><td style=""width:180px;"">"
 		Response.Write server.HTMLEncode(rs.Fields("os")) & "："
 		Response.Write "</td><td>"
 		Response.Write rs.Fields(1) & "(" & formatpercent(rs.Fields(1)/tclientcount,2,true) & ")"
