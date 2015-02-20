@@ -15,7 +15,7 @@ elseif StatusWrite=false then
 	Response.Redirect "err.asp?number=3"
 	Response.End
 end if
-call addstat("leaveword")
+if StatusStatistics then call addstat("leaveword")
 if WriteVcodeCount>0 then session("vcode")=getvcode(WriteVcodeCount)
 
 function getstatus(isopen)
@@ -236,6 +236,6 @@ end function
 </div>
 
 <!-- #include file="bottom.asp" -->
-<script type="text/javascript" src="getclientinfo.asp" defer="defer" async="async"></script>
+<%if StatusStatistics and session("gotclientinfo")<>true then%><script type="text/javascript" src="getclientinfo.asp" defer="defer" async="async"></script><%end if%>
 </body>
 </html>

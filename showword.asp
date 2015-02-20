@@ -166,6 +166,6 @@ rs.Close
 </div>
 
 <!-- #include file="bottom.asp" -->
-<script type="text/javascript" src="getclientinfo.asp" defer="defer" async="async"></script>
+<%if StatusStatistics and session("gotclientinfo")<>true then%><script type="text/javascript" src="getclientinfo.asp" defer="defer" async="async"></script><%end if%>
 </body>
 </html>

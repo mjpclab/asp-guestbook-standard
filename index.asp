@@ -10,7 +10,7 @@ elseif StatusOpen=false then
 	Response.Redirect "err.asp?number=2"
 	Response.End
 end if
-call addstat("view")
+if StatusStatistics then call addstat("view")
 %>
 
 <!-- #include file="inc_dtd.asp" -->
@@ -76,6 +76,6 @@ get_divided_page cn,rs,sql_pk_main,local_sql_count,local_sql_query,"parent_id IN
 </div>
 
 <!-- #include file="bottom.asp" -->
-<script type="text/javascript" src="getclientinfo.asp" defer="defer" async="async"></script>
+<%if StatusStatistics and session("gotclientinfo")<>true then%><script type="text/javascript" src="getclientinfo.asp" defer="defer" async="async"></script><%end if%>
 </body>
 </html>

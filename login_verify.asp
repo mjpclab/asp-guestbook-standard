@@ -5,11 +5,11 @@
 
 <%
 Response.Expires=-1
-call addstat("login")
+if StatusStatistics then call addstat("login")
 
 if VcodeCount>0 and (Request.Form("ivcode")<>session("vcode") or session("vcode")="") then
 	session("vcode")=""
-	call addstat("loginfailed")
+	if StatusStatistics then call addstat("loginfailed")
 	Call MessagePage("验证码错误。","admin_login.asp")
 
 	set rs=nothing
@@ -32,14 +32,14 @@ if rs.EOF=false then
 		session.Timeout=clng(AdminTimeOut)
 		Response.Redirect "admin.asp"
 	else
-		call addstat("loginfailed")
+		if StatusStatistics then call addstat("loginfailed")
 		Call MessagePage("密码不正确。","admin_login.asp")
 
 		rs.Close : cn.Close : set rs=nothing : set cn=nothing
 		Response.End
 	end if
 else
-	call addstat("loginfailed")
+	if StatusStatistics then call addstat("loginfailed")
 	Call MessagePage("密码验证失败。","admin_login.asp")
 
 	rs.Close : cn.Close : set rs=nothing : set cn=nothing

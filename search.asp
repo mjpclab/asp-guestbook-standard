@@ -12,7 +12,7 @@ elseif StatusSearch=false then
 	Response.Redirect "err.asp?number=5"
 	Response.End
 end if
-call addstat("search")
+if StatusStatistics then call addstat("search")
 
 %>
 
@@ -98,6 +98,6 @@ end if
 %>
 
 <!-- #include file="bottom.asp" -->
-<script type="text/javascript" src="getclientinfo.asp" defer="defer" async="async"></script>
+<%if StatusStatistics and session("gotclientinfo")<>true then%><script type="text/javascript" src="getclientinfo.asp" defer="defer" async="async"></script><%end if%>
 </body>
 </html>

@@ -114,8 +114,11 @@ else
 				
 		tstatus8=Request.Form("status8")
 		if tstatus8<>"0" and tstatus8<>"128" then tstatus8=128
-				
-		tstatus=clng(tstatus1)+clng(tstatus2)+clng(tstatus3)+clng(tstatus4)+clng(tstatus5)+clng(tstatus6)+clng(tstatus7)+clng(tstatus8)
+
+		tstatus9=Request.Form("status9")
+		if tstatus9<>"0" and tstatus9<>"256" then tstatus9=256
+
+		tstatus=clng(tstatus1)+clng(tstatus2)+clng(tstatus3)+clng(tstatus4)+clng(tstatus5)+clng(tstatus6)+clng(tstatus7)+clng(tstatus8)+clng(tstatus9)
 				
 		thomelogo=server.htmlEncode(Request.Form("homelogo"))
 		thomelogo=textfilter(replace(thomelogo," ",""),true)

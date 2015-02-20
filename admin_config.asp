@@ -71,6 +71,8 @@
 
 				允许访客回复：　　　　<input type="radio" name="status8" value="128" id="status81"<%=cked(clng(tstatus and 128)<>0)%> /><label for="status81">允许</label>　　<input type="radio" name="status8" value="0" id="status82"<%=cked(clng(tstatus and 128)=0)%> /><label for="status82">禁止</label><br/><br/>
 
+				访问统计：　　　　　　<input type="radio" name="status9" value="256" id="status91"<%=cked(clng(tstatus and 256)<>0)%> /><label for="status91">开启</label>　　<input type="radio" name="status9" value="0" id="status92"<%=cked(clng(tstatus and 256)=0)%> /><label for="status92">关闭</label><br/><br/>
+
 				所属网站Logo地址：　　<input type="text" size="<%=ConfigTextWidth%>" maxlength="127" name="homelogo" value="<%=rs("homelogo")%>" /><br/><br/>
 				所属网站名称：　　　　<input type="text" size="<%=ConfigTextWidth%>" maxlength="30" name="homename" value="<%=rs("homename")%>" /><br/><br/>
 				所属网站地址：　　　　<input type="text" size="<%=ConfigTextWidth%>" maxlength="127" name="homeaddr" value="<%=rs("homeaddr")%>" /><br/><br/>

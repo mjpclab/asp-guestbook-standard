@@ -47,6 +47,11 @@ if clng(status and 128)<>0 then	'允许访客回复
 else
 	StatusGuestReply=false
 end if
+if clng(status and 256)<>0 then	'开启统计
+	StatusStatistics=true
+else
+	StatusStatistics=false
+end if
 
 IPConStatus=lrs("ipconstatus")	'IP屏蔽策略
 if IPConStatus<>0 and IPConStatus<>1 and IPConStatus<>2 then IPConStatus=0

@@ -9,14 +9,14 @@
 '======================================================
 sub wordsbaned
 	rs.Close : cn.Close : set rs=nothing : set cn=nothing
-	call addstat("banned")
+	if StatusStatistics then call addstat("banned")
 	Response.Redirect "err.asp?number=4"
 	Response.End
 end sub
 '======================================================
 sub floodbaned
 	rs.Close : rs2.Close : cn.Close : set rs=nothing : set rs2=nothing : set cn=nothing
-	call addstat("banned")
+	if StatusStatistics then call addstat("banned")
 	Response.Redirect "err.asp?number=7"
 	Response.End
 end sub
@@ -53,13 +53,13 @@ elseif StatusWrite=false then
 	Response.End
 elseif flood_minwait>0 and isdate(session.Contents("wrote_time")) then
 	if datediff("s",session.Contents("wrote_time"),now())<=flood_minwait then
-		call addstat("banned")
+		if StatusStatistics then call addstat("banned")
 		Response.Redirect "err.asp?number=6"
 		Response.End
 	end if
 elseif flood_minwait>0 and isdate(Request.Cookies("wrote_time")) then
 	if datediff("s",Request.Cookies("wrote_time"),now())<=flood_minwait then
-		call addstat("banned")
+		if StatusStatistics then call addstat("banned")
 		Response.Redirect "err.asp?number=6"
 		Response.End
 	end if
@@ -160,7 +160,7 @@ while rs.EOF=false
 wend
 rs.Close
 set re=nothing
-if filtered=true then addstat("filtered")
+if filtered=true and StatusStatistics then addstat("filtered")
 '-------------------------
 if name1="" or title1="" then Response.Redirect "index.asp"
 
@@ -293,7 +293,7 @@ rs.Update
 
 rs.Close : cn.Close : set rs=nothing : set cn=nothing
 
-call addstat("written")
+if StatusStatistics then call addstat("written")
 
 SetTimelessCookie "wrote_time",now()
 Session.Contents("wrote_time")=now()
