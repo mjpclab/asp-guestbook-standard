@@ -1,14 +1,10 @@
 <script type="text/javascript">
-//<![CDATA[
-
 function searchsubmitcheck(frm)
 {
 	if (frm.searchtxt.value=='') {alert('ÇëÊäÈëËÑË÷ÄÚÈÝ£¡');frm.searchtxt.focus();return false;}
 	frm.searchsubmit.disabled=true;
 	return true;
 }
-
-//]]>
 </script>
 
 <table cellpadding="2" class="generalwindow">

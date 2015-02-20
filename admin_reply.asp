@@ -18,8 +18,6 @@ end if
 	<!-- #include file="style.asp" -->
 
 	<script type="text/javascript">
-	//<![CDATA[
-	
 	function submitcheck(cobject)
 	{
 		if (cobject.rcontent.value=="") {alert('ÇëÊäÈë»Ø¸´ÄÚÈİ¡£'); cobject.rcontent.focus(); return (false);}
@@ -34,8 +32,6 @@ end if
 			form3.rcontent.select();
 		}
 	}
-	
-	//]]>
 	</script>
 </head>
 

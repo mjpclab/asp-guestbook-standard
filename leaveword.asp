@@ -36,8 +36,6 @@ end function
 	<!-- #include file="style.asp" -->
 	<!-- #include file="getclientinfo.inc" -->
 	<script type="text/javascript">
-		//<![CDATA[
-
 		function submitcheck(cobject)
 		{
 			if (cobject.ivcode && cobject.ivcode.value=='') {alert('ÇëÊäÈëÑéÖ¤Âë¡£'); if(tab){tab.selectPage(0); cobject.ivcode.focus();} return false;}
@@ -125,8 +123,6 @@ end function
 				}
 			}
 		}
-		
-		//]]>
 </script>
 </head>
 

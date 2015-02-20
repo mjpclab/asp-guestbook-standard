@@ -1,6 +1,4 @@
 <script type="text/javascript">
-//<![CDATA[
-
 //A JavaScript code for smooth-page-scrolling
 //Made by MJ PC Lab 2005, All rights reserved.
 //http://mjpclab.net/
@@ -96,6 +94,4 @@ if (document && document.getElementsByName)
 		}
 	}
 }
-
-//]]>
 </script>

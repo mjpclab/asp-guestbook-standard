@@ -15,16 +15,12 @@ Response.AddHeader "cache-control","private"
 	<!-- #include file="style.asp" -->
 
 	<script type="text/javascript">
-	//<![CDATA[
-	
 	function submitcheck()
 	{
 		if (form1.searchtxt.value=='') {alert('ÇëÊäÈëËÑË÷ÄÚÈÝ¡£');form1.searchtxt.focus();return false;}
 		form1.searchsubmit.disabled=true;
 		return true;
 	}
-	
-	//]]>
 	</script>
 </head>
 

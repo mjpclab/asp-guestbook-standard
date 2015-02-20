@@ -15,7 +15,6 @@ Response.Expires=-1
 	<!-- #include file="style.asp" -->
 
 	<script type="text/javascript">
-	//<![CDATA[
 	function swIframe(jschk)
 	{
 		var span=document.getElementById('iframeSettings');
@@ -83,8 +82,6 @@ Response.Expires=-1
 			return false;
 		}
 	}
-	
-	//]]>
 	</script>
 
 </head>

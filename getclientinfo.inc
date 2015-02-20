@@ -1,7 +1,5 @@
 <%if session("gotclientinfo")<>true then%>
 <script type="text/javascript">
-//<![CDATA[
-
 <!-- #include file="xmlhttp.inc" -->
 
 function trim(s)
@@ -113,7 +111,5 @@ else
 	output='<' +spt+ ' type="text/javascript" src="' +url+ '" defer="defer"><\/script>';
 	document.write(output);
 }
-
-//]]>
 </script>
 <%end if%>

@@ -16,7 +16,6 @@ if VcodeCount>0 then session("vcode")=getvcode(VcodeCount)
 	<!-- #include file="style.asp" -->
 	
 	<script type="text/javascript">
-	//<![CDATA[
 	function submitCheck(obj)
 	{
 		if(obj.iadminpass.value=='')
@@ -37,7 +36,6 @@ if VcodeCount>0 then session("vcode")=getvcode(VcodeCount)
 			return true;
 		}
 	}
-	//]]>
 	</script>
 </head>
 

@@ -1,6 +1,4 @@
 <script type="text/javascript">
-//<![CDATA[
-
 //A JavaScript Code for UBB toolbar of Asp Guestbook(SS)
 //Made by MJ PC Lab 2005, All rights reserved.
 //http://mjpclab.net/
@@ -283,6 +281,4 @@ if(palette)
 		palette.appendChild(divRow);
 	}
 }
-
-//]]>
 </script>

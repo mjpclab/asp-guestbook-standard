@@ -655,10 +655,8 @@ sub MessagePage(strMessage,backPage)
 	<body>
 		<%=strMessage%><br />
 		<a href="<%=backPage%>">[·µ»Ø]</a>
-		<script type="text/javascript" defer="defer">
-			//<![CDATA[
+		<script type="text/javascript" defer="defer" async="async">
 			alert('<%=strMessage%>');window.location.replace('<%=backPage%>');
-			//]]>
 		</script>
 	</body>
 	</html>

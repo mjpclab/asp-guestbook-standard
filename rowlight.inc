@@ -1,6 +1,4 @@
 <script type="text/javascript">
-//<![CDATA[
-
 function turn_light() {
 	if (this && this.style && typeof(this.style.backgroundColor).toLowerCase()=='string')
 		this.style.backgroundColor='<%=BlockBGC%>';
@@ -39,6 +37,4 @@ if (document && document.getElementById)
 	hook_rowlight(document.getElementById('ubblist'));
 	hook_rowlight(document.getElementById('titlelist'));
 }
-
-//]]>
 </script>
