@@ -131,7 +131,7 @@ rs.Close
 				<tr style="height:10px"><td></td></tr>
 				<tr>
 					<td>бщжЄТыЃК</td>
-					<td><input type="text" name="ivcode" size="10"> <img src="show_vcode.asp" /></td>
+					<td><input type="text" name="ivcode" size="10" autocomplete="off"> <img src="show_vcode.asp" /></td>
 				</tr>
 				<%end if%>
 				<tr style="height:15px"><td></td></tr>

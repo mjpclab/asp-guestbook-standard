@@ -58,7 +58,7 @@ if VcodeCount>0 then session("vcode")=getvcode(VcodeCount)
 				<tr style="height:10px;"><td></td></tr>
 				<tr>
 					<td>бщжЄТыЃК</td>
-					<td><input type="text" name="ivcode" size="10" /> <img alt="" src="show_vcode.asp" class="vcode" onclick="this.src=this.src" /></td>
+					<td><input type="text" name="ivcode" size="10" autocomplete="off" /> <img alt="" src="show_vcode.asp" class="vcode" onclick="this.src=this.src" /></td>
 				</tr>
 				<%end if%>
 				<tr style="height:15px;"><td></td></tr>

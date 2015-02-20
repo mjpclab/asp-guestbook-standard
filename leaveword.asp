@@ -152,7 +152,7 @@ end function
 				<div id="divRequired" style="padding:5px;">
 					<span style="font-weight:bold;">必填项目：</span><br/><br/>
 					
-					<%if WriteVcodeCount>0 then%>验证码<span style="color:#FF0000">*</span><input type="text" name="ivcode" size="<%=LeaveVcodeWidth%>"/> <img src="show_vcode.asp?type=write" class="vcode" onclick="this.src=this.src" /><br/><br/><%end if%>
+					<%if WriteVcodeCount>0 then%>验证码<span style="color:#FF0000">*</span><input type="text" name="ivcode" size="<%=LeaveVcodeWidth%>" autocomplete="off"/> <img src="show_vcode.asp?type=write" class="vcode" onclick="this.src=this.src" /><br/><br/><%end if%>
 					
 					称　呼<span style="color:#FF0000">*</span><input type="text" name="iname" size="<%=LeaveTextWidth%>" maxlength="20" value="<%=server.htmlEncode(FormOrCookie("iname"))%>" /><br/><br/>
 					
