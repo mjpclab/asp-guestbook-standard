@@ -30,6 +30,8 @@ end if
 <head>
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> ¡Ù—‘±æ ±‡º≠¡Ù—‘</title>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<!-- #include file="style.asp" -->
 
 	<script type="text/javascript">
 	//<![CDATA[
@@ -51,8 +53,6 @@ end if
 	
 	//]]>
 	</script>
-	
-	<!-- #include file="style.asp" -->
 </head>
 
 <body<%=bodylimit%> onload="sfocus();<%=framecheck%>">

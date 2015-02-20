@@ -8,6 +8,7 @@
 <head>
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> 留言本 修改版主资料</title>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
 	<!-- #include file="style.asp" -->
 </head>
 

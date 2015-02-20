@@ -8,8 +8,12 @@
 <head>
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> ¡Ù—‘±æ IP∆¡±Œ≤ﬂ¬‘</title>
-	
+	<link rel="stylesheet" type="text/css" href="style.css"/>
 	<!-- #include file="style.asp" -->
+	<style type="text/css">
+		#ipconfigtable {width:440px; text-align:left; margin:0px auto; border:solid 1px <%=TableBorderColor%>; border-collapse:collapse;}
+		#ipconfigtable td {border:solid 1px <%=TableBorderColor%>;}
+	</style>
 </head>
 
 <body<%=bodylimit%> onload="<%=framecheck%>">
@@ -39,10 +43,6 @@
 	rs.Close
 	%>
 
-<style type="text/css">
-	#ipconfigtable {width:440px; text-align:left; margin:0px auto; border:solid 1px <%=TableBorderColor%>; border-collapse:collapse;}
-	#ipconfigtable td {border:solid 1px <%=TableBorderColor%>;}
-</style>
 
 <table border="1" cellpadding="2" class="generalwindow">
 	<tr>

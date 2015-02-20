@@ -19,7 +19,7 @@ end if
 <head>
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> ¡Ù—‘±æ ‰Ø¿¿¡Ù—‘</title>
-	
+	<link rel="stylesheet" type="text/css" href="style.css"/>
 	<!-- #include file="style.asp" -->
 	<!-- #include file="getclientinfo.inc" -->
 	

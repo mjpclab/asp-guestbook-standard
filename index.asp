@@ -18,7 +18,7 @@ call addstat("view")
 <head>
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> ¡Ù—‘±æ</title>
-	
+	<link rel="stylesheet" type="text/css" href="style.css"/>
 	<!-- #include file="style.asp" -->
 	<!-- #include file="getclientinfo.inc" -->
 </head>

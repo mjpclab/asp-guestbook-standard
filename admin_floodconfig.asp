@@ -8,7 +8,7 @@
 <head>
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> ม๔ัิฑพ ทภนเหฎฒ฿ยิ</title>
-	
+	<link rel="stylesheet" type="text/css" href="style.css"/>
 	<!-- #include file="style.asp" -->
 </head>
 

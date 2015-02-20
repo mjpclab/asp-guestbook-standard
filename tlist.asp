@@ -60,7 +60,7 @@ if isnumeric(Request.QueryString("n")) and trim(Request.QueryString("n"))<>"" th
 	<head>
 		<!-- #include file="inc_metatag.asp" -->
 		<title><%=HomeName%> ¡Ù—‘±æ ¡Ù—‘¡–±Ì</title>
-		
+		<link rel="stylesheet" type="text/css" href="style.css"/>
 		<!-- #include file="style.asp" -->
 	</head>
 	

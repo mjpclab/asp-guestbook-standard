@@ -11,6 +11,8 @@ Response.Expires=-1
 <head>
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> 留言本 生成调用代码</title>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<!-- #include file="style.asp" -->
 
 	<script type="text/javascript">
 	//<![CDATA[
@@ -84,8 +86,7 @@ Response.Expires=-1
 	
 	//]]>
 	</script>
-	
-	<!-- #include file="style.asp" -->
+
 </head>
 
 <body<%=bodylimit%> onload="<%=framecheck%>">

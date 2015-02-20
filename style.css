@@ -1,0 +1,323 @@
+body {
+	margin: 0;
+	padding: 10px;
+	font-style: normal;
+}
+
+.outerborder {
+	overflow: visible;
+	text-align: left;
+	border-style: solid;
+	margin: 0;
+}
+
+textarea, input, select {
+	border-width: 1px;
+	border-style: solid;
+}
+
+input, textarea {
+	margin: 0;
+	padding: 2px;
+	border: solid 1px;
+	background-color: #fff;
+	box-sizing: border-box;
+}
+input[type=text],
+input[type=password],
+textarea {
+	box-shadow: inset 0 3px 3px rgba(192, 192, 192, 0.3);
+}
+
+input[type=submit],
+input[type=reset],
+input[type=button],
+button {
+	padding: 0.4em 2em;
+	cursor: pointer;
+}
+
+input[type=checkbox],
+input[type=radio] {
+	border:0;
+}
+
+img {
+	border: 0;
+}
+
+
+textarea {
+	display: block;
+}
+
+hr {
+	width: 100%;
+	height: 1px;
+}
+
+.centertext {
+	display: block;
+	border-style: none;
+	border-width: 0;
+	width: 100%;
+	text-align: center;
+	color: #808080;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a.booktitle {
+	text-decoration: none;
+}
+
+a.booktitle:hover {
+	text-decoration: underline;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+	border-width: 0;
+	border-style: none;
+}
+
+img.imgicon {
+	width: 16px;
+	height: 16px;
+	vertical-align: text-bottom;
+	border-style: none;
+	border-width: 0;
+}
+
+img.ipicon {
+	width: 13px;
+	height: 15px;
+	vertical-align: text-bottom;
+	border-style: none;
+	border-width: 0;
+}
+
+img.forumicon {
+	vertical-align: middle;
+	margin: 2px;
+}
+
+img.pageicon {
+	width: 16px;
+	height: 16px;
+	vertical-align: text-bottom;
+	border-width: 1px;
+	border-style: solid;
+}
+
+img.ubbbutton {
+	cursor: pointer;
+	border-width: 1px;
+	border-style: solid;
+	margin: 1px;
+	width: 16px;
+	height: 16px;
+}
+
+img.smallface {
+	cursor: pointer;
+	border-width: 1px;
+	border-style: solid;
+	margin: 1px;
+}
+
+div.colorsquare {
+	cursor: pointer;
+	border: solid 1px #000000;
+	margin: 0;
+	padding: 0;
+	width: 11px;
+	height: 11px;
+	float: left;
+}
+
+img.face {
+	border-style: none;
+	border-width: 0;
+}
+
+img.listface {
+	cursor: pointer;
+	border-style: none;
+	border-width: 0;
+}
+
+img.innerface {
+	border-style: none;
+	border-width: 0;
+	float: left;
+	margin: 0 5px 5px 0;
+}
+
+img.vcode {
+	vertical-align: text-bottom;
+}
+
+.generalwindow {
+	width: 100%;
+	border-width: 1px;
+	border-style: solid;
+	border-collapse: collapse;
+}
+
+.noborder {
+	border-style: none;
+	border-width: 0;
+}
+
+table.grid {
+	width: 100%;
+	border-width: 1px;
+	border-style: solid;
+	border-collapse: collapse;
+}
+
+.grid th, .grid td {
+	border-width: 1px;
+	border-style: solid;
+}
+
+table.onetopic {
+	width: 100%;
+	overflow: hidden;
+	border-width: 1px;
+	border-style: solid;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+td.centertitle {
+	width: 100%;
+	height: 25px;
+	border-width: 1px;
+	border-style: solid;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+}
+
+td.wordstitle {
+	height: 25px;
+	text-align: left;
+	vertical-align: middle;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	font-weight: bold;
+}
+
+td.bulletintitle {
+	height: 25px;
+	text-align: left;
+	vertical-align: middle;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	font-weight: bold;
+}
+
+td.replytitle {
+	height: 25px;
+	text-align: left;
+	vertical-align: middle;
+	border-width: 1px;
+	border-style: solid;
+	font-weight: bold;
+}
+
+td.tableleft {
+	text-align: center;
+	vertical-align: top;
+	border-width: 1px;
+	border-style: solid;
+	padding: 3px 0;
+	overflow: hidden;
+}
+
+td.tableright {
+	vertical-align: top;
+	border-width: 1px;
+	border-style: solid;
+}
+
+td.wordscontent {
+	overflow: hidden;
+	vertical-align: top;
+	margin: 0;
+	padding: 10px;
+}
+
+td.vguestpass {
+	width: 100%;
+	height: 25px;
+	text-align: right;
+	border-width: 1px;
+	border-style: solid;
+	margin: 0;
+	padding: 2px;
+}
+
+tr.header {
+	font-weight: bold;
+}
+
+td.embedbox {
+	vertical-align: top;
+	margin: 0;
+	padding: 12px 24px 12px 24px;
+}
+
+div.embedbox {
+	margin: 0;
+	padding: 10px;
+	border-width: 1px;
+	border-style: solid;
+}
+
+table.embedbox {
+	overflow: hidden;
+	border-style: none;
+	border-width: 0;
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	table-layout: fixed;
+}
+
+.tabOuterContainer {
+	width: auto;
+	height: 400px;
+}
+
+.tabTitle {
+	text-align: center;
+	width: 110px;
+	height: 25px;
+	line-height: 25px;
+	border-width: 1px;
+	border-style: solid;;
+}
+
+.tabTitleOver {
+	border-width: 1px;
+	border-style: solid;
+}
+
+.tabPageContainer {
+	width: 100%;
+}
+
+.tabPage {
+	padding: 5px;
+}
+
