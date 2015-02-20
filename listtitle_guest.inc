@@ -42,8 +42,12 @@ for i=1 to TitlesPerPage
 		else
 			Response.Write Replace(Replace(title_pattern,"{0}",rs.Fields("id")),"{1}",rs.Fields("title"))
 		end if
-		
-		Response.Write "<td nowrap=""nowrap"" style=""overflow:hidden;"">" & rs.Fields("name") & "</td>"
+
+		if isauditting=false then
+			Response.Write "<td nowrap=""nowrap"" style=""overflow:hidden;"">" & rs.Fields("name") & "</td>"
+		else
+			Response.Write "<td nowrap=""nowrap"" style=""overflow:hidden;""></td>"
+		end if
 		Response.Write "<td nowrap=""nowrap"" style=""overflow:hidden;"">" & rs.Fields("logdate") & "</td>"
 		
 		Response.Write "</tr>"
