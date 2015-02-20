@@ -1,13 +1,13 @@
 function createXmlHttp()
 {
 	var obj=null;
-	if(window.ActiveXObject)
-	{
-		obj=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	else if(window.XMLHttpRequest)
+	if(window.XMLHttpRequest)
 	{
 		obj=new XMLHttpRequest();
+	}
+	else if(window.ActiveXObject)
+	{
+		obj=new ActiveXObject("Microsoft.XMLHTTP");
 	}
 	return obj;
 }

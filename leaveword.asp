@@ -115,9 +115,7 @@ end function
 				var divPreview=document.getElementById('divPreview');
 				if(xmlHttp && divPreview)
 				{
-					clearChildren(divPreview);
 					divPreview.style['textAlign']='';
-					
 					divPreview.innerHTML=xmlHttp.responseText;
 					xmlHttp.abort();
 				}
