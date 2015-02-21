@@ -10,6 +10,10 @@ body, input, textarea {
 	font-size:<%=CssFontSize%>;
 }
 
+p {
+	margin:0 0 1em 0;
+}
+
 .outerborder {
 	width:<%=TableWidth%><%if right(cstr(TableWidth),1)<>"%" then response.write "px"%>;
 	border-width:<%=TableBorderWidth%>px;
@@ -41,6 +45,24 @@ a:link {color:<%=LinkNormal%>;}
 a:visited {color:<%=LinkVisited%>;}
 a:active {color:<%=LinkActive%>;}
 a:hover {color:<%=LinkHover%>;}
+
+
+.footer {
+	margin-top: 1em;
+	text-align:center;
+	width:<%=TableWidth%><%if right(cstr(TableWidth),1)<>"%" then response.write "px"%>;
+	<%if TableAlign="left" then Response.Write "margin-right:auto;"%>
+	<%if TableAlign="right" then Response.Write "margin-left:auto;"%>
+	<%if TableAlign="center" then Response.Write "margin-left:auto; margin-right:auto;"%>
+}
+.footer, .footer a {
+	color:#888;
+}
+.footer a:hover {
+	color:#000;
+}
+
+
 
 .booktitle			{color:<%=TitleColor%>;}
 a.booktitle {color:<%=TitleColor%>;}
