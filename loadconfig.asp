@@ -137,8 +137,8 @@ if clng(UbbFlag and 16)<>0 then UbbFlag_paragraph=true else UbbFlag_paragraph=fa
 if clng(UbbFlag and 32)<>0 then UbbFlag_fontstyle=true else UbbFlag_fontstyle=false
 if clng(UbbFlag and 64)<>0 then UbbFlag_fontcolor=true else UbbFlag_fontcolor=false
 if clng(UbbFlag and 128)<>0 then UbbFlag_alignment=true else UbbFlag_alignment=false
-if clng(UbbFlag and 256)<>0 then UbbFlag_movement=true else UbbFlag_movement=false
-if clng(UbbFlag and 512)<>0 then UbbFlag_cssfilter=true else UbbFlag_cssfilter=false
+'if clng(UbbFlag and 256)<>0 then UbbFlag_movement=true else UbbFlag_movement=false
+'if clng(UbbFlag and 512)<>0 then UbbFlag_cssfilter=true else UbbFlag_cssfilter=false
 if clng(UbbFlag and 1024)<>0 then UbbFlag_face=true else UbbFlag_face=false
 
 TableAlign=lrs("tablealign")		'表格对齐方式 left:左对齐 center:居中 right:右对齐

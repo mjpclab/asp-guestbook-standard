@@ -110,43 +110,33 @@ rs.Close
 
 	<%if showbox=true then%>
 	<%if rs.State=1 then rs.Close%>
-		<br/>
-		<span style="width:100%; display:block; text-align:center;">
-		<table cellpadding="2" class="generalwindow" style="width:250px;">
-			<tr>
-				<td class="centertitle">验证已加密留言</td>
-			</tr>
-			<tr>
-			<td style="width:100%; text-align:center; vertical-align:top; color:<%=TableContentColor%>; background-color:<%=TableContentBGC%>;">
-				<br/>
+		<div class="region form-region">
+			<h3 class="title">验证已加密留言</h3>
+			<div class="content">
 				<form method="post" action="showword.asp" name="form5" onsubmit="if(this.ipass.value==''){alert('请输入密码。');this.ipass.focus();return false;} else if(this.ivcode && this.ivcode.value==''){alert('请输入验证码。');this.ivcode.focus(); return false;} else this.submit1.disabled=true;">
 				<input type="hidden" name="ispostback" value="1" />
 				<input type="hidden" name="id" value="<%=request("id")%>" />
-				<table cellpadding="2" cellspacing="0" style="border-width:0px;">
-				<tr>
-					<td>密　码：</td>
-					<td><input type="password" name="ipass" size="26" maxlength="16" /></td>
-				</tr>
+
+				<div class="field">
+					<span class="label">密码：</span>
+					<span class="value"><input type="password" name="ipass" maxlength="16" autofocus="autofocus" /></span>
+				</div>
+
 				<%if VcodeCount>0 then%>
-				<tr style="height:10px"><td></td></tr>
-				<tr>
-					<td>验证码：</td>
-					<td><input type="text" name="ivcode" size="10" autocomplete="off"> <img src="show_vcode.asp" /></td>
-				</tr>
+				<div class="field">
+					<span class="label">验证码：</span>
+					<span class="value"><input type="text" name="ivcode" autocomplete="off"><img class="captcha" src="show_vcode.asp" /></span>
+				</div>
 				<%end if%>
-				<tr style="height:15px"><td></td></tr>
-				<tr>
-					<td colspan="2" style="text-align:center;">
-						<input value="确定" type="submit" name="submit1" />
-					</td>
-				</tr>
-				</table>
+
+				<div class="command">
+					<input value="确定" type="submit" name="submit1" />
+				</div>
+
 				</form>
-			</td>
-			</tr>
-		</table>
-		</span>
-		<%if showstr<>"" then Response.Write "<br/><span style=""width:100%; text-align:center"">" &showstr& "</span>"%>
+			</div>
+		</div>
+		<%if showstr<>"" then Response.Write "<br/><p style=""text-align:center"">" &showstr& "</p>"%>
 	<%else
 		dim ItemsPerPage,pagename
 		ItemsPerPage=1

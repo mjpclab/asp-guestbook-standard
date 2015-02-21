@@ -9,7 +9,9 @@
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> 留言本 修改版主资料</title>
 	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<link rel="stylesheet" type="text/css" href="adminstyle.css"/>
 	<!-- #include file="style.asp" -->
+	<!-- #include file="adminstyle.asp" -->
 </head>
 
 <body<%=bodylimit%> onload="<%=framecheck%>">
@@ -17,7 +19,7 @@
 <div id="outerborder" class="outerborder">
 
 	<%if ShowTitle=true then show_book_title 3,"管理"%>
-	<!-- #include file="admintool.inc" -->
+	<!-- #include file="admincontrols.inc" -->
 
 	<%
 	set cn=server.CreateObject("ADODB.Connection")
@@ -28,34 +30,50 @@
 	tfaceid=rs("faceid")
 	%>
 
-	<table border="1" cellpadding="2" class="generalwindow">
-		<tr>
-			<td class="centertitle">修改版主资料</td>
-		</tr>
-		<tr>
-		<td class="wordscontent" style="padding:20px 10px;">
+	<div class="region form-region">
+		<h3 class="title">修改版主资料</h3>
+		<div class="content">
 			<form method="post" action="admin_saveinfo.asp" name="form1" onsubmit="form1.submit1.disabled=true;">
-			昵称：　　<input type="text" name="aname" size="<%=SetInfoTextWidth%>" maxlength="20" value="<%="" & rs("name") & ""%>" /><br/>
-			邮件：　　<input type="text" name="aemail" size="<%=SetInfoTextWidth%>" maxlength="50" value="<%="" & rs("email") & ""%>" /><br/>
-			QQ号：　　<input type="text" name="aqqid" size="<%=SetInfoTextWidth%>" maxlength="16" value="<%="" & rs("qqid") & ""%>" /><br/>
-			MSN ：　　<input type="text" name="amsnid" size="<%=SetInfoTextWidth%>" maxlength="50" value="<%="" & rs("msnid") & ""%>" /><br/>
-			主页：　　<input type="text" name="ahomepage" size="<%=SetInfoTextWidth%>" maxlength="127" value="<%="" & rs("homepage") & ""%>" /><br/><br/>
-			头像编号：<input type="text" name="afaceid" size="<%=SetInfoTextWidth%>" maxlength="3" value="<%=tfaceid%>" title="填写头像编号时URL必须清空" /><br/>
-			或URL ：　<input type="text" name="afaceurl" size="<%=SetInfoTextWidth%>" maxlength="127" value="<%="" & rs("faceurl") & ""%>" title="填写URL时忽略头像编号" /><br/>
-			
-			<%
-			rs.Close : cn.Close : set rs=nothing : set cn=nothing
-
-			dim listfacecount,defaultindex
-			listfacecount=FrequentFaceCount
-			defaultindex=tfaceid%>
-			<!-- #include file="listface.inc" -->
-			
-			<br/><input value="更新数据" type="submit" name="submit1" />
+			<div class="field">
+				<span class="label">昵称：</span>
+				<span class="value"><input type="text" name="aname" size="<%=SetInfoTextWidth%>" maxlength="20" value="<%="" & rs("name") & ""%>" /></span>
+			</div>
+			<div class="field">
+				<span class="label">邮件：</span>
+				<span class="value"><input type="text" name="aemail" size="<%=SetInfoTextWidth%>" maxlength="50" value="<%="" & rs("email") & ""%>" /></span>
+			</div>
+			<div class="field">
+				<span class="label">QQ号：</span>
+				<span class="value"><input type="text" name="aqqid" size="<%=SetInfoTextWidth%>" maxlength="16" value="<%="" & rs("qqid") & ""%>" /></span>
+			</div>
+			<div class="field">
+				<span class="label">Skype：</span>
+				<span class="value"><input type="text" name="amsnid" size="<%=SetInfoTextWidth%>" maxlength="50" value="<%="" & rs("msnid") & ""%>" /></span>
+			</div>
+			<div class="field">
+				<span class="label">主页：</span>
+				<span class="value"><input type="text" name="ahomepage" size="<%=SetInfoTextWidth%>" maxlength="127" value="<%="" & rs("homepage") & ""%>" /></span>
+			</div>
+			<div class="field">
+				<span class="label">头像编号：</span>
+				<span class="value"><input type="text" name="afaceid" size="<%=SetInfoTextWidth%>" maxlength="3" value="<%=tfaceid%>" title="填写头像编号时URL必须清空" /></span>
+			</div>
+			<div class="field">
+				<span class="label">或URL：</span>
+				<span class="value"><input type="text" name="afaceurl" size="<%=SetInfoTextWidth%>" maxlength="127" value="<%="" & rs("faceurl") & ""%>" title="填写URL时忽略头像编号" /></span>
+			</div>
+			<div class="field">
+				<%rs.Close : cn.Close : set rs=nothing : set cn=nothing
+				dim listfacecount,defaultindex
+				listfacecount=FrequentFaceCount
+				defaultindex=tfaceid%>
+				<!-- #include file="listface.inc" -->
+			</div>
+			<div class="command"><input value="更新数据" type="submit" name="submit1" /></div>
 			</form>
-		</td>
-		</tr>
-	</table>
+		</div>
+	</div>
+
 </div>
 
 <!-- #include file="bottom.asp" -->

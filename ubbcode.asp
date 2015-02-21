@@ -139,19 +139,19 @@ else
 			strContent=re.Replace(strContent,"<span style=""width:100%; display:block; text-align:center"">$1</span>")
 		end if
 		
-		if UbbFlag_movement or allflags then
-			re.Pattern="\[fly\](.[^\[]*)\[\/fly\]"
-			strContent=re.Replace(strContent,"<marquee behavior=""alternate"" direction=""left"" scrollamount=""3"">$1</marquee>")
-			re.Pattern="\[move\](.[^\[]*)\[\/move\]"
-			strContent=re.Replace(strContent,"<marquee direction=""left"" scrollamount=""3"">$1</marquee>")
-		end if
+		'if UbbFlag_movement or allflags then
+		'	re.Pattern="\[fly\](.[^\[]*)\[\/fly\]"
+		'	strContent=re.Replace(strContent,"<marquee behavior=""alternate"" direction=""left"" scrollamount=""3"">$1</marquee>")
+		'	re.Pattern="\[move\](.[^\[]*)\[\/move\]"
+		'	strContent=re.Replace(strContent,"<marquee direction=""left"" scrollamount=""3"">$1</marquee>")
+		'end if
 		
-		if UbbFlag_cssfilter or allflags then		
-			re.Pattern="\[GLOW=\s*([0-9]*),\s*(#*[a-z0-9]*),\s*([0-9]*)\](.[^\[]*)\[\/GLOW]"
-			strContent=re.Replace(strContent,"<table style=""width:$1px; filter:glow(color=$2, strength=$3)""><tr><td>$4</td></tr></table>")
-			re.Pattern="\[SHADOW=\s*([0-9]*),\s*(#*[a-z0-9]*),\s*([0-9]*)\](.[^\[]*)\[\/SHADOW]"
-			strContent=re.Replace(strContent,"<table style=""width:$1px; filter:shadow(color=$2, strength=$3)""><tr><td>$4</td></tr></table>")
-		end if
+		'if UbbFlag_cssfilter or allflags then
+		'	re.Pattern="\[GLOW=\s*([0-9]*),\s*(#*[a-z0-9]*),\s*([0-9]*)\](.[^\[]*)\[\/GLOW]"
+		'	strContent=re.Replace(strContent,"<table style=""width:$1px; filter:glow(color=$2, strength=$3)""><tr><td>$4</td></tr></table>")
+		'	re.Pattern="\[SHADOW=\s*([0-9]*),\s*(#*[a-z0-9]*),\s*([0-9]*)\](.[^\[]*)\[\/SHADOW]"
+		'	strContent=re.Replace(strContent,"<table style=""width:$1px; filter:shadow(color=$2, strength=$3)""><tr><td>$4</td></tr></table>")
+		'end if
 
 		if UbbFlag_face or allflags then
 			if isnumeric(SmallFaceCount) and SmallFaceCount<>"" then
@@ -172,7 +172,8 @@ else
 	next	
 
 	set re=Nothing
-	strContent=replace(strContent,chr(13)&chr(10),"<br/>" &chr(13)&chr(10))
+	strContent=replace(strContent,chr(13)&chr(10),chr(10))
+	strContent=replace(strContent,chr(10),"<br/>" &chr(13)&chr(10))
 	UBBCode=strContent
 end if
 end function

@@ -11,7 +11,7 @@
 		}
 	}
 	
-	function loadHeadRest()
+	function loadHeadRest(hideNode)
 	{
 		var minHeadId=<%=FrequentFaceCount%>;
 		var maxHeadId=<%=FaceCount%>;
@@ -36,10 +36,14 @@
 				img.style.display='';
 			}
 		}
+
+		if(hideNode && hideNode.style) {
+			hideNode.style.display='none';
+		}
 	}
 </script>
 
-<table cellpadding="1" class="grid" style="width:auto; margin:0px auto;">
+<table class="grid">
 	<%
 	dim lines
 	lines=(FaceCount+1) \ PicturesPerRow
@@ -62,7 +66,7 @@
 	
 	dim i,j
 	for i=0 to lines-1
-		Response.Write "<tr style=""vertical-align:bottom;"">"
+		Response.Write "<tr>"
 		for j=0 to PicturesPerRow-1
 		
 			ihead_id=i*PicturesPerRow+j
@@ -81,9 +85,9 @@
 				Response.Write FormatHeadHtml("<input type=""radio"" name=""ihead"" id=""ihead_{0}"" value=""{0}"" {1}")
 				if cbyte(i*PicturesPerRow+j)=selindex then Response.Write " checked=""checked"""
 				Response.Write " />"
-									
+
 				if ihead_id=0 then
-					Response.Write FormatHeadHtml("<label onmousedown=""selhead({0})"" style=""cursor:pointer;"">(无头像)</label>")
+					Response.Write FormatHeadHtml("<label onmousedown=""selhead({0})"">(无头像)</label>")
 				else
 					Response.Write FormatHeadHtml("<img id=""face_{0}"" alt="""" class=""listface"" {1} {2} onmousedown=""selhead({0})"" />")
 				end if
@@ -95,7 +99,7 @@
 	%>
 	<tr>
 		<td colspan="<%=PicturesPerRow%>">
-			<a href="javascript:loadHeadRest(); void 0;">更多头像...</a>
+			<a href="javascript:void 0;" onclick="loadHeadRest(this.parentNode.parentNode);">更多头像...</a>
 		</td>
 	</tr>
 </table>

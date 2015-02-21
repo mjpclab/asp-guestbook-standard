@@ -9,12 +9,8 @@ rs2.close
 set rs2=nothing
 if pub<>"" then
 %>
-<table border="1" cellpadding="2" class="onetopic" style="overflow:hidden;">
-	<tr style="height:25px">
-		<td class="bulletintitle"><img alt="" src="image/icon_bulletin.gif" class="imgicon" />置顶公告：</td>
-	</tr>
-	<tr>
-		<td class="wordscontent"><%=pub%></td>
-	</tr>
-</table>
+<div class="region">
+	<h3 class="title"><img alt="" src="image/icon_bulletin.gif" class="imgicon" />置顶公告：</h3>
+	<div class="content"><%=pub%></div>
+</div>
 <%end if%>

@@ -1,6 +1,8 @@
 <!-- #include file="config.asp" -->
 <link rel="stylesheet" type="text/css" href="style.css"/>
+<link rel="stylesheet" type="text/css" href="adminstyle.css"/>
 <!-- #include file="style.asp" -->
+<!-- #include file="adminstyle.asp" -->
 <!-- #include file="admin_verify.asp" -->
 
 <%
@@ -46,7 +48,7 @@ elseif isnumeric(request.Form("writevcodecount"))=false and clng(showpage and 1)
 elseif isnumeric(request.Form("maillevel"))=false and clng(showpage and 2)<> 0 then
 	errbox "“邮件紧急程度”必须为数字。"
 elseif isnum(request.Form("tablewidth"))=false and clng(showpage and 4)<> 0 then
-	errbox "“留言本总宽度”必须为数字或百分比。"
+	errbox "“留言本最大宽度”必须为数字或百分比。"
 elseif isnum(request.Form("tableleftwidth"))=false and clng(showpage and 4)<> 0 then
 	errbox "“留言本左窗格宽度”必须为数字或百分比。"
 elseif isnumeric(request.Form("windowspace"))=false and clng(showpage and 4)<> 0 then
@@ -351,8 +353,8 @@ else
 		if Request.Form("ubbflag_fontstyle")="1" then tubbflag=tubbflag+32
 		if Request.Form("ubbflag_fontcolor")="1" then tubbflag=tubbflag+64
 		if Request.Form("ubbflag_alignment")="1" then tubbflag=tubbflag+128
-		if Request.Form("ubbflag_movement")="1" then tubbflag=tubbflag+256
-		if Request.Form("ubbflag_cssfilter")="1" then tubbflag=tubbflag+512
+		'if Request.Form("ubbflag_movement")="1" then tubbflag=tubbflag+256
+		'if Request.Form("ubbflag_cssfilter")="1" then tubbflag=tubbflag+512
 		if Request.Form("ubbflag_face")="1" then tubbflag=tubbflag+1024
 		
 		ttablealign=Request.Form("tablealign")

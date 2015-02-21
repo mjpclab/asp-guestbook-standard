@@ -13,18 +13,20 @@ if VcodeCount>0 then session("vcode")=getvcode(VcodeCount)
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> 留言本 管理登录</title>
 	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<link rel="stylesheet" type="text/css" href="adminstyle.css"/>
 	<!-- #include file="style.asp" -->
+	<!-- #include file="adminstyle.asp" -->
 	
 	<script type="text/javascript">
 	function submitCheck(obj)
 	{
-		if(obj.iadminpass.value=='')
+		if(obj.iadminpass.value.length===0)
 		{
 			alert('请输入密码。');
 			obj.iadminpass.focus();
 			return false;
 		}
-		else if(obj.ivcode && obj.ivcode.value=='')
+		else if(obj.ivcode && obj.ivcode.value.length===0)
 		{
 			alert('请输入验证码。');
 			obj.ivcode.focus();
@@ -39,38 +41,28 @@ if VcodeCount>0 then session("vcode")=getvcode(VcodeCount)
 	</script>
 </head>
 
-<body onload="if(form5.iadminpass.value=='')form5.iadminpass.focus()" style="text-align:center;">
+<body onload="if(form5.iadminpass.value.length===0)form5.iadminpass.focus()">
 
-<br/>
-<table border="1" cellpadding="2" style="width:300px; border:solid 1px <%=TableBorderColor%>; border-collapse:collapse; margin-left:auto; margin-right:auto;">
-	<tr>
-		<td class="centertitle">管理员登录</td>
-	</tr>
-	<tr>
-		<td class="wordscontent" style="text-align:center; padding:20px 0px;">
-			<form method="post" action="login_verify.asp" name="form5" onsubmit="return submitCheck(this);">
-			<table style="border-width:0px; margin-left:auto; margin-right:auto;" cellpadding="2" cellspacing="0">
-				<tr>
-					<td>密　码：</td>
-					<td><input type="password" name="iadminpass" size="26" maxlength="32" /></td>
-				</tr>
-				<%if VcodeCount>0 then%>
-				<tr style="height:10px;"><td></td></tr>
-				<tr>
-					<td>验证码：</td>
-					<td><input type="text" name="ivcode" size="10" autocomplete="off" /> <img alt="" src="show_vcode.asp" class="vcode" onclick="this.src=this.src" /></td>
-				</tr>
-				<%end if%>
-				<tr style="height:15px;"><td></td></tr>
-				<tr>
-					<td style="width:100%; text-align:center;" colspan="2">
-						<input value="登录" type="submit" name="submit1" />
-					</td>
-				</tr>
-			</table>
+<div class="region form-region narrow-region">
+	<h3 class="title">管理员登录</h3>
+	<div class="content">
+		<form method="post" action="login_verify.asp" name="form5" onsubmit="return submitCheck(this);">
+			<div class="field">
+				<span class="label">密码：</span>
+				<span class="value"><input type="password" name="iadminpass" maxlength="32" autofocus="autofocus" /></span>
+			</div>
+			<%if VcodeCount>0 then%>
+			<div class="field">
+				<span class="label">验证码：</span>
+				<span class="value"><input type="text" name="ivcode" autocomplete="off" /><img class="captcha" src="show_vcode.asp" /></span>
+			</div>
+			<%end if%>
+			<div class="command">
+				<input value="登录" type="submit" name="submit1" />
+			</div>
 			</form>
-		</td>
-	</tr>
-</table>
+	</div>
+</div>
+
 </body>
 </html>

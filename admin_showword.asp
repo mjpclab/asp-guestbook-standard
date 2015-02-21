@@ -12,7 +12,9 @@ Response.AddHeader "cache-control","private"
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> 留言本 管理首页</title>
 	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<link rel="stylesheet" type="text/css" href="adminstyle.css"/>
 	<!-- #include file="style.asp" -->
+	<!-- #include file="adminstyle.asp" -->
 </head>
 
 <body<%=bodylimit%> onload="<%=framecheck%>">
@@ -44,12 +46,11 @@ end if
 <div id="outerborder" class="outerborder">
 
 	<%if ShowTitle=true then show_book_title 3,"管理"%>
-	<!-- #include file="admintool.inc" -->
+	<!-- #include file="admincontrols.inc" -->
 	<!-- #include file="topbulletin.inc" -->
 
 	<form method="post" action="admin_mdel.asp" name="form7">
 		<!-- #include file="func_admin.inc" -->
-		<br/>
 		<%
 			dim pagename
 			pagename="admin_showword"

@@ -31,7 +31,9 @@ end if
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> ¡Ù—‘±æ ±‡º≠¡Ù—‘</title>
 	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<link rel="stylesheet" type="text/css" href="adminstyle.css"/>
 	<!-- #include file="style.asp" -->
+	<!-- #include file="adminstyle.asp" -->
 
 	<script type="text/javascript">
 	function submitcheck(cobject)
@@ -56,7 +58,7 @@ end if
 <div id="outerborder" class="outerborder">
 
 <%if ShowTitle=true then show_book_title 3,"π‹¿Ì"%>
-<!-- #include file="admintool.inc" -->
+<!-- #include file="admincontrols.inc" -->
 
 <table cellpadding="2" class="generalwindow">
 	<tr>

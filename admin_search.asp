@@ -12,7 +12,9 @@ Response.AddHeader "cache-control","private"
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> 留言本 搜索留言</title>
 	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<link rel="stylesheet" type="text/css" href="adminstyle.css"/>
 	<!-- #include file="style.asp" -->
+	<!-- #include file="adminstyle.asp" -->
 
 	<script type="text/javascript">
 	function submitcheck()
@@ -67,14 +69,11 @@ end if
 <div id="outerborder" class="outerborder">
 
 	<%if ShowTitle=true then show_book_title 3,"管理"%>
-	<!-- #include file="admintool.inc" -->
+	<!-- #include file="admincontrols.inc" -->
 
-	<table border="1" cellpadding="2" class="generalwindow">
-		<tr>
-			<td class="centertitle">搜索留言</td>
-		</tr>
-		<tr>
-			<td class="wordscontent" style="text-align:center; padding:20px 0px;">
+	<div class="region form-region center-region">
+		<h3 class="title">搜索留言</h3>
+		<div class="content">
 			<form method="post" action="admin_search.asp" id="form1" name="form1" onsubmit="return submitcheck();">
 			搜索：<input type="text" name="searchtxt" size="<%=SearchTextWidth%>" value="<%=request("searchtxt")%>" />
 			<input type="submit" value="搜索" name="searchsubmit" />
@@ -92,10 +91,9 @@ end if
 				<option value="audit" <%=seled(request("type")="audit")%>>待审核(1:是 0:否)</option>
 			</select><br/>("%"代表任意个字符，"_"代表一个字符)
 			</form>
-			</td>
-		</tr>
-	</table>
-	
+		</div>
+	</div>
+
 	<%if CanOpenDB and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"admin_search.asp","[搜索结果分页]","center","type=" &request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
 	<form method="post" action="admin_mdel.asp" name="form7">
 	<%RPage="admin_search.asp"%><!-- #include file="func_admin.inc" -->

@@ -27,6 +27,8 @@ function getsysname()
 {
 	if (navigator.userAgent)
 	{
+		var buffer;
+
 		//for Mozilla
 		if ((/Win95/i).test(navigator.userAgent)) return 'Windows 95';
 		else if ((/Win98/i).test(navigator.userAgent)) return 'Windows 98';
@@ -41,13 +43,19 @@ function getsysname()
 		else if ((/Windows 98/i).test(navigator.userAgent)) return 'Windows 98';
 
 		//for IE & Opera & Mozilla
+		else if(buffer=/OS (?:(\d+_\d+)\w+) like Mac OS X/i.exec(navigator.userAgent)) return 'iOS ' + buffer[1].replace(/_/g,'.');
+		else if(buffer=/Android \d+\.\d+/.exec(navigator.userAgent)) return buffer[0];
+		else if(buffer=/SymbianOS\/[\w\.]+/.exec(navigator.userAgent)) return buffer[0].replace('/',' ');
+		else if(buffer=/Windows Phone(?: OS)? [\w\.]+/.exec(navigator.userAgent)) return buffer[0].replace(' OS','');
+		else if ((/BlackBerry/i).test(navigator.userAgent)) return 'BlackBerry';
+		else if ((/Windows NT 5\.0/i).test(navigator.userAgent)) return 'Windows 2000';
 		else if ((/Windows NT 5\.0/i).test(navigator.userAgent)) return 'Windows 2000';
 		else if ((/Windows NT 5\.1/i).test(navigator.userAgent)) return 'Windows XP';
-		else if ((/Windows NT 5\.2/i).test(navigator.userAgent)) return 'Windows Server 2003';
-		else if ((/Windows NT 6\.0/i).test(navigator.userAgent)) return 'Windows Vista/Server 2008';
-		else if ((/Windows NT 6\.1/i).test(navigator.userAgent)) return 'Windows 7/Server 2008 R2';
-		else if ((/Windows NT 6\.2/i).test(navigator.userAgent)) return 'Windows 8/Server 2012';
-		else if ((/Windows NT 6\.3/i).test(navigator.userAgent)) return 'Windows 8.1/Server 2012 R2';
+		else if ((/Windows NT 5\.2/i).test(navigator.userAgent)) return 'Windows Server2003';
+		else if ((/Windows NT 6\.0/i).test(navigator.userAgent)) return 'Windows Vista/Server2008';
+		else if ((/Windows NT 6\.1/i).test(navigator.userAgent)) return 'Windows 7/Server2008R2';
+		else if ((/Windows NT 6\.2/i).test(navigator.userAgent)) return 'Windows 8/Server2012';
+		else if ((/Windows NT 6\.3/i).test(navigator.userAgent)) return 'Windows 8.1/Server2012R2';
 		else if ((/Windows NT 10\.0/i).test(navigator.userAgent)) return 'Windows 10';
 		else if ((/Windows NT/).test(navigator.userAgent)) return 'Windows NT';
 		else if ((/Linux/i).test(navigator.userAgent)) return 'Linux';
@@ -55,6 +63,7 @@ function getsysname()
 		else if ((/Solaris/i).test(navigator.userAgent)) return 'Solaris';
 		else if ((/BSD/i).test(navigator.userAgent)) return 'BSD';
 		else if ((/Unix/i).test(navigator.userAgent)) return 'Unix';
+		else if(buffer=/Mac OS X \d+_\d+/i.exec(navigator.userAgent)) return buffer[0].replace(/_/g,'.');
 		else if ((/Mac\s?OS/i).test(navigator.userAgent)) return 'Mac OS';
 		else return '';
 	}

@@ -9,10 +9,9 @@
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> 留言本 高级删除</title>
 	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<link rel="stylesheet" type="text/css" href="adminstyle.css"/>
 	<!-- #include file="style.asp" -->
-	<style type="text/css">
-	form {margin:20px 0;}
-	</style>
+	<!-- #include file="adminstyle.asp" -->
 </head>
 
 <body<%=bodylimit%> onload="<%=framecheck%>">
@@ -20,14 +19,11 @@
 <div id="outerborder" class="outerborder">
 
 	<%if ShowTitle=true then show_book_title 3,"管理"%>
-	<!-- #include file="admintool.inc" -->
+	<!-- #include file="admincontrols.inc" -->
 
-	<table border="1" cellpadding="2" class="generalwindow">
-		<tr>
-			<td class="centertitle">高级删除</td>
-		</tr>
-		<tr>
-			<td class="wordscontent" style="padding:2px;">
+	<div class="region form-region">
+		<h3 class="title">高级删除</h3>
+		<div class="content">
 			<form method="post" action="admin_doadvdel.asp" onsubmit="this.submit1.disabled=true;">
 				删除指定日期和时间前的留言，包括此日期/时间。<br/>
 				<input type="hidden" name="option" value="1" />
@@ -76,10 +72,9 @@
 				<input type="hidden" name="iparam" value="DEL_ALL" />
 				<input type="submit" value="执行" name="submit1"<%if DelAdvTip=true then Response.Write " onclick=""return confirm('确实要执行删除操作吗？');"""%> />
 			</form>
-		
-			</td>
-		</tr>
-	</table>
+		</div>
+	</div>
+
 </div>
 
 <!-- #include file="bottom.asp" -->

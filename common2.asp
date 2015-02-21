@@ -19,315 +19,240 @@ sub getadmininfo()
 	if clng(admin_faceid)<>0 and admin_faceurl="" then admin_faceurl=FacePath & admin_faceid  & ".gif"
 end sub
 '===================
-sub showadminicons()
-	if ReplyInWord=false then
-		Response.Write admin_name & "<br/>"
-		if admin_faceurl<>"" then Response.Write "<img alt="""" src=""" & admin_faceurl & """ class=""face"" />"
-							
-		if admin_email<>"" or admin_qqid<>"" or admin_msnid<>"" or admin_homepage<>"" then
-			Response.Write "<br/>"
-		end if
-	end if
-
-	if admin_email<>"" then Response.Write "<a href=""mailto:" &admin_email& """ title=""版主邮箱：" &admin_email& """><img alt="""" src=""image/icon_mail.gif"" class=""imgicon"" /></a> "
-	if admin_qqid<>"" then Response.Write "<img src=""image/icon_qq.gif"" alt=""版主QQ：" &admin_qqid& """ class=""imgicon""" &js_status& " /> "
-	if admin_msnid<>"" then Response.Write "<img src=""image/icon_msn.gif"" alt=""版主MSN：" &admin_msnid& """ class=""imgicon""" &js_status& " /> "
-	if admin_homepage<>"" then Response.Write "<a href=""" &admin_homepage& """ target=""_blank"" title=""版主主页：" &admin_homepage& """><img alt="""" src=""image/icon_homepage.gif"" class=""imgicon"" /></a> "
-
-end sub
+sub showadminicons()%>
+	<%if admin_email<>"" then%><a class="icon" href="mailto:<%=admin_email%>" title="版主邮箱：<%=admin_email%>"><img src="image/icon_mail.gif"/></a><%end if%>
+	<%if admin_qqid<>"" then%><span class="icon" title="版主QQ：<%=admin_qqid%>"><img src="image/icon_qq.gif"/></span><%end if%>
+	<%if admin_msnid<>"" then%><span class="icon"><img src="image/icon_skype.gif" alt="版主Skype：<%=admin_msnid%>"/></span><%end if%>
+	<%if admin_homepage<>"" then%><a class="icon" href="<%=admin_homepage%>" target="_blank" title="版主主页：<%=admin_homepage%>"><img src="image/icon_homepage.gif"/></a><%end if%>
+<%end sub
 '===================
 sub showguestreplyicons(byval follow_id,byval parent_id,byval show_reply)
-dim url,out_str
+dim url
 
 url="leaveword.asp?follow=" & follow_id
 if left(pagename,8)="showword" then url=url & "&return=showword"
-url=Server.HTMLEncode(url)
+url=Server.HTMLEncode(url)%>
+<div class="guest-tools">
+	<%if parent_id<0 then%><span class="tool"><img src="image/icon_toplocked.gif"/>(置顶)</span><%end if%>
+	<%if show_reply then%><span class="tool"><a href="<%=url%>"><img src="image/icon_reply.gif"/>[回复]</a></span><%end if%>
+</div>
+<%end sub
+'===================
+sub showguestinfoicons(t_rs)%>
+	<%if t_rs("email")<>"" then%><a class="icon" href="mailto:<%=t_rs("email")%>" title="作者邮箱：<%=t_rs("email")%>"><img src="image/icon_mail.gif"/></a><%end if%>
+	<%if t_rs("qqid")<>"" then%><span class="icon" title="作者QQ：<%=t_rs("qqid")%>"><img src="image/icon_qq.gif"/></span><%end if%>
+	<%if t_rs("msnid")<>"" then%><span class="icon" title="作者Skype：<%=t_rs("msnid")%>"><img src="image/icon_skype.gif"/></span><%end if%>
+	<%if t_rs("homepage")<>"" then%><a class="icon" href="<%=t_rs("homepage")%>" target="_blank" title="作者主页：<%=t_rs("homepage")%>"><img src="image/icon_homepage.gif" /></a><%end if%>
 
-out_str="<div style=""width:100%; text-align:right; padding-bottom:5px;"">"
-if parent_id<0 then
-	out_str=out_str & "<span style=""padding-left:15px;""><img alt="""" src=""image/icon_toplocked.gif"" class=""imgicon"" />(置顶)</span>"
-end if
-if show_reply then
-	out_str=out_str & "<span style=""padding-left:15px;""><a href=""" &url& """><img alt="""" src=""image/icon_reply.gif"" class=""imgicon"" />[回复]</a></span>"
-end if
-out_str=out_str & "</div>"
+	<%if left(pagename,5)="admin" then%>
+		<%if AdminShowIP>0 then%><span class="icon" title="IP：<%=getip(t_rs("ipaddr"),cint(AdminShowIP))%>"><img src="image/icon_ip.gif"/></span><%end if%>
+		<%if AdminShowOriginalIP>0 and t_rs("originalip")<>"" then%><span class="icon" title="原始IP：<%=getip(t_rs("originalip"),cint(AdminShowOriginalIP))%>"><img src="image/icon_ip2.gif"/></span><%end if%>
+	<%else%>
+		<%if ShowIP>0 then%><span class="icon" title="IP：<%=getip(t_rs("ipaddr"),cint(ShowIP))%>"><img src="image/icon_ip.gif"/></span><%end if%>
+	<%end if%>
+<%end sub
+'===================
+sub inneradminreply(byref rs2)%>
+<div class="message inner-message admin-message">
+	<div class="summary">
+		<div class="name">版主<%if admin_name<>"" then response.write "(" & admin_name & ")"%>回复：</div>
+		<div class="date">(<%=rs2("replydate")%>)</div>
+		<div class="icons"><%showadminicons()%></div>
+	</div>
+	<%if admin_faceurl<>"" then%><img class="face" src="<%=admin_faceurl%>"/><%end if%>
+	<div class="words">
+		<%if encrypted=true and pagename<>"showword" and left(pagename,5)<>"admin" then%>
+			<span class="inner-hint"><img src="image/icon_key.gif"/>(需要预设的密码才能查看...)[<a href="showword.asp?id=<%=rs2("id")%>">点击这里验证...</a>]</span>
+		<%else
+			reply_htmlflag=rs2("htmlflag")
+			reply_txt=rs2("reinfo")
 
-Response.Write out_str
-end sub
+			convertstr reply_txt,reply_htmlflag,true
+			Response.Write reply_txt
+		end if%>
+	</div>
+</div>
+<%end sub
 '===================
-sub innerreply(byref rs2)
-	%>
-	<tr>
-		<td class="embedbox">
-			<div class="embedbox">
-				<table class="embedbox" cellpadding="0" cellspacing="0"><tr><td>
-					<span style="font-weight:bold; color:<%=TableReplyColor%>;">版主<%if admin_name<>"" then response.write "(" & admin_name & ")"%>回复：</span>
-					<%
-					response.write "<span style=""color:" &TableReplyColor& """>(" & rs2("replydate") & ")</span> "
-									
-					showadminicons()
-					response.write "<hr size=""1"" />"
-					if admin_faceurl<>"" then Response.Write "<img alt="""" src=""" & admin_faceurl & """ class=""face"" style=""float:left;margin:0px 5px 5px 0px;"" />"
-									
-					response.write "<span style=""color:" & TableReplyContentColor & """>"
-					if encrypted=true and pagename<>"showword" and left(pagename,5)<>"admin" then
-						response.Write "<img alt="""" src=""image/icon_key.gif"" class=""imgicon"" />(需要预设的密码才能查看...)[<a href=""showword.asp?id=" &rs2("id")& """>点击这里验证...</a>]"
-					else
-						reply_htmlflag=rs2("htmlflag")
-						reply_txt=rs2("reinfo")
-													
-						convertstr reply_txt,reply_htmlflag,true
-						Response.Write reply_txt
-					end if
-					response.write "</span>"
-					%>
-				</td></tr></table>								
-			</div>
-		</td>
-	</tr>
-	<%
-end sub
+sub outeradminreply(byref rs2)%>
+<div class="message outer-message admin-message">
+	<h2 class="title">[版主回复：]</h2>
+	<div class="info">
+		<%if admin_faceurl<>"" then%><img class="face" src="<%=admin_faceurl%>"/><%end if%>
+		<%if admin_email<>"" or admin_qqid<>"" or admin_msnid<>"" or admin_homepage<>"" then%>
+			<div class="icons"><%showadminicons()%></div>
+		<%end if%>
+		<div class="date"><%=rs2("replydate")%></div>
+	</div>
+	<div class="detail">
+		<div class="words">
+			<%if encrypted=true and pagename<>"showword" and left(pagename,5)<>"admin" then%>
+				<span class="inner-hint"><img src="image/icon_key.gif"/>(需要预设的密码才能查看...)[<a href="showword.asp?id=<%=rs2("id")%>">点击这里验证...</a>]</span>
+			<%else
+				reply_htmlflag=rs2("htmlflag")
+				reply_txt=rs2("reinfo")
+
+				convertstr reply_txt,reply_htmlflag,true
+				Response.Write reply_txt
+			end if%>
+		</div>
+	</div>
+</div>
+<%end sub
 '===================
-sub outerreply(byref rs2)
-	%>
-	<tr>
-	  <td colspan="2" class="replytitle">[版主回复：]</td>
-	</tr>
-	<tr>
-	  	<td class="tableleft">
-	  		<%showadminicons()%><br/>
-	  		<%=rs2("replydate")%>
-	  	</td>
-	  	<td class="wordscontent">
-	  		<%
-	  		response.write "<span style=""color:" & TableReplyContentColor & """>"
-	  		if encrypted=true and pagename<>"showword" and left(pagename,5)<>"admin" then
-	  			response.Write "<img alt="""" src=""image/icon_key.gif"" class=""imgicon"" />(需要预设的密码才能查看...)[<a href=""showword.asp?id=" &rs2("id")& """>点击这里验证...</a>]"
-	  		else
-	  			reply_htmlflag=rs2("htmlflag")
-	  			reply_txt=rs2("reinfo")
-										
-	  			convertstr reply_txt,reply_htmlflag,true
-	  			Response.Write reply_txt
-	  		end if
-	  		response.write "</span>"
-	  		%>
-	  	</td>
-	</tr>
-	<%
-end sub
+sub inneraudit()%>
+<div class="message inner-message guest-message auditing-message">
+	<div class="summary">
+		<h2 class="title">(留言待审核...)</h2>
+	</div>
+	<div class="words">
+		<span class="inner-hint"><img src="image/icon_wait2pass.gif"/>(留言待审核...)</span>
+	</div>
+</div>
+<%end sub
 '===================
-sub inneraudit()
-	%>
-	<tr>
-		<td class="embedbox">
-			<div class="embedbox">
-				<table class="embedbox" cellpadding="0" cellspacing="0"><tr><td>
-					<span style="color:<%=TableTitleColor%>;">(留言待审核...)</span>
-					<hr size="1" />
-					<img alt="" src="image/icon_wait2pass.gif" class="imgicon" />(留言待审核...)
-				</td></tr></table>								
-			</div>
-		</td>
-	</tr>
-	<%
-end sub
+sub outeraudit(t_rs)%>
+<div class="message outer-message guest-message auditing-message">
+	<div class="info">
+		<%fid=t_rs("faceid")
+		if isnumeric(fid) and StatusShowHead=true then
+			if fid>=1 and fid<=FaceCount then%>
+				<img class="face" src="<%=FacePath & cstr(fid)%>.gif" />
+			<%end if
+		end if%>
+
+		<div class="date"><%=t_rs("logdate")%></div>
+	</div>
+	<div class="detail">
+		<h2 class="title">(留言待审核...)</h2>
+		<%if rs.Fields("parent_id")<=0 and left(pagename,5)<>"admin" then showguestreplyicons rs.Fields("id"),rs.Fields("parent_id"),StatusWrite and StatusGuestReply and clng(rs.Fields("guestflag") and 512)=0%>
+		<div class="words">
+			<span class="inner-hint"><img src="image/icon_wait2pass.gif" />(留言待审核...)</span>
+		</div>
+	</div>
+</div>
+<%end sub
 '===================
-sub outeraudit()
-	%>
-	<tr>
-		<td class="tableleft">
-			<%
-			fid=rs("faceid")
-			if isnumeric(fid) and StatusShowHead=true then
-				if fid>=1 and fid<=FaceCount then
-					%>
-					<img alt="" src="<%=FacePath & cstr(fid)& ".gif"%>" class="face" />
-					<%
+sub innerword(byref t_rs)%>
+<div class="message inner-message guest-message">
+	<div class="summary">
+		<div class="name"><%=t_rs("name")%>：</div>
+		<div class="date">(<%=t_rs("logdate")%>)</div>
+			<%if (iswhisper=false and clng(guestflag and 256)=0) or (pagename="showword" and needverify) or left(pagename,5)="admin" then%>
+				<div class="icons"><%showguestinfoicons(t_rs)%></div>
+			<%end if%>
+		<h2 class="title"><%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then response.write "(给版主的悄悄话...)" else response.write t_rs("title")%></h2>
+	</div>
+	<%if StatusShowHead and t_rs.Fields("faceid")>=1 and t_rs.Fields("faceid")<=FaceCount then%><img src="<%=FacePath & t_rs.Fields("faceid")%>.gif"/><%end if%>
+	<div class="words">
+		<%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then%>
+			<span class="inner-hint"><img src="image/icon_whisper.gif"/>(给版主的悄悄话...)</span>
+		<%elseif ishidden=true and left(pagename,5)<>"admin" then%>
+			<span class="inner-hint"><img src="image/icon_hide.gif"/>(留言被管理员隐藏...)</span>
+		<%else
+			guest_txt="" & t_rs("article") & ""
+			if left(pagename,5)="admin" and AdminViewCode=true then
+				guest_txt=server.htmlEncode(guest_txt)
+			else
+				convertstr guest_txt,guestflag,false
+			end if
+
+			if guest_txt<>"" then
+				Response.Write guest_txt
+			else
+				Response.Write "(无内容)"
+			end if
+		end if%>
+	</div>
+</div>
+<%end sub
+'===================
+sub outerword(byref t_rs)%>
+<div class="message outer-message guest-message">
+	<div class="info">
+		<div class="name"><%=t_rs("name")%></div>
+
+		<%fid=t_rs("faceid")
+		if isnumeric(fid) and StatusShowHead=true then
+			if fid>=1 and fid<=FaceCount then%>
+				<img class="face" src="<%=FacePath & cstr(fid)& ".gif"%>" />
+			<%end if
+		end if%>
+
+		<%if (iswhisper=false and clng(guestflag and 256)=0) or (pagename="showword" and needverify) or left(pagename,5)="admin" then
+			if t_rs("email")<>"" or t_rs("qqid")<>"" or t_rs("msnid")<>"" or t_rs("homepage")<>"" or (left(pagename,5)<>"admin" and ShowIP>0) or (left(pagename,5)="admin" and AdminShowIP>0) or (left(pagename,5)="admin" and AdminShowOriginalIP>0 and t_rs("originalip")<>"") then%>
+				<div class="icons"><%showguestinfoicons(t_rs)%></div>
+			<%end if
+		end if%>
+
+		<div class="date"><%=t_rs("logdate")%></div>
+	</div>
+	<div class="detail">
+		<h2 class="title"><%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then response.write "(给版主的悄悄话...)" else response.write t_rs("title")%></h2>
+		<%if t_rs.Fields("parent_id")<=0 and left(pagename,5)<>"admin" then showguestreplyicons t_rs.Fields("id"),t_rs.Fields("parent_id"),StatusWrite and StatusGuestReply and clng(t_rs.Fields("guestflag") and 512)=0%>
+		<div class="words">
+			<%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then%>
+				<span class="inner-hint"><img src="image/icon_whisper.gif"/>(给版主的悄悄话...)</span>
+			<%elseif ishidden=true and left(pagename,5)<>"admin" then%>
+				<span class="inner-hint"><img src="image/icon_hide.gif"/>(留言被管理员隐藏...)</span>
+			<%else
+				guest_txt="" & t_rs("article") & ""
+				if left(pagename,5)="admin" and AdminViewCode=true then
+					guest_txt=server.htmlEncode(guest_txt)
+				else
+					convertstr guest_txt,guestflag,false
+				end if
+
+				if guest_txt<>"" then
+					Response.Write guest_txt
+				else
+					Response.Write "(无内容)"
 				end if
 			end if
-			Response.Write "<br/>"&rs("logdate")
 			%>
-		</td>
-	    <td class="tableright">
-			<table cellpadding="2" cellspacing="0" style="width:100%; border-width:0px; border-collapse:collapse;">
-				<tr>
-					<td class="wordstitle"><div style="width:100%; height:21px; line-height:21px; vertical-align:middle; overflow:hidden;">(留言待审核...)</div></td>
-				</tr>
-				<tr>
-					<td class="wordscontent">
-						<%if rs.Fields("parent_id")<=0 and left(pagename,5)<>"admin" then showguestreplyicons rs.Fields("id"),rs.Fields("parent_id"),StatusWrite and StatusGuestReply and clng(rs.Fields("guestflag") and 512)=0%>
-						<img alt="" src="image/icon_wait2pass.gif" class="imgicon" />(留言待审核...)
-					</td>
-				</tr>
-			</table>
-	    </td>
-	</tr>
-	<%
-end sub
-'===================
-sub innerword(byref t_rs)
-	%>
-	<tr>
-		<td class="embedbox">
-			<div class="embedbox">
-				<table class="embedbox" cellpadding="0" cellspacing="0"><tr><td>
-					<span style="color:<%=TableTitleColor%>;">
-						<%=t_rs.Fields("name") & "： (" & t_rs.Fields("logdate") & ") "%>
-	  					<%
-	  					if (iswhisper=false and clng(guestflag and 256)=0) or (pagename="showword" and needverify) or left(pagename,5)="admin" then
-	  						if t_rs("email")<>"" then Response.Write "<a href=""mailto:" &t_rs("email")& """ title=""作者邮箱：" &t_rs("email")& """><img alt="""" src=""image/icon_mail.gif"" class=""imgicon"" /></a> "
-	  						if t_rs("qqid")<>"" then Response.Write "<img src=""image/icon_qq.gif"" alt=""作者QQ：" &t_rs("qqid")& """ class=""imgicon""" &js_status& " /> "
-	  						if t_rs("msnid")<>"" then Response.Write "<img src=""image/icon_msn.gif"" alt=""作者MSN：" &t_rs("msnid")& """ class=""imgicon""" &js_status& " /> "
-	  						if t_rs("homepage")<>"" then Response.Write "<a href=""" &t_rs("homepage")& """ target=""_blank"" title=""作者主页：" &t_rs("homepage")& """><img alt="""" src=""image/icon_homepage.gif"" class=""imgicon"" /></a> "
-		  					
-		  					if left(pagename,5)="admin" then
-								if AdminShowIP>0 then Response.Write "<img src=""image/icon_ip.gif"" alt=""IP：" &getip(t_rs("ipaddr"),cint(AdminShowIP))& """ class=""ipicon""" &js_status& " /> "
-								if AdminShowOriginalIP>0 and t_rs("originalip")<>"" then Response.Write "<img src=""image/icon_ip2.gif"" alt=""原始IP：" &getip(t_rs("originalip"),cint(AdminShowOriginalIP))& """ class=""ipicon""" &js_status& " /> "
-		  					else
-		  						if ShowIP>0 then Response.Write "<img src=""image/icon_ip.gif"" alt=""IP：" &getip(t_rs("ipaddr"),cint(ShowIP))& """ class=""ipicon""" &js_status& " /> "
-		  					end if
-	  					end if
-	  					%>
-						<br/><%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then response.write "(给版主的悄悄话...)" else response.write t_rs("title")%>
-					</span>
-					<hr size="1" />
-					
-					<%
-					if StatusShowHead and t_rs.Fields("faceid")>=1 and t_rs.Fields("faceid")<=FaceCount then Response.Write "<img alt="""" src=""" & FacePath & t_rs.Fields("faceid") & ".gif"" class=""innerface""/>"
-	  				if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then
-	  					response.Write "<img alt="""" src=""image/icon_whisper.gif"" class=""imgicon"" />(给版主的悄悄话...)"
-	  				elseif ishidden=true and left(pagename,5)<>"admin" then
-	  					response.Write "<img alt="""" src=""image/icon_hide.gif"" class=""imgicon"" />(留言被管理员隐藏...)"
-	  				else
-	  					guest_txt="" & t_rs("article") & ""
-	  					if left(pagename,5)="admin" and AdminViewCode=true then
-	  						guest_txt=server.htmlEncode(guest_txt)
-	  					else
-	  						convertstr guest_txt,guestflag,false
-	  					end if
-	  					
-	  					if guest_txt<>"" then
-	  						Response.Write guest_txt
-	  					else
-	  						Response.Write "(无内容)"
-	  					end if
-	  				end if
-					%>
-				</td></tr></table>								
-			</div>
-		</td>
-	</tr>
-	<%
-end sub
-'===================
-sub outerword(byref t_rs)
-	%>
-	<tr>
-		<td class="tableleft">
-	  		<%=t_rs("name")%><br/>
-	  		<%fid=t_rs("faceid")
-	  		if isnumeric(fid) and StatusShowHead=true then
-	  			if fid>=1 and fid<=FaceCount then
-	  				%>
-	  				<img alt="" src="<%=FacePath & cstr(fid)& ".gif"%>" class="face" />
-	  				<%
-	  			end if
-	  		end if
+		</div>
 
-	  		if (iswhisper=false and clng(guestflag and 256)=0) or (pagename="showword" and needverify) or left(pagename,5)="admin" then
-	  			if t_rs("email")<>"" or t_rs("qqid")<>"" or t_rs("msnid")<>"" or t_rs("homepage")<>"" or (left(pagename,5)<>"admin" and ShowIP>0) or (left(pagename,5)="admin" and AdminShowIP>0) or (left(pagename,5)="admin" and AdminShowOriginalIP>0 and t_rs("originalip")<>"") then
-	  				Response.Write "<br/>"
-	  			end if
-	  			if t_rs("email")<>"" then Response.Write "<a href=""mailto:" &t_rs("email")& """ title=""作者邮箱：" &t_rs("email")& """><img alt="""" src=""image/icon_mail.gif"" class=""imgicon"" /></a> "
-	  			if t_rs("qqid")<>"" then Response.Write "<img src=""image/icon_qq.gif"" alt=""作者QQ：" &t_rs("qqid")& """ class=""imgicon""" &js_status& " /> "
-	  			if t_rs("msnid")<>"" then Response.Write "<img src=""image/icon_msn.gif"" alt=""作者MSN：" &t_rs("msnid")& """ class=""imgicon""" &js_status& " /> "
-	  			if t_rs("homepage")<>"" then Response.Write "<a href=""" &t_rs("homepage")& """ target=""_blank"" title=""作者主页：" &t_rs("homepage")& """><img alt="""" src=""image/icon_homepage.gif"" class=""imgicon"" /></a> "
-		  		
-		  		if left(pagename,5)="admin" then
-					if AdminShowIP>0 then Response.Write "<img src=""image/icon_ip.gif"" alt=""IP：" &getip(t_rs("ipaddr"),cint(AdminShowIP))& """ class=""ipicon""" &js_status& " /> "
-					if AdminShowOriginalIP>0 and t_rs("originalip")<>"" then Response.Write "<img src=""image/icon_ip2.gif"" alt=""原始IP：" &getip(t_rs("originalip"),cint(AdminShowOriginalIP))& """ class=""ipicon""" &js_status& " /> "
-		  		else
-		  			if ShowIP>0 then Response.Write "<img src=""image/icon_ip.gif"" alt=""IP：" &getip(t_rs("ipaddr"),cint(ShowIP))& """ class=""ipicon""" &js_status& " /> "
-		  		end if
-	  		end if
+		<%if clng(t_rs.Fields("replied") AND 1)<>0 and ReplyInWord=true then inneradminreply(t_rs)	'内嵌%>
 
-	  		Response.Write "<br/>"&t_rs("logdate")
-	  		%>
-		</td>
-		<td class="tableright"<%if ReplyInWord then response.write " style=""padding-bottom:12px;"""%>>
-			<table cellpadding="2" cellspacing="0" style="width:100%; border-width:0px; border-collapse:collapse;">
-	  			<tr>
-	  				<td class="wordstitle"><div style="width:100%; height:21px; line-height:21px; vertical-align:middle; overflow:hidden;"><%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then response.write "(给版主的悄悄话...)" else response.write t_rs("title")%></div></td>
-	  			</tr>
-	  			<tr>
-	  				<td class="wordscontent">
-	  					<%
-	  					if t_rs.Fields("parent_id")<=0 and left(pagename,5)<>"admin" then showguestreplyicons t_rs.Fields("id"),t_rs.Fields("parent_id"),StatusWrite and StatusGuestReply and clng(t_rs.Fields("guestflag") and 512)=0
-	  					
-	  					if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then
-	  						response.Write "<img alt="""" src=""image/icon_whisper.gif"" class=""imgicon"" />(给版主的悄悄话...)"
-	  					elseif ishidden=true and left(pagename,5)<>"admin" then
-	  						response.Write "<img alt="""" src=""image/icon_hide.gif"" class=""imgicon"" />(留言被管理员隐藏...)"
-	  					else
-	  						guest_txt="" & t_rs("article") & ""
-	  						if left(pagename,5)="admin" and AdminViewCode=true then
-	  							guest_txt=server.htmlEncode(guest_txt)
-	  						else
-	  							convertstr guest_txt,guestflag,false
-	  						end if
-	  						
-	  						if guest_txt<>"" then
-	  							Response.Write guest_txt
-	  						else
-	  							Response.Write "(无内容)"
-	  						end if
-	  					end if
-	  					%>
-	  				</td>
-	  			</tr>
-				<%if clng(t_rs.Fields("replied") AND 1)<>0 and ReplyInWord=true then innerreply(t_rs)	'内嵌%>
-				<%if (pagename="admin" or pagename="admin_search" or pagename="admin_showword") and ReplyInWord=true then%>
-					<%set p_rs=t_rs%>
-					<!-- #include file="admincontrols.inc" -->
-				<%end if%>
-				
-				<%
-				if t_rs.Fields("parent_id")<=0 and clng(t_rs.Fields("replied") AND 2)<>0 and (encrypted=false or pagename="showword" or left(pagename,5)="admin") and ReplyInWord=true then
-					dim hidden_condition
-					hidden_condition=""
-					if left(pagename,5)<>"admin" then hidden_condition=GetHiddenWordCondition()
-				
-					set rs1=Server.CreateObject("ADODB.Recordset")
-					rs1.Open Replace(Replace(sql_common2_guestreply,"{0}",t_rs.Fields("id")),"{1}",hidden_condition),cn,0,1,1
-					while not rs1.eof
-						guestflag=rs1("guestflag")
-						if clng(guestflag and 40)=8 then ishidden=true else ishidden=false
-						if clng(guestflag and 32)<>0 then iswhisper=true else iswhisper=false
-						if clng(guestflag and 96)=96 then encrypted=true else encrypted=false
-					
-						if clng(guestflag and 16)<>0 and left(pagename,5)<>"admin" then		'待审核
-							inneraudit()
-						else
-							innerword(rs1)
-							if rs1.Fields("replied") then innerreply(rs1)
-						end if
-						
-						if pagename="admin" or pagename="admin_search" or pagename="admin_showword" then
-							set p_rs=rs1
-							%><!-- #include file="admincontrols.inc" --><%
-						end if
-						rs1.movenext
-					wend
-					rs1.close
-					set rs1=nothing
+		<%if (pagename="admin" or pagename="admin_search" or pagename="admin_showword") and ReplyInWord=true then%>
+			<%set p_rs=t_rs%>
+			<!-- #include file="admintools.inc" -->
+		<%end if%>
+
+		<%
+		if t_rs.Fields("parent_id")<=0 and clng(t_rs.Fields("replied") AND 2)<>0 and (encrypted=false or pagename="showword" or left(pagename,5)="admin") and ReplyInWord=true then
+			dim hidden_condition
+			hidden_condition=""
+			if left(pagename,5)<>"admin" then hidden_condition=GetHiddenWordCondition()
+
+			set rs1=Server.CreateObject("ADODB.Recordset")
+			rs1.Open Replace(Replace(sql_common2_guestreply,"{0}",t_rs.Fields("id")),"{1}",hidden_condition),cn,0,1,1
+			while not rs1.eof
+				guestflag=rs1("guestflag")
+				ishidden=(clng(guestflag and 40)=8)
+				iswhisper=(clng(guestflag and 32)<>0)
+				encrypted=(clng(guestflag and 96)=96)
+
+				if clng(guestflag and 16)<>0 and left(pagename,5)<>"admin" then		'待审核
+					inneraudit()
+				else
+					innerword(rs1)
+					if rs1.Fields("replied") then inneradminreply(rs1)
 				end if
-				%>
-			</table>
-		</td>
-	</tr>
-	<%
-end sub
+
+				if pagename="admin" or pagename="admin_search" or pagename="admin_showword" then
+					set p_rs=rs1
+					%><!-- #include file="admintools.inc" --><%
+				end if
+				rs1.movenext
+			wend
+			rs1.close
+			set rs1=nothing
+		end if
+		%>
+	</div>
+</div>
+<%end sub
 '===================
 function getpuretext(byref instr)
 dim re,outstr

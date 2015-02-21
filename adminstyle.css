@@ -1,0 +1,30 @@
+.admin-controls {
+
+}
+
+.admin-controls td {
+	width:20%;
+}
+
+.region-callgen .field .label {
+	width:7em;
+}
+
+
+.region-config .field .label {
+	width:11em;
+}
+
+.region-filter input[type=text] {
+	width:100%;
+}
+
+.detail-item {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom:2px solid;
+}
+.detail-item:last-child {
+	padding-bottom: 0;
+	border-bottom: 0;
+}

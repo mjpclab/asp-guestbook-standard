@@ -1,62 +1,46 @@
-<table id="titlelist" border="1" cellpadding="2" class="generalwindow grid" style="color:<%=TableContentColor%>; table-layout:fixed;">
-<tr class="header"><th style="width:25px;"> </th><th>标题</th><th style="width:100px;">姓名</th><th style="width:120px;">留言时间</th></tr>
+<table class="topic-list">
+<thead>
+	<tr>
+		<th class="icon"></th><th class="title">标题</th><th class="name">姓名</th><th class="date">留言时间</th>
+	</tr>
+</thead>
+<tbody>
 <%
 'dim guest_txt,guestflag,isauditting,ishidden,iswhisper,encrypted
 'dim reply_txt,reply_htmlflag
 n_i=0
 
-for i=1 to TitlesPerPage
-	if rs.eof=false and Response.IsClientConnected then
-		guestflag=rs("guestflag")
-		if clng(guestflag and 16)<>0 then isauditting=true else isauditting=false
-		if clng(guestflag and 40)=8 then ishidden=true else ishidden=false
-		if clng(guestflag and 32)<>0 then iswhisper=true else iswhisper=false
-		if clng(guestflag and 96)=96 then encrypted=true else encrypted=false
+while rs.eof=false
+	guestflag=rs("guestflag")
+	isauditting=(clng(guestflag and 16)<>0)
+	ishidden=(clng(guestflag and 40)=8)
+	iswhisper=(clng(guestflag and 32)<>0)
+	encrypted=(clng(guestflag and 96)=96)
 
-		Response.Write Replace("<tr style=""background-color:{0}"">","{0}",TableContentBGC)
-		
-		Response.Write "<td style=""text-align:center;"">"
-		n_i=n_i+1
-		Response.Write "<a name=""a" &n_i& """ id=""a" &n_i& """></a>"
-		if isauditting then
-			Response.Write "<img class=""forumicon"" src=""image/icon_wait2pass.gif"" alt=""待审核"" />"
-		elseif ishidden then
-			Response.Write "<img class=""forumicon"" src=""image/icon_hide.gif"" alt=""被隐藏"" />"
-		elseif iswhisper then 
-			Response.Write "<img class=""forumicon"" src=""image/icon_whisper.gif"" alt=""悄悄话"" />"
-		elseif rs.Fields("parent_id")<0 then
-			Response.Write "<img class=""forumicon"" src=""image/icon_toplocked.gif"" alt=""置顶"" />"
-		end if
-		Response.Write "</td>"
-		
-		dim title_pattern
-		title_pattern="<td nowrap=""nowrap"" style=""overflow:hidden;""><a href=""showword.asp?id={0}"">{1}</a></td>"
-		if isauditting then
-			Response.Write Replace(Replace(title_pattern,"{0}",rs.Fields("id")),"{1}","(留言待审核...)")
-		elseif ishidden then
-			Response.Write Replace(Replace(title_pattern,"{0}",rs.Fields("id")),"{1}","(留言被管理员隐藏...)")
-		elseif iswhisper then 
-			Response.Write Replace(Replace(title_pattern,"{0}",rs.Fields("id")),"{1}","(给版主的悄悄话...)")
-		elseif Trim(rs.Fields("title"))="" then
-			Response.Write Replace(Replace(title_pattern,"{0}",rs.Fields("id")),"{1}","(无标题)")
-		else
-			Response.Write Replace(Replace(title_pattern,"{0}",rs.Fields("id")),"{1}",rs.Fields("title"))
-		end if
-
-		if isauditting=false then
-			Response.Write "<td nowrap=""nowrap"" style=""overflow:hidden;"">" & rs.Fields("name") & "</td>"
-		else
-			Response.Write "<td nowrap=""nowrap"" style=""overflow:hidden;""></td>"
-		end if
-		Response.Write "<td nowrap=""nowrap"" style=""overflow:hidden;"">" & rs.Fields("logdate") & "</td>"
-		
-		Response.Write "</tr>"
-		
-		rs.MoveNext
-	else
-		exit for
-	end if
-next
+	n_i=n_i+1
+	%>
+	<tr>
+		<td class="icon">
+			<a name="a<%=n_i%>" id="a<%=n_i%>"></a>
+			<%if isauditting then%><img src="image/icon_wait2pass.gif" title="待审核" alt="待审核"/>
+			<%elseif ishidden then%><img src="image/icon_hide.gif" title="被隐藏" alt="被隐藏"/>
+			<%elseif iswhisper then%><img src="image/icon_whisper.gif" title="悄悄话" alt="悄悄话"/>
+			<%elseif rs.Fields("parent_id")<0 then%><img src="image/icon_toplocked.gif" title="置顶" alt="置顶"/>
+			<%end if%>
+		</td>
+		<td class="title">
+			<%if isauditting then%><a href="showword.asp?id=<%=rs.Fields("id")%>">(留言待审核...)</a>
+			<%elseif ishidden then%><a href="showword.asp?id=<%=rs.Fields("id")%>">(留言被管理员隐藏...)</a>
+			<%elseif iswhisper then%><a href="showword.asp?id=<%=rs.Fields("id")%>">(给版主的悄悄话...)</a>
+			<%elseif Trim(rs.Fields("title"))="" then%><a href="showword.asp?id=<%=rs.Fields("id")%>">(无标题)</a>
+			<%else%><a href="showword.asp?id=<%=rs.Fields("id")%>" title="<%=rs.Fields("title")%>"><%=rs.Fields("title")%></a>
+			<%end if%>
+		</td>
+		<td class="name"><%if isauditting=false then Response.Write rs.Fields("name")%></td>
+		<td class="date"><%=rs.Fields("logdate")%></td>
+	</tr>
+	<%rs.MoveNext
+wend
 %>
+</tbody>
 </table>
-<!-- #include file="rowlight.inc" -->

@@ -1,4 +1,8 @@
 <!-- #include file="config.asp" -->
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<link rel="stylesheet" type="text/css" href="adminstyle.css"/>
+<!-- #include file="style.asp" -->
+<!-- #include file="adminstyle.asp" -->
 <!-- #include file="admin_verify.asp" -->
 
 <%

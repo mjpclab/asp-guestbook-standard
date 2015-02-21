@@ -3,19 +3,32 @@ body {
 	color:<%=TableContentColor%>;
 	<%=CssBgColor(PageBackColor)%>
 	<%=CssBgImg(PageBackImage)%>
+	line-height:<%=CssLineHeight%>;
 }
 
-body, input, textarea {
-	font-family:<%=CssFontFamily%>, sans-serif;
-	font-size:<%=CssFontSize%>;
+body, input, textarea, h1, h2, h3, h4, h5, h6 {
+	font-family:'<%=CssFontFamily%>', sans-serif;
+	<%=CssOptionalSize("font-size",CssFontSize)%>
 }
 
 p {
 	margin:0 0 1em 0;
 }
 
+
+a:link {color:<%=LinkNormal%>;}
+a:visited {color:<%=LinkVisited%>;}
+a:active {color:<%=LinkActive%>;}
+a:hover {color:<%=LinkHover%>;}
+
+textarea,input,select {
+	border-color:<%=TableBorderColor%>;
+	color:<%=FormColor%>;
+	<%=CssBgColor(FormBGC)%>
+}
+
 .outerborder {
-	width:<%=TableWidth%><%if right(cstr(TableWidth),1)<>"%" then response.write "px"%>;
+	<%=CssOptionalSize("max-width",TableWidth)%>
 	border-width:<%=TableBorderWidth%>px;
 	border-color:<%=TableBorderColor%>;
 	padding:<%=TableBorderPadding%>px;
@@ -25,35 +38,209 @@ p {
 	<%=CssBgColor(TableBGC)%>
 	<%=CssBgImg(TablePic)%>
 }
-
-th,td,p {
-	line-height:<%=CssLineHeight%>;
+*html .outerborder {
+	<%=CssOptionalSize("width",TableWidth)%>
 }
-textarea,input,select {
+
+
+.header {
+	color:<%=TitleColor%>;
+	<%=CssBgColor(TitleBGC)%>
+	<%=CssBgImg(TitlePic)%>
+}
+
+.guest-functions {
+	margin:<%=WindowSpace%>px 0;
+}
+.guest-functions .aside .function {
+	border-color:<%=TableContentColor%>;
+}
+
+
+.topic {
+	margin:<%=WindowSpace%>px 0;
 	border-color:<%=TableBorderColor%>;
-	color:<%=FormColor%>;
-	<%=CssBgColor(FormBGC)%>
-}
-hr {
-	color:<%=TableBorderColor%>;
-}
-div {
-	line-height:<%=CssLineHeight%>;
+	<%=CssBgColor(TableContentBGC)%>
 }
 
-a:link {color:<%=LinkNormal%>;}
-a:visited {color:<%=LinkVisited%>;}
-a:active {color:<%=LinkActive%>;}
-a:hover {color:<%=LinkHover%>;}
+.topic .message {
+	border-color:<%=TableBorderColor%>;
+	color:<%=TableContentColor%>;
+}
+
+.topic .info {
+	width:<%=TableLeftWidth%>px;
+	color:<%=TableGuestInfoColor%>;
+	border-color:<%=TableBorderColor%>;
+	<%=CssBgColor(TableGuestInfoBGC)%>
+	<%=CssBgImg(TableGuestInfoPic)%>
+}
+
+.topic .detail {
+	border-color:<%=TableBorderColor%>;
+}
+
+.topic .title {
+	border-color:<%=TableBorderColor%>;
+	color:<%=TableTitleColor%>;
+	<%=CssBgColor(TableTitleBGC)%>
+	<%=CssBgImg(TableTitlePic)%>
+}
+
+.topic .inner-message {
+	border-color:<%=TableBorderColor%>;
+	<%=CssBgColor(BlockBGC)%>
+}
+
+.topic .inner-message .summary {
+	color:<%=TableTitleColor%>;
+	border-color:<%=TableBorderColor%>;
+	font-weight: bold;
+}
+
+.topic .admin-message .title,
+.topic .admin-message .summary {
+	color:<%=TableReplyColor%>;
+}
+
+.topic .admin-message .words {
+	color:<%=TableReplyContentColor%>;
+}
+
+.topic .outer-hint {
+	border-color:<%=TableBorderColor%>;
+}
+
+.topic .admin-tools {
+	border-color:<%=TableBorderColor%>;
+}
+
+.topic-list {
+	margin:<%=WindowSpace%>px 0;
+	border-color:<%=TableBorderColor%>;
+	<%=CssBgColor(TableContentBGC)%>
+}
+
+.topic-list tbody tr:hover td {
+	background:<%=BlockBGC%>;
+}
+
+.topic-list th,
+.topic-list td {
+	border-color:<%=TableBorderColor%>;
+}
+.topic-list th {
+	color:<%=TableTitleColor%>;
+	<%=CssBgColor(TableTitleBGC)%>
+	<%=CssBgImg(TableTitlePic)%>
+}
+
+
+
+.region {
+	margin-top:<%=WindowSpace%>px;
+	border-color:<%=TableBorderColor%>;
+	color:<%=TableContentColor%>;
+	<%=CssBgColor(TableContentBGC)%>
+}
+
+.region .title {
+	border-color:<%=TableBorderColor%>;
+	color:<%=TableTitleColor%>;
+	<%=CssBgColor(TableTitleBGC)%>
+	<%=CssBgImg(TableTitlePic)%>
+}
+
+.region .content table {
+	border-color:<%=TableBorderColor%>;
+}
+
+.region .content table th,
+.region .content table td {
+	border-color:<%=TableBorderColor%>;
+}
+
+.page-list .nav a {
+	border-color:<%=TableContentBGC%>;
+}
+.page-list .nav a:hover {
+	border-color:<%=TableBorderColor%>;
+	<%=CssBgColor(BlockBGC)%>
+}
+
+.page-list .pagenum,
+.page-list .pagenum:link,
+.page-list .pagenum:visited,
+.page-list .pagenum:active,
+.page-list .pagenum:hover {
+	border-color:<%=TableContentBGC%>;
+    color:<%=PageNumColor_Normal%>;
+}
+.page-list .pagenum:hover {
+	border-color:<%=TableBorderColor%>;
+	<%=CssBgColor(BlockBGC)%>
+}
+
+.page-list .pagenum-current,
+.page-list .pagenum-current:link,
+.page-list .pagenum-current:visited,
+.page-list .pagenum-current:active,
+.page-list .pagenum-current:hover {
+	color:<%=PageNumColor_Curr%>;
+}
+
+
+.tab-outer-container .tab-title-container {
+	border-color:<%=TableBorderColor%>;
+}
+.tab-outer-container .tab-title {
+	border-color:transparent;
+	border-bottom-color:<%=TableBorderColor%>;
+}
+*html .tab-outer-container .tab-title {
+	border-color:<%=TableContentBGC%>;
+	border-bottom-color:<%=TableBorderColor%>;
+}
+
+
+.tab-outer-container .tab-title-selected {
+	border-color:<%=TableBorderColor%>;
+	border-bottom-color:transparent;
+	<%=CssBgColor(TableContentBGC)%>
+}
+*html .tab-outer-container .tab-title-selected {
+	border-color:<%=TableBorderColor%>;
+	border-bottom-color:<%=TableContentBGC%>;
+}
+*+html .tab-outer-container .tab-title-selected {
+	border-bottom-color:<%=TableContentBGC%>;
+}
+
+
+.ubbtoolbar {
+	<%=CssOptionalSize("width",UbbToolWidth)%>
+	<%=CssOptionalSize("height",UbbToolHeight)%>
+}
+
+.ubbtoolbar .ubbbutton,
+.ubbtoolbar .ubbface {
+	border-color:<%=TableContentBGC%>;
+}
+.ubbtoolbar .ubbbutton:hover,
+.ubbtoolbar .ubbface:hover {
+	border-color:<%=TableBorderColor%>;
+	<%=CssBgColor(BlockBGC)%>
+}
 
 
 .footer {
-	margin-top: 1em;
-	text-align:center;
-	width:<%=TableWidth%><%if right(cstr(TableWidth),1)<>"%" then response.write "px"%>;
+	<%=CssOptionalSize("max-width",TableWidth)%>
 	<%if TableAlign="left" then Response.Write "margin-right:auto;"%>
 	<%if TableAlign="right" then Response.Write "margin-left:auto;"%>
 	<%if TableAlign="center" then Response.Write "margin-left:auto; margin-right:auto;"%>
+}
+*html .footer {
+	<%=CssOptionalSize("width",TableWidth)%>
 }
 .footer, .footer a {
 	color:#888;
@@ -62,46 +249,5 @@ a:hover {color:<%=LinkHover%>;}
 	color:#000;
 }
 
-
-
-.booktitle			{color:<%=TitleColor%>;}
-a.booktitle {color:<%=TitleColor%>;}
-
-img.pageicon	{border-color:<%=TableContentBGC%>;}
-img.ubbbutton	{border-color:<%=TableContentBGC%>;}
-img.smallface	{border-color:<%=TableContentBGC%>;}
-
-.generalwindow {
-	border-color:<%=TableBorderColor%>;
-	margin-top:<%=WindowSpace%>px;
-}
-
-table.grid {
-	border-color:<%=TableBorderColor%>;
-	color:<%=TableContentColor%>;
-	<%=CssBgColor(TableContentBGC)%>
-}
-.grid th, .grid td {border-color:<%=TableBorderColor%>;}
-
-table.onetopic		{border-color:<%=TableBorderColor%>; margin-top:<%=WindowSpace%>px;}
-td.centertitle		{border-color:<%=TableBorderColor%>; color:<%=TableTitleColor%>; <%=CssBgColor(TableTitleBGC)%> <%=CssBgImg(TableTitlePic)%>}
-td.wordstitle		{border-bottom-color:<%=TableBorderColor%>; color:<%=TableTitleColor%>; <%=CssBgColor(TableTitleBGC)%> <%=CssBgImg(TableTitlePic)%>}
-td.bulletintitle	{border-bottom-color:<%=TableBorderColor%>; color:<%=TableBulletinTitleColor%>; <%=CssBgColor(TableBulletinTitleBGC)%> <%=CssBgImg(TableBulletinTitlePic)%>}
-td.replytitle		{border-color:<%=TableBorderColor%>; color:<%=TableReplyColor%>; <%=CssBgColor(TableReplyBGC)%> <%=CssBgImg(TableReplyPic)%>}
-td.tableleft		{width:<%=TableLeftWidth%>px; border-color:<%=TableBorderColor%>; color:<%=TableGuestInfoColor%>; <%=CssBgColor(TableGuestInfoBGC)%> <%=CssBgImg(TableGuestInfoPic)%>}
-td.tableright		{border-color:<%=TableBorderColor%>; background-color:<%=TableContentBGC%>;}
-td.wordscontent		{border-color:<%=TableBorderColor%>; color:<%=TableContentColor%>; <%=CssBgColor(TableContentBGC)%>}
-td.vguestpass		{border-color:<%=TableBorderColor%>; color:<%=TableContentColor%>; <%=CssBgColor(TableContentBGC)%>}
-tr.header			{color:<%=TableTitleColor%>; <%=CssBgColor(TableTitleBGC)%> <%=CssBgImg(TableTitlePic)%>}
-
-td.embedbox			{color:<%=TableContentColor%>; <%=CssBgColor(TableContentBGC)%>}
-div.embedbox		{border-color:<%=TableBorderColor%>; <%=CssBgColor(BlockBGC)%>}
-
-.tabTitle			{border:solid 1px <%=TableContentBGC%>;}
-.tabTitleOver		{border-color:<%=TableBorderColor%>; <%=CssBgColor(BlockBGC)%>}
-.tabTitleSelected	{<%=CssBgColor(TableTitleBGC)%> <%=CssBgImg(TableTitlePic)%>}
-
-.pagenum_curr, .pagenum_curr:link, .pagenum_curr:visited, .pagenum_curr:active, .pagenum_curr:hover	 {color:<%=PageNumColor_Curr%>;}
-.pagenum_normal, .pagenum_normal:link, .pagenum_normal:visited, .pagenum_normal:active, .pagenum_normal:hover {color:<%=PageNumColor_Normal%>;}
 <%=Additional_Css%>
 </style>

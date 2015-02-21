@@ -32,16 +32,8 @@ const InstanceName=""
 
 Session.CodePage=936
 Response.Buffer=True
-'if InStr(Request.ServerVariables("HTTP_ACCEPT"),"text/xml")>0 then
-'	Response.ContentType="text/xml"
-'elseif IsEmpty(Request.ServerVariables("HTTP_ACCEPT")) then
-'	Response.ContentType="text/xml"
-'elseif Trim(Request.ServerVariables("HTTP_ACCEPT"))="" then
-'	Response.ContentType="text/xml"
-'else
-	Response.ContentType="text/html"
-'end if
-Response.CharSet="gb2312"
+Response.ContentType="text/html"
+Response.CharSet="gbk"
 
 
 if right(FacePath,1)<>"/" then FacePath=FacePath & "/"

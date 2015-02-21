@@ -295,6 +295,8 @@ if param<>"" then
 	if left(param,1)<>"&" then param="&" & param
 end if
 
+arr_param=split(param,"&")
+
 if ShowAdvPageList then
 	txt_align="center"
 	if CurPage-Int(AdvPageListCount/2)<1 then start_page=1 else start_page=CurPage-Int(AdvPageListCount/2)
@@ -321,101 +323,74 @@ if ShowAdvPageList then
 	if CurPage+AdvPageListCount>PagesCount then largenext_page_no=PagesCount else largenext_page_no=CurPage+AdvPageListCount
 	if CurPage-AdvPageListCount<1 then largeprev_page_no=1 else largeprev_page_no=CurPage-AdvPageListCount
 	
-	str_first_page=		"<a		 name=""page_control"" href=""" &filename& "?page=" &first_page_no& param & """ style=""float:left;""><img src=""image/icon_page_first.gif"" class=""pageicon"" title=""第" &first_page_no& "页"" /></a>"
-	str_largeprev_page=	"<a		 name=""page_control"" href=""" &filename& "?page=" &largeprev_page_no& param & """ style=""float:left;""><img src=""image/icon_page_largeprev.gif"" class=""pageicon"" title=""第" &largeprev_page_no& "页"" /></a>"
-	str_prev_page=		"<a		 name=""page_control"" href=""" &filename& "?page=" &prev_page_no& param & """ style=""float:left;""><img src=""image/icon_page_prev.gif"" class=""pageicon"" title=""第" &prev_page_no& "页"" /></a>"
+	str_first_page=		"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &first_page_no& param & """><img src=""image/icon_page_first.gif"" title=""第" &first_page_no& "页"" /></a>"
+	str_largeprev_page=	"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &largeprev_page_no& param & """><img src=""image/icon_page_largeprev.gif"" title=""第" &largeprev_page_no& "页"" /></a>"
+	str_prev_page=		"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &prev_page_no& param & """><img src=""image/icon_page_prev.gif"" title=""第" &prev_page_no& "页"" /></a>"
 	
-	str_last_page=		"<a		 name=""page_control"" href=""" &filename& "?page=" &last_page_no& param & """ style=""float:right;""><img src=""image/icon_page_last.gif"" class=""pageicon"" title=""第" &last_page_no& "页"" /></a>"
-	str_largenext_page=	"<a		 name=""page_control"" href=""" &filename& "?page=" &largenext_page_no& param & """ style=""float:right;""><img src=""image/icon_page_largenext.gif"" class=""pageicon"" title=""第" &largenext_page_no& "页"" /></a>"
-	str_next_page=		"<a		 name=""page_control"" href=""" &filename& "?page=" &next_page_no& param & """ style=""float:right;""><img src=""image/icon_page_next.gif"" class=""pageicon"" title=""第" &next_page_no& "页"" /></a>"
+	str_last_page=		"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &last_page_no& param & """><img src=""image/icon_page_last.gif"" title=""第" &last_page_no& "页"" /></a>"
+	str_largenext_page=	"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &largenext_page_no& param & """><img src=""image/icon_page_largenext.gif"" title=""第" &largenext_page_no& "页"" /></a>"
+	str_next_page=		"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &next_page_no& param & """><img src=""image/icon_page_next.gif"" title=""第" &next_page_no& "页"" /></a>"
 	
-	str_first2_page=	"<img	 name=""js_page_control"" onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(-PagesCount+1)& ");"" src=""image/icon_page_first2.gif"" class=""pageicon"" style=""float:left; visibility:hidden; cursor:pointer;"" title=""卷至首页"" />"
-	str_largeprev2_page="<img	 name=""js_page_control"" onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(-AdvPageListCount)& ");"" src=""image/icon_page_largeprev2.gif"" class=""pageicon"" style=""float:left; visibility:hidden; cursor:pointer;"" title=""上卷" &AdvPageListCount& "页"" />"
-	str_prev2_page=		"<img	 name=""js_page_control"" onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(-1)& ");"" src=""image/icon_page_prev2.gif"" class=""pageicon"" style=""float:left; visibility:hidden; cursor:pointer;"" title=""上卷1页"" />"
+	str_first2_page=	"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(-PagesCount+1)& ");"" src=""image/icon_page_first2.gif"" title=""卷至首页"" /></a>"
+	str_largeprev2_page="<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(-AdvPageListCount)& ");"" src=""image/icon_page_largeprev2.gif"" class=""pageicon"" title=""上卷" &AdvPageListCount& "页"" /></a>"
+	str_prev2_page=		"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(-1)& ");"" src=""image/icon_page_prev2.gif"" class=""pageicon"" title=""上卷1页"" /></a>"
 
-	str_last2_page=		"<img	 name=""js_page_control"" onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(PagesCount-1)& ");"" src=""image/icon_page_last2.gif"" class=""pageicon"" style=""float:right; visibility:hidden; cursor:pointer;"" title=""卷至末页"" />"
-	str_largenext2_page="<img	 name=""js_page_control"" onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(AdvPageListCount)& ");"" src=""image/icon_page_largenext2.gif"" class=""pageicon"" style=""float:right; visibility:hidden; cursor:pointer;"" title=""下卷" &AdvPageListCount& "页"" />"
-	str_next2_page=		"<img	 name=""js_page_control"" onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(1)& ");"" src=""image/icon_page_next2.gif"" class=""pageicon"" style=""float:right; visibility:hidden; cursor:pointer;"" title=""下卷1页"" />"
-end if
+	str_last2_page=		"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(PagesCount-1)& ");"" src=""image/icon_page_last2.gif"" class=""pageicon"" title=""卷至末页"" /></a>"
+	str_largenext2_page="<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(AdvPageListCount)& ");"" src=""image/icon_page_largenext2.gif"" class=""pageicon"" title=""下卷" &AdvPageListCount& "页"" /></a>"
+	str_next2_page=		"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(1)& ");"" src=""image/icon_page_next2.gif"" class=""pageicon"" title=""下卷1页"" /></a>"
+end if%>
 
-Response.Write "<table cellpadding=""2"" class=""generalwindow"">" & _
-	"<tr>" & _
-		"<td class=""centertitle"" style=""text-align:" &titlealign& """>" &pagetitle& "</td>" & _
-	"</tr>" & _
-	"<tr style=""height:40px;"">" & _
-		"<td class=""wordscontent"" style=""text-align:" &txt_align& """>"
-	
-		if ShowAdvPageList then		'左分页导航器
-			Response.Write "<div style=""float:left; border:0px; padding:0px; margin:0px;"">"
-			Response.Write str_first_page & str_largeprev_page & str_prev_page
-			Response.Write str_first2_page & str_largeprev2_page & str_prev2_page
-			Response.Write "</div>"
-		end if
-
-		if ShowAdvPageList then		'右分页导航器
-			Response.Write "<div style=""float:right; border:0px; padding:0px; margin:0px;"">"
-			Response.Write str_last_page & str_largenext_page & str_next_page
-			Response.Write str_last2_page & str_largenext2_page & str_next2_page
-			Response.Write "</div>"
-		end if
-	
-
-		Response.Write "<form method=""get"" action=""" &filename& """ style=""margin:10px; text-align:" &txt_align& """>"
-		for j=start_page to end_page
-			if j=CurPage then
-				Response.Write "<a name=""pagenum"" class=""pagenum_curr"" href=""" &filename& "?page=" & cstr(j) & param & """>[" &cstr(j)& "]</a> "
-			else
-				Response.Write "<a name=""pagenum"" class=""pagenum_normal"" href=""" &filename& "?page=" & cstr(j) & param & """>[" &cstr(j)& "]</a> "
-			end if
-		next
-		
-		Response.Write "<br/>(共" & PagesCount & "页)　转到<input type=""text"" name=""page"" size=""5"" maxlength=""10"" />页"
-		arr_param=split(param,"&")
+<div class="region page-list">
+	<h3 class="title"><%=pagetitle%></h3>
+	<div class="content">
+		<%if ShowAdvPageList then%>
+			<div class="nav backward-nav"><%=str_first_page & str_largeprev_page & str_prev_page & str_first2_page & str_largeprev2_page & str_prev2_page%></div>
+			<div class="nav forward-nav"><%=str_next_page & str_largenext_page & str_last_page & str_next2_page & str_largenext2_page & str_last2_page%></div>
+		<%end if%>
+		<form method="get" action="<%=filename%>">
+		<div class="pagenum-list">
+			<%for j=start_page to end_page%><a name="pagenum" class="pagenum<%if j=CurPage then Response.Write " pagenum-current"%>" href="<%=filename%>?page=<%=j & param%>"><%=j%></a><%next%>
+		</div>
+		<div class="goto">(共<%=PagesCount%>页)　转到页数<input type="text" name="page" class="page" maxlength="10" /> <input type="submit" class="submit" value="GO" /></div>
+		<%
 		for i=0 to ubound(arr_param)
-			if arr_param(i)<>"" then
-				t_name=left(arr_param(i),instr(arr_param(i),"=")-1)
+			if arr_param(i)<>"" then%>
+				<%t_name=left(arr_param(i),instr(arr_param(i),"=")-1)
 				t_value=right(arr_param(i),len(arr_param(i))-len(t_name)-1)
-				if t_name<>"page" then Response.Write "<input type=""hidden"" name=""" &t_name& """ value=""" &UrlDecode(t_value)& """ />"
-			end if
+				if t_name<>"page" then%><input type="hidden" name="<%=t_name%>" value="<%=UrlDecode(t_value)%>" /><%end if%>
+			<%end if
 		next
-		Response.Write "　<input type=""submit"" value=""GO"" />"
-		Response.Write "</form>"
-	
-Response.Write "</td></tr></table>"
-%><!-- #include file="pagecontrols.inc" --><%
-end sub
+		%>
+		</form>
+	</div>
+</div>
+<!-- #include file="pagecontrols.inc" -->
+<%end sub
 '==================================
-sub show_book_title(byval layercount, byval param)
-Response.Write "" & _
-"<table cellpadding=""0"" style=""width:100%; overflow:hidden; border-width:0px; border-collapse:collapse; background-color:" &TitleBGC& "; background-image:url(" &TitlePic& ");"">" & _
-	"<tr style=""height:60px;"">" & _
-		"<td style=""width:100%;"" class=""booktitle"">"
+sub show_book_title(byval layercount, byval param)%>
+<div class="header">
+	<%if HomeLogo<>"" then%><img class="logo<%if LogoBannerMode then Response.write " banner"%>" src="<%=HomeLogo%>" alt="<%=HomeName%>"/><%end if%>
+	<div class="breadcrumb">
+		<%if HomeName<>"" then
+			if HomeAddr<>"" then%>
+				<a class="name" href="<%=HomeAddr%>"><%=HomeName%></a>
+			<%else%>
+				<span class="name"><%=HomeName%></span>
+			<%end if
+		end if%>
 
-if HomeLogo<>"" then
-	Response.Write "<img style=""border-width:0px;"
-	if LogoBannerMode then Response.Write "display:block;"
-	Response.Write """ src=""" &HomeLogo& """ alt=""" &HomeName& """ />"
-end if
-if HomeName<>"" then
-	if HomeAddr<>"" then
-		Response.Write "<a href=""" &HomeAddr& """ class=""booktitle"">" &HomeName& "</a>"
-	else
-		Response.Write HomeName
-	end if
-end if
-
-if layercount=2 then
-	if HomeName<>"" then Response.Write " &gt;&gt; "
-	Response.Write "留言本"
-elseif layercount=3 then
-	if HomeName<>"" then Response.Write " &gt;&gt; "
-	Response.Write "<a href=""index.asp"" class=""booktitle"">留言本</a>"
-	
-	Response.Write " &gt;&gt; " & param
-end if
-
-Response.Write "</td></tr></table>"
-end sub
+		<%if layercount=2 then%>
+			<%if HomeName<>"" then%><span class="separator">&gt;&gt;</span><%end if%>
+			<span class="guestbook">留言本</span>
+		<%elseif layercount=3 then%>
+			<%if HomeName<>"" then%><span class="separator">&gt;&gt;</span><%end if%>
+			<a class="guestbook" href="index.asp">留言本</a>
+			<span class="separator">&gt;&gt;</span>
+			<span class="page"><%=param%></span>
+		<%end if%>
+	</div>
+</div>
+<%end sub
 '==================================
 function cked(exp)
 	if exp=true then
@@ -682,6 +657,18 @@ Function CssBgColor(ColorName)
 		CssBgColor = "background-color:" & ColorName & ";"
 	else
 		CssBgColor = "background-color:transparent;"
+	end if
+End Function
+'==================================
+Function CssOptionalSize(property,size)
+	if(property<>"") then
+		if(isnumeric(size)) then
+			CssOptionalSize=property & ":" & size & "px;"
+		else
+			CssOptionalSize=property & ":" & size & ";"
+		end if
+	else
+		CssOptionalSize=""
 	end if
 End Function
 %>

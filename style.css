@@ -1,19 +1,12 @@
+/**************** common ****************/
 body {
 	margin: 0;
-	padding: 10px;
+	padding: 0;
 	font-style: normal;
 }
 
-.outerborder {
-	overflow: visible;
-	text-align: left;
-	border-style: solid;
-	margin: 0;
-}
-
 textarea, input, select {
-	border-width: 1px;
-	border-style: solid;
+	border:1px solid;
 }
 
 input, textarea {
@@ -21,10 +14,12 @@ input, textarea {
 	padding: 2px;
 	border: solid 1px;
 	background-color: #fff;
+	max-width:100%;
 	box-sizing: border-box;
 }
 input[type=text],
 input[type=password],
+select,
 textarea {
 	box-shadow: inset 0 3px 3px rgba(192, 192, 192, 0.3);
 }
@@ -36,33 +31,24 @@ button {
 	padding: 0.4em 2em;
 	cursor: pointer;
 }
+*+html input[type=submit],
+*+html input[type=reset],
+*+html input[type=button],
+*+html button {
+	padding:0.3em 1em;
+}
 
-input[type=checkbox],
-input[type=radio] {
-	border:0;
+input[disabled],
+button[disabled],
+select[disabled],
+textarea[disabled] {
+	opacity: 0.7;
+	box-shadow:none;
+	border-style:dashed;
 }
 
 img {
 	border: 0;
-}
-
-
-textarea {
-	display: block;
-}
-
-hr {
-	width: 100%;
-	height: 1px;
-}
-
-.centertext {
-	display: block;
-	border-style: none;
-	border-width: 0;
-	width: 100%;
-	text-align: center;
-	color: #808080;
 }
 
 a {
@@ -73,251 +59,731 @@ a:hover {
 	text-decoration: underline;
 }
 
-a.booktitle {
-	text-decoration: none;
+label {
+	display: inline-block;
 }
 
-a.booktitle:hover {
-	text-decoration: underline;
+.outerborder {
+	overflow: hidden;
+	border-style: solid;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
+
+/**************** common - form ****************/
 form {
 	margin: 0;
 	padding: 0;
-	border-width: 0;
-	border-style: none;
 }
 
-img.imgicon {
-	width: 16px;
-	height: 16px;
-	vertical-align: text-bottom;
-	border-style: none;
-	border-width: 0;
+form .field {
+	margin-bottom: 1em;
+	overflow: hidden;
+}
+*html form .field {
+	zoom:1;
 }
 
-img.ipicon {
-	width: 13px;
-	height: 15px;
-	vertical-align: text-bottom;
-	border-style: none;
-	border-width: 0;
+form .field .label {
+	float: left;
+	margin-right: 0.5em;
+	width:5em;
 }
 
-img.forumicon {
+form .field .label,
+form .field .label img,
+form .field .label span,
+form .field .value,
+form .field .value input {
+	display: inline-block;
 	vertical-align: middle;
-	margin: 2px;
 }
 
-img.pageicon {
-	width: 16px;
-	height: 16px;
+form .field .value {
+	padding-bottom: 1px;  /* fix issue for chrome to hide bottom border of inside button */
+}
+
+form .field .label img {
+	margin-right: 0.5em;
+}
+
+form .field .label .required {
+	color: #f00;
+}
+
+form .field .value {
+	display: block;
+	overflow: hidden;
+}
+
+form img.captcha {
+	margin-left: 0.5em;
+	vertical-align: middle;
+}
+
+form .command {
+	margin-top: 2em;
+	text-align: center;
+	clear: both;
+}
+
+form .field-command {
+	margin-bottom: 1em;
+}
+
+form .row {
+	display: block;
+}
+
+/**************** header ****************/
+.header {
+	background-size:100% 100%;
+	overflow: hidden;
+}
+*html .header {
+	zoom:1;
+}
+
+.header .logo {
+	display:inline-block;
+	vertical-align: middle;
+	margin:5px;
+}
+*html .header .logo {
+	display: inline;
+}
+*+html .header .logo {
+	display: inline;
+}
+
+.header .banner {
+	display: block;
+	margin:5px auto;
+	max-width:100%;
+	height: auto;
+}
+
+.header .breadcrumb {
+	display: inline-block;
+	vertical-align: middle;
+	margin:5px;
+	font-size: 1.25em;
+}
+*html .header .breadcrumb {
+	display: inline;
+}
+*+html .header .breadcrumb {
+	display: inline;
+}
+
+/**************** guest-functions ****************/
+.guest-functions {
+	overflow: hidden;
+	padding:0 0.5em;
+}
+*html .guest-functions {
+	zoom:1;
+}
+
+.guest-functions img {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+.guest-functions .main {
+	float: left;
+	padding-bottom: 1px;    /* fix issue for chrome to hide bottom border of inside button */
+}
+.guest-functions .main .function {
+	height: 30px;
+	display: block;
+	float: left;
+	margin-right: 2em;
+}
+
+.guest-functions .aside {
+	float: right;
+}
+.guest-functions .aside .function {
+	display: block;
+	float: left;
+	padding-left: 1em;
+	margin-left: 1em;
+	border-left:1px solid;
+}
+
+/**************** topic ****************/
+.topic {
+	overflow: hidden;
+	border-top:1px solid;
+}
+*html .topic {
+	zoom:1;
+}
+.topic:last-child {
+	margin-bottom: 0;
+}
+
+.topic .icons .icon {
+	display: inline-block;
+	vertical-align: bottom;
+	margin:0 2px;
+}
+.topic .icons .icon img {
+	display: block;
+}
+
+.topic .message {
+	overflow: hidden;
+	border:1px solid;
+}
+*html .topic .message {
+	zoom:1;
+}
+
+.topic .outer-message {
+	margin-top: -1px;
+}
+*html .topic .outer-message {
+	zoom:1;
+}
+
+.topic .title {
+	margin:0;
+	padding:0 0 0 5px;
+	border-bottom:1px solid;
+	font-weight: bold;
+	height: 25px;
+	line-height: 25px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	background: left top repeat-x;
+	background-size:100% 100%;
+}
+
+.topic .info {
+	float: left;
+	border-right:1px solid;
+	margin-right:-1px;
+	transition: width 200ms ease;
+}
+*html .topic .info {
+	margin-right: -4px;
+}
+.topic .info .name,
+.topic .info .icons,
+.topic .info .face,
+.topic .info .date {
+	display: block;
+	margin:5px auto;
+	text-align: center;
+}
+
+.topic .detail {
+	overflow: hidden;
+	border-left:1px solid;
+}
+*html .topic .detail {
+	zoom:1;
+}
+
+.topic .words {
+	margin:10px;
+}
+
+.topic .guest-tools {
+	margin:10px;
+	text-align: right;
+}
+.topic .guest-tools .tool {
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+.topic .inner-hint {
+
+}
+.topic .inner-hint img {
+	display: inline-block;
 	vertical-align: text-bottom;
-	border-width: 1px;
-	border-style: solid;
+	margin-right: 5px;
 }
 
-img.ubbbutton {
-	cursor: pointer;
-	border-width: 1px;
-	border-style: solid;
-	margin: 1px;
-	width: 16px;
-	height: 16px;
+.topic .inner-message {
+	margin:12px 24px 24px 24px;
+	padding:10px;
+	border:1px solid;
+	border-radius: 3px;
 }
 
-img.smallface {
-	cursor: pointer;
-	border-width: 1px;
-	border-style: solid;
-	margin: 1px;
+.topic .inner-message .summary {
+	border-bottom:1px solid;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	overflow: hidden;
+}
+*html .topic .inner-message .summary {
+	zoom:1;
+}
+.topic .inner-message .summary .name,
+.topic .inner-message .summary .date,
+.topic .inner-message .summary .icons {
+	float: left;
+	margin-right: 5px;
 }
 
-div.colorsquare {
+.topic .inner-message .title {
+	clear: both;
+	padding-left: 0;
+	height: auto;
+	line-height: normal;
+	background: none;
+	border-bottom: 0;
+}
+
+.topic .inner-message .face {
+	display: block;
+	float: left;
+	margin:0 10px 5px 0;
+}
+
+.topic .inner-message .words {
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: 0;
+}
+
+.topic .outer-hint {
+	border:1px solid;
+	margin-top:-1px;
+	padding:5px;
+	text-align: right;
+}
+
+.topic .admin-tools {
+	margin-top: -1px;
+	padding:5px;
+	border:1px solid;
+	overflow: hidden;
+}
+*html .topic .admin-tools {
+	zoom:1;
+}
+.topic .detail .admin-tools {
+	margin:24px 0;
+	border-left: 0;
+	border-right: 0;
+}
+.topic .detail .admin-tools:last-child {
+	margin-bottom: 0;
+	border-bottom: 0;
+}
+
+.topic .admin-tools .group {
+	overflow: hidden;
+}
+*html .topic .admin-tools .group {
+	zoom:1;
+}
+
+.topic .admin-tools .name {
+	float: left;
+	width:80px;
+}
+
+.topic .admin-tools .tools {
+	overflow: hidden;
+}
+*html .topic .admin-tools .tools {
+	zoom:1;
+}
+
+.topic .admin-tools .tool {
+	display: block;
+	float: left;
+	margin:0 5px;
+	height: 20px;
+	line-height: 20px;
+	white-space: nowrap;
+}
+
+.topic .admin-tools img {
+	display: inline-block;
+	vertical-align: text-bottom;
+}
+
+/**************** topic-list ****************/
+.topic-list {
+	table-layout: fixed;
+	border-collapse: collapse;
+	border:1px solid;
+	width:100%;
+	box-sizing: border-box;
+}
+
+.topic-list tr {
+}
+
+.topic-list th,
+.topic-list td {
+	margin:0;
+	padding:0 5px;
+	border:1px solid;
+	height: 25px;
+	line-height: 25px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.topic-list a {
+	display: block;
+}
+*html .topic-list a {
+	zoom:1;
+}
+
+.topic-list img {
+	display: block;
+}
+
+.topic-list .select {
+	width:15px;
+}
+.topic-list .select input {
+	display: block;
+	width:100%;
+	height: 100%;
+	margin:0;
+	padding:0;
+	border:0;
+	background: none;
+}
+
+.topic-list .icon {
+	width:15px;
+}
+*html .topic-list .icon a {
+	display: none;
+}
+
+.topic-list .title {
+	min-width:50px;
+}
+
+.topic-list .name {
+	width:15%;
+}
+
+.topic-list .date {
+	width:20%;
+}
+
+.topic-list .user {
+	width:13%;
+}
+
+/**************** grid ****************/
+.grid {
+}
+
+.grid th,
+.grid td {
+	position: relative;
+	padding:3px;
+	vertical-align: bottom;
+}
+
+.grid th *,
+.grid td * {
+	display: block;
+}
+
+.grid label {
+	text-align: center;
 	cursor: pointer;
-	border: solid 1px #000000;
+}
+
+.grid input {
+	position: absolute;
+	left:3px;
+	top:3px;
+	cursor: pointer;
+}
+
+.grid img {
+	max-width:100%;
+	margin:0 auto;
+	cursor: pointer;
+}
+
+/**************** region ****************/
+.region {
+	border:1px solid;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.region .title {
+	text-align: center;
+	margin:0;
+	padding:0;
+	border-bottom:1px solid;
+	font-weight: bold;
+	height: 25px;
+	line-height: 25px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	background: left top repeat-x;
+	background-size:100% 100%;
+}
+.region .title img {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+
+.region .content {
+	padding:10px;
+}
+
+.region .content table {
+	border-collapse: collapse;
+	border:1px solid;
+	width:100%;
+	box-sizing: border-box;
+}
+
+.region .content table th,
+.region .content table td {
+	border:1px solid;
+}
+
+.region .content table tbody th {
+	text-align: left;
+}
+
+.region .content table a {
+	display: block;
+	text-align: center;
+}
+*html .region .content table a {
+	zoom:1;
+}
+
+/**************** form-region ****************/
+.form-region {
+}
+
+.form-region form {
+	margin:10px;
+}
+
+/**************** center-region ****************/
+.center-region {
+	text-align: center;
+}
+
+/**************** narrow-region ****************/
+.narrow-region {
+	max-width:400px;
+}
+*html .narrow-region {
+	width:400px;
+}
+
+/**************** page-list ****************/
+.page-list {
+	overflow: hidden;
+}
+*html .page-list {
+	zoom:1;
+}
+
+.page-list .nav a {
+	display: block;
+	padding:3px;
+	border:1px solid;
+	cursor: pointer;
+}
+.page-list .nav img {
+	display: block;
+}
+.page-list .nav .js-page-control {
+	display: none;
+}
+
+.page-list .backward-nav {
+	float: left;
+}
+.page-list .backward-nav a{
+	float: left;
+}
+
+.page-list .forward-nav {
+	float: right;
+}
+.page-list .forward-nav a {
+	float: left;
+}
+
+.page-list .pagenum-list {
+	margin-bottom: 1em;
+}
+
+.page-list .pagenum {
+	display: inline-block;
+	padding:5px 10px;
+	border:1px solid;
+}
+.page-list .pagenum:hover {
+	text-decoration: none;
+}
+
+.page-list form {
+	text-align: center;
+}
+
+.page-list form .page {
+	width:50px;
+}
+
+.page-list form .submit {
+	padding:0.2em 1em;
+}
+
+/**************** footer ****************/
+.footer {
+	margin-top: 1em;
+	text-align:center;
+}
+
+/**************** Responsible ****************/
+@media only screen and (max-width: 400px) {
+	body .topic .info {
+		width:25%;
+	}
+
+	body .topic .info img {
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+/**************** tab-container ****************/
+.tab-outer-container {
+
+}
+
+.tab-outer-container .tab-title-container {
+	border-bottom:1px solid;
+	vertical-align: bottom;
+	padding-left: 0.5em;
+}
+*html .tab-outer-container .tab-title-container {
+	overflow: hidden;
+	zoom:1;
+}
+*+html .tab-outer-container .tab-title-container {
+	overflow: hidden;
+	zoom:1;
+}
+
+.tab-outer-container .tab-title {
+	display: inline-block;
+	position: relative;
+	bottom: -1px;
+	white-space: nowrap;
+	border:1px solid;
+	margin-top: 0.5em;
+	padding:0.5em 1em;
+	cursor: pointer;
+}
+*html .tab-outer-container .tab-title {
+	float: left;
+	zoom:1;
+}
+*+html .tab-outer-container .tab-title {
+	float: left;
+	zoom:1;
+}
+
+.tab-outer-container .tab-page {
+	padding:20px;
+}
+
+.tab-outer-container .tab-page h4 {
+	display: none;
+}
+
+.tab-outer-container .topic-list {
+	margin-top: 0;
+}
+
+/**************** ubbtoolbar ****************/
+.ubbtoolbar {
+	overflow: auto;
+}
+
+.ubbtoolbar .ubbbutton,
+.ubbtoolbar .ubbface {
+	display: inline-block;
+	border:1px solid;
+	padding:2px;
+	cursor: pointer;
+}
+
+.ubbtoolbar .ubbbutton img,
+.ubbtoolbar .ubbface img {
+	display: block;
+}
+/**************** colors-container ****************/
+.colorsContainer {
+	position: absolute;
+	z-index: 1;
+	display: none;
+	border:2px solid #000;
+	background: #000;
+	box-shadow: 0 0 10px #000;
+}
+*html .colorsContainer {
+	width:260px;
+}
+
+.colorsInfo {
+	padding: 5px;
+	overflow: hidden;
+}
+*html .colorsInfo {
+	zoom: 1;
+}
+
+.colorsPreview {width:40px; height:25px; border:solid 1px #FFFFFF; float:left;}
+.colorsNumber {width:50px; height:16px; border:none; color:#FFFFFF; float:left; margin:3px; margin-left:10px;}
+.colorsCancel {width:40px; float:left; border:solid 1px #FFFFFF; margin:2px; margin-left:30px; color:#FFFFFF; text-align:center; cursor:pointer;}
+
+.colorsPalette {
+}
+
+.colorsPalette .colorsRow {
+	overflow: hidden;
+}
+*html .colorsPalette .colorsRow {
+	zoom:1;
+}
+
+.colorsPalette .colorsCell {
+	cursor: pointer;
+	border: solid 1px #000;
 	margin: 0;
 	padding: 0;
 	width: 11px;
 	height: 11px;
 	float: left;
 }
-
-img.face {
-	border-style: none;
-	border-width: 0;
+.colorsPalette .colorsCell:hover {
+	border-color:#fff;
 }
-
-img.listface {
-	cursor: pointer;
-	border-style: none;
-	border-width: 0;
-}
-
-img.innerface {
-	border-style: none;
-	border-width: 0;
-	float: left;
-	margin: 0 5px 5px 0;
-}
-
-img.vcode {
-	vertical-align: text-bottom;
-}
-
-.generalwindow {
-	width: 100%;
-	border-width: 1px;
-	border-style: solid;
-	border-collapse: collapse;
-}
-
-.noborder {
-	border-style: none;
-	border-width: 0;
-}
-
-table.grid {
-	width: 100%;
-	border-width: 1px;
-	border-style: solid;
-	border-collapse: collapse;
-}
-
-.grid th, .grid td {
-	border-width: 1px;
-	border-style: solid;
-}
-
-table.onetopic {
-	width: 100%;
-	overflow: hidden;
-	border-width: 1px;
-	border-style: solid;
-	border-collapse: collapse;
-	table-layout: fixed;
-}
-
-td.centertitle {
-	width: 100%;
-	height: 25px;
-	border-width: 1px;
-	border-style: solid;
-	text-align: center;
-	vertical-align: middle;
-	font-weight: bold;
-}
-
-td.wordstitle {
-	height: 25px;
-	text-align: left;
-	vertical-align: middle;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	font-weight: bold;
-}
-
-td.bulletintitle {
-	height: 25px;
-	text-align: left;
-	vertical-align: middle;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	font-weight: bold;
-}
-
-td.replytitle {
-	height: 25px;
-	text-align: left;
-	vertical-align: middle;
-	border-width: 1px;
-	border-style: solid;
-	font-weight: bold;
-}
-
-td.tableleft {
-	text-align: center;
-	vertical-align: top;
-	border-width: 1px;
-	border-style: solid;
-	padding: 3px 0;
-	overflow: hidden;
-}
-
-td.tableright {
-	vertical-align: top;
-	border-width: 1px;
-	border-style: solid;
-}
-
-td.wordscontent {
-	overflow: hidden;
-	vertical-align: top;
-	margin: 0;
-	padding: 10px;
-}
-
-td.vguestpass {
-	width: 100%;
-	height: 25px;
-	text-align: right;
-	border-width: 1px;
-	border-style: solid;
-	margin: 0;
-	padding: 2px;
-}
-
-tr.header {
-	font-weight: bold;
-}
-
-td.embedbox {
-	vertical-align: top;
-	margin: 0;
-	padding: 12px 24px 12px 24px;
-}
-
-div.embedbox {
-	margin: 0;
-	padding: 10px;
-	border-width: 1px;
-	border-style: solid;
-}
-
-table.embedbox {
-	overflow: hidden;
-	border-style: none;
-	border-width: 0;
-	border-collapse: collapse;
-	margin: 0;
-	padding: 0;
-	table-layout: fixed;
-}
-
-.tabOuterContainer {
-	width: auto;
-	height: 400px;
-}
-
-.tabTitle {
-	text-align: center;
-	width: 110px;
-	height: 25px;
-	line-height: 25px;
-	border-width: 1px;
-	border-style: solid;;
-}
-
-.tabTitleOver {
-	border-width: 1px;
-	border-style: solid;
-}
-
-.tabPageContainer {
-	width: 100%;
-}
-
-.tabPage {
-	padding: 5px;
-}
-
