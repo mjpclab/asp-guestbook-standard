@@ -4,7 +4,7 @@ const dbtype=2		'数据库类型,1:Access97  2:Access2000/2002/2003  10:MSSQL
 const prefix=""		'表名前缀，多个程序共用一个数据库时，通过表名前缀防止冲突
 
 '<Access数据库参数>
-const dbfile="database/data.asp"		'数据库文件位置，使用相对路径
+const dbfile="database/data.mdb.db"		'数据库文件位置，使用相对路径
 '</Access数据库参数>
 
 '<SQL Server数据库参数>
