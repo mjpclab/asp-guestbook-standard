@@ -63,6 +63,10 @@ label {
 	display: inline-block;
 }
 
+.centertext {
+	text-align: center;
+}
+
 .outerborder {
 	overflow: hidden;
 	border-style: solid;
