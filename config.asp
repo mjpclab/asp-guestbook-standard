@@ -1,6 +1,6 @@
 <%@ CodePage="936" Language="VBScript" %>
 <%
-const dbtype=3		'数据库类型,1:Access97  2:Access2000/2002/2003  3:Access 2007/2010  10:MSSQL
+const dbtype=2		'数据库类型,1:Access97  2:Access2000/2002/2003  3:Access 2007/2010  10:MSSQL
 const prefix=""		'表名前缀，多个程序共用一个数据库时，通过表名前缀防止冲突
 
 '<Access数据库参数>
