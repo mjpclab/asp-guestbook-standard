@@ -2,7 +2,7 @@
 IsAccess=false
 IsSqlServer=false
 
-if dbtype=1 or dbtype=2 then
+if dbtype>=1 and dbtype<=3 then
 	IsAccess=true
     table_config			="[" & prefix & "config]"
     table_filterconfig		="[" & prefix & "filterconfig]"

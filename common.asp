@@ -12,6 +12,9 @@ function CreateConn(byref tconn,byval tDBType)
 	case 2
 		tconn.ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=""" & server.Mappath(dbfile) & """"
 		tconn.Open
+	case 3
+		tconn.ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=""" & server.Mappath(dbfile) & """"
+		tconn.Open
 	case 10
 		dim sql_port
 		if dbport<>"" then sql_port="," & dbport else sql_port=""
