@@ -40,4 +40,5 @@ wend
 %>
 </tbody>
 </table>
-<script type="text/javascript" src="table-select.js"></script>
+<script type="text/javascript" src="js/jquery-1.x-min.js"></script>
+<script type="text/javascript" src="js/table-select.js"></script>

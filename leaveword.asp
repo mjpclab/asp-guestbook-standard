@@ -220,7 +220,7 @@ end function
 					<!-- #include file="inc_ubbhelp.asp" -->
 				</div>
 
-				<script type="text/javascript" src="tabcontrol.js"></script>
+				<script type="text/javascript" src="js/tabcontrol.js"></script>
 				<script type="text/javascript">
 					tab=new TabControl('tabContainer');
 

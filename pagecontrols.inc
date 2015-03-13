@@ -29,11 +29,11 @@
 
 			var delta = new_start - old_start;
 			for (var i = 0; i < pageNums.length && delta != 0; i++) {
-				var pageNum=pageNums[i]
+				var pageNum=pageNums[i];
 				var old_current = Number(pageNum.firstChild.data);
 				var new_current = old_current + delta;
 
-				pageNum.href = pageNum.href.replace(/page=\d+/i, 'page=' + new_current.toString(10))
+				pageNum.href = pageNum.href.replace(/page=\d+/i, 'page=' + new_current.toString(10));
 				pageNum.firstChild.data = new_current.toString(10);
 
 				if (new_current == CurrentPage)
