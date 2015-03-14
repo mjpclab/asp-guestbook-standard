@@ -7,8 +7,8 @@
 <head>
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> ¡Ù—‘±æ ¥ÌŒÛ</title>
-	<link rel="stylesheet" type="text/css" href="style.css"/>
-	<!-- #include file="style.asp" -->
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<!-- #include file="css/style.asp" -->
 </head>
 
 <body<%=bodylimit%> onload="<%=framecheck%>">

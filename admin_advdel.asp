@@ -8,10 +8,10 @@
 <head>
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> ÁôÑÔ±¾ ¸ß¼¶É¾³ý</title>
-	<link rel="stylesheet" type="text/css" href="style.css"/>
-	<link rel="stylesheet" type="text/css" href="adminstyle.css"/>
-	<!-- #include file="style.asp" -->
-	<!-- #include file="adminstyle.asp" -->
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="css/adminstyle.css"/>
+	<!-- #include file="css/style.asp" -->
+	<!-- #include file="css/adminstyle.asp" -->
 </head>
 
 <body<%=bodylimit%> onload="<%=framecheck%>">

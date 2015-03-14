@@ -21,8 +21,8 @@ if StatusStatistics then call addstat("search")
 <head>
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> ÁôÑÔ±¾ ËÑË÷½á¹û</title>
-	<link rel="stylesheet" type="text/css" href="style.css"/>
-	<!-- #include file="style.asp" -->
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<!-- #include file="css/style.asp" -->
 </head>
 
 <body<%=bodylimit%> onload="<%=framecheck%>">
