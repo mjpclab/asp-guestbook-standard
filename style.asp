@@ -218,8 +218,11 @@ textarea,input,select {
 
 
 .ubbtoolbar {
-	<%=CssOptionalSize("width",UbbToolWidth)%>
+	<%=CssOptionalSize("max-width",UbbToolWidth)%>
 	<%=CssOptionalSize("height",UbbToolHeight)%>
+}
+*html .ubbtoolbar {
+	<%=CssOptionalSize("width",UbbToolWidth)%>
 }
 
 .ubbtoolbar .ubbbutton,
