@@ -292,7 +292,7 @@ if ItemsCount>0 then
 end if
 end sub
 '==================================
-sub show_page_list(byval CurPage,byval PagesCount,byval filename,byval pagetitle,byval titlealign,byval param)
+sub show_page_list(byval CurPage,byval PagesCount,byval filename,byval pagetitle,byval param)
 
 if param<>"" then
 	if left(param,1)<>"&" then param="&" & param

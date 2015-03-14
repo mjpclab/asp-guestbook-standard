@@ -94,7 +94,7 @@ end if
 		</div>
 	</div>
 
-	<%if CanOpenDB and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"admin_search.asp","[搜索结果分页]","center","type=" &request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
+	<%if CanOpenDB and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"admin_search.asp","[搜索结果分页]","type=" &request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
 	<form method="post" action="admin_mdel.asp" name="form7">
 	<%RPage="admin_search.asp"%><!-- #include file="func_admin.inc" -->
 	<%
@@ -120,7 +120,7 @@ end if
 	<!-- #include file="func_admin.inc" -->
 	</form>
 
-	<%if CanOpenDB and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"admin_search.asp","[搜索结果分页]","center","type=" &request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
+	<%if CanOpenDB and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"admin_search.asp","[搜索结果分页]","type=" &request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
 </div>
 
 <%

@@ -40,7 +40,7 @@ get_divided_page cn,rs,sql_pk_main,sql_admin_words_count,sql_admin_words_query,"
 	<%if ShowTitle=true then show_book_title 3,"¹ÜÀí"%>
 	<!-- #include file="admincontrols.inc" -->
 	<!-- #include file="topbulletin.inc" -->
-	<%if PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"admin.asp","[ÁôÑÔ·ÖÒ³]","center",""%>
+	<%if PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"admin.asp","[ÁôÑÔ·ÖÒ³]",""%>
 
 	<form method="post" action="admin_mdel.asp" name="form7">
 		<%RPage="admin.asp"%><!-- #include file="func_admin.inc" -->
@@ -63,7 +63,7 @@ get_divided_page cn,rs,sql_pk_main,sql_admin_words_count,sql_admin_words_query,"
 		<!-- #include file="func_admin.inc" -->
 	</form>
 
-	<%if PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"admin.asp","[ÁôÑÔ·ÖÒ³]","center",""%>
+	<%if PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"admin.asp","[ÁôÑÔ·ÖÒ³]",""%>
 </div>
 
 <!-- #include file="bottom.asp" -->
