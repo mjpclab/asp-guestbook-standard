@@ -744,6 +744,22 @@ form .row {
 .ubbtoolbar .ubbface img {
 	display: block;
 }
+
+/**************** ubb-wrapper ****************/
+.ubb-wrapper {
+	overflow: hidden;
+}
+*html .ubb-wrapper {
+	width:100%;
+}
+
+.ubb-wrapper img,
+.ubb-wrapper object,
+.ubb-wrapper embed {
+	display: block;
+	max-width:100%;
+}
+
 /**************** colors-container ****************/
 .colorsContainer {
 	position: absolute;
