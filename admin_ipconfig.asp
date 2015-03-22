@@ -55,43 +55,41 @@
 					<p class="row"><input type="radio" name="ipconstatus" value="1" id="r2"<%=cked(tipconstatus=1)%> /><label for="r2">只屏蔽以下IP段，其余放行</label></p>
 					<p class="row">添加新IP段,格式:"起始IP-终止IP"</p>
 					<p class="row"><textarea name="txt1" rows="6" style="width:100%"></textarea></p>
-					<p class="row">
+					<p class="row">选择要删除的IP段：</p>
 					<%rs.Open sql_adminipconfig_status1,cn,,,1
 					if rs.EOF=false then
-						Response.Write "选择要删除的IP段："
 						while rs.EOF=false
 							tlistid=rs("listid")
 							tstartip=rs("startip")
-							tendip=rs("endip")
-							Response.Write "<input type=""checkbox"" name=""savediplist1"" value=""" &tlistid& """ id=""" &tlistid& """ /><label for=""" &tlistid& """>" & hextoip(tstartip) & "-" & hextoip(tendip) &"</label>"
-							rs.MoveNext
+							tendip=rs("endip")%>
+							<span class="row">
+							<input type="checkbox" name="savediplist1" value="<%=tlistid%>" id="ip-<%=tlistid%>" /><label for="ip-<%=tlistid%>"><%=hextoip(tstartip) & "-" & hextoip(tendip)%></label>
+							</span>
+							<%rs.MoveNext
 						wend
-						Response.Write ""
 					end if
 					rs.Close
 					%>
-					</p>
 				</td>
 				<td style="width:50%; vertical-align:top;">
-					<p><input type="radio" name="ipconstatus" value="2" id="r3"<%=cked(tipconstatus=2)%> /><label for="r3">只允许以下IP段，其余均不放行</label></p>
-					<p>添加新IP段,格式:"起始IP-终止IP"</p>
-					<p><textarea name="txt2" rows="6" style="width:100%"></textarea></p>
-					<p>
+					<p class="row"><input type="radio" name="ipconstatus" value="2" id="r3"<%=cked(tipconstatus=2)%> /><label for="r3">只允许以下IP段，其余均不放行</label></p>
+					<p class="row">添加新IP段,格式:"起始IP-终止IP"</p>
+					<p class="row"><textarea name="txt2" rows="6" style="width:100%"></textarea></p>
+					<p class="row">选择要删除的IP段：</p>
 					<%rs.Open sql_adminipconfig_status2,cn,,,1
 					if rs.EOF=false then
-						Response.Write "选择要删除的IP段："
 						while rs.EOF=false
 							tlistid=rs("listid")
 							tstartip=rs("startip")
-							tendip=rs("endip")
-							Response.Write "<input type=""checkbox"" name=""savediplist2"" value=""" &tlistid& """ id=""" &tlistid& """ /><label for=""" &tlistid& """>" & hextoip(tstartip) & "-" & hextoip(tendip) &"</label>"
-							rs.MoveNext
+							tendip=rs("endip")%>
+							<span class="row">
+							<input type="checkbox" name="savediplist2" value="<%=tlistid%>" id="ip-<%=tlistid%>" /><label for="ip-<%=tlistid%>"><%=hextoip(tstartip) & "-" & hextoip(tendip)%></label>
+							</span>
+							<%rs.MoveNext
 						wend
-						Response.Write ""
 					end if
 					rs.Close
 					%>
-					</p>
 				</td>
 			</tr>
 		</table>
