@@ -52,9 +52,9 @@ if dbtype=1 or dbtype=2 then
 elseif dbtype=10 then
 	set cn=Server.CreateObject("ADODB.Connection")
 	CreateConn cn,dbtype
-	cn.Execute sql_compact_dblog,,1
 	cn.Execute sql_compact_dbfile,,1
-	
+	cn.Execute sql_compact_dblog,,1
+
 	cn.Close
 	set cn=nothing
 end if
