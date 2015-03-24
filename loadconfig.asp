@@ -209,10 +209,10 @@ if clng(DelConfirm and 128)<>0 then Bring2TopTip=true
 if clng(DelConfirm and 256)<>0 then Lock2TopTip=true
 if clng(DelConfirm and 512)<>0 then ReorderTip=true
 
-stylename=lrs("stylename")
+styleid=lrs("styleid")
 
 lrs.Close
-lrs.Open Replace(sql_loadconfig_style,"{0}",stylename),lcn,0,1,1
+lrs.Open Replace(sql_loadconfig_style,"{0}",styleid),lcn,0,1,1
 if lrs.EOF=true then
 	lrs.Close
 	lrs.Open sql_loadconfig_top1style ,lcn

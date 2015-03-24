@@ -385,9 +385,9 @@ else
 		if Request.Form("lock2toptip")="1" then tdelconfirm=tdelconfirm+256
 		if Request.Form("reordertip")="1" then tdelconfirm=tdelconfirm+512
 
-		tstylename=server.htmlEncode(Request.Form("style"))
-		tstylename=replace(tstylename," ","")
-		
+		tstyleid=Request.Form("style")
+		if isnumeric(tstyleid)=false then tstyleid=0
+		tstyleid=clng(tstyleid)
 	end if
 
 	set cn1=server.CreateObject("ADODB.Connection")
@@ -451,7 +451,7 @@ else
 		rs1("pagecontrol")=tpagecontrol
 		rs1("wordslimit")=twordslimit
 		rs1("delconfirm")=tdelconfirm
-		rs1("stylename")=tstylename
+		rs1("styleid")=tstyleid
 	end if
 	rs1.Update
 	

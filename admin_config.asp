@@ -437,16 +437,17 @@
 					<span class="value">
 						<select name="style">
 						<%
-						stylename=rs("stylename")
+						styleid=rs("styleid")
 						rs.Close
 						rs.Open sql_adminconfig_style,cn,,,1
 
-						dim onestyle
+						dim onestyleid,onestylename
 						while rs.EOF=false
-							onestyle=rs("stylename")
-							Response.Write "<option value=" &chr(34)& onestyle &chr(34)
-							if onestyle=stylename or stylename="" then Response.Write " selected=""selected"""
-							Response.Write ">" &onestyle& "</option>"
+							onestyleid=rs("styleid")
+							onestylename=rs("stylename")
+							Response.Write "<option value=" &chr(34)& onestyleid &chr(34)
+							if onestyleid=styleid or onestyleid="" then Response.Write " selected=""selected"""
+							Response.Write ">" &onestylename& "</option>"
 							rs.MoveNext
 						wend
 						%>
