@@ -7,13 +7,13 @@ function CreateConn(byref tconn,byval tDBType)
 
 	select case tDBType
 	case 1
-		tconn.ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=""" & server.Mappath(dbfile) & """"
+		tconn.ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=""" & server.Mappath(dbfile) & """;Jet OLEDB:Database Password=""" & dbfilepassword & """;"
 		tconn.Open
 	case 2
-		tconn.ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=""" & server.Mappath(dbfile) & """"
+		tconn.ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=""" & server.Mappath(dbfile) & """;Jet OLEDB:Database Password=""" & dbfilepassword & """;"
 		tconn.Open
 	case 3
-		tconn.ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=""" & server.Mappath(dbfile) & """"
+		tconn.ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=""" & server.Mappath(dbfile) & """;Jet OLEDB:Database Password=""" & dbfilepassword & """;"
 		tconn.Open
 	case 10
 		dim sql_port
