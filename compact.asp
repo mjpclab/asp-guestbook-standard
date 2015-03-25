@@ -20,7 +20,7 @@ sub fsosupported()
 end sub
 
 Response.Expires=-1
-if dbtype=1 or dbtype=2 then
+if dbtype>=1 and dbtype<=3 then
 	Call fsosupported
 	Dim fso, Engine
 	r_dbfile=server.mappath(dbfile)
@@ -38,6 +38,8 @@ if dbtype=1 or dbtype=2 then
 			Engine.CompactDatabase "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=""" & r_dbfile & """","Provider=Microsoft.Jet.OLEDB.4.0;Data Source=""" & r_dbfile_tmp & """;Jet OLEDB:Engine Type=4"
 		elseif dbtype=2 then	'Access2000
 			Engine.CompactDatabase "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=""" & r_dbfile & """","Provider=Microsoft.Jet.OLEDB.4.0;Data Source=""" & r_dbfile_tmp & """;Jet OLEDB:Engine Type=5"
+		elseif dbtype=3 then	'Access2007
+			Engine.CompactDatabase "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=""" & r_dbfile & """","Provider=Microsoft.ACE.OLEDB.12.0;Data Source=""" & r_dbfile_tmp & """;Jet OLEDB:Engine Type=5"
 		end if
 		fso.CopyFile r_dbfile_tmp,r_dbfile
 		fso.DeleteFile (r_dbfile_tmp)
