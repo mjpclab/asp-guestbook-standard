@@ -31,16 +31,14 @@
 
 	<div class="region region-config admin-tools">
 		<h3 class="title">留言本参数设置</h3>
-		<div class="content">
-			<table>
-			<tr>
-				<td><a href="admin_config.asp?page=1">[基本配置]</a></td>
-				<td><a href="admin_config.asp?page=2">[邮件通知]</a></td>
-				<td><a href="admin_config.asp?page=4">[界面尺寸]</a></td>
-				<td><a href="admin_config.asp?page=8">[功能设置]</a></td>
-				<td><a href="admin_config.asp">[全部参数]</a></td>
-			</tr>
-			</table>
+		<div class="content flex-box">
+			<ul>
+				<li><a href="admin_config.asp?page=1">基本配置</a></li>
+				<li><a href="admin_config.asp?page=2">邮件通知</a></li>
+				<li><a href="admin_config.asp?page=4">界面尺寸</a></li>
+				<li><a href="admin_config.asp?page=8">功能设置</a></li>
+				<li><a href="admin_config.asp">全部参数</a></li>
+			</ul>
 
 			<form method="post" action="admin_saveconfig.asp" name="configform" onsubmit="return check();">
 

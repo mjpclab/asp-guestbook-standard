@@ -1,10 +1,43 @@
-.admin-controls {
-
+.flex-box ul {
+	display: block;
+	margin:0;
+	padding:0;
+	overflow: hidden;
+}
+*html .flex-box ul {
+	zoom:1;
+}
+.flex-box li {
+	display: block;
+	margin:0 1px 1px 0;
+	float: left;
+	border:1px solid;
+	min-width:90px;
+	text-align: center;
+	white-space: nowrap;
+}
+*html .flex-box li {
+	width:19%;
 }
 
-.admin-controls td {
-	width:20%;
+.flex-box ul {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap:wrap;
+	flex-wrap:wrap;
 }
+.flex-box li {
+	-webkit-flex-grow:1;
+	flex-grow:1;
+	-webkit-flex-shrink: 0;
+	flex-shrink: 0;
+}
+
+.flex-box a {
+	display: block;
+	padding:0.2em 0;
+}
+
 
 .region-callgen .field .label {
 	width:7em;
