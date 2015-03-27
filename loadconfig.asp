@@ -222,6 +222,7 @@ PageBackColor=lrs("pagebackcolor")			'网页背景色
 PageBackImage=lrs("pagebackimage")			'网页背景图片，使用相对路径
 
 TableBorderColor=lrs("tablebordercolor")		'表格边框颜色
+TableBorderColorInactive=lrs("tablebordercolorinactive")		'表格边框颜色（非活动）
 TableBorderWidth=TableBorderWidth*lrs("tableborderwidth")		'表格外框粗细
 TableBorderPadding=lrs("tableborderpadding")					'表格外框边距
 TableBGC=lrs("tablebgc")						'表格主体背景色
