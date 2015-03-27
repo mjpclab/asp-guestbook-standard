@@ -620,6 +620,43 @@ function FilterSql(byref str)
 	FilterSql=r_str
 end function
 '==================================
+function FilterKeyword(byref str)
+	dim r_str
+	r_str=str
+
+	r_str=replace(r_str,"'","")
+	r_str=replace(r_str,"""","")
+	r_str=replace(r_str,",","")
+	r_str=replace(r_str,".","")
+	r_str=replace(r_str,":","")
+	r_str=replace(r_str,";","")
+	r_str=replace(r_str,"`","")
+	r_str=replace(r_str,"~","")
+	r_str=replace(r_str," ","")
+	r_str=replace(r_str,"(","")
+	r_str=replace(r_str,")","")
+	r_str=replace(r_str,"[","")
+	r_str=replace(r_str,"]","")
+	r_str=replace(r_str,"{","")
+	r_str=replace(r_str,"}","")
+	r_str=replace(r_str,"+","")
+	r_str=replace(r_str,"^","")
+	r_str=replace(r_str,"+","")
+	r_str=replace(r_str,"-","")
+	r_str=replace(r_str,"*","")
+	r_str=replace(r_str,"#","")
+	r_str=replace(r_str,"@","")
+	r_str=replace(r_str,"$","")
+	r_str=replace(r_str,"%","")
+	r_str=replace(r_str,"/","")
+	r_str=replace(r_str,"\","")
+	r_str=replace(r_str,"?","")
+	r_str=replace(r_str,"&","")
+	r_str=replace(r_str,"=","")
+
+	FilterKeyword=r_str
+end function
+'==================================
 sub MessagePage(strMessage,backPage)
 	%>
 	<!-- #include file="inc_dtd.asp" -->
