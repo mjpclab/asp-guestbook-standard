@@ -42,7 +42,7 @@ end sub
 '======================================================
 
 Response.Expires=-1
-if isbanip(Request.ServerVariables("REMOTE_ADDR"))=true or isbanip(Request.ServerVariables("HTTP_X_FORWARDED_FOR"))=true then
+if checkIsBannedIP then
 	Response.Redirect "err.asp?number=1"
 	Response.End
 elseif StatusOpen=false then
@@ -93,7 +93,8 @@ set cn=server.CreateObject("ADODB.Connection")
 set rs=server.CreateObject("ADODB.Recordset")
 set rs2=server.CreateObject("ADODB.Recordset")
 
-dim content1,name1,title1,email1,qqid1,msnid1,homepage1,ipaddr1,originalip1,head1,guestflag,whisperpwd
+dim content1,name1,title1,email1,qqid1,msnid1,homepage1,ipv4addr1,ipv6addr1,originalipv41,originalipv61,head1,guestflag,whisperpwd
+dim tmpAddr
 '---------------------
 name1=Request.form("iname")
 title1=request.form("ititle")
@@ -102,8 +103,18 @@ qqid1=request.form("iqq")
 msnid1=request.form("imsn")
 homepage1=request.form("ihomepage")
 
-ipaddr1=request.ServerVariables("REMOTE_ADDR")
-originalip1="" & Request.ServerVariables("HTTP_X_FORWARDED_FOR") & ""
+tmpAddr=CStr(request.ServerVariables("REMOTE_ADDR"))
+if IsIPv4(tmpAddr) then
+	ipv4addr1=tmpAddr
+elseif IsIPv6(tmpAddr) then
+	ipv6addr1=expandIPv6(tmpAddr,false)
+end if
+tmpAddr=CStr(request.ServerVariables("HTTP_X_FORWARDED_FOR"))
+if IsIPv4(tmpAddr) then
+	originalipv41=tmpAddr
+elseif IsIPv6(tmpAddr) then
+	originalipv61=expandIPv6(tmpAddr,false)
+end if
 face1=request.form("ihead")
 
 content1=request.form("icontent")
@@ -265,8 +276,10 @@ rs("msnid")=msnid1
 rs("homepage")=homepage1
 rs("logdate")=logdate1
 rs("lastupdated")=logdate1
-rs("ipaddr")=ipaddr1
-rs("originalip")=originalip1
+rs("ipv4addr")=ipv4addr1
+rs("ipv6addr")=ipv6addr1
+rs("originalipv4")=originalipv41
+rs("originalipv6")=originalipv61
 rs("faceid")=face1
 rs("guestflag")=guestflag
 rs("whisperpwd")=whisperpwd

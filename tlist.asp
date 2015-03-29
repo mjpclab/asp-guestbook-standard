@@ -2,7 +2,7 @@
 <!-- #include file="common2.asp" -->
 <%
 Response.Expires=-1
-if isbanip(Request.ServerVariables("REMOTE_ADDR"))=true or isbanip(Request.ServerVariables("HTTP_X_FORWARDED_FOR"))=true then
+if checkIsBannedIP then
 	Response.End
 elseif StatusOpen=false then
 	Response.End

@@ -66,3 +66,15 @@
 	padding-bottom: 0;
 	border-bottom: 0;
 }
+
+
+.iplist {
+	overflow: hidden;
+}
+.iplist input {
+	float: left;
+}
+.iplist label {
+	display: block;
+	overflow: hidden;
+}

@@ -45,10 +45,13 @@ sub showguestinfoicons(t_rs)%>
 	<%if t_rs("homepage")<>"" then%><a class="icon" href="<%=t_rs("homepage")%>" target="_blank" title="作者主页：<%=t_rs("homepage")%>"><img src="image/icon_homepage.gif" /></a><%end if%>
 
 	<%if left(pagename,5)="admin" then%>
-		<%if AdminShowIP>0 then%><span class="icon" title="IP：<%=getip(t_rs("ipaddr"),cint(AdminShowIP))%>"><img src="image/icon_ip.gif"/></span><%end if%>
-		<%if AdminShowOriginalIP>0 and t_rs("originalip")<>"" then%><span class="icon" title="原始IP：<%=getip(t_rs("originalip"),cint(AdminShowOriginalIP))%>"><img src="image/icon_ip2.gif"/></span><%end if%>
+		<%if AdminShowIPv4>0 and Len(t_rs.Fields("ipv4addr"))>0 then%><span class="icon" title="IP：<%=GetIPv4(t_rs.Fields("ipv4addr"),AdminShowIPv4)%>"><img src="image/icon_ip.gif"/></span><%end if%>
+		<%if AdminShowIPv6>0 and Len(t_rs.Fields("ipv6addr"))>0 then%><span class="icon" title="IP：<%=GetIPv6(t_rs.Fields("ipv6addr"),AdminShowIPv6)%>"><img src="image/icon_ip.gif"/></span><%end if%>
+		<%if AdminShowOriginalIPv4>0 and Len(t_rs.Fields("originalipv4"))>0 then%><span class="icon" title="原始IP：<%=GetIPv4(t_rs.Fields("originalipv4"),AdminShowOriginalIPv4)%>"><img src="image/icon_ip2.gif"/></span><%end if%>
+		<%if AdminShowOriginalIPv6>0 and Len(t_rs.Fields("originalipv6"))>0 then%><span class="icon" title="原始IP：<%=GetIPv6(t_rs.Fields("originalipv6"),AdminShowOriginalIPv6)%>"><img src="image/icon_ip2.gif"/></span><%end if%>
 	<%else%>
-		<%if ShowIP>0 then%><span class="icon" title="IP：<%=getip(t_rs("ipaddr"),cint(ShowIP))%>"><img src="image/icon_ip.gif"/></span><%end if%>
+		<%if ShowIPv4>0 and Len(t_rs.Fields("ipv4addr"))>0 then%><span class="icon" title="IP：<%=GetIPv4(t_rs.Fields("ipv4addr"),ShowIPv4)%>"><img src="image/icon_ip.gif"/></span><%end if%>
+		<%if ShowIPv6>0 and Len(t_rs.Fields("ipv6addr"))>0 then%><span class="icon" title="IP：<%=GetIPv6(t_rs.Fields("ipv6addr"),ShowIPv6)%>"><img src="image/icon_ip.gif"/></span><%end if%>
 	<%end if%>
 <%end sub
 '===================
@@ -179,11 +182,9 @@ sub outerword(byref t_rs)%>
 			<%end if
 		end if%>
 
-		<%if (iswhisper=false and clng(guestflag and 256)=0) or (pagename="showword" and needverify) or left(pagename,5)="admin" then
-			if t_rs("email")<>"" or t_rs("qqid")<>"" or t_rs("msnid")<>"" or t_rs("homepage")<>"" or (left(pagename,5)<>"admin" and ShowIP>0) or (left(pagename,5)="admin" and AdminShowIP>0) or (left(pagename,5)="admin" and AdminShowOriginalIP>0 and t_rs("originalip")<>"") then%>
-				<div class="icons"><%showguestinfoicons(t_rs)%></div>
-			<%end if
-		end if%>
+		<%if (iswhisper=false and clng(guestflag and 256)=0) or (pagename="showword" and needverify) or left(pagename,5)="admin" then%>
+			<div class="icons"><%showguestinfoicons(t_rs)%></div>
+		<%end if%>
 
 		<div class="date"><%=t_rs("logdate")%></div>
 	</div>
@@ -278,10 +279,19 @@ getpuretext=outstr
 end function
 '===================
 function geturlpath()
-dim host,url
+dim host,url,buffer,port
 host="http://"
 if Request.ServerVariables("SERVER_NAME")<>"" then
-	host=host & Request.ServerVariables("SERVER_NAME")
+	buffer=Request.ServerVariables("SERVER_NAME")
+	if IsIPv6(buffer) then
+		buffer = "[" & buffer & "]"
+	end if
+	host=host & buffer
+
+	port=Request.ServerVariables("SERVER_PORT")
+	if Len(port)>0 and port<>"80" then
+		host=host & ":" & port
+	end if
 else
 	host=host & Request.ServerVariables("HTTP_HOST")
 end if

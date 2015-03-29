@@ -35,12 +35,18 @@ if isnumeric(Request.Form("page")) and len(Request.Form("page"))<=2 and Request.
 
 if isnumeric(request.Form("admintimeout"))=false and clng(showpage and 1)<> 0 then
 	errbox "“管理员登录超时”必须为数字。"
-elseif isnumeric(request.Form("showip"))=false and clng(showpage and 1)<> 0 then
-	errbox "“为访客显示IP”必须为数字。"
-elseif isnumeric(request.Form("adminshowip"))=false and clng(showpage and 1)<> 0 then
-	errbox "“为管理员显示IP”必须为数字。"
-elseif isnumeric(request.Form("adminshoworiginalip"))=false and clng(showpage and 1)<> 0 then
-	errbox "“为管理员显示原IP”必须为数字。"
+elseif isnumeric(request.Form("showipv4"))=false and clng(showpage and 1)<> 0 then
+	errbox "“为访客显示IPv4”必须为数字。"
+elseif isnumeric(request.Form("showipv6"))=false and clng(showpage and 1)<> 0 then
+	errbox "“为访客显示IPv6”必须为数字。"
+elseif isnumeric(request.Form("adminshowipv4"))=false and clng(showpage and 1)<> 0 then
+	errbox "“为管理员显示IPv4”必须为数字。"
+elseif isnumeric(request.Form("adminshowipv6"))=false and clng(showpage and 1)<> 0 then
+	errbox "“为管理员显示IPv6”必须为数字。"
+elseif isnumeric(request.Form("adminshoworiginalipv4"))=false and clng(showpage and 1)<> 0 then
+	errbox "“为管理员显示原IPv4”必须为数字。"
+elseif isnumeric(request.Form("adminshoworiginalipv6"))=false and clng(showpage and 1)<> 0 then
+	errbox "“为管理员显示原IPv6”必须为数字。"
 elseif isnumeric(request.Form("vcodecount"))=false and clng(showpage and 1)<> 0 then
 	errbox "“登录验证码长度”必须为数字。"
 elseif isnumeric(request.Form("writevcodecount"))=false and clng(showpage and 1)<> 0 then
@@ -147,16 +153,34 @@ else
 		if len(cstr(tadmintimeout))>4 or isnumeric(tadmintimeout)=false then tadmintimeout=1440
 		if clng(tadmintimeout)>1440 then tadmintimeout=1440
 		if clng(tadmintimeout)<1 then tadmintimeout="20"
-		
-		tshowip=Request.Form("showip")
-		if clng(tshowip)<0 or clng(tshowip)>4 then tshowip="0"
 
-		tadminshowip=Request.Form("adminshowip")
-		if clng(tadminshowip)<0 or clng(tadminshowip)>4 then tadminshowip="0"
+		tshowip=0
+		tshowipv4=Request.Form("showipv4")
+		if Len(tshowipv4)=0 or IsNumeric(tshowipv4)=false then tshowipv4=2 else tshowipv4=clng(tshowipv4)
+		if tshowipv4<0 or tshowipv4>4 then tshowipv4=2
+		tshowipv6=Request.Form("showipv6")
+		if Len(tshowipv6)=0 or IsNumeric(tshowipv6)=false then tshowipv6=2 else tshowipv6=clng(tshowipv6)
+		if tshowipv6<0 or tshowipv6>8 then tshowipv6=2
+		tshowip=tshowipv6*16 + tshowipv4
 
-		tadminshoworiginalip=Request.Form("adminshoworiginalip")
-		if clng(tadminshoworiginalip)<0 or clng(tadminshoworiginalip)>4 then tadminshoworiginalip="0"
-	
+		tadminshowip=0
+		tadminshowipv4=Request.Form("adminshowipv4")
+		if Len(tadminshowipv4)=0 or IsNumeric(tadminshowipv4)=false then tadminshowipv4=2 else tadminshowipv4=clng(tadminshowipv4)
+		if tadminshowipv4<0 or tadminshowipv4>4 then tadminshowipv4=2
+		tadminshowipv6=Request.Form("adminshowipv6")
+		if Len(tadminshowipv6)=0 or IsNumeric(tadminshowipv6)=false then tadminshowipv6=2 else tadminshowipv6=clng(tadminshowipv6)
+		if tadminshowipv6<0 or tadminshowipv6>8 then tadminshowipv6=2
+		tadminshowip=tadminshowipv6*16 + tadminshowipv4
+
+		tadminshoworiginalip=0
+		tadminshoworiginalipv4=Request.Form("adminshoworiginalipv4")
+		if Len(tadminshoworiginalipv4)=0 or IsNumeric(tadminshoworiginalipv4)=false then tadminshoworiginalipv4=2 else tadminshoworiginalipv4=clng(tadminshoworiginalipv4)
+		if tadminshoworiginalipv4<0 or tadminshoworiginalipv4>4 then tadminshoworiginalipv4=2
+		tadminshoworiginalipv6=Request.Form("adminshoworiginalipv6")
+		if Len(tadminshoworiginalipv6)=0 or IsNumeric(tadminshoworiginalipv6)=false then tadminshoworiginalipv6=2 else tadminshoworiginalipv6=clng(tadminshoworiginalipv6)
+		if tadminshoworiginalipv6<0 or tadminshoworiginalipv6>8 then tadminshoworiginalipv6=2
+		tadminshoworiginalip=tadminshoworiginalipv6*16 + tadminshoworiginalipv4
+
 		tvcodecount=Request.Form("vcodecount")
 		if len(cstr(tvcodecount))>2 then tvcodecount=4
 		if clng(tvcodecount)>10 then tvcodecount=4

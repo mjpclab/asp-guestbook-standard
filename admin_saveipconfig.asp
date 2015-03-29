@@ -8,73 +8,102 @@
 <%
 Response.Expires=-1
 
-dim ids,iids
-if Request.Form("savediplist1")<>"" then
-ids=split(Request.Form("savediplist1"),",")
-	for each iids in ids
-		if isnumeric(iids)=false or iids="" then
-			Response.Redirect "admin.asp"
-			Response.End
-		end if
-	next
-end if
-set ids=nothing
-if Request.Form("savediplist2")<>"" then
-ids=split(Request.Form("savediplist2"),",")
-	for each iids in ids
-		if isnumeric(iids)=false or iids="" then
-			Response.Redirect "admin.asp"
-			Response.End
-		end if
-	next
-end if
-
-
-sub splitip(byref sourceip,byref dest1,byref dest2)
-	dim si,ini
-
-	for si=0 to ubound(sourceip)
-		ini=instr(1,sourceip(si),"-")
-		if ini>1 and ini<len(sourceip(si)) then
-			dest1(si)=iptohex(left(sourceip(si),ini-1))
-			dest2(si)=iptohex(mid(sourceip(si),ini+1))
-		end if
-	next
-end sub
-
-
-'Get and Process Parameters
-
-tip1=split(Request.Form("txt1"),chr(13)&chr(10))
-redim tstartip1(ubound(tip1)),tendip1(ubound(tip1))
-splitip tip1,tstartip1,tendip1
-
-tip2=split(Request.Form("txt2"),chr(13)&chr(10))
-redim tstartip2(ubound(tip2)),tendip2(ubound(tip2))
-splitip tip2,tstartip2,tendip2
-
-
-tipconstatus=Request.Form("ipconstatus")
-if tipconstatus<>"0" and tipconstatus<>"1" and tipconstatus<>"2" then tipconstatus=0
-
-
-'Write to DB
 set cn=server.CreateObject("ADODB.Connection")
 CreateConn cn,dbtype
 
-if Request.Form("savediplist1")<>"" then cn.Execute Replace(sql_adminsaveipconfig_delete1,"{0}",replace(Request.Form("savediplist1"),"'","")),,1
-if Request.Form("savediplist2")<>"" then cn.Execute Replace(sql_adminsaveipconfig_delete2,"{0}",replace(Request.Form("savediplist2"),"'","")),,1
+'IPConStatus
+Dim tipconstatus
+tipconstatus=clng(Request.Form("ipv4constatus"))+clng(Request.Form("ipv6constatus"))*16
+cn.Execute sql_adminsaveipconfig_update & tipconstatus,,1
 
-dim i
-for i = 0 to ubound(tstartip1)
-	if len(tstartip1(i))=8 and len(tendip1(i))=8 and tstartip1(i)<=tendip1(i) then cn.Execute Replace(Replace(sql_adminsaveipconfig_insert1,"{0}",tstartip1(i)),"{1}",tendip1(i)),,1
-next
-for i = 0 to ubound(tstartip2)
-	if len(tstartip2(i))=8 and len(tendip2(i))=8 and tstartip2(i)<=tendip2(i) then cn.Execute Replace(Replace(sql_adminsaveipconfig_insert2,"{0}",tstartip2(i)),"{1}",tendip2(i)),,1
-next
 
-cn.Execute sql_adminsaveipconfig_update &cstr(tipconstatus),,1
+function deleteSaved(requestField,sql)
+	Dim inputIds,listid,listids
+	inputIds=split(Request.Form(requestField),",")
+	listids=""
+	for each listid in inputIds
+		if isnumeric(listid) then
+			listids=listids & "," & clng(listid)
+		end if
+	next
+	if Len(listids)>0 then
+		listids=Mid(listids,2)
+		cn.Execute Replace(sql,"{0}",listids),,1
+	end if
+end function
+
+'IPv4 delete status 1
+deleteSaved "savedipv4status1",sql_adminsaveipv4config_delete
+
+'IPv4 delete status 2
+deleteSaved "savedipv4status2",sql_adminsaveipv4config_delete
+
+'IPv6 delete status 1
+deleteSaved "savedipv6status1",sql_adminsaveipv6config_delete
+
+'IPv6 delete status 2
+deleteSaved "savedipv6status2",sql_adminsaveipv6config_delete
+
+
+function addNewIPv4(requestField,sql)
+	Dim entries,iprange,maxIndex,ipfrom,ipto
+
+	entries=split(Request.Form(requestField),chr(13)&chr(10))
+	for each iprange in entries
+		ips=split(iprange,"-")
+		ipfrom=""
+		ipto=""
+		maxIndex=ubound(ips)
+
+		if maxIndex=0 then
+			ipfrom=ips(0)
+			ipto=ips(0)
+		elseif maxIndex>=1 then
+			ipfrom=ips(0)
+			ipto=ips(1)
+		end if
+
+		if isIPv4Range(ipfrom) and isIPv4Range(ipto) then
+			cn.Execute Replace(Replace(sql,"{0}",ipv4ToHex(ipfrom,false)),"{1}",ipv4ToHex(ipto,true)),,1
+		end if
+	next
+end function
+function addNewIPv6(requestField,sql)
+	Dim entries,iprange,maxIndex,ipfrom,ipto
+
+	entries=split(Request.Form(requestField),chr(13)&chr(10))
+	for each iprange in entries
+		ips=split(iprange,"-")
+		ipfrom=""
+		ipto=""
+		maxIndex=ubound(ips)
+
+		if maxIndex=0 then
+			ipfrom=ips(0)
+			ipto=ips(0)
+		elseif maxIndex>=1 then
+			ipfrom=ips(0)
+			ipto=ips(1)
+		end if
+
+		if isIPv6Range(ipfrom) and isIPv6Range(ipto) then
+			cn.Execute Replace(Replace(sql,"{0}",ipv6ToHex(ipfrom,false)),"{1}",ipv6ToHex(ipto,true)),,1
+		end if
+	next
+end function
+
+'IPv4 add status 1
+addNewIPv4 "newipv4status1",sql_adminsaveipv4config_insert1
+
+'IPv4 add status 2
+addNewIPv4 "newipv4status2",sql_adminsaveipv4config_insert2
+
+'IPv6 add status 1
+addNewIPv6 "newipv6status1",sql_adminsaveipv6config_insert1
+
+'IPv6 add status 2
+addNewIPv6 "newipv6status2",sql_adminsaveipv6config_insert2
+
 cn.Close : set cn=nothing
-		
-Response.Redirect "admin_ipconfig.asp"
+Response.Redirect "admin_ipconfig.asp?tabIndex=" & Request.Form("tabIndex")
 %>

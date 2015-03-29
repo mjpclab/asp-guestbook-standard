@@ -53,8 +53,11 @@ else
 	StatusStatistics=false
 end if
 
-IPConStatus=lrs("ipconstatus")	'IPÆÁ±Î²ßÂÔ
-if IPConStatus<>0 and IPConStatus<>1 and IPConStatus<>2 then IPConStatus=0
+IPConStatus=lrs("ipconstatus")	'IPÆÁ±Î²ßÂÔ£¬µÍ4Î»ÓÃÓÚIPv4£¬¸ß4Î»ÓÃÓÚIPv6
+IPv4ConStatus=IPConStatus mod 16
+if IPv4ConStatus<0 or IPv4ConStatus>2 then IPv4ConStatus=0
+IPv6ConStatus=IPConStatus \ 16
+if IPv6ConStatus<0 or IPv6ConStatus>2 then IPv6ConStatus=0
 
 HomeLogo=lrs("homelogo")			'ÍøÕ¾LogoµØÖ·
 HomeName=lrs("homename")			'ÍøÕ¾Ãû³Æ
@@ -87,9 +90,16 @@ if clng(guestlimit and 4) <>0 then AllowNewLine=true			'·Ã¿Í²»Ö§³ÖHTMLºÍUBBÊ±£¬Ê
 
 '========°²È«ĞÔÉèÖÃ========
 AdminTimeOut=lrs("admintimeout")		'¹ÜÀíÔ±µÇÂ¼³¬Ê±(·Ö)
-ShowIP=lrs("showip")			'ÁôÑÔÕßIPÏÔÊ¾ 0:²»ÏÔÊ¾ 1:ÏÔÊ¾Ç°1Î» 2:ÏÔÊ¾Ç°2Î» 3:ÏÔÊ¾Ç°3Î» 4:ÏÔÊ¾Ç°4Î»
-AdminShowIP=lrs("adminshowip")	'Îª¹ÜÀíÔ±ÏÔÊ¾IPÎ»Êı
-AdminShowOriginalIP=lrs("adminshoworiginalip")	'Îª¹ÜÀíÔ±ÏÔÊ¾Ô­Ê¼IPÎ»Êı
+ShowIP=lrs("showip")			'ÁôÑÔÕßIPÏÔÊ¾£¬µÍ4Î»ÓÃÓÚIPv4£¬¸ß4Î»ÓÃÓÚIPv6
+ShowIPv4=ShowIP mod 16
+ShowIPv6=ShowIP \ 16
+AdminShowIP=lrs("adminshowip")	'Îª¹ÜÀíÔ±ÏÔÊ¾IPÎ»Êı£¬µÍ4Î»ÓÃÓÚIPv4£¬¸ß4Î»ÓÃÓÚIPv6
+AdminShowIPv4=AdminShowIP mod 16
+AdminShowIPv6=AdminShowIP \ 16
+AdminShowOriginalIP=lrs("adminshoworiginalip")	'Îª¹ÜÀíÔ±ÏÔÊ¾Ô­Ê¼IPÎ»Êı£¬µÍ4Î»ÓÃÓÚIPv4£¬¸ß4Î»ÓÃÓÚIPv6
+AdminShowOriginalIPv4=AdminShowOriginalIP mod 16
+AdminShowOriginalIPv6=AdminShowOriginalIP \ 16
+
 VcodeCount=clng(lrs("vcodecount") and &H0F)		'µÇÂ¼ÑéÖ¤Âë³¤¶È
 WriteVcodeCount=clng(lrs("vcodecount") and &HF0) \ &H10		'ÁôÑÔÑéÖ¤Âë³¤¶È
 

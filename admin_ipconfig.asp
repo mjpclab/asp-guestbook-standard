@@ -22,23 +22,9 @@
 	<!-- #include file="admincontrols.inc" -->
 
 	<%
-	function hextoip(byref valip)
-		dim vi,strip
-		strip=""
-		for vi=0 to 3
-			strip=strip & cstr(cint("&H" & mid(valip,vi*2+1,2)))
-			if vi<>3 then strip=strip & "."
-		next
-		hextoip=strip
-	end function
-
 	set cn=server.CreateObject("ADODB.Connection")
 	set rs=server.CreateObject("ADODB.Recordset")
-
 	CreateConn cn,dbtype
-	rs.Open sql_adminipconfig_status,cn,,,1
-	tipconstatus=rs("ipconstatus")
-	rs.Close
 	%>
 
 
@@ -46,53 +32,127 @@
 	<h3 class="title">IP屏蔽策略</h3>
 	<div class="content">
 		<form method="post" action="admin_saveipconfig.asp" name="ipconfigform" onsubmit="submit1.disabled=true;">
-		<table cellpadding="10">
-			<tr>
-				<td colspan="2"><input type="radio" name="ipconstatus" value="0" id="r1"<%=cked(tipconstatus=0)%> /><label for="r1">不使用IP屏蔽策略</label></td>
-			</tr>
-			<tr>
-				<td style="width:50%; vertical-align:top;">
-					<p class="row"><input type="radio" name="ipconstatus" value="1" id="r2"<%=cked(tipconstatus=1)%> /><label for="r2">只屏蔽以下IP段，其余放行</label></p>
-					<p class="row">添加新IP段,格式:"起始IP-终止IP"</p>
-					<p class="row"><textarea name="txt1" rows="6" style="width:100%"></textarea></p>
-					<p class="row">选择要删除的IP段：</p>
-					<%rs.Open sql_adminipconfig_status1,cn,,,1
-					if rs.EOF=false then
-						while rs.EOF=false
-							tlistid=rs("listid")
-							tstartip=rs("startip")
-							tendip=rs("endip")%>
-							<span class="row">
-							<input type="checkbox" name="savediplist1" value="<%=tlistid%>" id="ip-<%=tlistid%>" /><label for="ip-<%=tlistid%>"><%=hextoip(tstartip) & "-" & hextoip(tendip)%></label>
-							</span>
-							<%rs.MoveNext
-						wend
-					end if
-					rs.Close
-					%>
-				</td>
-				<td style="width:50%; vertical-align:top;">
-					<p class="row"><input type="radio" name="ipconstatus" value="2" id="r3"<%=cked(tipconstatus=2)%> /><label for="r3">只允许以下IP段，其余均不放行</label></p>
-					<p class="row">添加新IP段,格式:"起始IP-终止IP"</p>
-					<p class="row"><textarea name="txt2" rows="6" style="width:100%"></textarea></p>
-					<p class="row">选择要删除的IP段：</p>
-					<%rs.Open sql_adminipconfig_status2,cn,,,1
-					if rs.EOF=false then
-						while rs.EOF=false
-							tlistid=rs("listid")
-							tstartip=rs("startip")
-							tendip=rs("endip")%>
-							<span class="row">
-							<input type="checkbox" name="savediplist2" value="<%=tlistid%>" id="ip-<%=tlistid%>" /><label for="ip-<%=tlistid%>"><%=hextoip(tstartip) & "-" & hextoip(tendip)%></label>
-							</span>
-							<%rs.MoveNext
-						wend
-					end if
-					rs.Close
-					%>
-				</td>
-			</tr>
-		</table>
+		<input type="hidden" name="tabIndex" id="tabIndex" value="<%=Request.QueryString("tabIndex")%>" />
+		<div id="tabContainer">
+			<div id="div-ipv4">
+				<h4>IPv4</h4>
+				<table cellpadding="10">
+					<tr>
+						<td colspan="2"><input type="radio" name="ipv4constatus" value="0" id="ipv4constatus-0"<%=cked(IPv4ConStatus=0)%> /><label for="ipv4constatus-0">不使用IP屏蔽策略</label></td>
+					</tr>
+					<tr>
+						<td style="width:50%; vertical-align:top;">
+							<p class="row"><input type="radio" name="ipv4constatus" value="1" id="ipv4constatus-1"<%=cked(IPv4ConStatus=1)%> /><label for="ipv4constatus-1">只屏蔽以下IP段，其余放行</label></p>
+							<p class="row">添加新IP段,格式:"起始IP-终止IP"</p>
+							<p class="row"><textarea name="newipv4status1" rows="6" style="width:100%"></textarea></p>
+							<p class="row">选择要删除的IP段：</p>
+							<%rs.Open sql_adminipv4config_status1,cn,,,1
+							if rs.EOF=false then
+								while rs.EOF=false
+									tlistid=rs("listid")
+									tipfrom=rs("ipfrom")
+									tipto=rs("ipto")%>
+									<span class="row iplist">
+									<input type="checkbox" name="savedipv4status1" value="<%=tlistid%>" id="ipv4-<%=tlistid%>" /><label for="ipv4-<%=tlistid%>"><%=hexToIPv4(tipfrom) & "-" & hexToIPv4(tipto)%></label>
+									</span>
+									<%rs.MoveNext
+								wend
+							end if
+							rs.Close
+							%>
+						</td>
+						<td style="width:50%; vertical-align:top;">
+							<p class="row"><input type="radio" name="ipv4constatus" value="2" id="ipv4constatus-2"<%=cked(IPv4ConStatus=2)%> /><label for="ipv4constatus-2">只允许以下IP段，其余均不放行</label></p>
+							<p class="row">添加新IP段,格式:"起始IP-终止IP"</p>
+							<p class="row"><textarea name="newipv4status2" rows="6" style="width:100%"></textarea></p>
+							<p class="row">选择要删除的IP段：</p>
+							<%rs.Open sql_adminipv4config_status2,cn,,,1
+							if rs.EOF=false then
+								while rs.EOF=false
+									tlistid=rs("listid")
+									tipfrom=rs("ipfrom")
+									tipto=rs("ipto")%>
+									<span class="row iplist">
+									<input type="checkbox" name="savedipv4status2" value="<%=tlistid%>" id="ipv4-<%=tlistid%>" /><label for="ipv4-<%=tlistid%>"><%=hexToIPv4(tipfrom) & "-" & hexToIPv4(tipto)%></label>
+									</span>
+									<%rs.MoveNext
+								wend
+							end if
+							rs.Close
+							%>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="div-ipv6">
+				<h4>IPv6</h4>
+				<table cellpadding="10">
+					<tr>
+						<td colspan="2"><input type="radio" name="ipv6constatus" value="0" id="ipv6constatus-0"<%=cked(IPv6ConStatus=0)%> /><label for="ipv6constatus-0">不使用IP屏蔽策略</label></td>
+					</tr>
+					<tr>
+						<td style="width:50%; vertical-align:top;">
+							<p class="row"><input type="radio" name="ipv6constatus" value="1" id="ipv6constatus-1"<%=cked(IPv6ConStatus=1)%> /><label for="ipv6constatus-1">只屏蔽以下IP段，其余放行</label></p>
+							<p class="row">添加新IP段,格式:"起始IP-终止IP"</p>
+							<p class="row"><textarea name="newipv6status1" rows="6" style="width:100%"></textarea></p>
+							<p class="row">选择要删除的IP段：</p>
+							<%rs.Open sql_adminipv6config_status1,cn,,,1
+							if rs.EOF=false then
+								while rs.EOF=false
+									tlistid=rs("listid")
+									tipfrom=rs("ipfrom")
+									tipto=rs("ipto")%>
+									<span class="row iplist">
+									<input type="checkbox" name="savedipv6status1" value="<%=tlistid%>" id="ipv6-<%=tlistid%>" /><label for="ipv6-<%=tlistid%>"><%=hexToIPv6(tipfrom) & "-" & hexToIPv6(tipto)%></label>
+									</span>
+									<%rs.MoveNext
+								wend
+							end if
+							rs.Close
+							%>
+						</td>
+						<td style="width:50%; vertical-align:top;">
+							<p class="row"><input type="radio" name="ipv6constatus" value="2" id="ipv6constatus-2"<%=cked(IPv6ConStatus=2)%> /><label for="ipv6constatus-2">只允许以下IP段，其余均不放行</label></p>
+							<p class="row">添加新IP段,格式:"起始IP-终止IP"</p>
+							<p class="row"><textarea name="newipv6status2" rows="6" style="width:100%"></textarea></p>
+							<p class="row">选择要删除的IP段：</p>
+							<%rs.Open sql_adminipv6config_status2,cn,,,1
+							if rs.EOF=false then
+								while rs.EOF=false
+									tlistid=rs("listid")
+									tipfrom=rs("ipfrom")
+									tipto=rs("ipto")%>
+									<span class="row iplist">
+									<input type="checkbox" name="savedipv6status2" value="<%=tlistid%>" id="ipv6-<%=tlistid%>" /><label for="ipv6-<%=tlistid%>"><%=hexToIPv6(tipfrom) & "-" & hexToIPv6(tipto)%></label>
+									</span>
+									<%rs.MoveNext
+								wend
+							end if
+							rs.Close
+							%>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<script type="text/javascript" src="js/tabcontrol.js"></script>
+			<script type="text/javascript">
+				tab=new TabControl('tabContainer');
+				tab.savingFieldId='tabIndex';
+				var prevIndex=tab.loadPageIndex();
+
+				tab.setOuterContainerCssClass('tab-outer-container');
+				tab.setTitleContainerCssClass('tab-title-container');
+				tab.setTitleCssClass('tab-title');
+				tab.setTitleSelectedCssClass('tab-title-selected');
+				tab.setPageContainerCssClass('tab-page-container');
+				tab.setPageCssClass('tab-page');
+
+				tab.addPage('div-ipv4','IPv4');
+				tab.addPage('div-ipv6','IPv6');
+				isFinite(prevIndex) && tab.selectPage(prevIndex);
+			</script>
+		</div>
 		<div class="command"><input type="submit" name="submit1" value="更新数据" /></div>
 		</form>
 	</div>

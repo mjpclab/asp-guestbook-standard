@@ -58,8 +58,7 @@ function TabControl(id) {
 				pageContainer.appendChild(pageElement);
 
 				//Show page
-				if (selectedIndex == -1) this.selectPage(0);
-				this.savePageIndex();
+				if (selectedIndex === -1) this.selectPage(0);
 			}
 		};
 
@@ -119,6 +118,8 @@ function TabControl(id) {
 				selectedIndex = newIndex;
 				titles[selectedIndex].className = titleCssClass + ' ' + titleSelectedCssClass;
 				pages[selectedIndex].style.display = 'block';
+
+				this.savePageIndex();
 			}
 		};
 
@@ -133,8 +134,7 @@ function TabControl(id) {
 			if (this.savingFieldId) {
 				var savingField = document.getElementById(this.savingFieldId);
 				if (savingField) {
-					var loadedIndex = parseInt(savingField.value);
-					if (isFinite(loadedIndex)) this.selectPage(loadedIndex);
+					return parseInt(savingField.value);
 				}
 			}
 		};

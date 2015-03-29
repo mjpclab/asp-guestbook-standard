@@ -4,16 +4,17 @@ IsSqlServer=false
 
 if dbtype>=1 and dbtype<=3 then
 	IsAccess=true
-    table_config			="[" & prefix & "config]"
-    table_filterconfig		="[" & prefix & "filterconfig]"
-    table_floodconfig		="[" & prefix & "floodconfig]"
-    table_ipconfig			="[" & prefix & "ipconfig]"
-    table_main				="[" & prefix & "main]"
-    table_reply				="[" & prefix & "reply]"
-    table_stats				="[" & prefix & "stats]"
-    table_stats_clientinfo	="[" & prefix & "stats_clientinfo]"
-    table_style				="[" & prefix & "style]"
-    table_supervisor		="[" & prefix & "supervisor]"
+	table_config			="[" & prefix & "config]"
+	table_filterconfig		="[" & prefix & "filterconfig]"
+	table_floodconfig		="[" & prefix & "floodconfig]"
+	table_ipv4config		="[" & prefix & "ipv4config]"
+	table_ipv6config		="[" & prefix & "ipv6config]"
+	table_main				="[" & prefix & "main]"
+	table_reply				="[" & prefix & "reply]"
+	table_stats				="[" & prefix & "stats]"
+	table_stats_clientinfo	="[" & prefix & "stats_clientinfo]"
+	table_style				="[" & prefix & "style]"
+	table_supervisor		="[" & prefix & "supervisor]"
 elseif dbtype=10 then
 	IsSqlServer=true
 	if dbschema<>"" then
@@ -21,16 +22,17 @@ elseif dbtype=10 then
 	else
 		schema=""
 	end if
-    table_config			=schema & "[" & prefix & "config]"
-    table_filterconfig		=schema & "[" & prefix & "filterconfig]"
-    table_floodconfig		=schema & "[" & prefix & "floodconfig]"
-    table_ipconfig			=schema & "[" & prefix & "ipconfig]"
-    table_main				=schema & "[" & prefix & "main]"
-    table_reply				=schema & "[" & prefix & "reply]"
-    table_stats				=schema & "[" & prefix & "stats]"
-    table_stats_clientinfo	=schema & "[" & prefix & "stats_clientinfo]"
-    table_style				=schema & "[" & prefix & "style]"
-    table_supervisor		=schema & "[" & prefix & "supervisor]"
+	table_config			=schema & "[" & prefix & "config]"
+	table_filterconfig		=schema & "[" & prefix & "filterconfig]"
+	table_floodconfig		=schema & "[" & prefix & "floodconfig]"
+	table_ipv4config		=schema & "[" & prefix & "ipv4config]"
+	table_ipv6config		=schema & "[" & prefix & "ipv6config]"
+	table_main				=schema & "[" & prefix & "main]"
+	table_reply				=schema & "[" & prefix & "reply]"
+	table_stats				=schema & "[" & prefix & "stats]"
+	table_stats_clientinfo	=schema & "[" & prefix & "stats_clientinfo]"
+	table_style				=schema & "[" & prefix & "style]"
+	table_supervisor		=schema & "[" & prefix & "supervisor]"
 end if
 
 'PKs
@@ -53,7 +55,8 @@ elseif IsSqlServer then
 end if
 
 'common
-sql_common_isbanip=		"SELECT TOP 1 1 FROM " &table_ipconfig& " WHERE ipconstatus={0} And '{1}'>=startip And '{1}'<=endip"
+sql_common_isbanipv4=	"SELECT TOP 1 1 FROM " &table_ipv4config& " WHERE cfgtype={0} And '{1}'>=ipfrom And '{1}'<=ipto"
+sql_common_isbanipv6=	"SELECT TOP 1 1 FROM " &table_ipv6config& " WHERE cfgtype={0} And '{1}'>=ipfrom And '{1}'<=ipto"
 sql_common_getstat=		"SELECT TOP 1 startdate,[{0}] FROM " &table_stats
 sql_common_initstat=	"INSERT INTO " &table_stats& "(startdate) VALUES('{0}')"
 sql_common_updatetime=	"UPDATE " &table_stats& " SET startdate='{0}'"
@@ -325,16 +328,19 @@ sql_adminconfig_style=	"SELECT styleid,stylename FROM " &table_style
 sql_adminsaveconfig="SELECT TOP 1 * FROM " &table_config
 
 'admin_ipconfig
-sql_adminipconfig_status=	"SELECT ipconstatus FROM " &table_config
-sql_adminipconfig_status1=	"SELECT listid,startip,endip FROM " &table_ipconfig& " WHERE ipconstatus=1"
-sql_adminipconfig_status2=	"SELECT listid,startip,endip FROM " &table_ipconfig& " WHERE ipconstatus=2"
+sql_adminipv4config_status1=	"SELECT listid,ipfrom,ipto FROM " &table_ipv4config& " WHERE cfgtype=1"
+sql_adminipv4config_status2=	"SELECT listid,ipfrom,ipto FROM " &table_ipv4config& " WHERE cfgtype=2"
+sql_adminipv6config_status1=	"SELECT listid,ipfrom,ipto FROM " &table_ipv6config& " WHERE cfgtype=1"
+sql_adminipv6config_status2=	"SELECT listid,ipfrom,ipto FROM " &table_ipv6config& " WHERE cfgtype=2"
 
 'admin_saveipconfig
-sql_adminsaveipconfig_delete1=	"DELETE FROM " &table_ipconfig& " WHERE listid IN ({0})"
-sql_adminsaveipconfig_delete2=	"DELETE FROM " &table_ipconfig& " WHERE listid IN ({0})"
-sql_adminsaveipconfig_insert1=	"INSERT INTO " &table_ipconfig& "(ipconstatus,startip,endip) VALUES (1,'{0}','{1}')"
-sql_adminsaveipconfig_insert2=	"INSERT INTO " &table_ipconfig& "(ipconstatus,startip,endip) VALUES (2,'{0}','{1}')"
 sql_adminsaveipconfig_update=	"UPDATE " &table_config& " SET ipconstatus="
+sql_adminsaveipv4config_delete=	"DELETE FROM " &table_ipv4config& " WHERE listid IN ({0})"
+sql_adminsaveipv4config_insert1=	"INSERT INTO " &table_ipv4config& "(cfgtype,ipfrom,ipto) VALUES (1,'{0}','{1}')"
+sql_adminsaveipv4config_insert2=	"INSERT INTO " &table_ipv4config& "(cfgtype,ipfrom,ipto) VALUES (2,'{0}','{1}')"
+sql_adminsaveipv6config_delete=	"DELETE FROM " &table_ipv6config& " WHERE listid IN ({0})"
+sql_adminsaveipv6config_insert1=	"INSERT INTO " &table_ipv6config& "(cfgtype,ipfrom,ipto) VALUES (1,'{0}','{1}')"
+sql_adminsaveipv6config_insert2=	"INSERT INTO " &table_ipv6config& "(cfgtype,ipfrom,ipto) VALUES (2,'{0}','{1}')"
 
 'admin_filter
 sql_adminfilter="SELECT * FROM " &table_filterconfig& " ORDER BY filtersort ASC"

@@ -5,7 +5,7 @@ Response.Expires = -1
 Response.AddHeader "Pragma","no-cache"
 Response.AddHeader "cache-control","no-cache, must-revalidate"
 
-if isbanip(Request.ServerVariables("REMOTE_ADDR"))=true or isbanip(Request.ServerVariables("HTTP_X_FORWARDED_FOR"))=true then
+if checkIsBannedIP then
 	Response.Redirect "err.asp?number=1"
 	Response.End
 elseif StatusOpen=false then

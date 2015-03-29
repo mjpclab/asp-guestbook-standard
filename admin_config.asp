@@ -125,16 +125,28 @@
 					<span class="value"><input type="text" size="4" maxlength="4" name="admintimeout" value="<%=rs("admintimeout")%>" />分 (默认=20)</span>
 				</div>
 				<div class="field">
-					<span class="label">为访客显示IP前：</span>
-					<span class="value"><input type="text" size="4" maxlength="1" name="showip" value="<%=rs("showip")%>" />位 (可选值：0～4)</span>
+					<span class="label">为访客显示IPv4前：</span>
+					<span class="value"><input type="text" size="4" maxlength="1" name="showipv4" value="<%=ShowIPv4%>" />字节 (可选值：0～4)</span>
 				</div>
 				<div class="field">
-					<span class="label">为管理员显示IP前：</span>
-					<span class="value"><input type="text" size="4" maxlength="1" name="adminshowip" value="<%=rs("adminshowip")%>" />位 (可选值：0～4)</span>
+					<span class="label">为访客显示IPv6前：</span>
+					<span class="value"><input type="text" size="4" maxlength="1" name="showipv6" value="<%=ShowIPv6%>" />组 (可选值：0～8)</span>
 				</div>
 				<div class="field">
-					<span class="label">为管理员显示原IP前：</span>
-					<span class="value"><input type="text" size="4" maxlength="1" name="adminshoworiginalip" value="<%=rs("adminshoworiginalip")%>" />位 (可选值：0～4,使用代理服务器时此项显示原始IP)</span>
+					<span class="label">为管理员显示IPv4前：</span>
+					<span class="value"><input type="text" size="4" maxlength="1" name="adminshowipv4" value="<%=AdminShowIPv4%>" />字节 (可选值：0～4)</span>
+				</div>
+				<div class="field">
+					<span class="label">为管理员显示IPv6前：</span>
+					<span class="value"><input type="text" size="4" maxlength="1" name="adminshowipv6" value="<%=AdminShowIPv6%>" />组 (可选值：0～8)</span>
+				</div>
+				<div class="field">
+					<span class="label">为管理员显示原IPv4前：</span>
+					<span class="value"><input type="text" size="4" maxlength="1" name="adminshoworiginalipv4" value="<%=AdminShowOriginalIPv4%>" />字节 (可选值：0～4,使用代理服务器时此项显示原始IP)</span>
+				</div>
+				<div class="field">
+					<span class="label">为管理员显示原IPv6前：</span>
+					<span class="value"><input type="text" size="4" maxlength="1" name="adminshoworiginalipv6" value="<%=AdminShowOriginalIPv6%>" />组 (可选值：0～8,使用代理服务器时此项显示原始IP)</span>
 				</div>
 				<div class="field">
 					<span class="label">登录验证码长度：</span>
@@ -474,20 +486,35 @@ function check()
 		else if (tv<1 || tv>1440)
 			{alert('“管理员登录超时”必须在1～1440的范围内。');document.configform.admintimeout.select();return false;}
 
-		if (isNaN(tv=Number(document.configform.showip.value)))
-			{alert('“为访客显示IP”必须为数字。');document.configform.showip.select();return false;}
-		else if (tv<0 || tv>4 || document.configform.showip.value=='')
-			{alert('“为访客显示IP”必须在0～4的范围内。');document.configform.showip.select();return false;}
+		if (isNaN(tv=Number(document.configform.showipv4.value)))
+			{alert('“为访客显示IPv4”必须为数字。');document.configform.showipv4.select();return false;}
+		else if (tv<0 || tv>4 || document.configform.showipv4.value==='')
+			{alert('“为访客显示IPv4”必须在0～4的范围内。');document.configform.showipv4.select();return false;}
 
-		if (isNaN(tv=Number(document.configform.adminshowip.value)))
-			{alert('“为管理员显示IP”必须为数字。');document.configform.adminshowip.select();return false;}
-		else if (tv<0 || tv>4 || document.configform.adminshowip.value=='')
-			{alert('“为管理员显示IP”必须在0～4的范围内。');document.configform.adminshowip.select();return false;}
+		if (isNaN(tv=Number(document.configform.showipv6.value)))
+			{alert('“为访客显示IPv6”必须为数字。');document.configform.showipv6.select();return false;}
+		else if (tv<0 || tv>8 || document.configform.showipv6.value==='')
+			{alert('“为访客显示IPv6”必须在0～8的范围内。');document.configform.showipv6.select();return false;}
 
-		if (isNaN(tv=Number(document.configform.adminshoworiginalip.value)))
-			{alert('“为管理员显示原IP”必须为数字');document.configform.adminshoworiginalip.select();return false;}
-		else if (tv<0 || tv>4 || document.configform.adminshoworiginalip.value=='')
-			{alert('“为管理员显示原IP”必须在0～4的范围内。');document.configform.adminshoworiginalip.select();return false;}
+		if (isNaN(tv=Number(document.configform.adminshowipv4.value)))
+			{alert('“为管理员显示IPv4”必须为数字。');document.configform.adminshowipv4.select();return false;}
+		else if (tv<0 || tv>4 || document.configform.adminshowipv4.value==='')
+			{alert('“为管理员显示IPv4”必须在0～4的范围内。');document.configform.adminshowipv4.select();return false;}
+
+		if (isNaN(tv=Number(document.configform.adminshowipv6.value)))
+			{alert('“为管理员显示IPv6”必须为数字。');document.configform.adminshowipv6.select();return false;}
+		else if (tv<0 || tv>8 || document.configform.adminshowipv6.value==='')
+			{alert('“为管理员显示IPv6”必须在0～8的范围内。');document.configform.adminshowipv6.select();return false;}
+
+		if (isNaN(tv=Number(document.configform.adminshoworiginalipv4.value)))
+			{alert('“为管理员显示原IPv4”必须为数字');document.configform.adminshoworiginalipv4.select();return false;}
+		else if (tv<0 || tv>4 || document.configform.adminshoworiginalipv4.value==='')
+			{alert('“为管理员显示原IPv4”必须在0～4的范围内。');document.configform.adminshoworiginalipv4.select();return false;}
+
+		if (isNaN(tv=Number(document.configform.adminshoworiginalipv6.value)))
+			{alert('“为管理员显示原IPv6”必须为数字');document.configform.adminshoworiginalipv6.select();return false;}
+		else if (tv<0 || tv>8 || document.configform.adminshoworiginalipv6.value==='')
+			{alert('“为管理员显示原IPv6”必须在0～8的范围内。');document.configform.adminshoworiginalipv6.select();return false;}
 
 		if (isNaN(tv=Number(document.configform.vcodecount.value)))
 			{alert('“登录验证码长度”必须为数字。');document.configform.vcodecount.select();return false;}
