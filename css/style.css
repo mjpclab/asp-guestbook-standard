@@ -5,12 +5,12 @@ body {
 	font-style: normal;
 }
 
-textarea, input, select {
+input, textarea, select {
 	border:1px solid;
+	margin: 1px;
 }
 
 input, textarea {
-	margin: 0;
 	padding: 2px;
 	border: solid 1px;
 	background-color: #fff;
