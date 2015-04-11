@@ -212,9 +212,11 @@ form .row {
 .guest-functions .aside .function {
 	display: block;
 	float: left;
-	padding-left: 1em;
-	margin-left: 1em;
+	padding:0 1em;
 	border-left:1px solid;
+}
+.guest-functions .aside .function:last-child {
+	padding-right: 0;
 }
 
 /**************** topic ****************/
