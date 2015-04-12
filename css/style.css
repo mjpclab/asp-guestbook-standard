@@ -104,10 +104,6 @@ form .field .value input {
 	vertical-align: middle;
 }
 
-form .field .value {
-	padding:1px;
-}
-
 form .field .label img {
 	margin-right: 0.5em;
 }
@@ -118,6 +114,7 @@ form .field .label .required {
 
 form .field .value {
 	display: block;
+	padding:1px;
 	overflow: hidden;
 }
 
