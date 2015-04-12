@@ -7,7 +7,7 @@ body {
 
 input, textarea, select {
 	border:1px solid;
-	margin: 1px;
+	margin:0;
 }
 
 input, textarea {
@@ -105,7 +105,7 @@ form .field .value input {
 }
 
 form .field .value {
-	padding-bottom: 1px;  /* fix issue for chrome to hide bottom border of inside button */
+	padding:1px;
 }
 
 form .field .label img {
