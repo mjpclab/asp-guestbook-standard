@@ -163,7 +163,7 @@ form .row {
 
 .header .banner {
 	display: block;
-	margin:5px auto;
+	margin:0 auto 5px auto;
 	max-width:100%;
 	height: auto;
 }
@@ -297,6 +297,10 @@ form .row {
 
 .topic .words {
 	margin:10px;
+}
+
+.topic .words img {
+	max-width: 100%;
 }
 
 .topic .guest-tools {
@@ -554,6 +558,10 @@ form .row {
 
 .region .content {
 	padding:10px;
+}
+
+.region .content img {
+	max-width:100%;
 }
 
 .region .content table {
