@@ -673,7 +673,11 @@ form .row {
 }
 
 /**************** Responsible ****************/
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 420px) {
+	.outerborder {
+		margin-top: 0;
+	}
+
 	body .topic .info {
 		width:25%;
 	}
