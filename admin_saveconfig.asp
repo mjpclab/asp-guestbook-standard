@@ -67,10 +67,6 @@ elseif isnumeric(request.Form("leavecontentwidth"))=false and clng(showpage and 
 	errbox "“‘留言内容’文本宽度”必须为数字。"
 elseif isnumeric(request.Form("leavecontentheight"))=false and clng(showpage and 4)<> 0 then
 	errbox "“‘留言内容’文本高度”必须为数字。"
-elseif isnumeric(request.Form("ubbtoolwidth"))=false and clng(showpage and 4)<> 0 then
-	errbox "“‘写留言’UBB工具宽”必须为数字。"
-elseif isnumeric(request.Form("ubbtoolheight"))=false and clng(showpage and 4)<> 0 then
-	errbox "“‘写留言’UBB工具高”必须为数字。"
 elseif isnumeric(request.Form("advdeltextwidth"))=false and clng(showpage and 4)<> 0 then
 	errbox "“‘高级删除’中文本宽”必须为数字。"
 elseif isnumeric(request.Form("setinfotextwidth"))=false and clng(showpage and 4)<> 0 then
@@ -273,17 +269,7 @@ else
 		if len(cstr(tleavecontentheight))>3 then tleavecontentheight=7
 		if clng(tleavecontentheight)>255 then tleavecontentheight=255
 		if clng(tleavecontentheight)<1 then tleavecontentheight=7
-	
-		tubbtoolwidth=Request.Form("ubbtoolwidth")
-		if len(cstr(tubbtoolwidth))>4 then tubbtoolwidth=320
-		if clng(tubbtoolwidth)>9999 then tubbtoolwidth=320
-		if clng(tubbtoolwidth)<1 then tubbtoolwidth=320
-	
-		tubbtoolheight=Request.Form("ubbtoolheight")
-		if len(cstr(tubbtoolheight))>4 then tubbtoolheight=48
-		if clng(tubbtoolheight)>9999 then tubbtoolheight=48
-		if clng(tubbtoolheight)<1 then tubbtoolheight=48
-	
+
 		tsearchtextwidth=Request.Form("searchtextwidth")
 		if len(cstr(tsearchtextwidth))>3 then tsearchtextwidth=20
 		if clng(tsearchtextwidth)>255 then tsearchtextwidth=255
@@ -453,8 +439,6 @@ else
 		rs1("leavevcodewidth")=tleavevcodewidth
 		rs1("leavecontentwidth")=tleavecontentwidth
 		rs1("leavecontentheight")=tleavecontentheight
-		rs1("ubbtoolwidth")=tubbtoolwidth
-		rs1("ubbtoolheight")=tubbtoolheight
 		rs1("searchtextwidth")=tsearchtextwidth
 		rs1("advdeltextwidth")=tadvdeltextwidth
 		rs1("setinfotextwidth")=tsetinfotextwidth

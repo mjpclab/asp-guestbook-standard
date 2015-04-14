@@ -217,14 +217,6 @@ textarea,input,select {
 }
 
 
-.ubbtoolbar {
-	<%=CssOptionalSize("max-width",UbbToolWidth)%>
-	<%=CssOptionalSize("height",UbbToolHeight)%>
-}
-*html .ubbtoolbar {
-	<%=CssOptionalSize("width",UbbToolWidth)%>
-}
-
 .ubbtoolbar .ubbbutton,
 .ubbtoolbar .ubbface {
 	border-color:<%=TableContentBGC%>;

@@ -92,6 +92,7 @@ form .field {
 form .field .label {
 	float: left;
 	margin-right: 0.5em;
+	padding:1px;
 	width:5em;
 }
 
