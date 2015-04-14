@@ -71,11 +71,11 @@ end if
 		<input type="hidden" name="searchtxt" value="<%=request.QueryString("searchtxt")%>" />
 		<div class="field">
 			<span class="row">±êÌâ£º</span>
-			<span class="row"><input type="text" name="etitle" onkeydown="if(!this.form.modified)this.form.modified=true;" size="<%=ReplyTextWidth%>" maxlength="30" value="<%=rs.Fields("title")%>"></span>
+			<span class="row"><input type="text" name="etitle" onkeydown="if(!this.form.modified)this.form.modified=true;" maxlength="30" value="<%=rs.Fields("title")%>"></span>
 		</div>
 		<div class="field">
 			<span class="row">ÄÚÈÝ£º</span>
-			<span class="row"><textarea name="econtent" id="econtent" onkeydown="if(!this.form.modified)this.form.modified=true; var e=event?event:arguments[0]; if(e && e.ctrlKey && e.keyCode==13 && this.form.submit1)this.form.submit1.click();" cols="<%=ReplyTextWidth%>" rows="<%=ReplyTextHeight%>"><%=guest_txt%></textarea></span>
+			<span class="row"><textarea name="econtent" id="econtent" onkeydown="if(!this.form.modified)this.form.modified=true; var e=event?event:arguments[0]; if(e && e.ctrlKey && e.keyCode==13 && this.form.submit1)this.form.submit1.click();" rows="<%=ReplyTextHeight%>"><%=guest_txt%></textarea></span>
 			<span class="row">
 				<!-- #include file="ubbtoolbar.inc" -->
 				<%ShowUbbToolBar(true)%>

@@ -150,7 +150,7 @@ Response.Expires=-1
 		</div>
 		<div class="field">
 			<span class="row">已生成的调用代码：</span>
-			<span class="value"><textarea readonly="readonly" name="frm_code" id="frm_code" cols="<%=ReplyTextWidth%>" rows="<%=ReplyTextHeight%>"></textarea></span>
+			<span class="value"><textarea readonly="readonly" name="frm_code" id="frm_code" rows="<%=ReplyTextHeight%>"></textarea></span>
 		</div>
 		</form>
 	</div>

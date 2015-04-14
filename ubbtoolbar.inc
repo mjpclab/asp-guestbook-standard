@@ -1,7 +1,7 @@
 <%Sub ShowUbbToolBar(byval allflags)%>
 <%if ShowUbbTool=true then%>
 	<div class="ubbtoolbar">
-		<div>
+		<div class="row">
 			<%if UbbFlag_fontstyle Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_bold" onclick="sendUbbCode &&sendUbbCode('b')"><img alt="粗体" src="image/icon_ubb_bold.gif"/></a><%end if%>
 			<%if UbbFlag_fontstyle Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_italic" onclick="sendUbbCode && sendUbbCode('i')"><img alt="斜体" src="image/icon_ubb_italic.gif"/></a><%end if%>
 			<%if UbbFlag_fontcolor Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_color" onclick="toggleColorPalette && toggleColorPalette(this,arguments[0]||window.event);"><img alt="文字颜色" src="image/icon_ubb_color.gif"/></a><%end if%>
@@ -11,7 +11,7 @@
 			<%if UbbFlag_player Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_realplayer" onclick="sendUbbCode && sendUbbCode('rm')"><img alt="Real Player" src="image/icon_ubb_realplayer.gif"/></a><%end if%>
 		</div>
 		<%if UbbFlag_face Or allflags then%>
-		<div>
+		<div class="row">
 			<%for i=1 to SmallFaceCount%><a name="ubbface" class="ubbface face<%=i%>" title="[face<%=i%>]"><img alt="[face<%=i%>]" src="<%=SmallFacePath & i%>.gif"/></a><%next%>
 		</div>
 		<%end if%>
