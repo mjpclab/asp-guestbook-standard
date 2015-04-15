@@ -61,16 +61,8 @@ elseif isnumeric(request.Form("windowspace"))=false and clng(showpage and 4)<> 0
 	errbox "“窗口区块间距”必须为数字。"
 elseif isnumeric(request.Form("leavecontentheight"))=false and clng(showpage and 4)<> 0 then
 	errbox "“‘留言内容’文本高度”必须为数字。"
-elseif isnumeric(request.Form("advdeltextwidth"))=false and clng(showpage and 4)<> 0 then
-	errbox "“‘高级删除’中文本宽”必须为数字。"
-elseif isnumeric(request.Form("setinfotextwidth"))=false and clng(showpage and 4)<> 0 then
-	errbox "“‘修改资料’中文本宽”必须为数字。"
 elseif isnumeric(request.Form("searchtextwidth"))=false and clng(showpage and 4)<> 0 then
 	errbox "“搜索框宽度”必须为数字。"
-elseif isnumeric(request.Form("configtextwidth"))=false and clng(showpage and 4)<> 0 then
-	errbox "“‘参数’中文本宽度”必须为数字。"
-elseif isnumeric(request.Form("filtertextwidth"))=false and clng(showpage and 4)<> 0 then
-	errbox "“‘内容过滤’中文本宽”必须为数字。"
 elseif isnumeric(request.Form("replytextheight"))=false and clng(showpage and 4)<> 0 then
 	errbox "“回复、公告编辑框高度”必须为数字。"
 elseif isnumeric(request.Form("itemsperpage"))=false and clng(showpage and 4)<> 0 then
@@ -251,27 +243,7 @@ else
 		if len(cstr(tsearchtextwidth))>3 then tsearchtextwidth=20
 		if clng(tsearchtextwidth)>255 then tsearchtextwidth=255
 		if clng(tsearchtextwidth)<1 then tsearchtextwidth=20
-	
-		tadvdeltextwidth=Request.Form("advdeltextwidth")
-		if len(cstr(tadvdeltextwidth))>3 then tadvdeltextwidth=20
-		if clng(tadvdeltextwidth)>255 then tadvdeltextwidth=255
-		if clng(tadvdeltextwidth)<1 then tadvdeltextwidth=20
 
-		tsetinfotextwidth=Request.Form("setinfotextwidth")
-		if len(cstr(tsetinfotextwidth))>3 then tsetinfotextwidth=20
-		if clng(tsetinfotextwidth)>255 then tsetinfotextwidth=255
-		if clng(tsetinfotextwidth)<1 then tsetinfotextwidth=20
-
-		tconfigtextwidth=Request.Form("configtextwidth")
-		if len(cstr(tconfigtextwidth))>3 then tconfigtextwidth=80
-		if clng(tconfigtextwidth)>255 then tconfigtextwidth=255
-		if clng(tconfigtextwidth)<1 then tconfigtextwidth=80
-	
-		tfiltertextwidth=Request.Form("filtertextwidth")
-		if len(cstr(tfiltertextwidth))>3 then tfiltertextwidth=62
-		if clng(tfiltertextwidth)>255 then tfiltertextwidth=255
-		if clng(tfiltertextwidth)<1 then tfiltertextwidth=62
-	
 		treplytextheight=Request.Form("replytextheight")
 		if len(cstr(treplytextheight))>3 then treplytextheight=62
 		if clng(treplytextheight)>255 then treplytextheight=255
@@ -409,10 +381,6 @@ else
 		rs1("windowspace")=twindowspace
 		rs1("leavecontentheight")=tleavecontentheight
 		rs1("searchtextwidth")=tsearchtextwidth
-		rs1("advdeltextwidth")=tadvdeltextwidth
-		rs1("setinfotextwidth")=tsetinfotextwidth
-		rs1("configtextwidth")=tconfigtextwidth
-		rs1("filtertextwidth")=tfiltertextwidth
 		rs1("replytextheight")=treplytextheight
 		rs1("itemsperpage")=titemsperpage
 		rs1("titlesperpage")=ttitlesperpage

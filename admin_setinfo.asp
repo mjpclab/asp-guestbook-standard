@@ -36,31 +36,31 @@
 			<form method="post" action="admin_saveinfo.asp" name="form1" onsubmit="form1.submit1.disabled=true;">
 			<div class="field">
 				<span class="label">êÇ³Æ£º</span>
-				<span class="value"><input type="text" name="aname" size="<%=SetInfoTextWidth%>" maxlength="20" value="<%="" & rs("name") & ""%>" /></span>
+				<span class="value"><input type="text" name="aname" maxlength="20" value="<%="" & rs("name") & ""%>" /></span>
 			</div>
 			<div class="field">
 				<span class="label">ÓÊ¼þ£º</span>
-				<span class="value"><input type="text" name="aemail" size="<%=SetInfoTextWidth%>" maxlength="50" value="<%="" & rs("email") & ""%>" /></span>
+				<span class="value"><input type="text" name="aemail" maxlength="50" value="<%="" & rs("email") & ""%>" /></span>
 			</div>
 			<div class="field">
 				<span class="label">QQºÅ£º</span>
-				<span class="value"><input type="text" name="aqqid" size="<%=SetInfoTextWidth%>" maxlength="16" value="<%="" & rs("qqid") & ""%>" /></span>
+				<span class="value"><input type="text" name="aqqid" maxlength="16" value="<%="" & rs("qqid") & ""%>" /></span>
 			</div>
 			<div class="field">
 				<span class="label">Skype£º</span>
-				<span class="value"><input type="text" name="amsnid" size="<%=SetInfoTextWidth%>" maxlength="50" value="<%="" & rs("msnid") & ""%>" /></span>
+				<span class="value"><input type="text" name="amsnid" maxlength="50" value="<%="" & rs("msnid") & ""%>" /></span>
 			</div>
 			<div class="field">
 				<span class="label">Ö÷Ò³£º</span>
-				<span class="value"><input type="text" name="ahomepage" size="<%=SetInfoTextWidth%>" maxlength="127" value="<%="" & rs("homepage") & ""%>" /></span>
+				<span class="value"><input type="text" name="ahomepage" maxlength="127" value="<%="" & rs("homepage") & ""%>" /></span>
 			</div>
 			<div class="field">
 				<span class="label">Í·Ïñ±àºÅ£º</span>
-				<span class="value"><input type="text" name="afaceid" size="<%=SetInfoTextWidth%>" maxlength="3" value="<%=tfaceid%>" title="ÌîÐ´Í·Ïñ±àºÅÊ±URL±ØÐëÇå¿Õ" /></span>
+				<span class="value"><input type="text" name="afaceid" maxlength="3" value="<%=tfaceid%>" title="ÌîÐ´Í·Ïñ±àºÅÊ±URL±ØÐëÇå¿Õ" /></span>
 			</div>
 			<div class="field">
 				<span class="label">»òURL£º</span>
-				<span class="value"><input type="text" name="afaceurl" size="<%=SetInfoTextWidth%>" maxlength="127" value="<%="" & rs("faceurl") & ""%>" title="ÌîÐ´URLÊ±ºöÂÔÍ·Ïñ±àºÅ" /></span>
+				<span class="value"><input type="text" name="afaceurl" maxlength="127" value="<%="" & rs("faceurl") & ""%>" title="ÌîÐ´URLÊ±ºöÂÔÍ·Ïñ±àºÅ" /></span>
 			</div>
 			<div class="field">
 				<%rs.Close : cn.Close : set rs=nothing : set cn=nothing

@@ -27,7 +27,7 @@
 			<form method="post" name="newfilter" action="admin_appendfilter.asp" class="detail-item" onsubmit="if(findexp.value.length===0){alert('请输入查找内容。');findexp.focus();return false;}submit1.disabled=true;">
 			<h4>添加新过滤策略：</h4>
 			<p>查找内容(可用正则表达式,多个过滤词间用“|”分割)<br/>
-			<input type="text" size="<%=FilterTextWidth%>" name="findexp" /><br/>
+			<input type="text" name="findexp" /><br/>
 			<input type="checkbox" name="matchcase" id="matchcase" value="8192" /><label for="matchcase">区分大小写</label>
 			<input type="checkbox" name="multiline" id="multiline" value="2048" /><label for="multiline">正则多行模式</label>
 			</p>
@@ -44,10 +44,10 @@
 			<input type="radio" name="filtermethod" id="filtermethod" value="0" checked="checked" onclick="if(typeof(newfilter.replacetxt.disabled)!=='undefined')newfilter.replacetxt.disabled=false;" /><label for="filtermethod">替换为下面的文本</label>
 			<input type="radio" name="filtermethod" id="filtermethod2" value="4096" onclick="if(typeof(newfilter.replacetxt.disabled)!=='undefined')newfilter.replacetxt.disabled=true;" /><label for="filtermethod2">等待审核</label>
 			<input type="radio" name="filtermethod" id="filtermethod3" value="16384" onclick="if(typeof(newfilter.replacetxt.disabled)!=='undefined')newfilter.replacetxt.disabled=true;" /><label for="filtermethod3">拒绝留言</label><br/>
-			<input type="text" size="<%=FilterTextWidth%>" name="replacetxt" />
+			<input type="text" name="replacetxt" />
 			</p>
 			<p>备注<br/>
-			<input type="text" size="<%=FilterTextWidth%>" name="memo" maxlength="25" />
+			<input type="text" name="memo" maxlength="25" />
 			</p>
 			<div class="field-command"><input type="submit" value="添加过滤策略" name="submit1" /></div>
 			</form>
@@ -65,7 +65,7 @@
 				<input type="hidden" name="filterid" value="<%=tfilterid%>" />
 				<%tfiltermode=clng(rs("filtermode"))%>
 				<p>查找内容<br/>
-				<input type="text" size="<%=FilterTextWidth%>" name="findexp" value="<%=rs("regexp")%>" /><br/>
+				<input type="text" name="findexp" value="<%=rs("regexp")%>" /><br/>
 				<input type="checkbox" name="matchcase" id="matchcase<%=tfilterid%>" value="8192"<%=cked(clng(tfiltermode and 8192)<>0)%> /><label for="matchcase<%=tfilterid%>">区分大小写</label>
 				<input type="checkbox" name="multiline" id="multiline<%=tfilterid%>" value="2048"<%=cked(clng(tfiltermode and 2048)<>0)%> /><label for="multiline<%=tfilterid%>">正则多行模式</label>
 				</p>
@@ -82,10 +82,10 @@
 				<input type="radio" name="filtermethod" id="filtermethoda<%=tfilterid%>" value="0"<%=cked(clng(tfiltermode and 16384)=0)%> onclick="if(typeof(this.form.replacetxt.disabled)!='undefined')this.form.replacetxt.disabled=false;" /><label for="filtermethoda<%=tfilterid%>">替换为下面的文本</label>
 				<input type="radio" name="filtermethod" id="filtermethodb<%=tfilterid%>" value="4096"<%=cked(clng(tfiltermode and 4096)<>0)%> onclick="if(typeof(this.form.replacetxt.disabled)!='undefined')this.form.replacetxt.disabled=true;" /><label for="filtermethodb<%=tfilterid%>">等待审核</label>
 				<input type="radio" name="filtermethod" id="filtermethodc<%=tfilterid%>" value="16384"<%=cked(clng(tfiltermode and 16384)<>0)%> onclick="if(typeof(this.form.replacetxt.disabled)!='undefined')this.form.replacetxt.disabled=true;" /><label for="filtermethodc<%=tfilterid%>">拒绝留言</label><br/>
-				<input type="text" size="<%=FilterTextWidth%>" name="replacetxt" value="<%=rs("replacestr")%>"<%=dised(clng(tfiltermode and 16384+4096)<>0)%> />
+				<input type="text" name="replacetxt" value="<%=rs("replacestr")%>"<%=dised(clng(tfiltermode and 16384+4096)<>0)%> />
 				</p>
 				<p>备注<br/>
-				<input type="text" size="<%=FilterTextWidth%>" name="memo" maxlength="25" value="<%=rs("memo")%>" />
+				<input type="text" name="memo" maxlength="25" value="<%=rs("memo")%>" />
 				</p>
 				<div class="field-command">
 				<input type="submit" value="更新" onclick="if (this.form.findexp.value.length===0) {alert('请输入查找内容。');this.form.findexp.focus();return false;}" />

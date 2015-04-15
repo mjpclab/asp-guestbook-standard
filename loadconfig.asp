@@ -158,10 +158,6 @@ WindowSpace=lrs("windowspace")			'窗格区块间距
 
 LeaveContentHeight=lrs("leavecontentheight")		'“留言内容”文本高度
 SearchTextWidth=lrs("searchtextwidth")				'“留言搜索”文本宽度
-AdvDelTextWidth=lrs("advdeltextwidth")				'“高级删除”中文本宽
-SetInfoTextWidth=lrs("setinfotextwidth")			'“修改资料”中文本宽
-ConfigTextWidth=lrs("configtextwidth")				'“参数”中文本宽度
-FilterTextWidth=lrs("filtertextwidth")				'“内容过滤”中文本宽
 ReplyTextHeight=lrs("replytextheight")				'回复、公告编辑框高度
 
 ItemsPerPage=lrs("itemsperpage")		'每页显示的留言数

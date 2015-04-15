@@ -88,15 +88,15 @@
 				</div>
 				<div class="field">
 					<span class="label">所属网站Logo地址：</span>
-					<span class="value"><input type="text" size="<%=ConfigTextWidth%>" maxlength="127" name="homelogo" value="<%=rs("homelogo")%>" /></span>
+					<span class="value"><input type="text" maxlength="127" name="homelogo" value="<%=rs("homelogo")%>" /></span>
 				</div>
 				<div class="field">
 					<span class="label">所属网站名称：</span>
-					<span class="value"><input type="text" size="<%=ConfigTextWidth%>" maxlength="30" name="homename" value="<%=rs("homename")%>" /></span>
+					<span class="value"><input type="text" maxlength="30" name="homename" value="<%=rs("homename")%>" /></span>
 				</div>
 				<div class="field">
 					<span class="label">所属网站地址：</span>
-					<span class="value"><input type="text" size="<%=ConfigTextWidth%>" maxlength="127" name="homeaddr" value="<%=rs("homeaddr")%>" /></span>
+					<span class="value"><input type="text" maxlength="127" name="homeaddr" value="<%=rs("homeaddr")%>" /></span>
 				</div>
 				<%adminlimit=rs("adminhtml")%>
 				<div class="field">
@@ -177,23 +177,23 @@
 				</div>
 				<div class="field">
 					<span class="label">新留言通知接收地址：</span>
-					<span class="value"><input type="text" size="<%=ConfigTextWidth%>" maxlength="48" name="mailreceive" value="<%=rs("mailreceive")%>" /></span>
+					<span class="value"><input type="text" maxlength="48" name="mailreceive" value="<%=rs("mailreceive")%>" /></span>
 				</div>
 				<div class="field">
 					<span class="label">发件人地址：</span>
-					<span class="value"><input type="text" size="<%=ConfigTextWidth%>" maxlength="48" name="mailfrom" value="<%=rs("mailfrom")%>" /></span>
+					<span class="value"><input type="text" maxlength="48" name="mailfrom" value="<%=rs("mailfrom")%>" /></span>
 				</div>
 				<div class="field">
 					<span class="label">发件人SMTP服务器地址：</span>
-					<span class="value"><input type="text" size="<%=ConfigTextWidth%>" maxlength="48" name="mailsmtpserver" value="<%=rs("mailsmtpserver")%>" /></span>
+					<span class="value"><input type="text" maxlength="48" name="mailsmtpserver" value="<%=rs("mailsmtpserver")%>" /></span>
 				</div>
 				<div class="field">
 					<span class="label">登录用户名(如需要)：</span>
-					<span class="value"><input type="text" size="<%=ConfigTextWidth%>" maxlength="48" name="mailuserid" value="<%=rs("mailuserid")%>" /></span>
+					<span class="value"><input type="text" maxlength="48" name="mailuserid" value="<%=rs("mailuserid")%>" /></span>
 				</div>
 				<div class="field">
 					<span class="label">登录密码(如需要)：</span>
-					<span class="value"><input type="password" size="<%=ConfigTextWidth%>" maxlength="48" name="mailuserpass" value="<%=rs("mailuserpass")%>" /></span>
+					<span class="value"><input type="password" maxlength="48" name="mailuserpass" value="<%=rs("mailuserpass")%>" /></span>
 				</div>
 				<div class="field">
 					<span class="label">邮件紧急程度：</span>
@@ -235,22 +235,6 @@
 				<div class="field">
 					<span class="label">搜索框宽度：</span>
 					<span class="value"><input type="text" size="10" maxlength="3" name="searchtextwidth" value="<%=rs("searchtextwidth")%>" /> (默认=20,单位:字母宽度)</span>
-				</div>
-				<div class="field">
-					<span class="label">“高级删除”中文本宽：</span>
-					<span class="value"><input type="text" size="10" maxlength="3" name="advdeltextwidth" value="<%=rs("advdeltextwidth")%>" /> (默认=20,单位:字母宽度)</span>
-				</div>
-				<div class="field">
-					<span class="label">“修改资料”中文本宽：</span>
-					<span class="value"><input type="text" size="10" maxlength="3" name="setinfotextwidth" value="<%=rs("setinfotextwidth")%>" /> (默认=40,单位:字母宽度,包括密码框)</span>
-				</div>
-				<div class="field">
-					<span class="label">“参数”中文本宽度：</span>
-					<span class="value"><input type="text" size="10" maxlength="3" name="configtextwidth" value="<%=rs("configtextwidth")%>" /> (默认=75,单位:字母宽度,即"基本配置"页的文本)</span>
-				</div>
-				<div class="field">
-					<span class="label">“内容过滤”中文本宽：</span>
-					<span class="value"><input type="text" size="10" maxlength="3" name="filtertextwidth" value="<%=rs("filtertextwidth")%>" /> (默认=62,单位:字母宽度)</span>
 				</div>
 				<div class="field">
 					<span class="label">回复、公告编辑框高度：</span>
@@ -535,26 +519,6 @@ function check()
 			{alert('“搜索框宽度”必须为数字。');document.configform.searchtextwidth.select();return false;}
 		else if (tv<1 || tv>255)
 			{alert('“搜索框宽度”必须在1～255的范围内。');document.configform.searchtextwidth.select();return false;}
-
-		if (isNaN(tv=Number(document.configform.advdeltextwidth.value)))
-			{alert('“‘高级删除’中文本宽”必须为数字。');document.configform.advdeltextwidth.select();return false;}
-		else if (tv<1 || tv>255)
-			{alert('“‘高级删除’中文本宽”必须在1～255的范围内。');document.configform.advdeltextwidth.select();return false;}
-
-		if (isNaN(tv=Number(document.configform.setinfotextwidth.value)))
-			{alert('“‘修改资料’中文本宽”必须为数字。');document.configform.setinfotextwidth.select();return false;}
-		else if (tv<1 || tv>255)
-			{alert('“‘修改资料’中文本宽”必须在1～255的范围内。');document.configform.setinfotextwidth.select();return false;}
-
-		if (isNaN(tv=Number(document.configform.configtextwidth.value)))
-			{alert('“‘参数’中文本宽度”必须为数字。');document.configform.configtextwidth.select();return false;}
-		else if (tv<1 || tv>255)
-			{alert('“‘参数’中文本宽度”必须在1～255的范围内。');document.configform.configtextwidth.select();return false;}
-
-		if (isNaN(tv=Number(document.configform.filtertextwidth.value)))
-			{alert('“‘内容过滤’中文本宽”必须为数字。');document.configform.filtertextwidth.select();return false;}
-		else if (tv<1 || tv>255)
-			{alert('“‘内容过滤’中文本宽”必须在1～255的范围内。');document.configform.filtertextwidth.select();return false;}
 
 		if (isNaN(tv=Number(document.configform.replytextheight.value)))
 			{alert('“回复、公告编辑框高度”必须为数字。');document.configform.replytextheight.select();return false;}
