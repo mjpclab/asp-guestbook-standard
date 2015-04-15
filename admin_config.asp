@@ -229,14 +229,6 @@
 					<span class="value"><input type="text" size="10" maxlength="5" name="tableleftwidth" value="<%=rs("tableleftwidth")%>" /> (默认=150,可用百分比)</span>
 				</div>
 				<div class="field">
-					<span class="label">“写留言”文本框宽度：</span>
-					<span class="value"><input type="text" size="10" maxlength="3" name="leavetextwidth" value="<%=rs("leavetextwidth")%>" /> (默认=20,单位:字母宽度)</span>
-				</div>
-				<div class="field">
-					<span class="label">“验证码”文本框宽度：</span>
-					<span class="value"><input type="text" size="10" maxlength="3" name="leavevcodewidth" value="<%=rs("leavevcodewidth")%>" /> (默认=10,单位:字母宽度)</span>
-				</div>
-				<div class="field">
 					<span class="label">“留言内容”文本高度：</span>
 					<span class="value"><input type="text" size="10" maxlength="3" name="leavecontentheight" value="<%=rs("leavecontentheight")%>" /> (默认=7,单位:字母高度)</span>
 				</div>
@@ -533,16 +525,6 @@ function check()
 			{alert('“窗口区块间距”必须为数字。');document.configform.windowspace.select();return false;}
 		else if (tv<1 || tv>255)
 			{alert('“窗口区块间距”必须在1～255的范围内。');document.configform.windowspace.select();return false;}
-
-		if (isNaN(tv=Number(document.configform.leavetextwidth.value)))
-			{alert('“‘写留言’文本框宽度”必须为数字。');document.configform.leavetextwidth.select();return false;}
-		else if (tv<1 || tv>255)
-			{alert('“‘写留言’文本框宽度”必须在1～255的范围内。');document.configform.leavetextwidth.select();return false;}
-
-		if (isNaN(tv=Number(document.configform.leavevcodewidth.value)))
-			{alert('“‘验证码’文本框宽度”必须为数字。');document.configform.leavevcodewidth.select();return false;}
-		else if (tv<1 || tv>255)
-			{alert('“‘验证码’文本框宽度”必须在1～255的范围内。');document.configform.leavevcodewidth.select();return false;}
 
 		if (isNaN(tv=Number(document.configform.leavecontentheight.value)))
 			{alert('“‘留言内容’文本高度”必须为数字。');document.configform.leavecontentheight.select();return false;}

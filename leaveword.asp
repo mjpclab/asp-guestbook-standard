@@ -153,16 +153,16 @@ end function
 					<%if WriteVcodeCount>0 then%>
 					<div class="field">
 						<span class="label">验证码<span class="required">*</span></span>
-						<span class="value"><input type="text" name="ivcode" size="<%=LeaveVcodeWidth%>" autocomplete="off"/><img class="captcha" src="show_vcode.asp?type=write"/></span>
+						<span class="value"><input type="text" name="ivcode" autocomplete="off"/><img class="captcha" src="show_vcode.asp?type=write"/></span>
 					</div>
 					<%end if%>
 					<div class="field">
 						<span class="label">称呼<span class="required">*</span></span>
-						<span class="value"><input type="text" name="iname" size="<%=LeaveTextWidth%>" maxlength="20" value="<%=server.htmlEncode(FormOrCookie("iname"))%>" /></span>
+						<span class="value"><input type="text" name="iname" maxlength="20" value="<%=server.htmlEncode(FormOrCookie("iname"))%>" /></span>
 					</div>
 					<div class="field">
 						<span class="label">标题<span class="required">*</span></span>
-						<span class="value"><input type="text" name="ititle" size="<%=LeaveTextWidth%>" maxlength="30" value="<%=server.htmlEncode(FormOrSession(InstanceName & "_ititle"))%><%if Request.Form("ititle")="" and isnumeric(Request("follow")) and Request("follow")<>"" then response.write "Re:"%>"/></span>
+						<span class="value"><input type="text" name="ititle" maxlength="30" value="<%=server.htmlEncode(FormOrSession(InstanceName & "_ititle"))%><%if Request.Form("ititle")="" and isnumeric(Request("follow")) and Request("follow")<>"" then response.write "Re:"%>"/></span>
 					</div>
 					<div class="field">
 						<div class="row">内容： <%=getstatus(HTMLSupport)%>HTML标记　<%=getstatus(UBBSupport)%>UBB标记<%if HTMLSupport=false and UBBSupport=false and AllowNewLine=true then Response.Write "　" & getstatus(true) & "允许换行"%></div>
@@ -178,7 +178,7 @@ end function
 							<%if StatusEncryptWhisper=true then%>　<input type="checkbox" name="chk_encryptwhisper" value="1" id="chk_encryptwhisper" onclick="chkoption(this.form);if(this.checked)this.form.iwhisperpwd.select();"<%=cked(Request.Form("chk_encryptwhisper")="1")%><%=dised(Request.Form("chk_whisper")<>"1")%> /><label id="lbl_encryptwhisper" for="chk_encryptwhisper"<%=dised(Request.Form("chk_whisper")<>"1")%>>加密悄悄话</label><%end if%>
 						</div>
 						<%if StatusEncryptWhisper=true then%>
-						<div class="row"><img border="0" src="image/icon_key.gif" class="imgicon" />　<label id="lbl_whisperpwd"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%>>密码</label> <input type="password" name="iwhisperpwd" id="iwhisperpwd" size="<%=LeaveTextWidth%>" maxlength="16" title="为悄悄话设置密码后，必须提供密码才能查看回复，也可以查看原先留言。" value="<%=server.HTMLEncode(Request.Form("iwhisperpwd"))%>"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%> /></div>
+						<div class="row"><img border="0" src="image/icon_key.gif" class="imgicon" />　<label id="lbl_whisperpwd"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%>>密码</label> <input type="password" name="iwhisperpwd" id="iwhisperpwd" maxlength="16" title="为悄悄话设置密码后，必须提供密码才能查看回复，也可以查看原先留言。" value="<%=server.HTMLEncode(Request.Form("iwhisperpwd"))%>"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%> /></div>
 						<%end if%>
 					</div>
 					<%end if%>
@@ -188,19 +188,19 @@ end function
 					<h4>联系方式：</h4>
 					<div class="field">
 						<span class="label"><img src="image/icon_mail.gif" class="imgicon" />邮件</span>
-						<span class="value"><input type="text" name="imail" size="<%=LeaveTextWidth%>" maxlength="50" value="<%=server.htmlEncode(FormOrCookie("imail"))%>"/><%if MailReplyInform=true then%><br/><input type="checkbox" name="imailreplyinform" id="imailreplyinform" value="1"<%=cked(Request.Form("imailreplyinform")="1")%> /><label for="imailreplyinform">版主回复后用邮件通知我</label><%end if%></span>
+						<span class="value"><input type="text" name="imail" maxlength="50" value="<%=server.htmlEncode(FormOrCookie("imail"))%>"/><%if MailReplyInform=true then%><br/><input type="checkbox" name="imailreplyinform" id="imailreplyinform" value="1"<%=cked(Request.Form("imailreplyinform")="1")%> /><label for="imailreplyinform">版主回复后用邮件通知我</label><%end if%></span>
 					</div>
 					<div class="field">
 						<span class="label"><img src="image/icon_qq.gif" class="imgicon" />QQ号</span>
-						<span class="value"><input type="text" name="iqq" size="<%=LeaveTextWidth%>" maxlength="16" value="<%=server.htmlEncode(FormOrCookie("iqq"))%>"/></span>
+						<span class="value"><input type="text" name="iqq" maxlength="16" value="<%=server.htmlEncode(FormOrCookie("iqq"))%>"/></span>
 					</div>
 					<div class="field">
 						<span class="label"><img src="image/icon_skype.gif" class="imgicon" />Skype</span>
-						<span class="value"><input type="text" name="imsn" size="<%=LeaveTextWidth%>" maxlength="50" value="<%=server.htmlEncode(FormOrCookie("imsn"))%>"/></span>
+						<span class="value"><input type="text" name="imsn" maxlength="50" value="<%=server.htmlEncode(FormOrCookie("imsn"))%>"/></span>
 					</div>
 					<div class="field">
 						<span class="label"><img src="image/icon_homepage.gif" class="imgicon" />主页</span>
-						<span class="value"><input type="text" name="ihomepage" size="<%=LeaveTextWidth%>" maxlength="127" value="<%=server.htmlEncode(FormOrCookie("ihomepage"))%>"/></span>
+						<span class="value"><input type="text" name="ihomepage" maxlength="127" value="<%=server.htmlEncode(FormOrCookie("ihomepage"))%>"/></span>
 					</div>
 					<div class="field">
 						<input type="checkbox" name="hidecontact" id="hidecontact" value="1"<%=cked(request.form("hidecontact")="1")%> /><label for="hidecontact">联系方式仅版主可见</label>

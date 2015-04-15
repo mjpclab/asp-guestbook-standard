@@ -156,8 +156,6 @@ TableWidth=lrs("tablewidth")		'表格宽度，可用百分比
 TableLeftWidth=lrs("tableleftwidth")	'表格左方宽度，可用百分比
 WindowSpace=lrs("windowspace")			'窗格区块间距
 
-LeaveTextWidth=lrs("leavetextwidth")				'“写留言”文本宽度
-LeaveVcodeWidth=lrs("leavevcodewidth")				'“验证码”文本框宽度
 LeaveContentHeight=lrs("leavecontentheight")		'“留言内容”文本高度
 SearchTextWidth=lrs("searchtextwidth")				'“留言搜索”文本宽度
 AdvDelTextWidth=lrs("advdeltextwidth")				'“高级删除”中文本宽

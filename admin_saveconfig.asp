@@ -59,10 +59,6 @@ elseif isnum(request.Form("tableleftwidth"))=false and clng(showpage and 4)<> 0 
 	errbox "“留言本左窗格宽度”必须为数字或百分比。"
 elseif isnumeric(request.Form("windowspace"))=false and clng(showpage and 4)<> 0 then
 	errbox "“窗口区块间距”必须为数字。"
-elseif isnumeric(request.Form("leavetextwidth"))=false and clng(showpage and 4)<> 0 then
-	errbox "“‘写留言’文本框宽度”必须为数字。"
-elseif isnumeric(request.Form("leavevcodewidth"))=false and clng(showpage and 4)<> 0 then
-	errbox "“‘验证码’文本框宽度”必须为数字。"
 elseif isnumeric(request.Form("leavecontentheight"))=false and clng(showpage and 4)<> 0 then
 	errbox "“‘留言内容’文本高度”必须为数字。"
 elseif isnumeric(request.Form("advdeltextwidth"))=false and clng(showpage and 4)<> 0 then
@@ -245,17 +241,7 @@ else
 		if len(cstr(twindowspace))>3 then twindowspace=20
 		if clng(twindowspace)>255 then twindowspace=20
 		if clng(twindowspace)<1 then twindowspace=20
-	
-		tleavetextwidth=Request.Form("leavetextwidth")
-		if len(cstr(tleavetextwidth))>3 then tleavetextwidth=20
-		if clng(tleavetextwidth)>255 then tleavetextwidth=255
-		if clng(tleavetextwidth)<1 then tleavetextwidth=20
-	
-		tleavevcodewidth=Request.Form("leavevcodewidth")
-		if len(cstr(tleavevcodewidth))>3 then tleavevcodewidth=10
-		if clng(tleavevcodewidth)>255 then tleavevcodewidth=10
-		if clng(tleavevcodewidth)<1 then tleavevcodewidth=10
-	
+
 		tleavecontentheight=Request.Form("leavecontentheight")
 		if len(cstr(tleavecontentheight))>3 then tleavecontentheight=7
 		if clng(tleavecontentheight)>255 then tleavecontentheight=255
@@ -270,7 +256,7 @@ else
 		if len(cstr(tadvdeltextwidth))>3 then tadvdeltextwidth=20
 		if clng(tadvdeltextwidth)>255 then tadvdeltextwidth=255
 		if clng(tadvdeltextwidth)<1 then tadvdeltextwidth=20
-	
+
 		tsetinfotextwidth=Request.Form("setinfotextwidth")
 		if len(cstr(tsetinfotextwidth))>3 then tsetinfotextwidth=20
 		if clng(tsetinfotextwidth)>255 then tsetinfotextwidth=255
@@ -421,8 +407,6 @@ else
 		rs1("tablewidth")=ttablewidth
 		rs1("tableleftwidth")=ttableleftwidth
 		rs1("windowspace")=twindowspace
-		rs1("leavetextwidth")=tleavetextwidth
-		rs1("leavevcodewidth")=tleavevcodewidth
 		rs1("leavecontentheight")=tleavecontentheight
 		rs1("searchtextwidth")=tsearchtextwidth
 		rs1("advdeltextwidth")=tadvdeltextwidth
