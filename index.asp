@@ -18,8 +18,7 @@ if StatusStatistics then call addstat("view")
 <head>
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> ¡Ù—‘±æ</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css"/>
-	<!-- #include file="css/style.asp" -->
+	<!-- #include file="inc_stylesheet.asp" -->
 </head>
 
 <body<%=bodylimit%> onload="<%=framecheck%>">

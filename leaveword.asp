@@ -32,8 +32,8 @@ end function
 <head>
 	<!-- #include file="inc_metatag.asp" -->
 	<title><%=HomeName%> ¡Ù—‘±æ «©–¥¡Ù—‘</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css"/>
-	<!-- #include file="css/style.asp" -->
+	<!-- #include file="inc_stylesheet.asp" -->
+
 	<script type="text/javascript">
 		function submitcheck(cobject)
 		{

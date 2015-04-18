@@ -1,0 +1,211 @@
+body {
+	color: #000000;
+	background-color: #9d0000;
+	background-image: url(../../image/bg_festival.gif);
+}
+
+a:link {
+	color: #fff200;
+}
+
+a:visited {
+	color: #fff200;
+}
+
+a:active {
+	color: #fff200;
+}
+
+a:hover {
+	color: #fff200;
+}
+
+textarea, input, select {
+	border-color: #fff200;
+	color: #fff200;
+	background-color: #aa0000;
+}
+
+.outerborder {
+	border-width: 2px;
+	border-color: #fff200;
+	padding: 2px;
+}
+
+.header {
+	color: #fff200;
+	background-color: #e00000;
+	background-image: url(../../image/bar_top_festival.gif);
+}
+
+.guest-functions .aside .function {
+	border-color: #000000;
+}
+
+.topic {
+	border-color: #fff200;
+	background-color: #aa0000;
+}
+
+.topic .message {
+	border-color: #fff200;
+	color: #000000;
+}
+
+.topic .info {
+	color: #000000;
+	border-color: #fff200;
+	background-color: #aa0000;
+	background-image: none;
+}
+
+.topic .detail {
+	border-color: #fff200;
+}
+
+.topic .title {
+	border-color: #fff200;
+	color: #fff200;
+	background-color: #e00000;
+	background-image: url(../../image/bar_festival.gif);
+}
+
+.topic .inner-message {
+	border-color: #fff200;
+	background-color: #c00000;
+}
+
+.topic .inner-message .summary {
+	color: #fff200;
+	border-color: #fff200;
+}
+
+.topic .admin-message .title,
+.topic .admin-message .summary {
+	color: #fff200;
+}
+
+.topic .admin-message .words {
+	color: #fff200;
+}
+
+.topic .outer-hint {
+	border-color: #fff200;
+}
+
+.topic .admin-tools {
+	border-color: #fff200;
+}
+
+.topic-list {
+	border-color: #fff200;
+	background-color: #aa0000;
+}
+
+.topic-list tbody tr:hover td {
+	background: #c00000;
+}
+
+.topic-list th,
+.topic-list td {
+	border-color: #fff200;
+}
+
+.topic-list th {
+	color: #fff200;
+	background-color: #e00000;
+	background-image: url(../../image/bar_festival.gif);
+}
+
+.region {
+	border-color: #fff200;
+	color: #000000;
+	background-color: #aa0000;
+}
+
+.region .title {
+	border-color: #fff200;
+	color: #fff200;
+	background-color: #e00000;
+	background-image: url(../../image/bar_festival.gif);
+}
+
+.region .content table {
+	border-color: #fff200;
+}
+
+.region .content table th,
+.region .content table td {
+	border-color: #fff200;
+}
+
+.page-list .nav a {
+	border-color: #aa0000;
+}
+
+.page-list .nav a:hover {
+	border-color: #fff200;
+	background-color: #c00000;
+}
+
+.page-list .pagenum,
+.page-list .pagenum:link,
+.page-list .pagenum:visited,
+.page-list .pagenum:active,
+.page-list .pagenum:hover {
+	border-color: #aa0000;
+	color: #000000;
+}
+
+.page-list .pagenum:hover {
+	border-color: #fff200;
+	background-color: #c00000;
+}
+
+.page-list .pagenum-current,
+.page-list .pagenum-current:link,
+.page-list .pagenum-current:visited,
+.page-list .pagenum-current:active,
+.page-list .pagenum-current:hover {
+	color: #fff200;
+}
+
+.tab-outer-container .tab-title-container {
+	border-color: #fff200;
+}
+
+.tab-outer-container .tab-title {
+	border-color: transparent;
+	border-bottom-color: #fff200;
+}
+
+*html .tab-outer-container .tab-title {
+	border-color: #aa0000;
+	border-bottom-color: #fff200;
+}
+
+.tab-outer-container .tab-title-selected {
+	border-color: #fff200;
+	border-bottom-color: transparent;
+	background-color: #aa0000;
+}
+
+*html .tab-outer-container .tab-title-selected {
+	border-color: #fff200;
+	border-bottom-color: #aa0000;
+}
+
+*+html .tab-outer-container .tab-title-selected {
+	border-bottom-color: #aa0000;
+}
+
+.ubbtoolbar .ubbbutton,
+.ubbtoolbar .ubbface {
+	border-color: #aa0000;
+}
+
+.ubbtoolbar .ubbbutton:hover,
+.ubbtoolbar .ubbface:hover {
+	border-color: #fff200;
+	background-color: #c00000;
+}

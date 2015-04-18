@@ -215,58 +215,10 @@ lrs.Close
 lrs.Open Replace(sql_loadconfig_style,"{0}",styleid),lcn,0,1,1
 if lrs.EOF=true then
 	lrs.Close
-	lrs.Open sql_loadconfig_top1style ,lcn
+	lrs.Open sql_loadconfig_top1style,lcn,0,1,1
 end if
 
-PageBackColor=lrs("pagebackcolor")			'网页背景色
-PageBackImage=lrs("pagebackimage")			'网页背景图片，使用相对路径
-
-TableBorderColor=lrs("tablebordercolor")		'表格边框颜色
-TableBorderColorInactive=lrs("tablebordercolorinactive")		'表格边框颜色（非活动）
-TableBorderWidth=TableBorderWidth*lrs("tableborderwidth")		'表格外框粗细
-TableBorderPadding=lrs("tableborderpadding")					'表格外框边距
-TableBGC=lrs("tablebgc")						'表格主体背景色
-TablePic=lrs("tablepic")						'表格主题背景图片
-
-TitleColor=lrs("titlecolor")		'留言本标题文字颜色
-TitleBGC=lrs("titlebgc")			'留言本标题背景色
-TitlePic=lrs("titlepic")			'留言本标题背景图片
-
-TableBulletinTitleColor=lrs("tablebulletintitlecolor")	'表格－公告标题文字颜色
-TableBulletinTitleBGC=lrs("tablebulletintitlebgc")		'表格－公告标题文字颜色
-TableBulletinTitlePic=lrs("tablebulletintitlepic")		'表格－公告标题文字颜色
-
-TableTitleColor=lrs("tabletitlecolor")		'表格－留言标题文字颜色
-TableTitleBGC=lrs("tabletitlebgc")			'表格－留言/公告标题背景色
-TableTitlePic=lrs("tabletitlepic")			'表格－留言/公告标题背景图片
-
-TableContentColor=lrs("tablecontentcolor")		'表格－文章内容文字颜色
-TableContentBGC=lrs("tablecontentbgc")			'表格－文章内容背景色
-
-TableReplyColor=lrs("tablereplycolor")		'表格－版主回复标题文字颜色
-TableReplyBGC=lrs("tablereplybgc")			'表格－版主回复标题背景色
-TableReplyPic=lrs("tablereplypic")			'表格－版主回复标题背景图片
-
-TableReplyContentColor=lrs("tablereplycontentcolor")	'表格－版主回复内容文字颜色
-
-TableGuestInfoColor=lrs("tableguestinfocolor")	'表格－留言者信息框(左方)文字颜色
-TableGuestInfoBGC=lrs("tableguestinfobgc")		'表格－留言者信息框背景色
-TableGuestInfoPic=lrs("tableguestinfopic")		'表格－留言者信息框背景图片
-
-BlockBGC=lrs("blockbgc")					'内嵌区块背景色
-
-FormColor=lrs("formcolor")
-FormBGC=lrs("formbgc")
-
-LinkNormal=lrs("linknormal")		'超链接－正常颜色
-LinkHover=lrs("linkhover")			'超链接－鼠标悬停颜色
-LinkActive=lrs("linkactive")		'超链接－活动颜色
-LinkVisited=lrs("linkvisited")		'超链接－已访问颜色
-
-PageNumColor_Curr=lrs("pagenumcolor_curr")			'当前页号颜色
-PageNumColor_Normal=lrs("pagenumcolor_normal")		'一般页号颜色
-
-Additional_Css=lrs("additional_css")	'附加CSS
+ThemePath=lrs("themepath")
 
 lrs.Close
 lrs.Open sql_loadconfig_floodconfig,lcn,0,1,1

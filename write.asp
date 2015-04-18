@@ -1,6 +1,5 @@
 <!-- #include file="config.asp" -->
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
-<!-- #include file="css/style.asp" -->
+<!-- #include file="inc_stylesheet.asp" -->
 <!-- #include file="ubbcode.asp" -->
 <!-- #include file="common2.asp" -->
 <!-- #include file="md5.asp" -->

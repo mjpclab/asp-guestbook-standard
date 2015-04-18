@@ -69,6 +69,10 @@ a:hover {
 	text-decoration: underline;
 }
 
+p {
+	margin:0 0 1em 0;
+}
+
 label {
 	display: inline-block;
 }
@@ -341,6 +345,7 @@ form .row {
 	margin-bottom: 10px;
 	padding-bottom: 5px;
 	overflow: hidden;
+	font-weight: bold;
 }
 *html .topic .inner-message .summary {
 	zoom:1;
@@ -681,6 +686,13 @@ form .row {
 .footer {
 	margin-top: 1em;
 	text-align:center;
+}
+
+.footer, .footer a {
+	color:#888;
+}
+.footer a:hover {
+	color:#000;
 }
 
 /**************** Responsible ****************/

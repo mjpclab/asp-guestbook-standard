@@ -1,0 +1,17 @@
+.flex-box ul,
+.flex-box li {
+	border-color:#0080b0;
+}
+
+.flex-box a {
+	border-color:#ccc;
+}
+.flex-box a:hover {
+	border-color:#0080b0;
+	background-color:#f7f7f7;
+}
+
+
+.detail-item {
+	border-color:#0080b0;
+}

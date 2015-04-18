@@ -1,0 +1,210 @@
+body {
+	color: #ffffff;
+	background-color: #000000;
+	background-image: url(../../image/bg_black.gif);
+}
+
+a:link {
+	color: #00ff00;
+}
+
+a:visited {
+	color: #00ff00;
+}
+
+a:active {
+	color: #00ff00;
+}
+
+a:hover {
+	color: #00ff00;
+}
+
+textarea, input, select {
+	border-color: #333333;
+	color: #cc9900;
+	background-color: #181818;
+}
+
+.outerborder {
+	border-width: 2px;
+	border-color: #333333;
+	padding: 2px;
+}
+
+.header {
+	color: #fff200;
+	background-color: #222222;
+	background-image: none;
+}
+
+.guest-functions .aside .function {
+	border-color: #ffffff;
+}
+
+.topic {
+	border-color: #333333;
+	background-color: #181818;
+}
+
+.topic .message {
+	border-color: #333333;
+	color: #ffffff;
+}
+
+.topic .info {
+	color: #ffffff;
+	border-color: #333333;
+	background-color: #181818;
+}
+
+.topic .detail {
+	border-color: #333333;
+}
+
+.topic .title {
+	border-color: #333333;
+	color: #cc9900;
+	background-color: #222222;
+	background-image: none;
+}
+
+.topic .inner-message {
+	border-color: #333333;
+	background-color: #222222;
+}
+
+.topic .inner-message .summary {
+	color: #cc9900;
+	border-color: #333333;
+}
+
+.topic .admin-message .title,
+.topic .admin-message .summary {
+	color: #cc9900;
+}
+
+.topic .admin-message .words {
+	color: #ffffff;
+}
+
+.topic .outer-hint {
+	border-color: #333333;
+}
+
+.topic .admin-tools {
+	border-color: #333333;
+}
+
+.topic-list {
+	border-color: #333333;
+	background-color: #181818;
+}
+
+.topic-list tbody tr:hover td {
+	background: #222222;
+}
+
+.topic-list th,
+.topic-list td {
+	border-color: #333333;
+}
+
+.topic-list th {
+	color: #cc9900;
+	background-color: #222222;
+	background-image: none;
+}
+
+.region {
+	border-color: #333333;
+	color: #ffffff;
+	background-color: #181818;
+}
+
+.region .title {
+	border-color: #333333;
+	color: #cc9900;
+	background-color: #222222;
+	background-image: none;
+}
+
+.region .content table {
+	border-color: #333333;
+}
+
+.region .content table th,
+.region .content table td {
+	border-color: #333333;
+}
+
+.page-list .nav a {
+	border-color: #181818;
+}
+
+.page-list .nav a:hover {
+	border-color: #333333;
+	background-color: #222222;
+}
+
+.page-list .pagenum,
+.page-list .pagenum:link,
+.page-list .pagenum:visited,
+.page-list .pagenum:active,
+.page-list .pagenum:hover {
+	border-color: #181818;
+	color: #ffffff;
+}
+
+.page-list .pagenum:hover {
+	border-color: #333333;
+	background-color: #222222;
+}
+
+.page-list .pagenum-current,
+.page-list .pagenum-current:link,
+.page-list .pagenum-current:visited,
+.page-list .pagenum-current:active,
+.page-list .pagenum-current:hover {
+	color: #ff0000;
+}
+
+.tab-outer-container .tab-title-container {
+	border-color: #333333;
+}
+
+.tab-outer-container .tab-title {
+	border-color: transparent;
+	border-bottom-color: #333333;
+}
+
+*html .tab-outer-container .tab-title {
+	border-color: #181818;
+	border-bottom-color: #333333;
+}
+
+.tab-outer-container .tab-title-selected {
+	border-color: #333333;
+	border-bottom-color: transparent;
+	background-color: #181818;
+}
+
+*html .tab-outer-container .tab-title-selected {
+	border-color: #333333;
+	border-bottom-color: #181818;
+}
+
+*+html .tab-outer-container .tab-title-selected {
+	border-bottom-color: #181818;
+}
+
+.ubbtoolbar .ubbbutton,
+.ubbtoolbar .ubbface {
+	border-color: #181818;
+}
+
+.ubbtoolbar .ubbbutton:hover,
+.ubbtoolbar .ubbface:hover {
+	border-color: #333333;
+	background-color: #222222;
+}
