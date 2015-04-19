@@ -30,7 +30,7 @@
 	<%show_book_title 3,"№ЬАн"%>
 	<!-- #include file="admincontrols.inc" -->
 
-	<div class="region form-region">
+	<div class="region form-region region-longtext">
 		<h3 class="title">РЮёДГЬВл</h3>
 		<div class="content">
 			<form method="post" action="admin_savepass.asp" onsubmit="return checkpass(this)" name="form4">

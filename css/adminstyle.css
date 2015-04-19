@@ -44,6 +44,22 @@
 }
 
 
+input.longtext {
+	width:100%;
+}
+*html input.longtext {
+	width:90%;
+}
+*+html input.longtext {
+	width:99%;
+}
+.region-longtext input[type=text],
+.region-longtext input[type=password] {
+	width:100%;
+}
+
+.region-longtext input
+
 .region-callgen .field .label {
 	width:7em;
 }

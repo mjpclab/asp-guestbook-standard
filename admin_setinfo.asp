@@ -27,7 +27,7 @@
 	tfaceid=rs("faceid")
 	%>
 
-	<div class="region form-region">
+	<div class="region form-region region-longtext">
 		<h3 class="title">修改版主资料</h3>
 		<div class="content">
 			<form method="post" action="admin_saveinfo.asp" name="form1" onsubmit="form1.submit1.disabled=true;">

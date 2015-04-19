@@ -85,15 +85,15 @@
 				</div>
 				<div class="field">
 					<span class="label">所属网站Logo地址：</span>
-					<span class="value"><input type="text" maxlength="127" name="homelogo" value="<%=rs("homelogo")%>" /></span>
+					<span class="value"><input type="text" class="longtext" maxlength="127" name="homelogo" value="<%=rs("homelogo")%>" /></span>
 				</div>
 				<div class="field">
 					<span class="label">所属网站名称：</span>
-					<span class="value"><input type="text" maxlength="30" name="homename" value="<%=rs("homename")%>" /></span>
+					<span class="value"><input type="text" class="longtext" maxlength="30" name="homename" value="<%=rs("homename")%>" /></span>
 				</div>
 				<div class="field">
 					<span class="label">所属网站地址：</span>
-					<span class="value"><input type="text" maxlength="127" name="homeaddr" value="<%=rs("homeaddr")%>" /></span>
+					<span class="value"><input type="text" class="longtext" maxlength="127" name="homeaddr" value="<%=rs("homeaddr")%>" /></span>
 				</div>
 				<%adminlimit=rs("adminhtml")%>
 				<div class="field">
@@ -174,23 +174,23 @@
 				</div>
 				<div class="field">
 					<span class="label">新留言通知接收地址：</span>
-					<span class="value"><input type="text" maxlength="48" name="mailreceive" value="<%=rs("mailreceive")%>" /></span>
+					<span class="value"><input type="text" class="longtext" maxlength="48" name="mailreceive" value="<%=rs("mailreceive")%>" /></span>
 				</div>
 				<div class="field">
 					<span class="label">发件人地址：</span>
-					<span class="value"><input type="text" maxlength="48" name="mailfrom" value="<%=rs("mailfrom")%>" /></span>
+					<span class="value"><input type="text" class="longtext" maxlength="48" name="mailfrom" value="<%=rs("mailfrom")%>" /></span>
 				</div>
 				<div class="field">
 					<span class="label">发件人SMTP服务器地址：</span>
-					<span class="value"><input type="text" maxlength="48" name="mailsmtpserver" value="<%=rs("mailsmtpserver")%>" /></span>
+					<span class="value"><input type="text" class="longtext" maxlength="48" name="mailsmtpserver" value="<%=rs("mailsmtpserver")%>" /></span>
 				</div>
 				<div class="field">
 					<span class="label">登录用户名(如需要)：</span>
-					<span class="value"><input type="text" maxlength="48" name="mailuserid" value="<%=rs("mailuserid")%>" /></span>
+					<span class="value"><input type="text" class="longtext" maxlength="48" name="mailuserid" value="<%=rs("mailuserid")%>" /></span>
 				</div>
 				<div class="field">
 					<span class="label">登录密码(如需要)：</span>
-					<span class="value"><input type="password" maxlength="48" name="mailuserpass" value="<%=rs("mailuserpass")%>" /></span>
+					<span class="value"><input type="password" class="longtext" maxlength="48" name="mailuserpass" value="<%=rs("mailuserpass")%>" /></span>
 				</div>
 				<div class="field">
 					<span class="label">邮件紧急程度：</span>

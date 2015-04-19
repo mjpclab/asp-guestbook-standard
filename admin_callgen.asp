@@ -102,7 +102,7 @@ Response.Expires=-1
 		<input type="hidden" name="url" id="url" value="<%=geturlpath%>tlist.asp" />
 		<div class="field">
 			<span class="label">显示条数：<span class="required">*</span></span>
-			<span class="value"><input type="text" name="frm_n" id="frm_n" size="10" maxlength="10" value="10" /></span>
+			<span class="value"><input type="text" name="frm_n" id="frm_n" maxlength="10" value="10" /></span>
 		</div>
 		<div class="field">
 			<span class="label">打开窗口：</span>
@@ -118,11 +118,11 @@ Response.Expires=-1
 		</div>
 		<div class="field">
 			<span class="label">标题前缀：</span>
-			<span class="value"><input type="text" name="frm_prefix" id="frm_prefix" size="10" value="<%=Request.Form("frm_prefix")%>" /></span>
+			<span class="value"><input type="text" name="frm_prefix" id="frm_prefix" value="<%=Request.Form("frm_prefix")%>" /></span>
 		</div>
 		<div class="field">
 			<span class="label">字数限制：</span>
-			<span class="value"><input type="text" name="frm_len" id="frm_len" size="10" value="<%=Request.Form("frm_len")%>" /></span>
+			<span class="value"><input type="text" name="frm_len" id="frm_len" value="<%=Request.Form("frm_len")%>" /></span>
 		</div>
 		<div class="field">
 			<span class="label">不输出断行：</span>
@@ -135,11 +135,11 @@ Response.Expires=-1
 		<div id="iframeSettings">
 			<div class="field">
 				<span class="label">窗口宽度：</span>
-				<span class="value"><input type="text" name="frm_width" id="frm_width" size="10" value="<%=Request.Form("frm_width")%>" /></span>
+				<span class="value"><input type="text" name="frm_width" id="frm_width" value="<%=Request.Form("frm_width")%>" /></span>
 			</div>
 			<div class="field">
 				<span class="label">窗口高度：</span>
-				<span class="value"><input type="text" name="frm_height" id="frm_height" size="10" value="<%=Request.Form("frm_height")%>" /></span>
+				<span class="value"><input type="text" name="frm_height" id="frm_height" value="<%=Request.Form("frm_height")%>" /></span>
 			</div>
 		</div>
 		<div class="field-command">
