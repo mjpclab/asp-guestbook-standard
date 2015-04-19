@@ -915,22 +915,6 @@ Function DateTimeStr(theTime)
 	DateTimeStr = Year(t) & "-" & Month(t) & "-" & Day(t) & " " & Hour(t) & ":" & Minute(t) & ":" & Second(t)
 End Function
 '==================================
-Function CssBgImg(FileName)
-	if FileName<>"" then
-		CssBgImg = "background-image:url(" & FileName & ");"
-	else
-		CssBgImg = "background-image:none;"
-	end if
-End Function
-'==================================
-Function CssBgColor(ColorName)
-	if ColorName<>"" then
-		CssBgColor = "background-color:" & ColorName & ";"
-	else
-		CssBgColor = "background-color:transparent;"
-	end if
-End Function
-'==================================
 Function CssOptionalSize(property,size)
 	if(property<>"") then
 		if(isnumeric(size)) then
