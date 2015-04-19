@@ -695,22 +695,6 @@ form .row {
 	color:#000;
 }
 
-/**************** Responsible ****************/
-@media only screen and (max-width: 420px) {
-	.outerborder {
-		margin-top: 0;
-	}
-
-	body .topic .info {
-		width:25%;
-	}
-
-	body .topic .info img {
-		max-width: 100%;
-		height: auto;
-	}
-}
-
 /**************** tab-container ****************/
 .tab-outer-container {
 
@@ -815,9 +799,9 @@ form .row {
 	zoom: 1;
 }
 
-.colorsPreview {width:40px; height:25px; border:solid 1px #FFFFFF; float:left;}
-.colorsNumber {width:50px; height:16px; border:none; color:#FFFFFF; float:left; margin:3px; margin-left:10px;}
-.colorsCancel {width:40px; float:left; border:solid 1px #FFFFFF; margin:2px; margin-left:30px; color:#FFFFFF; text-align:center; cursor:pointer;}
+.colorsPreview {width:40px; height:25px; border:solid 1px #fff; float:left;}
+.colorsNumber {width:50px; height:16px; border:none; color:#fff; float:left; margin:3px 3px 3px 10px;}
+.colorsCancel {width:40px; float:left; border:solid 1px #fff; margin:2px 2px 2px 30px; color:#fff; text-align:center; cursor:pointer;}
 
 .colorsPalette {
 }
@@ -840,4 +824,20 @@ form .row {
 }
 .colorsPalette .colorsCell:hover {
 	border-color:#fff;
+}
+
+/**************** Responsible ****************/
+@media only screen and (max-width: 420px) {
+	.outerborder {
+		margin-top: 0;
+	}
+
+	body .topic .info {
+		width:25%;
+	}
+
+	body .topic .info img {
+		max-width: 100%;
+		height: auto;
+	}
 }

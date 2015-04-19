@@ -1,29 +1,17 @@
 body {
-	color: #000000;
-	background-color: #ffffff;
+	color: #000;
+	background-color: #fff;
 	background-image: url(../../image/bg.jpg);
 }
 
-a:link {
-	color: #000000;
-}
-
-a:visited {
-	color: #000000;
-}
-
-a:active {
-	color: #000000;
-}
-
-a:hover {
-	color: #000000;
+a {
+	color: #000;
 }
 
 textarea, input, select {
 	border-color: #80a8ff;
-	color: #000000;
-	background-color: #ffffff;
+	color: #000;
+	background-color: #fff;
 }
 
 .outerborder {
@@ -33,29 +21,29 @@ textarea, input, select {
 }
 
 .header {
-	color: #000000;
-	background-color: #ffffff;
+	color: #000;
+	background-color: #fff;
 	background-image: url(../../image/bar_top_blue.gif);
 }
 
 .guest-functions .aside .function {
-	border-color: #000000;
+	border-color: #000;
 }
 
 .topic {
 	border-color: #80a8ff;
-	background-color: #eeeeee;
+	background-color: #eee;
 }
 
 .topic .message {
 	border-color: #80a8ff;
-	color: #000000;
+	color: #000;
 }
 
 .topic .info {
-	color: #000000;
+	color: #000;
 	border-color: #80a8ff;
-	background-color: #eeeeee;
+	background-color: #eee;
 	background-image: none;
 }
 
@@ -65,8 +53,8 @@ textarea, input, select {
 
 .topic .title {
 	border-color: #80a8ff;
-	color: #000000;
-	background-color: #ffffff;
+	color: #000;
+	background-color: #fff;
 	background-image: url(../../image/bar_.gif);
 }
 
@@ -76,17 +64,17 @@ textarea, input, select {
 }
 
 .topic .inner-message .summary {
-	color: #000000;
+	color: #000;
 	border-color: #80a8ff;
 }
 
 .topic .admin-message .title,
 .topic .admin-message .summary {
-	color: #000000;
+	color: #000;
 }
 
 .topic .admin-message .words {
-	color: #000000;
+	color: #000;
 }
 
 .topic .outer-hint {
@@ -99,7 +87,7 @@ textarea, input, select {
 
 .topic-list {
 	border-color: #80a8ff;
-	background-color: #eeeeee;
+	background-color: #eee;
 }
 
 .topic-list tbody tr:hover td {
@@ -112,21 +100,21 @@ textarea, input, select {
 }
 
 .topic-list th {
-	color: #000000;
-	background-color: #ffffff;
+	color: #000;
+	background-color: #fff;
 	background-image: url(../../image/bar_.gif);
 }
 
 .region {
 	border-color: #80a8ff;
-	color: #000000;
-	background-color: #eeeeee;
+	color: #000;
+	background-color: #eee;
 }
 
 .region .title {
 	border-color: #80a8ff;
-	color: #000000;
-	background-color: #ffffff;
+	color: #000;
+	background-color: #fff;
 	background-image: url(../../image/bar_.gif);
 }
 
@@ -140,7 +128,7 @@ textarea, input, select {
 }
 
 .page-list .nav a {
-	border-color: #eeeeee;
+	border-color: #eee;
 }
 
 .page-list .nav a:hover {
@@ -153,8 +141,8 @@ textarea, input, select {
 .page-list .pagenum:visited,
 .page-list .pagenum:active,
 .page-list .pagenum:hover {
-	border-color: #eeeeee;
-	color: #000000;
+	border-color: #eee;
+	color: #000;
 }
 
 .page-list .pagenum:hover {
@@ -167,7 +155,7 @@ textarea, input, select {
 .page-list .pagenum-current:visited,
 .page-list .pagenum-current:active,
 .page-list .pagenum-current:hover {
-	color: #ff0000;
+	color: red;
 }
 
 .tab-outer-container .tab-title-container {
@@ -180,28 +168,28 @@ textarea, input, select {
 }
 
 *html .tab-outer-container .tab-title {
-	border-color: #eeeeee;
+	border-color: #eee;
 	border-bottom-color: #80a8ff;
 }
 
 .tab-outer-container .tab-title-selected {
 	border-color: #80a8ff;
 	border-bottom-color: transparent;
-	background-color: #eeeeee;
+	background-color: #eee;
 }
 
 *html .tab-outer-container .tab-title-selected {
 	border-color: #80a8ff;
-	border-bottom-color: #eeeeee;
+	border-bottom-color: #eee;
 }
 
 *+html .tab-outer-container .tab-title-selected {
-	border-bottom-color: #eeeeee;
+	border-bottom-color: #eee;
 }
 
 .ubbtoolbar .ubbbutton,
 .ubbtoolbar .ubbface {
-	border-color: #eeeeee;
+	border-color: #eee;
 }
 
 .ubbtoolbar .ubbbutton:hover,

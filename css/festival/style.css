@@ -1,29 +1,17 @@
 body {
-	color: #000000;
+	color: #000;
 	background-color: #9d0000;
 	background-image: url(../../image/bg_festival.gif);
 }
 
-a:link {
-	color: #fff200;
-}
-
-a:visited {
-	color: #fff200;
-}
-
-a:active {
-	color: #fff200;
-}
-
-a:hover {
+a {
 	color: #fff200;
 }
 
 textarea, input, select {
 	border-color: #fff200;
 	color: #fff200;
-	background-color: #aa0000;
+	background-color: #a00;
 }
 
 .outerborder {
@@ -39,23 +27,23 @@ textarea, input, select {
 }
 
 .guest-functions .aside .function {
-	border-color: #000000;
+	border-color: #000;
 }
 
 .topic {
 	border-color: #fff200;
-	background-color: #aa0000;
+	background-color: #a00;
 }
 
 .topic .message {
 	border-color: #fff200;
-	color: #000000;
+	color: #000;
 }
 
 .topic .info {
-	color: #000000;
+	color: #000;
 	border-color: #fff200;
-	background-color: #aa0000;
+	background-color: #a00;
 	background-image: none;
 }
 
@@ -99,7 +87,7 @@ textarea, input, select {
 
 .topic-list {
 	border-color: #fff200;
-	background-color: #aa0000;
+	background-color: #a00;
 }
 
 .topic-list tbody tr:hover td {
@@ -119,8 +107,8 @@ textarea, input, select {
 
 .region {
 	border-color: #fff200;
-	color: #000000;
-	background-color: #aa0000;
+	color: #000;
+	background-color: #a00;
 }
 
 .region .title {
@@ -140,7 +128,7 @@ textarea, input, select {
 }
 
 .page-list .nav a {
-	border-color: #aa0000;
+	border-color: #a00;
 }
 
 .page-list .nav a:hover {
@@ -153,8 +141,8 @@ textarea, input, select {
 .page-list .pagenum:visited,
 .page-list .pagenum:active,
 .page-list .pagenum:hover {
-	border-color: #aa0000;
-	color: #000000;
+	border-color: #a00;
+	color: #000;
 }
 
 .page-list .pagenum:hover {
@@ -179,29 +167,29 @@ textarea, input, select {
 	border-bottom-color: #fff200;
 }
 
-*html .tab-outer-container .tab-title {
-	border-color: #aa0000;
+* html .tab-outer-container .tab-title {
+	border-color: #a00;
 	border-bottom-color: #fff200;
 }
 
 .tab-outer-container .tab-title-selected {
 	border-color: #fff200;
 	border-bottom-color: transparent;
-	background-color: #aa0000;
+	background-color: #a00;
 }
 
-*html .tab-outer-container .tab-title-selected {
+* html .tab-outer-container .tab-title-selected {
 	border-color: #fff200;
-	border-bottom-color: #aa0000;
+	border-bottom-color: #a00;
 }
 
-*+html .tab-outer-container .tab-title-selected {
-	border-bottom-color: #aa0000;
+* + html .tab-outer-container .tab-title-selected {
+	border-bottom-color: #a00;
 }
 
 .ubbtoolbar .ubbbutton,
 .ubbtoolbar .ubbface {
-	border-color: #aa0000;
+	border-color: #a00;
 }
 
 .ubbtoolbar .ubbbutton:hover,

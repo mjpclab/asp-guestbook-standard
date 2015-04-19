@@ -1,141 +1,129 @@
 body {
-	color: #ffffff;
-	background-color: #000000;
+	color: #fff;
+	background-color: #000;
 	background-image: url(../../image/bg_black.gif);
 }
 
-a:link {
-	color: #00ff00;
-}
-
-a:visited {
-	color: #00ff00;
-}
-
-a:active {
-	color: #00ff00;
-}
-
-a:hover {
-	color: #00ff00;
+a {
+	color: #0f0;
 }
 
 textarea, input, select {
-	border-color: #333333;
-	color: #cc9900;
+	border-color: #333;
+	color: #c90;
 	background-color: #181818;
 }
 
 .outerborder {
 	border-width: 2px;
-	border-color: #333333;
+	border-color: #333;
 	padding: 2px;
 }
 
 .header {
 	color: #fff200;
-	background-color: #222222;
+	background-color: #222;
 	background-image: none;
 }
 
 .guest-functions .aside .function {
-	border-color: #ffffff;
+	border-color: #fff;
 }
 
 .topic {
-	border-color: #333333;
+	border-color: #333;
 	background-color: #181818;
 }
 
 .topic .message {
-	border-color: #333333;
-	color: #ffffff;
+	border-color: #333;
+	color: #fff;
 }
 
 .topic .info {
-	color: #ffffff;
-	border-color: #333333;
+	color: #fff;
+	border-color: #333;
 	background-color: #181818;
 }
 
 .topic .detail {
-	border-color: #333333;
+	border-color: #333;
 }
 
 .topic .title {
-	border-color: #333333;
-	color: #cc9900;
-	background-color: #222222;
+	border-color: #333;
+	color: #c90;
+	background-color: #222;
 	background-image: none;
 }
 
 .topic .inner-message {
-	border-color: #333333;
-	background-color: #222222;
+	border-color: #333;
+	background-color: #222;
 }
 
 .topic .inner-message .summary {
-	color: #cc9900;
-	border-color: #333333;
+	color: #c90;
+	border-color: #333;
 }
 
 .topic .admin-message .title,
 .topic .admin-message .summary {
-	color: #cc9900;
+	color: #c90;
 }
 
 .topic .admin-message .words {
-	color: #ffffff;
+	color: #fff;
 }
 
 .topic .outer-hint {
-	border-color: #333333;
+	border-color: #333;
 }
 
 .topic .admin-tools {
-	border-color: #333333;
+	border-color: #333;
 }
 
 .topic-list {
-	border-color: #333333;
+	border-color: #333;
 	background-color: #181818;
 }
 
 .topic-list tbody tr:hover td {
-	background: #222222;
+	background: #222;
 }
 
 .topic-list th,
 .topic-list td {
-	border-color: #333333;
+	border-color: #333;
 }
 
 .topic-list th {
-	color: #cc9900;
-	background-color: #222222;
+	color: #c90;
+	background-color: #222;
 	background-image: none;
 }
 
 .region {
-	border-color: #333333;
-	color: #ffffff;
+	border-color: #333;
+	color: #fff;
 	background-color: #181818;
 }
 
 .region .title {
-	border-color: #333333;
-	color: #cc9900;
-	background-color: #222222;
+	border-color: #333;
+	color: #c90;
+	background-color: #222;
 	background-image: none;
 }
 
 .region .content table {
-	border-color: #333333;
+	border-color: #333;
 }
 
 .region .content table th,
 .region .content table td {
-	border-color: #333333;
+	border-color: #333;
 }
 
 .page-list .nav a {
@@ -143,8 +131,8 @@ textarea, input, select {
 }
 
 .page-list .nav a:hover {
-	border-color: #333333;
-	background-color: #222222;
+	border-color: #333;
+	background-color: #222;
 }
 
 .page-list .pagenum,
@@ -153,12 +141,12 @@ textarea, input, select {
 .page-list .pagenum:active,
 .page-list .pagenum:hover {
 	border-color: #181818;
-	color: #ffffff;
+	color: #fff;
 }
 
 .page-list .pagenum:hover {
-	border-color: #333333;
-	background-color: #222222;
+	border-color: #333;
+	background-color: #222;
 }
 
 .page-list .pagenum-current,
@@ -166,35 +154,35 @@ textarea, input, select {
 .page-list .pagenum-current:visited,
 .page-list .pagenum-current:active,
 .page-list .pagenum-current:hover {
-	color: #ff0000;
+	color: red;
 }
 
 .tab-outer-container .tab-title-container {
-	border-color: #333333;
+	border-color: #333;
 }
 
 .tab-outer-container .tab-title {
 	border-color: transparent;
-	border-bottom-color: #333333;
+	border-bottom-color: #333;
 }
 
-*html .tab-outer-container .tab-title {
+* html .tab-outer-container .tab-title {
 	border-color: #181818;
-	border-bottom-color: #333333;
+	border-bottom-color: #333;
 }
 
 .tab-outer-container .tab-title-selected {
-	border-color: #333333;
+	border-color: #333;
 	border-bottom-color: transparent;
 	background-color: #181818;
 }
 
-*html .tab-outer-container .tab-title-selected {
-	border-color: #333333;
+* html .tab-outer-container .tab-title-selected {
+	border-color: #333;
 	border-bottom-color: #181818;
 }
 
-*+html .tab-outer-container .tab-title-selected {
+* + html .tab-outer-container .tab-title-selected {
 	border-bottom-color: #181818;
 }
 
@@ -205,6 +193,6 @@ textarea, input, select {
 
 .ubbtoolbar .ubbbutton:hover,
 .ubbtoolbar .ubbface:hover {
-	border-color: #333333;
-	background-color: #222222;
+	border-color: #333;
+	background-color: #222;
 }

@@ -1,104 +1,92 @@
 body {
-	color: #000000;
+	color: #000;
 	background-color: #eff4fa;
 	background-image: url(../../image/bg_darkblue.gif);
 }
 
-a:link {
-	color: #000000;
-}
-
-a:visited {
-	color: #000000;
-}
-
-a:active {
-	color: #000000;
-}
-
-a:hover {
-	color: #000000;
+a {
+	color: #000;
 }
 
 textarea, input, select {
-	border-color: #6699cc;
-	color: #000000;
-	background-color: #ffffff;
+	border-color: #69c;
+	color: #000;
+	background-color: #fff;
 }
 
 .outerborder {
 	border-width: 2px;
-	border-color: #6699cc;
+	border-color: #69c;
 	padding: 2px;
 }
 
 .header {
-	color: #000000;
-	background-color: #6699cc;
+	color: #000;
+	background-color: #69c;
 	background-image: url(../../image/bar_top_darkblue.gif);
 }
 
 .guest-functions .aside .function {
-	border-color: #000000;
+	border-color: #000;
 }
 
 .topic {
-	border-color: #6699cc;
+	border-color: #69c;
 	background-color: #eff1f3;
 }
 
 .topic .message {
-	border-color: #6699cc;
-	color: #000000;
+	border-color: #69c;
+	color: #000;
 }
 
 .topic .info {
-	color: #000000;
-	border-color: #6699cc;
+	color: #000;
+	border-color: #69c;
 	background-color: #eff1f3;
 	background-image: none;
 }
 
 .topic .detail {
-	border-color: #6699cc;
+	border-color: #69c;
 }
 
 .topic .title {
-	border-color: #6699cc;
-	color: #000000;
-	background-color: #6699cc;
+	border-color: #69c;
+	color: #000;
+	background-color: #69c;
 	background-image: url(../../image/bar_darkblue.gif);
 }
 
 .topic .inner-message {
-	border-color: #6699cc;
+	border-color: #69c;
 	background-color: #f7f8f9;
 }
 
 .topic .inner-message .summary {
-	color: #000000;
-	border-color: #6699cc;
+	color: #000;
+	border-color: #69c;
 }
 
 .topic .admin-message .title,
 .topic .admin-message .summary {
-	color: #000000;
+	color: #000;
 }
 
 .topic .admin-message .words {
-	color: #000000;
+	color: #000;
 }
 
 .topic .outer-hint {
-	border-color: #6699cc;
+	border-color: #69c;
 }
 
 .topic .admin-tools {
-	border-color: #6699cc;
+	border-color: #69c;
 }
 
 .topic-list {
-	border-color: #6699cc;
+	border-color: #69c;
 	background-color: #eff1f3;
 }
 
@@ -108,35 +96,35 @@ textarea, input, select {
 
 .topic-list th,
 .topic-list td {
-	border-color: #6699cc;
+	border-color: #69c;
 }
 
 .topic-list th {
-	color: #000000;
-	background-color: #6699cc;
+	color: #000;
+	background-color: #69c;
 	background-image: url(../../image/bar_darkblue.gif);
 }
 
 .region {
-	border-color: #6699cc;
-	color: #000000;
+	border-color: #69c;
+	color: #000;
 	background-color: #eff1f3;
 }
 
 .region .title {
-	border-color: #6699cc;
-	color: #000000;
-	background-color: #6699cc;
+	border-color: #69c;
+	color: #000;
+	background-color: #69c;
 	background-image: url(../../image/bar_darkblue.gif);
 }
 
 .region .content table {
-	border-color: #6699cc;
+	border-color: #69c;
 }
 
 .region .content table th,
 .region .content table td {
-	border-color: #6699cc;
+	border-color: #69c;
 }
 
 .page-list .nav a {
@@ -144,7 +132,7 @@ textarea, input, select {
 }
 
 .page-list .nav a:hover {
-	border-color: #6699cc;
+	border-color: #69c;
 	background-color: #f7f8f9;
 }
 
@@ -154,11 +142,11 @@ textarea, input, select {
 .page-list .pagenum:active,
 .page-list .pagenum:hover {
 	border-color: #eff1f3;
-	color: #000000;
+	color: #000;
 }
 
 .page-list .pagenum:hover {
-	border-color: #6699cc;
+	border-color: #69c;
 	background-color: #f7f8f9;
 }
 
@@ -167,35 +155,35 @@ textarea, input, select {
 .page-list .pagenum-current:visited,
 .page-list .pagenum-current:active,
 .page-list .pagenum-current:hover {
-	color: #ff0000;
+	color: red;
 }
 
 .tab-outer-container .tab-title-container {
-	border-color: #6699cc;
+	border-color: #69c;
 }
 
 .tab-outer-container .tab-title {
 	border-color: transparent;
-	border-bottom-color: #6699cc;
+	border-bottom-color: #69c;
 }
 
-*html .tab-outer-container .tab-title {
+* html .tab-outer-container .tab-title {
 	border-color: #eff1f3;
-	border-bottom-color: #6699cc;
+	border-bottom-color: #69c;
 }
 
 .tab-outer-container .tab-title-selected {
-	border-color: #6699cc;
+	border-color: #69c;
 	border-bottom-color: transparent;
 	background-color: #eff1f3;
 }
 
-*html .tab-outer-container .tab-title-selected {
-	border-color: #6699cc;
+* html .tab-outer-container .tab-title-selected {
+	border-color: #69c;
 	border-bottom-color: #eff1f3;
 }
 
-*+html .tab-outer-container .tab-title-selected {
+* + html .tab-outer-container .tab-title-selected {
 	border-bottom-color: #eff1f3;
 }
 
@@ -206,6 +194,6 @@ textarea, input, select {
 
 .ubbtoolbar .ubbbutton:hover,
 .ubbtoolbar .ubbface:hover {
-	border-color: #6699cc;
+	border-color: #69c;
 	background-color: #f7f8f9;
 }

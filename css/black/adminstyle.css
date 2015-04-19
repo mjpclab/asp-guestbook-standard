@@ -1,17 +1,17 @@
 .flex-box ul,
 .flex-box li {
-	border-color: #333333;
+	border-color: #333;
 }
 
 .flex-box a {
-	border-color: #ccc;
+	border-color: #222;
 }
 
 .flex-box a:hover {
-	border-color: #333333;
-	background-color: #222222;
+	border-color: #333;
+	background-color: #222;
 }
 
 .detail-item {
-	border-color: #333333;
+	border-color: #333;
 }
