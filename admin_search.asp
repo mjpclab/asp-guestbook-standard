@@ -16,7 +16,11 @@ Response.AddHeader "cache-control","private"
 	<script type="text/javascript">
 	function submitcheck()
 	{
-		if (form1.searchtxt.value=='') {alert('请输入搜索内容。');form1.searchtxt.focus();return false;}
+		if (form1.searchtxt.value.length===0) {
+			alert('请输入搜索内容。');
+			form1.searchtxt.focus();
+			return false;
+		}
 		form1.searchsubmit.disabled=true;
 		return true;
 	}
@@ -37,18 +41,18 @@ wend
 while right(tparam,1)="%" or right(tparam,1)="_"
 	tparam=left(tparam,len(tparam)-1)
 wend
-if request("type")<>"" and tparam="" then
+if Request("type")<>"" and tparam="" then
 	Call MessagePage("不能输入空字符串或全部为通配符。","admin_search.asp")
 	Response.End
 end if
 
 dim sql_condition,sql_count,sql_full
-if request("type")<>"" and tparam<>"" then CanOpenDB=true
+if Request("type")<>"" and tparam<>"" then CanOpenDB=true
 if CanOpenDB=true then
-	if request("type")="audit" then
+	if Request("type")="audit" then
 		if tparam<>"0" and tparam<>"1" then tparam="1"
 		sql_condition=sql_adminsearch_condition_audit & tparam
-	elseif request("type")="reply" then
+	elseif Request("type")="reply" then
 		sql_condition=Replace(sql_adminsearch_condition_reply,"{0}",tparam)
 	else
 		sql_condition=Replace(Replace(sql_adminsearch_condition_else,"{0}",FilterSql(Request("type"))),"{1}",tparam)
@@ -75,23 +79,25 @@ end if
 			搜索：<input type="text" name="searchtxt" size="<%=SearchTextWidth%>" value="<%=request("searchtxt")%>" />
 			<input type="submit" value="搜索" name="searchsubmit" />
 			<select name="type" size="1" onchange="searchtxt.focus();">
-				<option value="name" <%=seled(request("type")="name")%>>按姓名搜索</option>
-				<option value="title" <%=seled(request("type")="title")%>>按标题搜索</option>
-				<option value="article" <%=seled(request("type")="article" or request("type")="")%>>按留言内容搜索</option>
-				<option value="email" <%=seled(request("type")="email")%>>按邮件地址搜索</option>
-				<option value="qqid" <%=seled(request("type")="qqid")%>>按QQ号码搜索</option>
-				<option value="msnid" <%=seled(request("type")="msnid")%>>按MSN搜索</option>
-				<option value="homepage" <%=seled(request("type")="homepage")%>>按主页地址搜索</option>
-				<option value="ipaddr" <%=seled(request("type")="ipaddr")%>>按IP地址搜索</option>
-				<option value="originalip" <%=seled(request("type")="originalip")%>>按原始IP地址搜索</option>
-				<option value="reply" <%=seled(request("type")="reply")%>>按版主回复搜索</option>
-				<option value="audit" <%=seled(request("type")="audit")%>>待审核(1:是 0:否)</option>
+				<option value="name" <%=seled(Request("type")="name")%>>按姓名搜索</option>
+				<option value="title" <%=seled(Request("type")="title")%>>按标题搜索</option>
+				<option value="article" <%=seled(Request("type")="article" or Request("type")="")%>>按留言内容搜索</option>
+				<option value="email" <%=seled(Request("type")="email")%>>按邮件地址搜索</option>
+				<option value="qqid" <%=seled(Request("type")="qqid")%>>按QQ号码搜索</option>
+				<option value="msnid" <%=seled(Request("type")="msnid")%>>按MSN搜索</option>
+				<option value="homepage" <%=seled(Request("type")="homepage")%>>按主页地址搜索</option>
+				<option value="ipv4addr" <%=seled(Request("type")="ipv4addr")%>>按IPv4地址搜索</option>
+				<option value="originalipv4" <%=seled(Request("type")="originalipv4")%>>按原始IPv4地址搜索</option>
+				<option value="ipv6addr" <%=seled(Request("type")="ipv6addr")%>>按IPv6地址搜索</option>
+				<option value="originalipv6" <%=seled(Request("type")="originalipv6")%>>按原始IPv6地址搜索</option>
+				<option value="reply" <%=seled(Request("type")="reply")%>>按版主回复搜索</option>
+				<option value="audit" <%=seled(Request("type")="audit")%>>待审核(1:是 0:否)</option>
 			</select><br/>("%"代表任意个字符，"_"代表一个字符)
 			</form>
 		</div>
 	</div>
 
-	<%if CanOpenDB and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"admin_search.asp","[搜索结果分页]","type=" &request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
+	<%if CanOpenDB and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"admin_search.asp","[搜索结果分页]","type=" &Request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
 	<form method="post" action="admin_mdel.asp" name="form7">
 	<%RPage="admin_search.asp"%><!-- #include file="func_admin.inc" -->
 	<%
@@ -112,12 +118,12 @@ end if
 	%>
 
 	<input type="hidden" name="page" value="<%=request("page")%>" />
-	<input type="hidden" name="type" value="<%=request("type")%>" />
+	<input type="hidden" name="type" value="<%=Request("type")%>" />
 	<input type="hidden" name="searchtxt" value="<%=request("searchtxt")%>" />
 	<!-- #include file="func_admin.inc" -->
 	</form>
 
-	<%if CanOpenDB and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"admin_search.asp","[搜索结果分页]","type=" &request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
+	<%if CanOpenDB and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"admin_search.asp","[搜索结果分页]","type=" &Request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
 </div>
 
 <%
