@@ -12,6 +12,7 @@ body, input, textarea, h1, h2, h3, h4, h5, h6 {
 	<%if TableAlign="left" then Response.Write "margin-right:auto;"%>
 	<%if TableAlign="right" then Response.Write "margin-left:auto;"%>
 	<%if TableAlign="center" then Response.Write "margin-left:auto; margin-right:auto;"%>
+	<%if ShowBorder=false then%>border:0 none transparent;<%end if%>
 }
 *html .outerborder {
 	<%=CssOptionalSize("width",TableWidth)%>

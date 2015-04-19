@@ -7,51 +7,15 @@ CreateConn lcn,dbtype
 lrs.Open sql_loadconfig_config,lcn,0,1,1
 
 status=lrs("status")
-if clng(status and 1)<>0 then	'ÁôÑÔ±¾¿ªÆô
-	StatusOpen=true
-else
-	StatusOpen=false
-end if
-if clng(status and 2)<>0 then	'ÁôÑÔÈ¨ÏŞ¿ªÆô
-	StatusWrite=true
-else
-	StatusWrite=false
-end if
-if clng(status and 4)<>0 then	'ËÑË÷È¨ÏŞ¿ªÆô
-	StatusSearch=true
-else
-	StatusSearch=false
-end if
-if clng(status and 8)<>0 then	'·Ã¿ÍÍ·ÏñÏÔÊ¾¿ª¹Ø
-	StatusShowHead=true
-else
-	StatusShowHead=false
-end if
-if clng(status and 16)<>0 then	'ÁôÑÔĞèÒªÉóºË
-	StatusNeedAudit=true
-else
-	StatusNeedAudit=false
-end if
-if clng(status and 32)<>0 then	'ÔÊĞíÇÄÇÄ»°
-	StatusWhisper=true
-else
-	StatusWhisper=false
-end if
-if clng(status and 64)<>0 then	'ÔÊĞí·Ã¿Í¼ÓÃÜÇÄÇÄ»°»Ø¸´
-	StatusEncryptWhisper=true
-else
-	StatusEncryptWhisper=false
-end if
-if clng(status and 128)<>0 then	'ÔÊĞí·Ã¿Í»Ø¸´
-	StatusGuestReply=true
-else
-	StatusGuestReply=false
-end if
-if clng(status and 256)<>0 then	'¿ªÆôÍ³¼Æ
-	StatusStatistics=true
-else
-	StatusStatistics=false
-end if
+StatusOpen=CBool(status and 1)	'ÁôÑÔ±¾¿ªÆô
+StatusWrite=CBool(status and 2)	'ÁôÑÔÈ¨ÏŞ¿ªÆô
+StatusSearch=CBool(status and 4)	'ËÑË÷È¨ÏŞ¿ªÆô
+StatusShowHead=CBool(status and 8)	'·Ã¿ÍÍ·ÏñÏÔÊ¾¿ª¹Ø
+StatusNeedAudit=CBool(status and 16)	'ÁôÑÔĞèÒªÉóºË
+StatusWhisper=CBool(status and 32)	'ÔÊĞíÇÄÇÄ»°
+StatusEncryptWhisper=CBool(status and 64)	'ÔÊĞí·Ã¿Í¼ÓÃÜÇÄÇÄ»°»Ø¸´
+StatusGuestReply=CBool(status and 128)	'ÔÊĞí·Ã¿Í»Ø¸´
+StatusStatistics=CBool(status and 256)	'¿ªÆôÍ³¼Æ
 
 IPConStatus=lrs("ipconstatus")	'IPÆÁ±Î²ßÂÔ£¬µÍ4Î»ÓÃÓÚIPv4£¬¸ß4Î»ÓÃÓÚIPv6
 IPv4ConStatus=IPConStatus mod 16
@@ -66,26 +30,17 @@ HomeAddr=lrs("homeaddr")	'ÍøÕ¾µØÖ·
 
 
 '========HTMLÈ¨ÏŞÉè¶¨========
-AdminHTMLSupport=false
-AdminUBBSupport=false
-AdminAllowNewLine=false
-AdminViewCode=false
-
-HTMLSupport=false
-UBBSupport=false
-AllowNewLine=false
-
 dim adminlimit,guestlimit
 adminlimit=lrs("adminhtml")
-if clng(adminlimit and 1) <>0 then AdminHTMLSupport=true		'¹ÜÀíÔ±»Ø¸´¡¢¹«¸æÄ¬ÈÏÊÇ·ñÖ§³ÖHTML True:ÊÇ False:·ñ
-if clng(adminlimit and 2) <>0 then AdminUBBSupport=true		'¹ÜÀíÔ±»Ø¸´¡¢¹«¸æÄ¬ÈÏÊÇ·ñÖ§³ÖUBB±ê¼Ç
-if clng(adminlimit and 4) <>0 then AdminAllowNewLine=true	'¹ÜÀíÔ±²»Ö§³ÖHTMLºÍUBBÊ±£¬Ä¬ÈÏÊÇ·ñÔÊĞí»Ø³µ»»ĞĞ
-if clng(adminlimit and 8) <>0 then AdminViewCode=true		'Îª¹ÜÀíÔ±ÏÔÊ¾Êµ¼ÊHTML´úÂë
+AdminHTMLSupport=CBool(adminlimit and 1)	'¹ÜÀíÔ±»Ø¸´¡¢¹«¸æÄ¬ÈÏÊÇ·ñÖ§³ÖHTML True:ÊÇ False:·ñ
+AdminUBBSupport=CBool(adminlimit and 2)		'¹ÜÀíÔ±»Ø¸´¡¢¹«¸æÄ¬ÈÏÊÇ·ñÖ§³ÖUBB±ê¼Ç
+AdminAllowNewLine=CBool(adminlimit and 4)	'¹ÜÀíÔ±²»Ö§³ÖHTMLºÍUBBÊ±£¬Ä¬ÈÏÊÇ·ñÔÊĞí»Ø³µ»»ĞĞ
+AdminViewCode=CBool(adminlimit and 8)		'Îª¹ÜÀíÔ±ÏÔÊ¾Êµ¼ÊHTML´úÂë
 
 guestlimit=lrs("guesthtml")
-if clng(guestlimit and 1) <>0 then HTMLSupport=true			'·Ã¿ÍÁôÑÔÊÇ·ñÖ§³ÖHTML
-if clng(guestlimit and 2) <>0 then UBBSupport=true			'·Ã¿ÍÁôÑÔÊÇ·ñÖ§³ÖUBB±ê¼Ç
-if clng(guestlimit and 4) <>0 then AllowNewLine=true			'·Ã¿Í²»Ö§³ÖHTMLºÍUBBÊ±£¬ÊÇ·ñÔÊĞí»Ø³µ»»ĞĞ
+HTMLSupport=CBool(guestlimit and 1)			'·Ã¿ÍÁôÑÔÊÇ·ñÖ§³ÖHTML
+UBBSupport=CBool(guestlimit and 2)			'·Ã¿ÍÁôÑÔÊÇ·ñÖ§³ÖUBB±ê¼Ç
+AllowNewLine=CBool(guestlimit and 4)		'·Ã¿Í²»Ö§³ÖHTMLºÍUBBÊ±£¬ÊÇ·ñÔÊĞí»Ø³µ»»ĞĞ
 
 
 '========°²È«ĞÔÉèÖÃ========
@@ -100,14 +55,14 @@ AdminShowOriginalIP=lrs("adminshoworiginalip")	'Îª¹ÜÀíÔ±ÏÔÊ¾Ô­Ê¼IPÎ»Êı£¬µÍ4Î»ÓÃÓ
 AdminShowOriginalIPv4=AdminShowOriginalIP mod 16
 AdminShowOriginalIPv6=AdminShowOriginalIP \ 16
 
-VcodeCount=clng(lrs("vcodecount") and &H0F)		'µÇÂ¼ÑéÖ¤Âë³¤¶È
-WriteVcodeCount=clng(lrs("vcodecount") and &HF0) \ &H10		'ÁôÑÔÑéÖ¤Âë³¤¶È
+VcodeCount=lrs("vcodecount") mod 16		'µÇÂ¼ÑéÖ¤Âë³¤¶È
+WriteVcodeCount=lrs("vcodecount") \ 16	'ÁôÑÔÑéÖ¤Âë³¤¶È
 
 '========ÓÊ¼şÉèÖÃ========
 MailFlag=lrs("mailflag")
-if clng(Mailflag and 1)<>0 then MailNewInform=true else MailNewInform=false		'ĞÂÁôÑÔÍ¨Öª
-if clng(Mailflag and 2)<>0 then MailReplyInform=true else MailReplyInform=false		'»Ø¸´Í¨Öª
-if clng(Mailflag and 4)<>0 then MailComponent="cdo" else MailComponent="jmail"
+MailNewInform=CBool(Mailflag and 1)		'ĞÂÁôÑÔÍ¨Öª
+MailReplyInform=CBool(Mailflag and 2)		'»Ø¸´Í¨Öª
+if CBool(Mailflag and 4) then MailComponent="cdo" else MailComponent="jmail"
 MailReceive=lrs("mailreceive")			'ĞÂÁôÑÔÍ¨Öª½ÓÊÕµØÖ·
 MailFrom=lrs("mailfrom")				'·¢¼şÈËµØÖ·
 MailSmtpServer=lrs("mailsmtpserver")	'·¢¼şÈËSMTP·şÎñÆ÷µØÖ·
@@ -121,35 +76,35 @@ CssFontSize=lrs("cssfontsize")
 CssLineHeight=lrs("csslineheight")
 
 VisualFlag=lrs("visualflag")
-if clng(VisualFlag and 1)<>0 then ReplyInWord=true else ReplyInWord=false					'»Ø¸´ÄÚÇ¶ÓÚÁôÑÔ
-if clng(VisualFlag and 2)<>0 then ShowUbbTool=true else ShowUbbTool=false					'ÏÔÊ¾UBB¹¤¾ßÀ¸
-if clng(VisualFlag and 4)<>0 then ShowTopPageList=true else ShowTopPageList=false			'ÉÏ·½ÏÔÊ¾·ÖÒ³
-if clng(VisualFlag and 8)<>0 then ShowBottomPageList=true else ShowBottomPageList=false		'ÏÂ·½ÏÔÊ¾·ÖÒ³
+ReplyInWord=CBool(VisualFlag and 1)					'»Ø¸´ÄÚÇ¶ÓÚÁôÑÔ
+ShowUbbTool=CBool(VisualFlag and 2)					'ÏÔÊ¾UBB¹¤¾ßÀ¸
+ShowTopPageList=CBool(VisualFlag and 4)			'ÉÏ·½ÏÔÊ¾·ÖÒ³
+ShowBottomPageList=CBool(VisualFlag and 8)		'ÏÂ·½ÏÔÊ¾·ÖÒ³
 if ShowTopPageList=false and ShowBottomPageList=false then ShowBottomPageList=true
-if clng(VisualFlag and 16)<>0 then ShowTopSearchBox=true else ShowTopSearchBox=false		'ÉÏ·½ÏÔÊ¾ËÑË÷
-if clng(VisualFlag and 32)<>0 then ShowBottomSearchBox=true else ShowBottomSearchBox=false	'ÏÂ·½ÏÔÊ¾ËÑË÷
+ShowTopSearchBox=CBool(VisualFlag and 16)		'ÉÏ·½ÏÔÊ¾ËÑË÷
+ShowBottomSearchBox=CBool(VisualFlag and 32)	'ÏÂ·½ÏÔÊ¾ËÑË÷
 if ShowTopSearchBox=false and ShowBottomSearchBox=false then ShowBottomSearchBox=true
-if clng(VisualFlag and 64)<>0 then ShowAdvPageList=true else ShowAdvPageList=false			'Çø¶ÎÊ½·ÖÒ³
-if clng(VisualFlag and 128)<>0 then HideHidden=true else HideHidden=false					'Òş²ØÄÚÈİ±»Òş²ØµÄÁôÑÔ
-if clng(VisualFlag and 256)<>0 then HideAudit=true else HideAudit=false						'Òş²Ø´ıÉóºËÁôÑÔ
-if clng(VisualFlag and 512)<>0 then HideWhisper=true else HideWhisper=false					'Òş²Ø°æÖ÷Î´»Ø¸´ÇÄÇÄ»°
-if clng(VisualFlag and 1024)<>0 then DisplayMode="forum" else DisplayMode="book"			'Ä¬ÈÏ°æÃæÄ£Ê½
-if clng(VisualFlag and 2048)<>0 then LogoBannerMode=true else LogoBannerMode=false			'LogoÏÔÊ¾Ä£Ê½
+ShowAdvPageList=CBool(VisualFlag and 64)			'Çø¶ÎÊ½·ÖÒ³
+HideHidden=CBool(VisualFlag and 128)					'Òş²ØÄÚÈİ±»Òş²ØµÄÁôÑÔ
+HideAudit=CBool(VisualFlag and 256)						'Òş²Ø´ıÉóºËÁôÑÔ
+HideWhisper=CBool(VisualFlag and 512)					'Òş²Ø°æÖ÷Î´»Ø¸´ÇÄÇÄ»°
+if CBool(VisualFlag and 1024) then DisplayMode="forum" else DisplayMode="book"			'Ä¬ÈÏ°æÃæÄ£Ê½
+LogoBannerMode=CBool(VisualFlag and 2048)			'LogoÏÔÊ¾Ä£Ê½
 
 AdvPageListCount=lrs("advpagelistcount")	'Çø¶ÎÊ½·ÖÒ³ÏîÊı
 
 UbbFlag=lrs("ubbflag")
-if clng(UbbFlag and 1)<>0 then UbbFlag_image=true else UbbFlag_image=false
-if clng(UbbFlag and 2)<>0 then UbbFlag_url=true else UbbFlag_url=false
-if clng(UbbFlag and 4)<>0 then UbbFlag_autourl=true else UbbFlag_autourl=false
-if clng(UbbFlag and 8)<>0 then UbbFlag_player=true else UbbFlag_player=false
-if clng(UbbFlag and 16)<>0 then UbbFlag_paragraph=true else UbbFlag_paragraph=false
-if clng(UbbFlag and 32)<>0 then UbbFlag_fontstyle=true else UbbFlag_fontstyle=false
-if clng(UbbFlag and 64)<>0 then UbbFlag_fontcolor=true else UbbFlag_fontcolor=false
-if clng(UbbFlag and 128)<>0 then UbbFlag_alignment=true else UbbFlag_alignment=false
-'if clng(UbbFlag and 256)<>0 then UbbFlag_movement=true else UbbFlag_movement=false
-'if clng(UbbFlag and 512)<>0 then UbbFlag_cssfilter=true else UbbFlag_cssfilter=false
-if clng(UbbFlag and 1024)<>0 then UbbFlag_face=true else UbbFlag_face=false
+UbbFlag_image=CBool(UbbFlag and 1)
+UbbFlag_url=CBool(UbbFlag and 2)
+UbbFlag_autourl=CBool(UbbFlag and 4)
+UbbFlag_player=CBool(UbbFlag and 8)
+UbbFlag_paragraph=CBool(UbbFlag and 16)
+UbbFlag_fontstyle=CBool(UbbFlag and 32)
+UbbFlag_fontcolor=CBool(UbbFlag and 64)
+UbbFlag_alignment=CBool(UbbFlag and 128)
+'UbbFlag_movement=CBool(UbbFlag and 256)
+'UbbFlag_cssfilter=CBool(UbbFlag and 512)
+UbbFlag_face=CBool(UbbFlag and 1024)
 
 TableAlign=lrs("tablealign")		'±í¸ñ¶ÔÆë·½Ê½ left:×ó¶ÔÆë center:¾ÓÖĞ right:ÓÒ¶ÔÆë
 TableWidth=lrs("tablewidth")		'±í¸ñ¿í¶È£¬¿ÉÓÃ°Ù·Ö±È
@@ -167,47 +122,26 @@ FrequentFaceCount=lrs("frequentfacecount")	'ÉÙÁ¿ÔØÈëµÄÍ·ÏñÊı
 if FrequentFaceCount>FaceCount then FrequentFaceCount=FaceCount
 
 PageControl=clng(lrs("pagecontrol"))
-ShowBorder=false
-ShowTitle=false
-ShowContext=false
-SelectContent=false
-CopyContent=false
-BeFramed=false
-if clng(PageControl and 1)<> 0 then ShowBorder=true			'ÏÔÊ¾±ß¿ò
-if clng(PageControl and 2)<> 0 then ShowTitle=true			'ÏÔÊ¾±êÌâÀ¸
-if clng(PageControl and 4)<> 0 then ShowContext=true		'ÏÔÊ¾ÓÒ¼ü²Ëµ¥
-if clng(PageControl and 8)<> 0 then SelectContent=true		'ÔÊĞíÑ¡Ôñ
-if clng(PageControl and 16)<> 0 then CopyContent=true		'ÔÊĞí¸´ÖÆ
-if clng(PageControl and 32)<> 0 then BeFramed=true			'ÔÊĞíframe
-if ShowBorder=true then
-	TableBorderWidth=1
-else
-	TableBorderWidth=0
-end if
+ShowBorder=CBool(PageControl and 1)			'ÏÔÊ¾±ß¿ò
+ShowTitle=CBool(PageControl and 2)			'ÏÔÊ¾±êÌâÀ¸
+ShowContext=CBool(PageControl and 4)		'ÏÔÊ¾ÓÒ¼ü²Ëµ¥
+SelectContent=CBool(PageControl and 8)		'ÔÊĞíÑ¡Ôñ
+CopyContent=CBool(PageControl and 16)		'ÔÊĞí¸´ÖÆ
+BeFramed=CBool(PageControl and 32)			'ÔÊĞíframe
 
 WordsLimit=abs(lrs("wordslimit"))		'×î´óÁôÑÔÊı
 
-DelTip=false
-DelReTip=false
-DelSelTip=false
-DelAdvTip=false
-PassAuditTip=false
-PassSelTip=false
-PubWhisperTip=false
-Bring2TopTip=false
-Lock2TopTip=false
-ReorderTip=false
 DelConfirm=lrs("delconfirm")
-if clng(DelConfirm and 1)<>0 then DelTip=true
-if clng(DelConfirm and 2)<>0 then DelReTip=true
-if clng(DelConfirm and 4)<>0 then DelSelTip=true
-if clng(DelConfirm and 8)<>0 then DelAdvTip=true
-if clng(DelConfirm and 16)<>0 then PassAuditTip=true
-if clng(DelConfirm and 32)<>0 then PassSelTip=true
-if clng(DelConfirm and 64)<>0 then PubWhisperTip=true
-if clng(DelConfirm and 128)<>0 then Bring2TopTip=true
-if clng(DelConfirm and 256)<>0 then Lock2TopTip=true
-if clng(DelConfirm and 512)<>0 then ReorderTip=true
+DelTip=CBool(DelConfirm and 1)
+DelReTip=CBool(DelConfirm and 2)
+DelSelTip=CBool(DelConfirm and 4)
+DelAdvTip=CBool(DelConfirm and 8)
+PassAuditTip=CBool(DelConfirm and 16)
+PassSelTip=CBool(DelConfirm and 32)
+PubWhisperTip=CBool(DelConfirm and 64)
+Bring2TopTip=CBool(DelConfirm and 128)
+Lock2TopTip=CBool(DelConfirm and 256)
+ReorderTip=CBool(DelConfirm and 512)
 
 styleid=lrs("styleid")
 
@@ -225,12 +159,12 @@ lrs.Open sql_loadconfig_floodconfig,lcn,0,1,1
 flood_minwait=abs(lrs.Fields("minwait"))
 flood_searchrange=abs(lrs.Fields("searchrange"))
 flood_searchflag=lrs.Fields("searchflag")
-if clng(flood_searchflag and 1)<>0 then flood_sfnewword=true else flood_sfnewword=false
-if clng(flood_searchflag and 2)<>0 then flood_sfnewreply=true else flood_sfnewreply=false
-if clng(flood_searchflag and 16)<>0 then flood_include=true else flood_include=false
-if clng(flood_searchflag and 32)<>0 then flood_equal=true else flood_equal=false
-if clng(flood_searchflag and 256)<>0 then flood_sititle=true else flood_sititle=false
-if clng(flood_searchflag and 512)<>0 then flood_sicontent=true else flood_sicontent=false
+flood_sfnewword=CBool(flood_searchflag and 1)
+flood_sfnewreply=CBool(flood_searchflag and 2)
+flood_include=CBool(flood_searchflag and 16)
+flood_equal=CBool(flood_searchflag and 32)
+flood_sititle=CBool(flood_searchflag and 256)
+flood_sicontent=CBool(flood_searchflag and 512)
 
 
 lrs.Close : lcn.Close : set lrs=nothing : set lcn=nothing
