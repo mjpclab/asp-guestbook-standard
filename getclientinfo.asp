@@ -83,6 +83,7 @@ function getbrowsername()
 			bname=trim(bname);
 			return bname;
 		}
+		else if ((/Edge/i).test(navigator.userAgent)) return 'Edge';
 		else if ((/Chrome/i).test(navigator.userAgent)) return 'Chrome';
 		else if ((/Safari/i).test(navigator.userAgent)) return 'Safari';
 		else if ((/NetScape/i).test(navigator.userAgent)) return 'NetScape';
