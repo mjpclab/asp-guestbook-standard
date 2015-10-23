@@ -104,13 +104,13 @@ homepage1=request.form("ihomepage")
 
 tmpAddr=CStr(request.ServerVariables("REMOTE_ADDR"))
 if IsIPv4(tmpAddr) then
-	ipv4addr1=tmpAddr
+	ipv4addr1=Left(tmpAddr,15)
 elseif IsIPv6(tmpAddr) then
 	ipv6addr1=expandIPv6(tmpAddr,false)
 end if
 tmpAddr=CStr(request.ServerVariables("HTTP_X_FORWARDED_FOR"))
 if IsIPv4(tmpAddr) then
-	originalipv41=tmpAddr
+	originalipv41=Left(tmpAddr,15)
 elseif IsIPv6(tmpAddr) then
 	originalipv61=expandIPv6(tmpAddr,false)
 end if
