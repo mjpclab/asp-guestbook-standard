@@ -775,7 +775,12 @@ form .row {
 .ubb-wrapper object,
 .ubb-wrapper embed {
 	display: block;
-	max-width:100%;
+	max-width: 100%;
+}
+
+.ubb-wrapper embed {
+	width: 100%;
+	min-height: 300px;
 }
 
 /**************** colors-container ****************/

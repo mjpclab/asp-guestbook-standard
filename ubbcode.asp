@@ -18,17 +18,17 @@ else
 	end if
 
 	if UbbFlag_url or allflags then
-		re.Pattern="\[URL\](http:\/\/.[^\[]*)\[\/URL\]"
+		re.Pattern="\[URL\](\w+:\/\/[^\[]*)\[\/URL\]"
 		strContent= re.Replace(strContent,"<a href=""$1"" target=""_blank"">$1</a>")
-		re.Pattern="\[URL\](.[^\[]*)\[\/URL\]"
+		re.Pattern="\[URL\]([^\[]*)\[\/URL\]"
 		strContent= re.Replace(strContent,"<a href=""http://$1"" target=""_blank"">$1</a>")
 
-		re.Pattern="\[URL=(http:\/\/.[^\[]*)\](.[^\[]*)(\[\/URL\])"
+		re.Pattern="\[URL=(\w+:\/\/[^\[]*)\]([^\[]*)(\[\/URL\])"
 		strContent= re.Replace(strContent,"<a href=""$1"" target=""_blank"">$2</a>")
-		re.Pattern="\[URL=(.[^\[\]]*)\](.[^\[]*)(\[\/URL\])"
+		re.Pattern="\[URL=([^\[]*)\]([^\[]*)(\[\/URL\])"
 		strContent= re.Replace(strContent,"<a href=""http://$1"" target=""_blank"">$2</a>")
 
-		re.Pattern="\[EMAIL\]mailto:(.[^\[]*)\[\/EMAIL\]"
+		re.Pattern="\[EMAIL\]mailto:([^\[]*)\[\/EMAIL\]"
 		strContent= re.Replace(strContent,"<a href=""mailto:$1"" target=""_blank"">$1</a>")
 		re.Pattern="\[EMAIL\](.[^\[]*)\[\/EMAIL\]"
 		strContent= re.Replace(strContent,"<a href=""mailto:$1"" target=""_blank"">$1</a>")
@@ -36,14 +36,14 @@ else
 
 	if UbbFlag_player or allflags then
 		'Flash
-		re.Pattern="\[FLASH\](.[^\[]*)\[\/FLASH\]"
+		re.Pattern="\[FLASH\]([^\[]*)\[\/FLASH\]"
 		strContent= re.Replace(strContent,embed_prefix & "<object classid=""clsid:d27cdb6e-ae6d-11cf-96b8-444553540000""  codebase=""http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0"">" & _
 											"<param name=""movie"" value=""$1"" />" & _
 											"<param name=""quality"" value=""high"" />" & _
 											"<embed src=""$1"" quality=""high"" pluginspage=""http://www.macromedia.com/go/getflashplayer"" type=""application/x-shockwave-flash""></embed>" & _
 											"</object>" & embed_postfix)
 
-		re.Pattern="\[FLASH=*([0-9]*),*([0-9]*)\](.[^\[]*)\[\/FLASH\]"
+		re.Pattern="\[FLASH=*([0-9]*),*([0-9]*)\]([^\[]*)\[\/FLASH\]"
 		strContent= re.Replace(strContent,embed_prefix & "<object classid=""clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"" codebase=""http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0"" style=""width:$1px;height:$2px;"">" & _
 											"<param name=""movie"" value=""$3"" />" & _
 											"<param name=""quality"" value=""high"" />" & _
@@ -51,7 +51,7 @@ else
 											"</object>" & embed_postfix)
 
 		'Media Player
-		re.Pattern="\[MP\](.[^\[]*)\[\/MP\]"
+		re.Pattern="\[MP\]([^\[]*)\[\/MP\]"
 		strContent=re.Replace(strContent,embed_prefix & "<object classid=""clsid:22d6f312-b0f6-11d0-94ab-0080c74c7e95""   codebase=""http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715"">" & _
 											"<param name=""Filename"" value=""$1"">" & _
 											"<param name=""ShowStatusBar"" value=""true"" />" & _
@@ -59,7 +59,7 @@ else
 											"<embed src=""$1"" type=""application/x-oleobject"" codebase=""http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=5,1,52,701"" flename=""mp""></embed>" & _
 											"</object>" & embed_postfix)
 
-		re.Pattern="\[MP=*([0-9]*),*([0-9]*)\](.[^\[]*)\[\/MP]"
+		re.Pattern="\[MP=*([0-9]*),*([0-9]*)\]([^\[]*)\[\/MP]"
 		strContent=re.Replace(strContent,embed_prefix & "<object classid=""clsid:22d6f312-b0f6-11d0-94ab-0080c74c7e95""  codebase=""http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715"" style=""width:$1px;height:$2px;"">" & _
 											"<param name=""Filename"" value=""$3"">" & _
 											"<param name=""ShowStatusBar"" value=""true"" />" & _
@@ -68,7 +68,7 @@ else
 											"</object>" & embed_postfix)
 
 		'Real Player
-		re.Pattern="\[RM\](.[^\[]*)\[\/RM\]"
+		re.Pattern="\[RM\]([^\[]*)\[\/RM\]"
 		strContent=re.Replace(strContent,embed_prefix & "<object classid=""clsid:cfcdaa03-8be4-11cf-b84b-0020afbbccfa"" style=""width:320px;height:200px;"">" & _
 											"<param name=""src"" value=""$1"" />" & _
 											"<param name=""console"" value=""RaPlayer"" />" & _
@@ -77,7 +77,7 @@ else
 											"<embed src=""$1"" type=""application/vnd.rn-realmedia"" console=""RaPlayer"" controls=""Imagewindow,StatusBar,ControlPanel"" autostart=""false""></embed>" & _
 											"</object>" & embed_postfix)
 
-		re.Pattern="\[RM=*([0-9]*),*([0-9]*)\](.[^\[]*)\[\/RM]"
+		re.Pattern="\[RM=*([0-9]*),*([0-9]*)\]([^\[]*)\[\/RM]"
 		strContent=re.Replace(strContent,embed_prefix & "<object classid=""clsid:cfcdaa03-8be4-11cf-b84b-0020afbbccfa"" style=""width:$1px;height:$2px;"">" & _
 											"<param name=""src"" value=""$3"" />" & _
 											"<param name=""console"" value=""RaPlayer"" />" & _
