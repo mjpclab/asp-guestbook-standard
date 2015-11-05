@@ -262,7 +262,7 @@
 				<%tvisualflag=rs("visualflag")%>
 				<div class="field">
 					<span class="label">默认版面模式：</span>
-					<span class="value"><input type="radio" name="displaymode" value="1" id="displaymode1"<%=cked(clng(tvisualflag and 1024)<>0)%> /><label for="displaymode1">论坛列表样式</label>　　<input type="radio" name="displaymode" value="0" id="displaymode2"<%=cked(clng(tvisualflag and 1024)=0)%> /><label for="displaymode2">留言本样式</label></span>
+					<span class="value"><input type="radio" name="displaymode" value="1" id="displaymode1"<%=cked(clng(tvisualflag and 1024)<>0)%> /><label for="displaymode1">标题模式</label>　　<input type="radio" name="displaymode" value="0" id="displaymode2"<%=cked(clng(tvisualflag and 1024)=0)%> /><label for="displaymode2">完整模式</label></span>
 				</div>
 				<div class="field">
 					<span class="label">回复内容显示位置：</span>
