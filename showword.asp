@@ -124,7 +124,7 @@ rs.Close
 				<%if VcodeCount>0 then%>
 				<div class="field">
 					<span class="label">ÑéÖ¤Âë£º</span>
-					<span class="value"><input type="text" name="ivcode" autocomplete="off"><img class="captcha" src="show_vcode.asp" /></span>
+					<span class="value"><input type="text" name="ivcode" autocomplete="off"><img id="captcha" class="captcha" src="show_vcode.asp?t=0" /></span>
 				</div>
 				<%end if%>
 
@@ -155,6 +155,9 @@ rs.Close
 </div>
 
 <!-- #include file="bottom.asp" -->
+<script type="text/javascript">
+	<!-- #include file="js/refresh-captcha.js" -->
+</script>
 <%if StatusStatistics and session("gotclientinfo")<>true then%><script type="text/javascript" src="getclientinfo.asp" defer="defer" async="async"></script><%end if%>
 </body>
 </html>

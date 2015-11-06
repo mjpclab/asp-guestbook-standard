@@ -51,7 +51,7 @@ if VcodeCount>0 then session("vcode")=getvcode(VcodeCount)
 			<%if VcodeCount>0 then%>
 			<div class="field">
 				<span class="label">ÑéÖ¤Âë£º</span>
-				<span class="value"><input type="text" name="ivcode" autocomplete="off" /><img class="captcha" src="show_vcode.asp" /></span>
+				<span class="value"><input type="text" name="ivcode" autocomplete="off" /><img id="captcha" class="captcha" src="show_vcode.asp?t=0" /></span>
 			</div>
 			<%end if%>
 			<div class="command">
@@ -60,6 +60,8 @@ if VcodeCount>0 then session("vcode")=getvcode(VcodeCount)
 			</form>
 	</div>
 </div>
-
+<script type="text/javascript">
+	<!-- #include file="js/refresh-captcha.js" -->
+</script>
 </body>
 </html>
