@@ -1,6 +1,6 @@
 <%Response.ContentType="application/x-javascript"%>
 <%if session("gotclientinfo")<>true then%>
-<!-- #include file="xmlhttp.inc" -->
+<!-- #include file="js/xmlhttp.js" -->
 
 function trim(s)
 {

@@ -86,7 +86,7 @@ end function
 			if(e && e.ctrlKey && e.keyCode==13)e.target.form.submit1.click();
 		}
 
-		<!-- #include file="xmlhttp.inc" -->
+		<!-- #include file="js/xmlhttp.js" -->
 		function previewRequest()
 		{
 			if(!window.xmlHttp) window.xmlHttp=createXmlHttp();
