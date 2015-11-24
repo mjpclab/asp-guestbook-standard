@@ -146,7 +146,7 @@ sub innerword(byref t_rs)%>
 			<%end if%>
 		<h2 class="title"><%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then response.write "(给版主的悄悄话...)" else response.write t_rs("title")%></h2>
 	</div>
-	<%if StatusShowHead and t_rs.Fields("faceid")>=1 and t_rs.Fields("faceid")<=FaceCount then%><img src="<%=FacePath & t_rs.Fields("faceid")%>.gif"/><%end if%>
+	<%if StatusShowHead and t_rs.Fields("faceid")>=1 and t_rs.Fields("faceid")<=FaceCount then%><img class="face" src="<%=FacePath & t_rs.Fields("faceid")%>.gif"/><%end if%>
 	<div class="words">
 		<%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then%>
 			<span class="inner-hint"><img src="image/icon_whisper.gif"/>(给版主的悄悄话...)</span>
