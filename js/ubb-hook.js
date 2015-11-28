@@ -1,5 +1,3 @@
-<script type="text/javascript">
-
 function toArray(arrayObj) {
 	var result;
 	try{
@@ -242,4 +240,3 @@ if(palette)
 
 	palette.appendChild(fragment);
 }
-</script>

@@ -164,7 +164,7 @@ end function
 					<div class="field">
 						<div class="row">内容： <%=getstatus(HTMLSupport)%>HTML标记　<%=getstatus(UBBSupport)%>UBB标记<%if HTMLSupport=false and UBBSupport=false and AllowNewLine=true then Response.Write "　" & getstatus(true) & "允许换行"%></div>
 						<div class="row"><textarea name="icontent" id="icontent" rows="<%=LeaveContentHeight%>" onkeydown="icontent_keydown(arguments[0]);"<%if WordsLimit>0 then Response.Write " onpropertychange=""checklength(this,"&WordsLimit&");"""%>><%=server.htmlEncode(FormOrSession(InstanceName & "_icontent"))%></textarea></div>
-						<!-- #include file="ubbtoolbar.inc" -->
+						<!-- #include file="include/ubbtoolbar.inc" -->
 						<%if UBBSupport then ShowUbbToolBar(false)%>
 					</div>
 					<%if StatusWhisper=true then%>

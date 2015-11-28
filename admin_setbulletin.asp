@@ -49,7 +49,7 @@
 			<div class="content">
 				<form method="post" action="admin_savebulletin.asp" name="form6" onsubmit="form6.submit1.disabled=true;">
 				公告内容：<br/><textarea name="abulletin" id="abulletin" onkeydown="if(!this.modified)this.modified=true; var e=event?event:arguments[0]; if(e && e.ctrlKey && e.keyCode==13 && this.form.submit1)this.form.submit1.click();" rows="<%=ReplyTextHeight%>"><%=replace(server.htmlEncode("" & rs("declare") & ""),chr(13)&chr(10),"&#13;&#10;")%></textarea>
-				<!-- #include file="ubbtoolbar.inc" -->
+				<!-- #include file="include/ubbtoolbar.inc" -->
 				<%ShowUbbToolBar(true)%>
 				<p>
 					<input type="checkbox" name="html2" id="html2" value="1"<%if cint(t_html and 1)<>0 then Response.Write " checked=""checked"""%> /><label for="html2">支持HTML标记</label><br/>

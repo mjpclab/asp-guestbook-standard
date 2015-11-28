@@ -66,7 +66,7 @@ cn.close
 		<form method="post" action="admin_savereply.asp" onsubmit="return submitcheck(this)" name="form3">
 		»Ø¸´ÄÚÈÝ£º<br/>
 		<textarea name="rcontent" id="rcontent" onkeydown="if(!this.modified)this.modified=true; var e=event?event:arguments[0]; if(e && e.ctrlKey && e.keyCode==13 && this.form.submit1)this.form.submit1.click();" rows="<%=ReplyTextHeight%>"><%=c_old%></textarea>
-		<!-- #include file="ubbtoolbar.inc" -->
+		<!-- #include file="include/ubbtoolbar.inc" -->
 		<%ShowUbbToolBar(true)%>
 		<input type="hidden" name="rootid" value="<%=request.QueryString("rootid")%>" />
 		<input type="hidden" name="mainid" value="<%=request.QueryString("id")%>" />

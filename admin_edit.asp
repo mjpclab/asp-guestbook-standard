@@ -74,7 +74,7 @@ end if
 			<span class="row">ÄÚÈİ£º</span>
 			<span class="row"><textarea name="econtent" id="econtent" onkeydown="if(!this.form.modified)this.form.modified=true; var e=event?event:arguments[0]; if(e && e.ctrlKey && e.keyCode==13 && this.form.submit1)this.form.submit1.click();" rows="<%=ReplyTextHeight%>"><%=guest_txt%></textarea></span>
 			<span class="row">
-				<!-- #include file="ubbtoolbar.inc" -->
+				<!-- #include file="include/ubbtoolbar.inc" -->
 				<%ShowUbbToolBar(true)%>
 			</span>
 			<span class="row">
