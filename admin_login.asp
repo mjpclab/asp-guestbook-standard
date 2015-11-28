@@ -7,10 +7,10 @@ Response.AddHeader "cache-control","no-cache, must-revalidate"
 if VcodeCount>0 then session("vcode")=getvcode(VcodeCount)
 %>
 
-<!-- #include file="inc_dtd.asp" -->
+<!-- #include file="include/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="inc_metatag.asp" -->
+	<!-- #include file="include/metatag.inc" -->
 	<title><%=HomeName%> ÁôÑÔ±¾ ¹ÜÀíµÇÂ¼</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 	

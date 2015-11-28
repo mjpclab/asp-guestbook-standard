@@ -1,5 +1,5 @@
 <!-- #include file="config.asp" -->
-
+<!-- #include file="common2.asp" -->
 <%
 Response.Expires=-1
 if checkIsBannedIP then
@@ -16,10 +16,10 @@ if StatusStatistics then call addstat("search")
 
 %>
 
-<!-- #include file="inc_dtd.asp" -->
+<!-- #include file="include/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="inc_metatag.asp" -->
+	<!-- #include file="include/metatag.inc" -->
 	<title><%=HomeName%> 留言本 搜索结果</title>
 	<!-- #include file="inc_stylesheet.asp" -->
 </head>
@@ -60,10 +60,10 @@ end if
 <div id="outerborder" class="outerborder">
 	<%if ShowTitle=true then show_book_title 3,"搜索结果"%>
 
-	<%RPage="search.asp"%><!-- #include file="func_guest.inc" -->
-	<!-- #include file="topbulletin.inc" -->
+	<%RPage="search.asp"%><!-- #include file="include/guest_func.inc" -->
+	<!-- #include file="include/topbulletin.inc" -->
 	<%if CanOpenDB=true and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"search.asp","[搜索结果分页]","type=" &request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
-	<%if ShowTopSearchBox then%><!-- #include file="searchbox_guest.inc" --><%end if%>
+	<%if ShowTopSearchBox then%><!-- #include file="include/guest_searchbox.inc" --><%end if%>
 
 	<%
 	if CanOpenDB=true then
@@ -73,19 +73,19 @@ end if
 			dim pagename
 			pagename="search"
 			if GuestDisplayMode()="book" then
-				%><!-- #include file="listword_guest.inc" --><%
+				%><!-- #include file="include/guest_listword.inc" --><%
 			elseif GuestDisplayMode()="forum" then
-				%><!-- #include file="listtitle_guest.inc" --><%
+				%><!-- #include file="include/guest_listtitle.inc" --><%
 			end if
 			rs.Close
 		end if
 	end if
 	%>
 
-	<!-- #include file="func_guest.inc" -->
+	<!-- #include file="include/guest_func.inc" -->
 
 	<%if CanOpenDB=true and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"search.asp","[搜索结果分页]","type=" &request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
-	<%if ShowBottomSearchBox then%><!-- #include file="searchbox_guest.inc" --><%end if%>
+	<%if ShowBottomSearchBox then%><!-- #include file="include/guest_searchbox.inc" --><%end if%>
 </div>
 
 <%
@@ -96,7 +96,7 @@ if CanOpenDB=true then
 end if
 %>
 
-<!-- #include file="bottom.asp" -->
+<!-- #include file="include/footer.inc" -->
 <%if StatusStatistics and session("gotclientinfo")<>true then%><script type="text/javascript" src="getclientinfo.asp" defer="defer" async="async"></script><%end if%>
 </body>
 </html>

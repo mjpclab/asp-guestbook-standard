@@ -55,10 +55,10 @@ if isnumeric(Request.QueryString("n")) and trim(Request.QueryString("n"))<>"" th
 		document.write('<%=br%><a style="margin-top:2ex;" title="更多留言..." href="<%=geturlpath & "index.asp"%>" target="<%=t%>">更多留言...</a>');
 	<%else%>
 	<%if t="" then t="_parent"%>
-	<!-- #include file="inc_dtd.asp" -->
+	<!-- #include file="include/dtd.inc" -->
 	<html>
 	<head>
-		<!-- #include file="inc_metatag.asp" -->
+		<!-- #include file="include/metatag.inc" -->
 		<title><%=HomeName%> 留言本 留言列表</title>
 		<!-- #include file="inc_stylesheet.asp" -->
 	</head>

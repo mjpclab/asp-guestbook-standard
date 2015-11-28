@@ -1,4 +1,3 @@
-<!-- #include file="common2.asp" -->
 <%
 dim guest_txt,guestflag
 dim reply_txt,reply_htmlflag
@@ -16,7 +15,7 @@ while rs.eof=false
 		if clng(rs.Fields("replied") AND 1)<>0 and ReplyInWord=false then outeradminreply(rs)
 		if ReplyInWord=false then
 			set p_rs=rs
-			%><!-- #include file="admintools.inc" --><%
+			%><!-- #include file="admin_message_tools.inc" --><%
 		end if
 
 		if rs.Fields("parent_id")<=0 and clng(rs.Fields("replied") AND 2)<>0 and ReplyInWord=false then
@@ -31,7 +30,7 @@ while rs.eof=false
 				outerword(rs1)
 				if clng(rs1.Fields("replied") AND 1)<>0 then outeradminreply(rs1)
 				set p_rs=rs1
-				%><!-- #include file="admintools.inc" --><%
+				%><!-- #include file="admin_message_tools.inc" --><%
 				rs1.movenext
 			wend
 			rs1.close

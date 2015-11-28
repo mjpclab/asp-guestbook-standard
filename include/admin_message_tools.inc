@@ -6,7 +6,7 @@ end if
 param_url=Server.HtmlEncode(param_url)
 %>
 
-<div class="admin-tools">
+<div class="admin-message-tools">
 	<div class="group">
 		<div class="name">—°∂®¡Ù—‘£∫</div>
 		<div class="tools">

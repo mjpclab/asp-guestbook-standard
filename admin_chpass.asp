@@ -3,10 +3,10 @@
 
 <%Response.Expires=-1%>
 
-<!-- #include file="inc_dtd.asp" -->
+<!-- #include file="include/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="inc_metatag.asp" -->
+	<!-- #include file="include/metatag.inc" -->
 	<title><%=HomeName%> 留言本 修改管理员密码</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 
@@ -28,7 +28,7 @@
 <div id="outerborder" class="outerborder">
 
 	<%show_book_title 3,"管理"%>
-	<!-- #include file="admincontrols.inc" -->
+	<!-- #include file="include/admin_mainmenu.inc" -->
 
 	<div class="region form-region region-longtext">
 		<h3 class="title">修改密码</h3>
@@ -53,6 +53,6 @@
 
 </div>
 
-<!-- #include file="bottom.asp" -->
+<!-- #include file="include/footer.inc" -->
 </body>
 </html>

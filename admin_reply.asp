@@ -1,6 +1,6 @@
 <!-- #include file="config.asp" -->
 <!-- #include file="admin_verify.asp" -->
-
+<!-- #include file="common2.asp" -->
 <%
 Response.Expires=-1
 if isnumeric(Request.QueryString("id"))=false or Request.QueryString("id")="" then
@@ -9,10 +9,10 @@ if isnumeric(Request.QueryString("id"))=false or Request.QueryString("id")="" th
 end if
 %>
 
-<!-- #include file="inc_dtd.asp" -->
+<!-- #include file="include/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="inc_metatag.asp" -->
+	<!-- #include file="include/metatag.inc" -->
 	<title><%=HomeName%> 留言本 回复留言</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 
@@ -58,7 +58,7 @@ cn.close
 <div id="outerborder" class="outerborder">
 
 <%if ShowTitle=true then show_book_title 3,"管理"%>
-<!-- #include file="admincontrols.inc" -->
+<!-- #include file="include/admin_mainmenu.inc" -->
 
 <div class="region">
 	<h3 class="title">回复留言</h3>
@@ -93,13 +93,13 @@ rs.Open sql_adminreply_words & Request.QueryString("id"),cn,,,1
 if rs.EOF=false then
 	dim pagename
 	pagename="admin_reply"
-	%><!-- #include file="listword_admin.inc" --><%
+	%><!-- #include file="include/admin_listword.inc" --><%
 end if
 rs.Close : cn.Close : set rs=nothing : set cn=nothing	
 %>
 
 </div>
 
-<!-- #include file="bottom.asp" -->
+<!-- #include file="include/footer.inc" -->
 </body>
 </html>

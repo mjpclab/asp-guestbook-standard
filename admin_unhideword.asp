@@ -14,4 +14,4 @@ CreateConn cn,dbtype
 cn.Execute sql_adminunhideword & Request.QueryString("id"),,1
 cn.close : set cn=nothing
 %>
-<!-- #include file="admin_traceback.inc" -->
+<!-- #include file="include/admin_traceback.inc" -->

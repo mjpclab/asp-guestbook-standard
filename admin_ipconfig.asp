@@ -3,10 +3,10 @@
 
 <%Response.Expires=-1%>
 
-<!-- #include file="inc_dtd.asp" -->
+<!-- #include file="include/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="inc_metatag.asp" -->
+	<!-- #include file="include/metatag.inc" -->
 	<title><%=HomeName%> 留言本 IP屏蔽策略</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 </head>
@@ -16,7 +16,7 @@
 <div id="outerborder" class="outerborder">
 
 	<%if ShowTitle=true then show_book_title 3,"管理"%>
-	<!-- #include file="admincontrols.inc" -->
+	<!-- #include file="include/admin_mainmenu.inc" -->
 
 	<%
 	set cn=server.CreateObject("ADODB.Connection")
@@ -158,6 +158,6 @@
 <%cn.Close : set rs=nothing : set cn=nothing%>
 </div>
 
-<!-- #include file="bottom.asp" -->
+<!-- #include file="include/footer.inc" -->
 </body>
 </html>

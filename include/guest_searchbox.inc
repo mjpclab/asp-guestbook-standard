@@ -1,7 +1,7 @@
 <script type="text/javascript">
 function searchsubmitcheck(frm)
 {
-	if (frm.searchtxt.value=='') {alert('ÇëÊäÈëËÑË÷ÄÚÈİ£¡');frm.searchtxt.focus();return false;}
+	if (frm.searchtxt.value.length===0) {alert('ÇëÊäÈëËÑË÷ÄÚÈİ£¡');frm.searchtxt.focus();return false;}
 	frm.searchsubmit.disabled=true;
 	return true;
 }

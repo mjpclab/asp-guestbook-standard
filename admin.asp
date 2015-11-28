@@ -1,15 +1,15 @@
 <!-- #include file="config.asp" -->
 <!-- #include file="admin_verify.asp" -->
-
+<!-- #include file="common2.asp" -->
 <%
 Response.Expires=-1
 Response.AddHeader "cache-control","private"
 %>
 
-<!-- #include file="inc_dtd.asp" -->
+<!-- #include file="include/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="inc_metatag.asp" -->
+	<!-- #include file="include/metatag.inc" -->
 	<title><%=HomeName%> 留言本 管理首页</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 </head>
@@ -35,12 +35,12 @@ get_divided_page cn,rs,sql_pk_main,sql_admin_words_count,sql_admin_words_query,"
 <div id="outerborder" class="outerborder">
 
 	<%if ShowTitle=true then show_book_title 3,"管理"%>
-	<!-- #include file="admincontrols.inc" -->
-	<!-- #include file="topbulletin.inc" -->
+	<!-- #include file="include/admin_mainmenu.inc" -->
+	<!-- #include file="include/topbulletin.inc" -->
 	<%if PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"admin.asp","[留言分页]",""%>
 
 	<form method="post" action="admin_mdel.asp" name="form7">
-		<%RPage="admin.asp"%><!-- #include file="func_admin.inc" -->
+		<%RPage="admin.asp"%><!-- #include file="include/admin_func.inc" -->
 		<%
 		if ItemsCount=0 then
 			Response.Write "<br/><br/><div class=""centertext"">目前尚无留言。</div><br/><br/>"
@@ -48,21 +48,21 @@ get_divided_page cn,rs,sql_pk_main,sql_admin_words_count,sql_admin_words_query,"
 			dim pagename
 			pagename="admin"
 			if AdminDisplayMode()="book" then
-				%><!-- #include file="listword_admin.inc" --><%
+				%><!-- #include file="include/admin_listword.inc" --><%
 			elseif AdminDisplayMode()="forum" then
-				%><!-- #include file="listtitle_admin.inc" --><%
+				%><!-- #include file="include/admin_listtitle.inc" --><%
 			end if
 			rs.Close
 		end if
 		cn.Close : set rs=nothing : set cn=nothing%>
 
 		<input type="hidden" name="page" value="<%=Request.QueryString("page")%>" />
-		<!-- #include file="func_admin.inc" -->
+		<!-- #include file="include/admin_func.inc" -->
 	</form>
 
 	<%if PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"admin.asp","[留言分页]",""%>
 </div>
 
-<!-- #include file="bottom.asp" -->
+<!-- #include file="include/footer.inc" -->
 </body>
 </html>

@@ -1,15 +1,15 @@
 <!-- #include file="config.asp" -->
 <!-- #include file="admin_verify.asp" -->
-
+<!-- #include file="common2.asp" -->
 <%
 Response.Expires=-1
 Response.AddHeader "cache-control","private"
 %>
 
-<!-- #include file="inc_dtd.asp" -->
+<!-- #include file="include/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="inc_metatag.asp" -->
+	<!-- #include file="include/metatag.inc" -->
 	<title><%=HomeName%> 留言本 搜索留言</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 
@@ -70,7 +70,7 @@ end if
 <div id="outerborder" class="outerborder">
 
 	<%if ShowTitle=true then show_book_title 3,"管理"%>
-	<!-- #include file="admincontrols.inc" -->
+	<!-- #include file="include/admin_mainmenu.inc" -->
 
 	<div class="region form-region center-region">
 		<h3 class="title">搜索留言</h3>
@@ -99,7 +99,7 @@ end if
 
 	<%if CanOpenDB and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"admin_search.asp","[搜索结果分页]","type=" &Request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
 	<form method="post" action="admin_mdel.asp" name="form7">
-	<%RPage="admin_search.asp"%><!-- #include file="func_admin.inc" -->
+	<%RPage="admin_search.asp"%><!-- #include file="include/admin_func.inc" -->
 	<%
 	if CanOpenDB=true then
 		if ItemsCount=0 then
@@ -108,9 +108,9 @@ end if
 			dim pagename
 			pagename="admin_search"
 			if AdminDisplayMode()="book" then
-				%><!-- #include file="listword_admin.inc" --><%
+				%><!-- #include file="include/admin_listword.inc" --><%
 			elseif AdminDisplayMode()="forum" then
-				%><!-- #include file="listtitle_admin.inc" --><%
+				%><!-- #include file="include/admin_listtitle.inc" --><%
 			end if
 			rs.Close
 		end if
@@ -120,7 +120,7 @@ end if
 	<input type="hidden" name="page" value="<%=request("page")%>" />
 	<input type="hidden" name="type" value="<%=Request("type")%>" />
 	<input type="hidden" name="searchtxt" value="<%=request("searchtxt")%>" />
-	<!-- #include file="func_admin.inc" -->
+	<!-- #include file="include/admin_func.inc" -->
 	</form>
 
 	<%if CanOpenDB and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"admin_search.asp","[搜索结果分页]","type=" &Request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
@@ -132,6 +132,6 @@ if CanOpenDB=true then
 end if
 %>
 
-<!-- #include file="bottom.asp" -->
+<!-- #include file="include/footer.inc" -->
 </body>
 </html>

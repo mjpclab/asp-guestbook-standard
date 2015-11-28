@@ -1,4 +1,5 @@
 <!-- #include file="config.asp" -->
+<!-- #include file="common2.asp" -->
 <%
 Response.Expires=-1
 Response.AddHeader "cache-control","private"
@@ -13,10 +14,10 @@ end if
 if StatusStatistics then call addstat("view")
 %>
 
-<!-- #include file="inc_dtd.asp" -->
+<!-- #include file="include/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="inc_metatag.asp" -->
+	<!-- #include file="include/metatag.inc" -->
 	<title><%=HomeName%> ¡Ù—‘±æ</title>
 	<!-- #include file="inc_stylesheet.asp" -->
 </head>
@@ -47,11 +48,11 @@ get_divided_page cn,rs,sql_pk_main,local_sql_count,local_sql_query,"parent_id IN
 <div id="outerborder" class="outerborder">
 	<%if ShowTitle=true then show_book_title 2,""%>
 
-	<%RPage="index.asp"%><!-- #include file="func_guest.inc" -->
-	<!-- #include file="topbulletin.inc" -->
-	<!-- #include file="hidetip.inc" -->
+	<%RPage="index.asp"%><!-- #include file="include/guest_func.inc" -->
+	<!-- #include file="include/topbulletin.inc" -->
+	<!-- #include file="include/guest_tiphidden.inc" -->
 	<%if PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"index.asp","[¡Ù—‘∑÷“≥]",""%>
-	<%if ItemsCount>0 and StatusSearch and ShowTopSearchBox then%><!-- #include file="searchbox_guest.inc" --><%end if%>
+	<%if ItemsCount>0 and StatusSearch and ShowTopSearchBox then%><!-- #include file="include/guest_searchbox.inc" --><%end if%>
 
 	<%
 	if ItemsCount=0 then
@@ -60,21 +61,21 @@ get_divided_page cn,rs,sql_pk_main,local_sql_count,local_sql_query,"parent_id IN
 		dim pagename
 		pagename="index"
 		if GuestDisplayMode()="book" then
-			%><!-- #include file="listword_guest.inc" --><%
+			%><!-- #include file="include/guest_listword.inc" --><%
 		elseif GuestDisplayMode()="forum" then
-			%><!-- #include file="listtitle_guest.inc" --><%
+			%><!-- #include file="include/guest_listtitle.inc" --><%
 		end if
 		rs.Close
 	end if
 	cn.Close : set rs=nothing : set cn=nothing%>
 	
-	<!-- #include file="func_guest.inc" -->
+	<!-- #include file="include/guest_func.inc" -->
 
 	<%if PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"index.asp","[¡Ù—‘∑÷“≥]",""%>
-	<%if ItemsCount>0 and StatusSearch and ShowBottomSearchBox then%><!-- #include file="searchbox_guest.inc" --><%end if%>
+	<%if ItemsCount>0 and StatusSearch and ShowBottomSearchBox then%><!-- #include file="include/guest_searchbox.inc" --><%end if%>
 </div>
 
-<!-- #include file="bottom.asp" -->
+<!-- #include file="include/footer.inc" -->
 <%if StatusStatistics and session("gotclientinfo")<>true then%><script type="text/javascript" src="getclientinfo.asp" defer="defer" async="async"></script><%end if%>
 </body>
 </html>

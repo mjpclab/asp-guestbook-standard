@@ -1,5 +1,6 @@
 <!-- #include file="config.asp" -->
-<!-- #include file="md5.asp" -->
+<!-- #include file="common2.asp" -->
+<!-- #include file="include/md5.asp" -->
 <%
 Response.Expires = -1
 Response.AddHeader "Pragma","no-cache"
@@ -14,10 +15,10 @@ elseif StatusOpen=false then
 end if
 %>
 
-<!-- #include file="inc_dtd.asp" -->
+<!-- #include file="include/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="inc_metatag.asp" -->
+	<!-- #include file="include/metatag.inc" -->
 	<title><%=HomeName%> ¡Ù—‘±æ ‰Ø¿¿¡Ù—‘</title>
 	<!-- #include file="inc_stylesheet.asp" -->
 
@@ -48,9 +49,9 @@ rs.Close
 
 	<%if ShowTitle=true then show_book_title 3,"‰Ø¿¿¡Ù—‘"%>
 
-	<!-- #include file="func_guest.inc" -->
-	<!-- #include file="topbulletin.inc" -->
-	<%if StatusSearch and ShowTopSearchBox then%><!-- #include file="searchbox_guest.inc" --><%end if%>
+	<!-- #include file="include/guest_func.inc" -->
+	<!-- #include file="include/topbulletin.inc" -->
+	<%if StatusSearch and ShowTopSearchBox then%><!-- #include file="include/guest_searchbox.inc" --><%end if%>
 
 	<%
 	dim showbox,showstr,needverify,cantverify,idexists
@@ -144,17 +145,17 @@ rs.Close
 		else
 			pagename="showword"
 		end if%>
-		<!-- #include file="listword_guest.inc" -->
+		<!-- #include file="include/guest_listword.inc" -->
 		<%rs.Close%>
 	<%end if%>
 	<%cn.Close : set rs=nothing : set cn=nothing%>
 
-	<!-- #include file="func_guest.inc" -->
+	<!-- #include file="include/guest_func.inc" -->
 
-	<%if StatusSearch and ShowBottomSearchBox then%><!-- #include file="searchbox_guest.inc" --><%end if%>
+	<%if StatusSearch and ShowBottomSearchBox then%><!-- #include file="include/guest_searchbox.inc" --><%end if%>
 </div>
 
-<!-- #include file="bottom.asp" -->
+<!-- #include file="include/footer.inc" -->
 <script type="text/javascript">
 	<!-- #include file="js/refresh-captcha.js" -->
 </script>

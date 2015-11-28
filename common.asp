@@ -566,13 +566,13 @@ if ShowAdvPageList then
 	str_largenext_page=	"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &largenext_page_no& param & """><img src=""image/icon_page_largenext.gif"" title=""µÚ" &largenext_page_no& "Ò³"" /></a>"
 	str_next_page=		"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &next_page_no& param & """><img src=""image/icon_page_next.gif"" title=""µÚ" &next_page_no& "Ò³"" /></a>"
 	
-	str_first2_page=	"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(-PagesCount+1)& ");"" src=""image/icon_page_first2.gif"" title=""¾íÖÁÊ×Ò³"" /></a>"
-	str_largeprev2_page="<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(-AdvPageListCount)& ");"" src=""image/icon_page_largeprev2.gif"" class=""pageicon"" title=""ÉÏ¾í" &AdvPageListCount& "Ò³"" /></a>"
-	str_prev2_page=		"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(-1)& ");"" src=""image/icon_page_prev2.gif"" class=""pageicon"" title=""ÉÏ¾í1Ò³"" /></a>"
+	str_first2_page=	"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(-PagesCount+1)& ");"" src=""image/icon_page_first2.gif"" title=""¾íÖÁÊ×Ò³"" /></a>"
+	str_largeprev2_page="<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(-AdvPageListCount)& ");"" src=""image/icon_page_largeprev2.gif"" class=""pageicon"" title=""ÉÏ¾í" &AdvPageListCount& "Ò³"" /></a>"
+	str_prev2_page=		"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(-1)& ");"" src=""image/icon_page_prev2.gif"" class=""pageicon"" title=""ÉÏ¾í1Ò³"" /></a>"
 
-	str_last2_page=		"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(PagesCount-1)& ");"" src=""image/icon_page_last2.gif"" class=""pageicon"" title=""¾íÖÁÄ©Ò³"" /></a>"
-	str_largenext2_page="<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(AdvPageListCount)& ");"" src=""image/icon_page_largenext2.gif"" class=""pageicon"" title=""ÏÂ¾í" &AdvPageListCount& "Ò³"" /></a>"
-	str_next2_page=		"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""if(ghandle)clearTimeout(ghandle);"" onmousedown=""if(ghandle)clearTimeout(ghandle); refresh_pagenum(" &(1)& ");"" src=""image/icon_page_next2.gif"" class=""pageicon"" title=""ÏÂ¾í1Ò³"" /></a>"
+	str_last2_page=		"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(PagesCount-1)& ");"" src=""image/icon_page_last2.gif"" class=""pageicon"" title=""¾íÖÁÄ©Ò³"" /></a>"
+	str_largenext2_page="<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(AdvPageListCount)& ");"" src=""image/icon_page_largenext2.gif"" class=""pageicon"" title=""ÏÂ¾í" &AdvPageListCount& "Ò³"" /></a>"
+	str_next2_page=		"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(1)& ");"" src=""image/icon_page_next2.gif"" class=""pageicon"" title=""ÏÂ¾í1Ò³"" /></a>"
 end if%>
 
 <div class="region page-list">
@@ -599,7 +599,13 @@ end if%>
 		</form>
 	</div>
 </div>
-<!-- #include file="pagecontrols.inc" -->
+<script type="text/javascript">
+	var ghandle;
+	var PagesCount=<%=PagesCount%>;
+	var PageListCount=<%=AdvPageListCount%>;
+	var CurrentPage=<%=CurPage%>;
+</script>
+<script type="text/javascript" src="js/pagecontrols.js" defer="defer" async="async"></script>
 <%end sub
 '==================================
 sub show_book_title(byval layercount, byval param)%>
@@ -891,10 +897,10 @@ end function
 '==================================
 sub MessagePage(strMessage,backPage)
 	%>
-	<!-- #include file="inc_dtd.asp" -->
+	<!-- #include file="include/dtd.inc" -->
 	<html>
 	<head>
-		<!-- #include file="inc_metatag.asp" -->
+		<!-- #include file="include/metatag.inc" -->
 		<title><%=HomeName%> ÁôÑÔ±¾</title>
 		<!-- #include file="inc_stylesheet.asp" -->
 	</head>

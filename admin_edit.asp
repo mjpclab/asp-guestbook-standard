@@ -1,6 +1,6 @@
 <!-- #include file="config.asp" -->
 <!-- #include file="admin_verify.asp" -->
-
+<!-- #include file="common2.asp" -->
 <%
 Response.Expires=-1
 if isnumeric(Request.QueryString("id"))=false or Request.QueryString("id")="" then
@@ -25,10 +25,10 @@ else
 end if
 %>
 
-<!-- #include file="inc_dtd.asp" -->
+<!-- #include file="include/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="inc_metatag.asp" -->
+	<!-- #include file="include/metatag.inc" -->
 	<title><%=HomeName%> ¡Ù—‘±æ ±‡º≠¡Ù—‘</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 
@@ -55,7 +55,7 @@ end if
 <div id="outerborder" class="outerborder">
 
 <%if ShowTitle=true then show_book_title 3,"π‹¿Ì"%>
-<!-- #include file="admincontrols.inc" -->
+<!-- #include file="include/admin_mainmenu.inc" -->
 
 <div class="region">
 	<h3 class="title">±‡º≠¡Ù—‘</h3>
@@ -90,11 +90,11 @@ end if
 
 <%dim pagename
 pagename="admin_edit"%>
-<!-- #include file="listword_admin.inc" -->
+<!-- #include file="include/admin_listword.inc" -->
 <%rs.Close : cn.Close : set rs=nothing : set cn=nothing%>
 
 </div>
 
-<!-- #include file="bottom.asp" -->
+<!-- #include file="include/footer.inc" -->
 </body>
 </html>

@@ -6,10 +6,10 @@
 Response.Expires=-1
 %>
 
-<!-- #include file="inc_dtd.asp" -->
+<!-- #include file="include/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="inc_metatag.asp" -->
+	<!-- #include file="include/metatag.inc" -->
 	<title><%=HomeName%> 留言本 生成调用代码</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 
@@ -90,7 +90,7 @@ Response.Expires=-1
 <div id="outerborder" class="outerborder">
 
 <%if ShowTitle=true then show_book_title 3,"管理"%>
-<!-- #include file="admincontrols.inc" -->
+<!-- #include file="include/admin_mainmenu.inc" -->
 
 <div class="region region-callgen">
 	<h3 class="title">生成调用代码</h3>
@@ -155,6 +155,6 @@ Response.Expires=-1
 
 </div>
 
-<!-- #include file="bottom.asp" -->
+<!-- #include file="include/footer.inc" -->
 </body>
 </html>

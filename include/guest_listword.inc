@@ -1,4 +1,3 @@
-<!-- #include file="common2.asp" -->
 <%
 dim guest_txt,guestflag,iswhisper,ishidden,encrypted
 dim reply_txt,reply_htmlflag

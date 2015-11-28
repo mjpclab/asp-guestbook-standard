@@ -385,45 +385,45 @@ form .row {
 	text-align: right;
 }
 
-.topic .admin-tools {
+.topic .admin-message-tools {
 	margin-top: -1px;
 	padding:5px;
 	border:1px solid;
 	overflow: hidden;
 }
-*html .topic .admin-tools {
+*html .topic .admin-message-tools {
 	zoom:1;
 }
-.topic .detail .admin-tools {
+.topic .detail .admin-message-tools {
 	margin:24px 0;
 	border-left: 0;
 	border-right: 0;
 }
-.topic .detail .admin-tools:last-child {
+.topic .detail .admin-message-tools:last-child {
 	margin-bottom: 0;
 	border-bottom: 0;
 }
 
-.topic .admin-tools .group {
+.topic .admin-message-tools .group {
 	overflow: hidden;
 }
-*html .topic .admin-tools .group {
+*html .topic .admin-message-tools .group {
 	zoom:1;
 }
 
-.topic .admin-tools .name {
+.topic .admin-message-tools .name {
 	float: left;
 	width:80px;
 }
 
-.topic .admin-tools .tools {
+.topic .admin-message-tools .tools {
 	overflow: hidden;
 }
-*html .topic .admin-tools .tools {
+*html .topic .admin-message-tools .tools {
 	zoom:1;
 }
 
-.topic .admin-tools .tool {
+.topic .admin-message-tools .tool {
 	display: block;
 	float: left;
 	margin:0 5px;
@@ -432,7 +432,7 @@ form .row {
 	white-space: nowrap;
 }
 
-.topic .admin-tools img {
+.topic .admin-message-tools img {
 	display: inline-block;
 	vertical-align: text-bottom;
 }
