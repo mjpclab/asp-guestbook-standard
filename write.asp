@@ -1,6 +1,6 @@
 <!-- #include file="config.asp" -->
 <!-- #include file="inc_stylesheet.asp" -->
-<!-- #include file="ubbcode.asp" -->
+<!-- #include file="include/ubbcode.asp" -->
 <!-- #include file="common2.asp" -->
 <!-- #include file="include/md5.asp" -->
 

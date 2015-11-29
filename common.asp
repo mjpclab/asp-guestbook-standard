@@ -1,4 +1,4 @@
-<!-- #include file="ubbcode.asp" -->
+<!-- #include file="include/ubbcode.asp" -->
 <!-- #include file="sql.asp" -->
 <%
 '===================
