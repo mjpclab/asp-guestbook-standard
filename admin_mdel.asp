@@ -1,6 +1,13 @@
-<!-- #include file="config.asp" -->
+<!-- #include file="include/template/page_instruction.inc" -->
+<!-- #include file="config/database.asp" -->
+<!-- #include file="include/sql/init.asp" -->
+<!-- #include file="include/sql/admin_verify.asp" -->
+<!-- #include file="include/sql/admin_noreplyflag.asp" -->
+<!-- #include file="include/sql/admin_mdel.asp" -->
+<!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/backend.asp" -->
+<!-- #include file="loadconfig.asp" -->
 <!-- #include file="admin_verify.asp" -->
-
 <%
 Response.Expires=-1
 if Request.Form("seltodel")="" then
@@ -24,11 +31,11 @@ set cn=server.CreateObject("ADODB.Connection")
 CreateConn cn,dbtype
 
 cn.BeginTrans
-cn.Execute Replace(sql_global_noguestreply_flag,"{0}",Request.Form("seltodel")),,1
+cn.Execute Replace(sql_noguestreply_flag,"{0}",Request.Form("seltodel")),,1
 cn.Execute Replace(sql_adminmdel_reply,"{0}",Request.Form("seltodel")),,1
 cn.Execute Replace(sql_adminmdel_main,"{0}",Request.Form("seltodel")),,1
 cn.CommitTrans
 
 cn.Close : set cn=nothing
 %>
-<!-- #include file="include/admin_traceback.inc" -->
+<!-- #include file="include/template/admin_traceback.inc" -->

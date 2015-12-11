@@ -1,11 +1,16 @@
-<!-- #include file="config.asp" -->
-
+<!-- #include file="include/template/page_instruction.inc" -->
+<!-- #include file="config/database.asp" -->
+<!-- #include file="include/sql/init.asp" -->
+<!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/frontend.asp" -->
+<!-- #include file="include/utility/book.asp" -->
+<!-- #include file="loadconfig.asp" -->
 <%Response.Expires=-1%>
 
-<!-- #include file="include/dtd.inc" -->
+<!-- #include file="include/template/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="include/metatag.inc" -->
+	<!-- #include file="include/template/metatag.inc" -->
 	<title><%=HomeName%> ¡Ù—‘±æ ¥ÌŒÛ</title>
 	<!-- #include file="inc_stylesheet.asp" -->
 </head>
@@ -44,6 +49,6 @@
 	%>
 </div>
 
-<!-- #include file="include/footer.inc" -->
+<!-- #include file="include/template/footer.inc" -->
 </body>
 </html>

@@ -1,8 +1,15 @@
-<!-- #include file="config.asp" -->
-<!-- #include file="inc_admin_stylesheet.asp" -->
-<!-- #include file="include/md5.asp" -->
-<!-- #include file="common.asp" -->
-
+<!-- #include file="include/template/page_instruction.inc" -->
+<!-- #include file="config/database.asp" -->
+<!-- #include file="include/sql/init.asp" -->
+<!-- #include file="include/sql/admin_verify.asp" -->
+<!-- #include file="include/sql/admin_savepass.asp" -->
+<!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/md5.asp" -->
+<!-- #include file="include/utility/frontend.asp" -->
+<!-- #include file="include/utility/book.asp" -->
+<!-- #include file="loadconfig.asp" -->
+<!-- #include file="admin_verify.asp" -->
+<!-- #include file="tips.asp" -->
 <%
 Response.Expires=-1
 set cn=server.CreateObject("ADODB.Connection")
@@ -11,10 +18,10 @@ CreateConn cn,dbtype
 rs.Open sql_adminsavepass_select,cn,0,1,1
 
 if request.Form("inewpass1")<> request.Form("inewpass2") then
-	Call MessagePage("新密码不一致，请检查。","admin_chpass.asp")
+	Call TipsPage("新密码不一致，请检查。","admin_chpass.asp")
 	Response.End
 elseif request.Form("inewpass1")="" then
-	Call MessagePage("密码不能为空，请重新输入。","admin_chpass.asp")
+	Call TipsPage("密码不能为空，请重新输入。","admin_chpass.asp")
 	Response.End
 else
 	if rs.EOF=false then
@@ -26,7 +33,7 @@ else
 
 			Response.Redirect "admin.asp"
 		else
-			Call MessagePage("原密码错误，请检查。","admin_chpass.asp")
+			Call TipsPage("原密码错误，请检查。","admin_chpass.asp")
 
 			rs.Close
 			cn.Close
@@ -35,7 +42,7 @@ else
 			Response.End
 		end if
 	else
-		Call MessagePage("密码验证失败，请检查。","admin_chpass.asp")
+		Call TipsPage("密码验证失败，请检查。","admin_chpass.asp")
 
 		rs.Close
 		cn.Close

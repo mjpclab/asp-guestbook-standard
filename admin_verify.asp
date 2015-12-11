@@ -1,5 +1,3 @@
-<!-- #include file="common.asp" -->
-
 <%
 Response.Expires=-1
 Dim cn,rs

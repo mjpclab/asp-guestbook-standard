@@ -1,6 +1,20 @@
-<!-- #include file="config.asp" -->
-<!-- #include file="common2.asp" -->
-<!-- #include file="include/md5.asp" -->
+<!-- #include file="include/template/page_instruction.inc" -->
+<!-- #include file="config/system.asp" -->
+<!-- #include file="config/database.asp" -->
+<!-- #include file="include/sql/init.asp" -->
+<!-- #include file="include/sql/common.asp" -->
+<!-- #include file="include/sql/common2.asp" -->
+<!-- #include file="include/sql/topbulletin.asp" -->
+<!-- #include file="include/sql/showword.asp" -->
+<!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/ip.asp" -->
+<!-- #include file="include/utility/md5.asp" -->
+<!-- #include file="include/utility/ubbcode.asp" -->
+<!-- #include file="include/utility/backend.asp" -->
+<!-- #include file="include/utility/frontend.asp" -->
+<!-- #include file="include/utility/book.asp" -->
+<!-- #include file="include/utility/message.asp" -->
+<!-- #include file="loadconfig.asp" -->
 <%
 Response.Expires = -1
 Response.AddHeader "Pragma","no-cache"
@@ -15,10 +29,10 @@ elseif StatusOpen=false then
 end if
 %>
 
-<!-- #include file="include/dtd.inc" -->
+<!-- #include file="include/template/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="include/metatag.inc" -->
+	<!-- #include file="include/template/metatag.inc" -->
 	<title><%=HomeName%> ¡Ù—‘±æ ‰Ø¿¿¡Ù—‘</title>
 	<!-- #include file="inc_stylesheet.asp" -->
 
@@ -49,9 +63,9 @@ rs.Close
 
 	<%if ShowTitle=true then show_book_title 3,"‰Ø¿¿¡Ù—‘"%>
 
-	<!-- #include file="include/guest_func.inc" -->
-	<!-- #include file="include/topbulletin.inc" -->
-	<%if StatusSearch and ShowTopSearchBox then%><!-- #include file="include/guest_searchbox.inc" --><%end if%>
+	<!-- #include file="include/template/guest_func.inc" -->
+	<!-- #include file="include/template/topbulletin.inc" -->
+	<%if StatusSearch and ShowTopSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
 
 	<%
 	dim showbox,showstr,needverify,cantverify,idexists
@@ -145,20 +159,20 @@ rs.Close
 		else
 			pagename="showword"
 		end if%>
-		<!-- #include file="include/guest_listword.inc" -->
+		<!-- #include file="include/template/guest_listword.inc" -->
 		<%rs.Close%>
 	<%end if%>
 	<%cn.Close : set rs=nothing : set cn=nothing%>
 
-	<!-- #include file="include/guest_func.inc" -->
+	<!-- #include file="include/template/guest_func.inc" -->
 
-	<%if StatusSearch and ShowBottomSearchBox then%><!-- #include file="include/guest_searchbox.inc" --><%end if%>
+	<%if StatusSearch and ShowBottomSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
 </div>
 
-<!-- #include file="include/footer.inc" -->
+<!-- #include file="include/template/footer.inc" -->
 <script type="text/javascript">
 	<!-- #include file="js/refresh-captcha.js" -->
 </script>
-<%if StatusStatistics and session("gotclientinfo")<>true then%><script type="text/javascript" src="getclientinfo.asp" defer="defer" async="async"></script><%end if%>
+<!-- #include file="include/template/getclientinfo.inc" -->
 </body>
 </html>

@@ -1,7 +1,12 @@
-<!-- #include file="config.asp" -->
+<!-- #include file="include/template/page_instruction.inc" -->
+<!-- #include file="config/database.asp" -->
+<!-- #include file="include/sql/init.asp" -->
+<!-- #include file="include/sql/admin_verify.asp" -->
+<!-- #include file="include/sql/admin_saveedit.asp" -->
+<!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/backend.asp" -->
+<!-- #include file="loadconfig.asp" -->
 <!-- #include file="admin_verify.asp" -->
-<!-- #include file="common2.asp" -->
-
 <%
 Response.Expires=-1
 if isnumeric(request.form("mainid"))=false or request.form("mainid")="" then
@@ -27,7 +32,7 @@ if rs.EOF=false then		'ÁôÑÔ´æÔÚ
 	rs.Fields("article")=Request.Form("econtent")
 	rs.Update
 
-	%><!-- #include file="include/admin_traceback.inc" --><%
+	%><!-- #include file="include/template/admin_traceback.inc" --><%
 	rs.close : cn.close : set rs=nothing : set cn=nothing
 else
 	rs.close : cn.close : set rs=nothing : set cn=nothing

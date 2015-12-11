@@ -1,12 +1,19 @@
-<!-- #include file="config.asp" -->
+<!-- #include file="include/template/page_instruction.inc" -->
+<!-- #include file="config/database.asp" -->
+<!-- #include file="include/sql/init.asp" -->
+<!-- #include file="include/sql/admin_verify.asp" -->
+<!-- #include file="include/sql/admin_filter.asp" -->
+<!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/frontend.asp" -->
+<!-- #include file="include/utility/book.asp" -->
+<!-- #include file="loadconfig.asp" -->
 <!-- #include file="admin_verify.asp" -->
-
 <%Response.Expires=-1%>
 
-<!-- #include file="include/dtd.inc" -->
+<!-- #include file="include/template/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="include/metatag.inc" -->
+	<!-- #include file="include/template/metatag.inc" -->
 	<title><%=HomeName%> 留言本 内容过滤策略</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 </head>
@@ -16,12 +23,12 @@
 <div id="outerborder" class="outerborder">
 
 	<%if ShowTitle=true then show_book_title 3,"管理"%>
-	<!-- #include file="include/admin_mainmenu.inc" -->
+	<!-- #include file="include/template/admin_mainmenu.inc" -->
 
 	<div class="region form-region region-filter">
 		<h3 class="title">内容过滤策略</h3>
 		<div class="content">
-			<form method="post" name="newfilter" action="admin_appendfilter.asp" class="detail-item" onsubmit="if(findexp.value.length===0){alert('请输入查找内容。');findexp.focus();return false;}submit1.disabled=true;">
+			<form method="post" name="newfilter" action="admin_appendfilter.asp" onsubmit="if(findexp.value.length===0){alert('请输入查找内容。');findexp.focus();return false;}submit1.disabled=true;">
 			<h4>添加新过滤策略：</h4>
 			<p>查找内容(可用正则表达式,多个过滤词间用“|”分割)<br/>
 			<input type="text" name="findexp" /><br/>
@@ -105,6 +112,6 @@
 
 </div>
 
-<!-- #include file="include/footer.inc" -->
+<!-- #include file="include/template/footer.inc" -->
 </body>
 </html>

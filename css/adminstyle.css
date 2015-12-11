@@ -58,8 +58,6 @@ input.longtext {
 	width:100%;
 }
 
-.region-longtext input
-
 .region-callgen .field .label {
 	width:7em;
 }
@@ -74,13 +72,10 @@ input.longtext {
 }
 
 .detail-item {
-	margin-bottom: 10px;
-	padding-bottom: 10px;
-	border-bottom:2px solid;
-}
-.detail-item:last-child {
-	padding-bottom: 0;
-	border-bottom: 0;
+	padding:10px;
+	border:1px #808080 solid;
+	box-shadow: 0 0 10px #808080;
+	border-radius: 5px;
 }
 
 

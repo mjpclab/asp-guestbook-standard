@@ -1,4 +1,10 @@
-<!-- #include file="config.asp" -->
+<!-- #include file="include/template/page_instruction.inc" -->
+<!-- #include file="config/database.asp" -->
+<!-- #include file="include/sql/init.asp" -->
+<!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/backend.asp" -->
+<!-- #include file="include/utility/frontend.asp" -->
+<!-- #include file="loadconfig.asp" -->
 <%
 Response.Expires = -1
 Response.AddHeader "Pragma","no-cache"
@@ -7,10 +13,10 @@ Response.AddHeader "cache-control","no-cache, must-revalidate"
 if VcodeCount>0 then session("vcode")=getvcode(VcodeCount)
 %>
 
-<!-- #include file="include/dtd.inc" -->
+<!-- #include file="include/template/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="include/metatag.inc" -->
+	<!-- #include file="include/template/metatag.inc" -->
 	<title><%=HomeName%> ¡Ù—‘±æ π‹¿Ìµ«¬º</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 	

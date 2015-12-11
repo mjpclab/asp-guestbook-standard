@@ -1,5 +1,6 @@
-<%@ CodePage="936" Language="VBScript" %>
-<!-- #include file="common.asp" -->
+<!-- #include file="include/template/page_instruction.inc" -->
+<!-- #include file="config/system.asp" -->
+<!-- #include file="include/utility/backend.asp" -->
 <%
 if Request.QueryString("modeflag")="guest" then
 	SetTimelessCookie InstanceName & "_DisplayMode",Request.QueryString("mode")

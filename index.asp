@@ -1,5 +1,20 @@
-<!-- #include file="config.asp" -->
-<!-- #include file="common2.asp" -->
+<!-- #include file="include/template/page_instruction.inc" -->
+<!-- #include file="config/system.asp" -->
+<!-- #include file="config/database.asp" -->
+<!-- #include file="include/sql/init.asp" -->
+<!-- #include file="include/sql/const.asp" -->
+<!-- #include file="include/sql/common.asp" -->
+<!-- #include file="include/sql/common2.asp" -->
+<!-- #include file="include/sql/topbulletin.asp" -->
+<!-- #include file="include/sql/index.asp" -->
+<!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/ip.asp" -->
+<!-- #include file="include/utility/ubbcode.asp" -->
+<!-- #include file="include/utility/backend.asp" -->
+<!-- #include file="include/utility/frontend.asp" -->
+<!-- #include file="include/utility/book.asp" -->
+<!-- #include file="include/utility/message.asp" -->
+<!-- #include file="loadconfig.asp" -->
 <%
 Response.Expires=-1
 Response.AddHeader "cache-control","private"
@@ -14,10 +29,10 @@ end if
 if StatusStatistics then call addstat("view")
 %>
 
-<!-- #include file="include/dtd.inc" -->
+<!-- #include file="include/template/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="include/metatag.inc" -->
+	<!-- #include file="include/template/metatag.inc" -->
 	<title><%=HomeName%> ¡Ù—‘±æ</title>
 	<!-- #include file="inc_stylesheet.asp" -->
 </head>
@@ -48,11 +63,11 @@ get_divided_page cn,rs,sql_pk_main,local_sql_count,local_sql_query,"parent_id IN
 <div id="outerborder" class="outerborder">
 	<%if ShowTitle=true then show_book_title 2,""%>
 
-	<%RPage="index.asp"%><!-- #include file="include/guest_func.inc" -->
-	<!-- #include file="include/topbulletin.inc" -->
-	<!-- #include file="include/guest_tiphidden.inc" -->
+	<%RPage="index.asp"%><!-- #include file="include/template/guest_func.inc" -->
+	<!-- #include file="include/template/topbulletin.inc" -->
+	<!-- #include file="include/template/guest_tiphidden.inc" -->
 	<%if PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"index.asp","[¡Ù—‘∑÷“≥]",""%>
-	<%if ItemsCount>0 and StatusSearch and ShowTopSearchBox then%><!-- #include file="include/guest_searchbox.inc" --><%end if%>
+	<%if ItemsCount>0 and StatusSearch and ShowTopSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
 
 	<%
 	if ItemsCount=0 then
@@ -61,21 +76,21 @@ get_divided_page cn,rs,sql_pk_main,local_sql_count,local_sql_query,"parent_id IN
 		dim pagename
 		pagename="index"
 		if GuestDisplayMode()="book" then
-			%><!-- #include file="include/guest_listword.inc" --><%
+			%><!-- #include file="include/template/guest_listword.inc" --><%
 		elseif GuestDisplayMode()="forum" then
-			%><!-- #include file="include/guest_listtitle.inc" --><%
+			%><!-- #include file="include/template/guest_listtitle.inc" --><%
 		end if
 		rs.Close
 	end if
 	cn.Close : set rs=nothing : set cn=nothing%>
 	
-	<!-- #include file="include/guest_func.inc" -->
+	<!-- #include file="include/template/guest_func.inc" -->
 
 	<%if PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"index.asp","[¡Ù—‘∑÷“≥]",""%>
-	<%if ItemsCount>0 and StatusSearch and ShowBottomSearchBox then%><!-- #include file="include/guest_searchbox.inc" --><%end if%>
+	<%if ItemsCount>0 and StatusSearch and ShowBottomSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
 </div>
 
-<!-- #include file="include/footer.inc" -->
-<%if StatusStatistics and session("gotclientinfo")<>true then%><script type="text/javascript" src="getclientinfo.asp" defer="defer" async="async"></script><%end if%>
+<!-- #include file="include/template/footer.inc" -->
+<!-- #include file="include/template/getclientinfo.inc" -->
 </body>
 </html>

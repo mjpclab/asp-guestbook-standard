@@ -1,12 +1,20 @@
-<!-- #include file="config.asp" -->
+<!-- #include file="include/template/page_instruction.inc" -->
+<!-- #include file="config/system.asp" -->
+<!-- #include file="config/database.asp" -->
+<!-- #include file="include/sql/init.asp" -->
+<!-- #include file="include/sql/admin_verify.asp" -->
+<!-- #include file="include/sql/admin_setbulletin.asp" -->
+<!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/frontend.asp" -->
+<!-- #include file="include/utility/book.asp" -->
+<!-- #include file="loadconfig.asp" -->
 <!-- #include file="admin_verify.asp" -->
-
 <%Response.Expires=-1%>
 
-<!-- #include file="include/dtd.inc" -->
+<!-- #include file="include/template/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="include/metatag.inc" -->
+	<!-- #include file="include/template/metatag.inc" -->
 	<title><%=HomeName%> 留言本 发布置顶公告</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 
@@ -27,7 +35,7 @@
 <div id="outerborder" class="outerborder">
 
 	<%if ShowTitle=true then show_book_title 3,"管理"%>
-	<!-- #include file="include/admin_mainmenu.inc" -->
+	<!-- #include file="include/template/admin_mainmenu.inc" -->
 
 	<%
 	set cn=server.CreateObject("ADODB.Connection")
@@ -49,7 +57,7 @@
 			<div class="content">
 				<form method="post" action="admin_savebulletin.asp" name="form6" onsubmit="form6.submit1.disabled=true;">
 				公告内容：<br/><textarea name="abulletin" id="abulletin" onkeydown="if(!this.modified)this.modified=true; var e=event?event:arguments[0]; if(e && e.ctrlKey && e.keyCode==13 && this.form.submit1)this.form.submit1.click();" rows="<%=ReplyTextHeight%>"><%=replace(server.htmlEncode("" & rs("declare") & ""),chr(13)&chr(10),"&#13;&#10;")%></textarea>
-				<!-- #include file="include/ubbtoolbar.inc" -->
+				<!-- #include file="include/template/ubbtoolbar.inc" -->
 				<%ShowUbbToolBar(true)%>
 				<p>
 					<input type="checkbox" name="html2" id="html2" value="1"<%if cint(t_html and 1)<>0 then Response.Write " checked=""checked"""%> /><label for="html2">支持HTML标记</label><br/>
@@ -65,6 +73,6 @@
 
 </div>
 
-<!-- #include file="include/footer.inc" -->
+<!-- #include file="include/template/footer.inc" -->
 </body>
 </html>

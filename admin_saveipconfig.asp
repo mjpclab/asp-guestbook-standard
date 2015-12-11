@@ -1,7 +1,12 @@
-<!-- #include file="config.asp" -->
-<!-- #include file="inc_admin_stylesheet.asp" -->
+<!-- #include file="include/template/page_instruction.inc" -->
+<!-- #include file="config/database.asp" -->
+<!-- #include file="include/sql/init.asp" -->
+<!-- #include file="include/sql/admin_verify.asp" -->
+<!-- #include file="include/sql/admin_saveipconfig.asp" -->
+<!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/ip.asp" -->
+<!-- #include file="loadconfig.asp" -->
 <!-- #include file="admin_verify.asp" -->
-
 <%
 Response.Expires=-1
 

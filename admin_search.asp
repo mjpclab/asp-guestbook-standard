@@ -1,15 +1,32 @@
-<!-- #include file="config.asp" -->
+<!-- #include file="include/template/page_instruction.inc" -->
+<!-- #include file="config/system.asp" -->
+<!-- #include file="config/database.asp" -->
+<!-- #include file="include/sql/init.asp" -->
+<!-- #include file="include/sql/const.asp" -->
+<!-- #include file="include/sql/common.asp" -->
+<!-- #include file="include/sql/common2.asp" -->
+<!-- #include file="include/sql/admin_verify.asp" -->
+<!-- #include file="include/sql/admin_search.asp" -->
+<!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/ip.asp" -->
+<!-- #include file="include/utility/sqlfilter.asp" -->
+<!-- #include file="include/utility/ubbcode.asp" -->
+<!-- #include file="include/utility/backend.asp" -->
+<!-- #include file="include/utility/frontend.asp" -->
+<!-- #include file="include/utility/book.asp" -->
+<!-- #include file="include/utility/message.asp" -->
+<!-- #include file="loadconfig.asp" -->
 <!-- #include file="admin_verify.asp" -->
-<!-- #include file="common2.asp" -->
+<!-- #include file="tips.asp" -->
 <%
 Response.Expires=-1
 Response.AddHeader "cache-control","private"
 %>
 
-<!-- #include file="include/dtd.inc" -->
+<!-- #include file="include/template/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="include/metatag.inc" -->
+	<!-- #include file="include/template/metatag.inc" -->
 	<title><%=HomeName%> 留言本 搜索留言</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 
@@ -27,7 +44,7 @@ Response.AddHeader "cache-control","private"
 	</script>
 </head>
 
-<body<%=bodylimit%> onload="if(form1.searchtxt.value=='')form1.searchtxt.focus();<%=framecheck%>">
+<body<%=bodylimit%> onload="if(form1.searchtxt.value.length===0)form1.searchtxt.focus();<%=framecheck%>">
 
 <%
 set cn=server.CreateObject("ADODB.Connection")
@@ -42,7 +59,7 @@ while right(tparam,1)="%" or right(tparam,1)="_"
 	tparam=left(tparam,len(tparam)-1)
 wend
 if Request("type")<>"" and tparam="" then
-	Call MessagePage("不能输入空字符串或全部为通配符。","admin_search.asp")
+	Call TipsPage("不能输入空字符串或全部为通配符。","admin_search.asp")
 	Response.End
 end if
 
@@ -70,7 +87,7 @@ end if
 <div id="outerborder" class="outerborder">
 
 	<%if ShowTitle=true then show_book_title 3,"管理"%>
-	<!-- #include file="include/admin_mainmenu.inc" -->
+	<!-- #include file="include/template/admin_mainmenu.inc" -->
 
 	<div class="region form-region center-region">
 		<h3 class="title">搜索留言</h3>
@@ -99,7 +116,7 @@ end if
 
 	<%if CanOpenDB and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"admin_search.asp","[搜索结果分页]","type=" &Request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
 	<form method="post" action="admin_mdel.asp" name="form7">
-	<%RPage="admin_search.asp"%><!-- #include file="include/admin_func.inc" -->
+	<%RPage="admin_search.asp"%><!-- #include file="include/template/admin_func.inc" -->
 	<%
 	if CanOpenDB=true then
 		if ItemsCount=0 then
@@ -108,9 +125,9 @@ end if
 			dim pagename
 			pagename="admin_search"
 			if AdminDisplayMode()="book" then
-				%><!-- #include file="include/admin_listword.inc" --><%
+				%><!-- #include file="include/template/admin_listword.inc" --><%
 			elseif AdminDisplayMode()="forum" then
-				%><!-- #include file="include/admin_listtitle.inc" --><%
+				%><!-- #include file="include/template/admin_listtitle.inc" --><%
 			end if
 			rs.Close
 		end if
@@ -120,7 +137,7 @@ end if
 	<input type="hidden" name="page" value="<%=request("page")%>" />
 	<input type="hidden" name="type" value="<%=Request("type")%>" />
 	<input type="hidden" name="searchtxt" value="<%=request("searchtxt")%>" />
-	<!-- #include file="include/admin_func.inc" -->
+	<!-- #include file="include/template/admin_func.inc" -->
 	</form>
 
 	<%if CanOpenDB and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"admin_search.asp","[搜索结果分页]","type=" &Request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
@@ -132,6 +149,6 @@ if CanOpenDB=true then
 end if
 %>
 
-<!-- #include file="include/footer.inc" -->
+<!-- #include file="include/template/footer.inc" -->
 </body>
 </html>

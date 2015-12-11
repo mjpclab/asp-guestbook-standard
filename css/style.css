@@ -322,6 +322,7 @@ form .row {
 .topic .guest-tools .tool {
 	display: inline-block;
 	vertical-align: bottom;
+	margin-left: 0.5em;;
 }
 
 .topic .inner-hint {

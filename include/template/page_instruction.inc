@@ -1,0 +1,1 @@
+<%@ CodePage="936" Language="VBScript" %>

@@ -1,5 +1,13 @@
-<!-- #include file="config.asp" -->
-
+<!-- #include file="include/template/page_instruction.inc" -->
+<!-- #include file="config/system.asp" -->
+<!-- #include file="config/database.asp" -->
+<!-- #include file="include/sql/init.asp" -->
+<!-- #include file="include/sql/common.asp" -->
+<!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/backend.asp" -->
+<!-- #include file="include/utility/frontend.asp" -->
+<!-- #include file="include/utility/book.asp" -->
+<!-- #include file="loadconfig.asp" -->
 <%
 Response.Expires = -1
 Response.AddHeader "Pragma","no-cache"
@@ -27,10 +35,10 @@ function getstatus(isopen)
 end function
 %>
 
-<!-- #include file="include/dtd.inc" -->
+<!-- #include file="include/template/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="include/metatag.inc" -->
+	<!-- #include file="include/template/metatag.inc" -->
 	<title><%=HomeName%> 留言本 签写留言</title>
 	<!-- #include file="inc_stylesheet.asp" -->
 
@@ -164,7 +172,7 @@ end function
 					<div class="field">
 						<div class="row">内容： <%=getstatus(HTMLSupport)%>HTML标记　<%=getstatus(UBBSupport)%>UBB标记<%if HTMLSupport=false and UBBSupport=false and AllowNewLine=true then Response.Write "　" & getstatus(true) & "允许换行"%></div>
 						<div class="row"><textarea name="icontent" id="icontent" rows="<%=LeaveContentHeight%>" onkeydown="icontent_keydown(arguments[0]);"<%if WordsLimit>0 then Response.Write " onpropertychange=""checklength(this,"&WordsLimit&");"""%>><%=server.htmlEncode(FormOrSession(InstanceName & "_icontent"))%></textarea></div>
-						<!-- #include file="include/ubbtoolbar.inc" -->
+						<!-- #include file="include/template/ubbtoolbar.inc" -->
 						<%if UBBSupport then ShowUbbToolBar(false)%>
 					</div>
 					<%if StatusWhisper=true then%>
@@ -208,13 +216,13 @@ end function
 				<div id="divFace">
 					<h4>头像：</h4>
 					<%defaultindex=FormOrCookie("ihead")%>
-                    <!-- #include file="include/listface.inc" -->
+                    <!-- #include file="include/template/listface.inc" -->
 				</div>
 				<%end if%>
 
 				<div id="divUbbhelp">
 					<h4>UBB帮助：</h4>
-					<!-- #include file="include/ubbhelp.inc" -->
+					<!-- #include file="include/template/ubbhelp.inc" -->
 				</div>
 
 				<script type="text/javascript" src="js/tabcontrol.js"></script>
@@ -242,10 +250,10 @@ end function
 	</div>
 </div>
 
-<!-- #include file="include/footer.inc" -->
+<!-- #include file="include/template/footer.inc" -->
 <script type="text/javascript">
 	<!-- #include file="js/refresh-captcha.js" -->
 </script>
-<%if StatusStatistics and session("gotclientinfo")<>true then%><script type="text/javascript" src="getclientinfo.asp" defer="defer" async="async"></script><%end if%>
+<!-- #include file="include/template/getclientinfo.inc" -->
 </body>
 </html>

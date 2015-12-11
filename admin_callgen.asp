@@ -1,15 +1,20 @@
-<!-- #include file="config.asp" -->
+<!-- #include file="include/template/page_instruction.inc" -->
+<!-- #include file="config/database.asp" -->
+<!-- #include file="include/sql/init.asp" -->
+<!-- #include file="include/sql/admin_verify.asp" -->
+<!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/frontend.asp" -->
+<!-- #include file="include/utility/book.asp" -->
+<!-- #include file="loadconfig.asp" -->
 <!-- #include file="admin_verify.asp" -->
-<!-- #include file="common2.asp" -->
-
 <%
 Response.Expires=-1
 %>
 
-<!-- #include file="include/dtd.inc" -->
+<!-- #include file="include/template/dtd.inc" -->
 <html>
 <head>
-	<!-- #include file="include/metatag.inc" -->
+	<!-- #include file="include/template/metatag.inc" -->
 	<title><%=HomeName%> 留言本 生成调用代码</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 
@@ -90,7 +95,7 @@ Response.Expires=-1
 <div id="outerborder" class="outerborder">
 
 <%if ShowTitle=true then show_book_title 3,"管理"%>
-<!-- #include file="include/admin_mainmenu.inc" -->
+<!-- #include file="include/template/admin_mainmenu.inc" -->
 
 <div class="region region-callgen">
 	<h3 class="title">生成调用代码</h3>
@@ -155,6 +160,6 @@ Response.Expires=-1
 
 </div>
 
-<!-- #include file="include/footer.inc" -->
+<!-- #include file="include/template/footer.inc" -->
 </body>
 </html>

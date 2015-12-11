@@ -1,4 +1,4 @@
-<!-- #include file="common.asp" -->
+<!-- #include file="include/sql/loadconfig.asp" -->
 <%
 dim lcn,lrs
 set lcn=server.CreateObject("ADODB.Connection")
