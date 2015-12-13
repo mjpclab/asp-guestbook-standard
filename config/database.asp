@@ -1,5 +1,5 @@
 <%
-const dbtype=2		'数据库类型,1:Access97  2:Access2000-2003  3:Access 2007-2013  10:MSSQL
+const dbtype=2		'数据库类型, 1:Access97  2:Access2000-2003  3:Access 2007-2013
 
 const dbfile="database/data.mdb.db"		'数据库文件位置，使用相对路径
 const dbfilepassword=""		'数据库文件密码

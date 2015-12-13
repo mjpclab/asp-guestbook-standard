@@ -1,5 +1,5 @@
 <%
-const dbtype=10		'数据库类型,1:Access97  2:Access2000-2003  3:Access 2007-2013  10:MSSQL
+const dbtype=10		'数据库类型, 10:MSSQL  11:SQLNCLI  12:SQLNCLI10  13:SQLNCLI11
 
 const dbserver="127.0.0.1"		'数据库服务器地址，可为ip，主机名或命名管道
 const dbport=""		'数据库服务器端口号，默认可留空

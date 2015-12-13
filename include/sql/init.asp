@@ -15,7 +15,7 @@ if dbtype>=1 and dbtype<=3 then
 	table_stats_clientinfo	="[" & dbprefix & "stats_clientinfo]"
 	table_style				="[" & dbprefix & "style]"
 	table_supervisor		="[" & dbprefix & "supervisor]"
-elseif dbtype=10 then
+elseif dbtype>=10 and dbtype<=13 then
 	IsSqlServer=true
 	if dbschema<>"" then
 		schema="[" &dbschema& "]."
