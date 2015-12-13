@@ -1,7 +1,7 @@
 <table class="topic-list">
 <thead>
 <tr>
-	<th class="select"><input type="checkbox" name="seltodel" value=""/></th><th class="icon"></th><th class="title">标题</th><th class="name">姓名</th><th class="date">留言时间</th>
+	<th class="select"><input type="checkbox" name="seltodel" class="seltodel checkbox" value=""/></th><th class="icon"></th><th class="title">标题</th><th class="name">姓名</th><th class="date">留言时间</th>
 </tr>
 </thead>
 <tbody>
@@ -18,7 +18,7 @@ while rs.eof=false
 	%>
 	<tr>
 		<td class="select">
-			<input type="checkbox" name="seltodel" value="<%=rs.Fields("id")%>" />
+			<input type="checkbox" name="seltodel" class="seltodel checkbox" value="<%=rs.Fields("id")%>" />
 		</td>
 		<td class="icon">
 			<%if isauditting then%><img src="asset/image/icon_wait2pass.gif" title="待审核" alt="待审核"/>

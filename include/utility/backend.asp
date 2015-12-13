@@ -32,8 +32,13 @@ Function UrlDecode(encoded)
 							startPos = nextPos + 4
 						End If
 					ElseIf Len(behindLeadingChar) > 0 Then
-						num2 = Asc(str2)
-						decoded = decoded & Chr(CLng("&H" & str1 & IIf(num2 >= 16, Hex(num2), "0" & Hex(num2))))
+						num2 = Asc(behindLeadingChar)
+						If num2 < 16 Then
+							str2 = "0" & Hex(num2)
+						Else
+							str2 = Hex(num2)
+						End If
+						decoded = decoded & Chr(CLng("&H" & str1 & str2))
 						startPos = nextPos + 4
 					End If
 				End If

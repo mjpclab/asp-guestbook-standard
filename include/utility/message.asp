@@ -196,7 +196,7 @@ param_url=Server.HtmlEncode(param_url)
 	<div class="group">
 		<div class="name">选定留言：</div>
 		<div class="tools">
-			<span class="tool"><input type="checkbox" name="seltodel" id="c<%=rs.Fields("id")%>" value="<%=rs("id")%>" /><label for="c<%=rs.Fields("id")%>">(选定)</label></span>
+			<span class="tool"><input type="checkbox" name="seltodel" class="seltodel checkbox" id="c<%=rs.Fields("id")%>" value="<%=rs("id")%>" /><label for="c<%=rs.Fields("id")%>">(选定)</label></span>
 		</div>
 	</div>
 	<div class="group">
