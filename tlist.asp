@@ -4,13 +4,14 @@
 <!-- #include file="include/sql/common.asp" -->
 <!-- #include file="include/sql/tlist.asp" -->
 <!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/ip.asp" -->
 <!-- #include file="include/utility/backend.asp" -->
 <!-- #include file="include/utility/frontend.asp" -->
 <!-- #include file="include/utility/message.asp" -->
 <!-- #include file="loadconfig.asp" -->
 <%
 Response.Expires=-1
-if checkIsBannedIP then
+if checkIsBannedIP() then
 	Response.End
 elseif StatusOpen=false then
 	Response.End

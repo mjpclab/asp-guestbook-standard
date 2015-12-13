@@ -4,23 +4,25 @@
 <!-- #include file="include/sql/init.asp" -->
 <!-- #include file="include/sql/common.asp" -->
 <!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/ip.asp" -->
 <!-- #include file="include/utility/backend.asp" -->
 <!-- #include file="include/utility/frontend.asp" -->
 <!-- #include file="include/utility/book.asp" -->
 <!-- #include file="loadconfig.asp" -->
+<!-- #include file="error.asp" -->
 <%
 Response.Expires = -1
 Response.AddHeader "Pragma","no-cache"
 Response.AddHeader "cache-control","no-cache, must-revalidate"
 
-if checkIsBannedIP then
-	Response.Redirect "err.asp?number=1"
+if checkIsBannedIP() then
+	Call ErrorPage(1)
 	Response.End
 elseif StatusOpen=false then
-	Response.Redirect "err.asp?number=2"
+	Call ErrorPage(2)
 	Response.End
 elseif StatusWrite=false then
-	Response.Redirect "err.asp?number=3"
+	Call ErrorPage(3)
 	Response.End
 end if
 if StatusStatistics then call addstat("leaveword")

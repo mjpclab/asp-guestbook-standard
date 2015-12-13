@@ -15,16 +15,17 @@
 <!-- #include file="include/utility/book.asp" -->
 <!-- #include file="include/utility/message.asp" -->
 <!-- #include file="loadconfig.asp" -->
+<!-- #include file="error.asp" -->
 <%
 Response.Expires = -1
 Response.AddHeader "Pragma","no-cache"
 Response.AddHeader "cache-control","no-cache, must-revalidate"
 
-if checkIsBannedIP then
-	Response.Redirect "err.asp?number=1"
+if checkIsBannedIP() then
+	Call ErrorPage(1)
 	Response.End
 elseif StatusOpen=false then
-	Response.Redirect "err.asp?number=2"
+	Call ErrorPage(2)
 	Response.End
 end if
 %>
