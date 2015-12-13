@@ -1,52 +1,54 @@
 <%
-'isvalidhex: prepare for UrlDecode()
-function isvalidhex(str)
-	isvalidhex=true
-	str=ucase(str)
-	if len(str)<>3 then isvalidhex=false:exit function
-	if left(str,1)<>"%" then isvalidhex=false:exit function
-	c=mid(str,2,1)
-	if not (((c>="0") and (c<="9")) or ((c>="A") and (c<="Z"))) then isvalidhex=false:exit function
-	c=mid(str,3,1)
-	if not (((c>="0") and (c<="9")) or ((c>="A") and (c<="Z"))) then isvalidhex=false:exit function
-end function
+Function UrlDecode(encoded)
+	Dim startPos, nextPos, decoded, encodedLength
+	Dim num1, str1, code1, num2, str2, code2, behindLeadingChar
 
-function UrlDecode(enStr)
-	dim deStr
-	dim c,i,v
-	deStr=""
-	for i=1 to len(enStr)
-		c=Mid(enStr,i,1)
-		if c="%" then
-			v=eval("&h"+Mid(enStr,i+1,2))
-			if v<128 then
-				deStr=deStr&chr(v)
-				i=i+2
-			else
-				if isvalidhex(mid(enstr,i,3)) then
-					if isvalidhex(mid(enstr,i+3,3)) then
-						v=eval("&h"+Mid(enStr,i+1,2)+Mid(enStr,i+4,2))
-						deStr=deStr&chr(v)
-						i=i+5
-					else
-						v=eval("&h"+Mid(enStr,i+1,2)+cstr(hex(asc(Mid(enStr,i+3,1)))))
-						deStr=deStr&chr(v)
-						i=i+3
-					end if
-				else
-					destr=destr&c
-				end if
-			end if
-		else
-			if c="+" then
-				deStr=deStr&" "
-			else
-				deStr=deStr&c
-			end if
-		end if
-	next
-	UrlDecode=deStr
-end function
+	Const escape = "%"
+	startPos = 1
+	decoded = ""
+	encodedLength = Len(encoded)
+
+	Do While True
+		nextPos = InStr(startPos, encoded, escape)
+		If CBool(nextPos) Then
+			decoded = decoded & Mid(encoded, startPos, nextPos - startPos)
+			str1 = Mid(encoded, nextPos + 1, 2)
+			code1 = "&H" & str1
+			If Len(str1) > 0 And IsNumeric(code1) Then
+				num1 = CLng(code1)
+				If num1 < 128 Then
+					decoded = decoded & Chr(num1)
+					startPos = nextPos + 3
+				Else
+					behindLeadingChar = Mid(encoded, nextPos + 3, 1)
+					If behindLeadingChar = escape Then
+						str2 = Mid(encoded, nextPos + 4, 2)
+						code2 = "&H" & str2
+						If Len(str2) > 0 And IsNumeric(code2) Then
+							decoded = decoded & Chr(CLng("&H" & str1 & str2))
+							startPos = nextPos + 6
+						Else
+							decoded = decoded & Chr(CLng("&H" & str1 & "25"))   '25 is the hex of escape
+							startPos = nextPos + 4
+						End If
+					ElseIf Len(behindLeadingChar) > 0 Then
+						num2 = Asc(str2)
+						decoded = decoded & Chr(CLng("&H" & str1 & IIf(num2 >= 16, Hex(num2), "0" & Hex(num2))))
+						startPos = nextPos + 4
+					End If
+				End If
+			Else
+				decoded = decoded & escape
+				startPos = nextPos + 1
+			End If
+		Else
+			decoded = decoded & Mid(encoded, startPos)
+			Exit Do
+		End If
+	Loop
+
+	UrlDecode = decoded
+End Function
 
 Function HtmlDecode(sText)
     sText = Replace(sText, "&quot;", """")
