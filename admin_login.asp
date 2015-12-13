@@ -67,7 +67,7 @@ if VcodeCount>0 then session("vcode")=getvcode(VcodeCount)
 	</div>
 </div>
 <script type="text/javascript">
-	<!-- #include file="js/refresh-captcha.js" -->
+	<!-- #include file="asset/js/refresh-captcha.js" -->
 </script>
 </body>
 </html>

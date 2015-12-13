@@ -172,7 +172,7 @@ rs.Close
 
 <!-- #include file="include/template/footer.inc" -->
 <script type="text/javascript">
-	<!-- #include file="js/refresh-captcha.js" -->
+	<!-- #include file="asset/js/refresh-captcha.js" -->
 </script>
 <!-- #include file="include/template/getclientinfo.inc" -->
 </body>

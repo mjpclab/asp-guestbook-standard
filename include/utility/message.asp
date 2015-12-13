@@ -96,21 +96,21 @@ sub show_page_list(byval CurPage,byval PagesCount,byval filename,byval pagetitle
 		if CurPage+AdvPageListCount>PagesCount then largenext_page_no=PagesCount else largenext_page_no=CurPage+AdvPageListCount
 		if CurPage-AdvPageListCount<1 then largeprev_page_no=1 else largeprev_page_no=CurPage-AdvPageListCount
 
-		str_first_page=		"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &first_page_no& param & """><img src=""image/icon_page_first.gif"" title=""第" &first_page_no& "页"" /></a>"
-		str_largeprev_page=	"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &largeprev_page_no& param & """><img src=""image/icon_page_largeprev.gif"" title=""第" &largeprev_page_no& "页"" /></a>"
-		str_prev_page=		"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &prev_page_no& param & """><img src=""image/icon_page_prev.gif"" title=""第" &prev_page_no& "页"" /></a>"
+		str_first_page=		"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &first_page_no& param & """><img src=""asset/image/icon_page_first.gif"" title=""第" &first_page_no& "页"" /></a>"
+		str_largeprev_page=	"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &largeprev_page_no& param & """><img src=""asset/image/icon_page_largeprev.gif"" title=""第" &largeprev_page_no& "页"" /></a>"
+		str_prev_page=		"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &prev_page_no& param & """><img src=""asset/image/icon_page_prev.gif"" title=""第" &prev_page_no& "页"" /></a>"
 
-		str_last_page=		"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &last_page_no& param & """><img src=""image/icon_page_last.gif"" title=""第" &last_page_no& "页"" /></a>"
-		str_largenext_page=	"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &largenext_page_no& param & """><img src=""image/icon_page_largenext.gif"" title=""第" &largenext_page_no& "页"" /></a>"
-		str_next_page=		"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &next_page_no& param & """><img src=""image/icon_page_next.gif"" title=""第" &next_page_no& "页"" /></a>"
+		str_last_page=		"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &last_page_no& param & """><img src=""asset/image/icon_page_last.gif"" title=""第" &last_page_no& "页"" /></a>"
+		str_largenext_page=	"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &largenext_page_no& param & """><img src=""asset/image/icon_page_largenext.gif"" title=""第" &largenext_page_no& "页"" /></a>"
+		str_next_page=		"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &next_page_no& param & """><img src=""asset/image/icon_page_next.gif"" title=""第" &next_page_no& "页"" /></a>"
 
-		str_first2_page=	"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(-PagesCount+1)& ");"" src=""image/icon_page_first2.gif"" title=""卷至首页"" /></a>"
-		str_largeprev2_page="<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(-AdvPageListCount)& ");"" src=""image/icon_page_largeprev2.gif"" class=""pageicon"" title=""上卷" &AdvPageListCount& "页"" /></a>"
-		str_prev2_page=		"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(-1)& ");"" src=""image/icon_page_prev2.gif"" class=""pageicon"" title=""上卷1页"" /></a>"
+		str_first2_page=	"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(-PagesCount+1)& ");"" src=""asset/image/icon_page_first2.gif"" title=""卷至首页"" /></a>"
+		str_largeprev2_page="<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(-AdvPageListCount)& ");"" src=""asset/image/icon_page_largeprev2.gif"" class=""pageicon"" title=""上卷" &AdvPageListCount& "页"" /></a>"
+		str_prev2_page=		"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(-1)& ");"" src=""asset/image/icon_page_prev2.gif"" class=""pageicon"" title=""上卷1页"" /></a>"
 
-		str_last2_page=		"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(PagesCount-1)& ");"" src=""image/icon_page_last2.gif"" class=""pageicon"" title=""卷至末页"" /></a>"
-		str_largenext2_page="<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(AdvPageListCount)& ");"" src=""image/icon_page_largenext2.gif"" class=""pageicon"" title=""下卷" &AdvPageListCount& "页"" /></a>"
-		str_next2_page=		"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(1)& ");"" src=""image/icon_page_next2.gif"" class=""pageicon"" title=""下卷1页"" /></a>"
+		str_last2_page=		"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(PagesCount-1)& ");"" src=""asset/image/icon_page_last2.gif"" class=""pageicon"" title=""卷至末页"" /></a>"
+		str_largenext2_page="<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(AdvPageListCount)& ");"" src=""asset/image/icon_page_largenext2.gif"" class=""pageicon"" title=""下卷" &AdvPageListCount& "页"" /></a>"
+		str_next2_page=		"<a class=""js-page-control"" name=""js-page-control""><img onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""refresh_pagenum && refresh_pagenum(" &(1)& ");"" src=""asset/image/icon_page_next2.gif"" class=""pageicon"" title=""下卷1页"" /></a>"
 	end if%>
 
 	<div class="region page-list">
@@ -143,7 +143,7 @@ sub show_page_list(byval CurPage,byval PagesCount,byval filename,byval pagetitle
 		var PageListCount=<%=AdvPageListCount%>;
 		var CurrentPage=<%=CurPage%>;
 	</script>
-	<script type="text/javascript" src="js/pagecontrols.js" defer="defer" async="async"></script>
+	<script type="text/javascript" src="asset/js/pagecontrols.js" defer="defer" async="async"></script>
 <%end sub
 
 
@@ -178,10 +178,10 @@ function GetHiddenWordCondition()
 end function
 
 sub showadminicons()%>
-	<%if admin_email<>"" then%><a class="icon" href="mailto:<%=admin_email%>" title="版主邮箱：<%=admin_email%>"><img src="image/icon_mail.gif"/></a><%end if%>
-	<%if admin_qqid<>"" then%><span class="icon" title="版主QQ：<%=admin_qqid%>"><img src="image/icon_qq.gif"/></span><%end if%>
-	<%if admin_msnid<>"" then%><span class="icon"><img src="image/icon_skype.gif" alt="版主Skype：<%=admin_msnid%>"/></span><%end if%>
-	<%if admin_homepage<>"" then%><a class="icon" href="<%=admin_homepage%>" target="_blank" title="版主主页：<%=admin_homepage%>"><img src="image/icon_homepage.gif"/></a><%end if%>
+	<%if admin_email<>"" then%><a class="icon" href="mailto:<%=admin_email%>" title="版主邮箱：<%=admin_email%>"><img src="asset/image/icon_mail.gif"/></a><%end if%>
+	<%if admin_qqid<>"" then%><span class="icon" title="版主QQ：<%=admin_qqid%>"><img src="asset/image/icon_qq.gif"/></span><%end if%>
+	<%if admin_msnid<>"" then%><span class="icon"><img src="asset/image/icon_skype.gif" alt="版主Skype：<%=admin_msnid%>"/></span><%end if%>
+	<%if admin_homepage<>"" then%><a class="icon" href="<%=admin_homepage%>" target="_blank" title="版主主页：<%=admin_homepage%>"><img src="asset/image/icon_homepage.gif"/></a><%end if%>
 <%end sub
 
 sub showAdminMessageTools(byref rs)
@@ -202,33 +202,33 @@ param_url=Server.HtmlEncode(param_url)
 	<div class="group">
 		<div class="name">访客留言：</div>
 		<div class="tools">
-			<%if clng(guestflag and 16)<>0 then%><a class="tool" href="admin_passaudit.asp<%=param_url%>" title="通过审核"<%if PassAuditTip=true then response.Write " onclick=""return confirm('确实要通过审核吗？');"""%>><img src="image/icon_pass.gif" />[通过审核]</a><%end if%>
-			<a class="tool" href="admin_edit.asp<%=param_url%>" title="编辑访客留言"><img src="image/icon_edit.gif" />[编辑留言]</a>
-			<%if clng(guestflag and 32)<>0 then%><a class="tool" href="admin_pubwhisper.asp<%=param_url%>" title="公开悄悄话"<%if PubWhisperTip=true then response.Write " onclick=""return confirm('确实要公开悄悄话吗？');"""%>><img src="image/icon_pub.gif" />[公开悄悄话]</a><%end if%>
-			<%if clng(guestflag and 256)=0 then%><a class="tool" href="admin_hidecontact.asp<%=param_url%>" title="隐藏访客联系方式"><img src="image/icon_hidecontact.gif" />[隐藏联系]</a><%end if%>
-			<%if clng(guestflag and 256)<>0 then%><a class="tool" href="admin_unhidecontact.asp<%=param_url%>" title="公开访客联系方式"><img src="image/icon_unhidecontact.gif" />[公开联系]</a><%end if%>
-			<%if clng(guestflag and 40)=0 then%><a class="tool" href="admin_hideword.asp<%=param_url%>" title="隐藏访客留言内容"><img src="image/icon_hide.gif" />[隐藏内容]</a><%end if%>
-			<%if clng(guestflag and 40)=8 then%><a class="tool" href="admin_unhideword.asp<%=param_url%>" title="公开访客留言内容"><img src="image/icon_unhide.gif" />[公开内容]</a><%end if%>
+			<%if clng(guestflag and 16)<>0 then%><a class="tool" href="admin_passaudit.asp<%=param_url%>" title="通过审核"<%if PassAuditTip=true then response.Write " onclick=""return confirm('确实要通过审核吗？');"""%>><img src="asset/image/icon_pass.gif" />[通过审核]</a><%end if%>
+			<a class="tool" href="admin_edit.asp<%=param_url%>" title="编辑访客留言"><img src="asset/image/icon_edit.gif" />[编辑留言]</a>
+			<%if clng(guestflag and 32)<>0 then%><a class="tool" href="admin_pubwhisper.asp<%=param_url%>" title="公开悄悄话"<%if PubWhisperTip=true then response.Write " onclick=""return confirm('确实要公开悄悄话吗？');"""%>><img src="asset/image/icon_pub.gif" />[公开悄悄话]</a><%end if%>
+			<%if clng(guestflag and 256)=0 then%><a class="tool" href="admin_hidecontact.asp<%=param_url%>" title="隐藏访客联系方式"><img src="asset/image/icon_hidecontact.gif" />[隐藏联系]</a><%end if%>
+			<%if clng(guestflag and 256)<>0 then%><a class="tool" href="admin_unhidecontact.asp<%=param_url%>" title="公开访客联系方式"><img src="asset/image/icon_unhidecontact.gif" />[公开联系]</a><%end if%>
+			<%if clng(guestflag and 40)=0 then%><a class="tool" href="admin_hideword.asp<%=param_url%>" title="隐藏访客留言内容"><img src="asset/image/icon_hide.gif" />[隐藏内容]</a><%end if%>
+			<%if clng(guestflag and 40)=8 then%><a class="tool" href="admin_unhideword.asp<%=param_url%>" title="公开访客留言内容"><img src="asset/image/icon_unhide.gif" />[公开内容]</a><%end if%>
 		</div>
 	</div>
 	<div class="group">
 		<div class="name">版主功能：</div>
 		<div class="tools">
-			<a class="tool" href="admin_reply.asp<%=param_url%>" title="<%if clng(guestflag and 16)<>0 then response.write "通过审核并"%>回复此留言"<%if clng(guestflag and 16)<>0 and PassAuditTip=true then response.Write " onclick=""return confirm('确实要通过审核吗？');"""%>><img src="image/icon_reply.gif" />[<%if clng(guestflag and 16)<>0 then response.write "通过审核并"%>回复留言]</a>
-			<a class="tool" href="admin_del.asp<%=param_url%>" title="删除留言(包括回复)"<%if DelTip=true then Response.Write " onclick=""return confirm('确实要删除留言吗？');"""%>><img src="image/icon_del.gif" />[删除留言]</a>
-			<%if CBool(rs.Fields("replied") AND 1) then %><a class="tool" href="admin_delreply.asp<%=param_url%>" title="删除回复"<%if DelReTip=true then Response.Write " onclick=""return confirm('确实要删除回复吗？');"""%>><img src="image/icon_delreply.gif" />[删除回复]</a><%end if%>
+			<a class="tool" href="admin_reply.asp<%=param_url%>" title="<%if clng(guestflag and 16)<>0 then response.write "通过审核并"%>回复此留言"<%if clng(guestflag and 16)<>0 and PassAuditTip=true then response.Write " onclick=""return confirm('确实要通过审核吗？');"""%>><img src="asset/image/icon_reply.gif" />[<%if clng(guestflag and 16)<>0 then response.write "通过审核并"%>回复留言]</a>
+			<a class="tool" href="admin_del.asp<%=param_url%>" title="删除留言(包括回复)"<%if DelTip=true then Response.Write " onclick=""return confirm('确实要删除留言吗？');"""%>><img src="asset/image/icon_del.gif" />[删除留言]</a>
+			<%if CBool(rs.Fields("replied") AND 1) then %><a class="tool" href="admin_delreply.asp<%=param_url%>" title="删除回复"<%if DelReTip=true then Response.Write " onclick=""return confirm('确实要删除回复吗？');"""%>><img src="asset/image/icon_delreply.gif" />[删除回复]</a><%end if%>
 		</div>
 	</div>
 	<%if rs.Fields("parent_id")<=0 then%>
 	<div class="group">
 		<div class="name">留言控制：</div>
 		<div class="tools">
-			<%if rs.Fields("parent_id")=0 then%><a class="tool" href="admin_lock2top.asp<%=param_url%>" title="将留言始终显示在顶端"<%if Lock2TopTip=true then Response.Write " onclick=""return confirm('确实要置顶留言吗？');"""%>><img src="image/icon_toplocked.gif" />[置顶留言]</a><%end if%>
-			<%if rs.Fields("parent_id")<0 then%><a class="tool" href="admin_unlock2top.asp<%=param_url%>" title="取消留言置顶"<%if Lock2TopTip=true then Response.Write " onclick=""return confirm('确实要置顶留言吗？');"""%>><img src="image/icon_untoplocked.gif" />[取消置顶]</a><%end if%>
-			<a class="tool" href="admin_bring2top.asp<%=param_url%>" title="提前留言到最前"<%if Bring2TopTip=true then Response.Write " onclick=""return confirm('确实要提前留言吗？');"""%>><img src="image/icon_top.gif" />[提前留言]</a>
-			<%if rs.Fields("parent_id")<0 or rs.Fields("logdate")<>rs.Fields("lastupdated") then%><a class="tool" href="admin_reorder.asp<%=param_url%>" title="使留言恢复到原始排序位置"<%if ReorderTip=true then Response.Write " onclick=""return confirm('确实要重置留言顺序吗？');"""%>><img src="image/icon_reorder.gif" />[重置顺序]</a><%end if%>
-			<%if clng(rs.Fields("guestflag") and 512)=0 then%><a class="tool" href="admin_lockreply.asp<%=param_url%>" title="锁定访客回复"><img src="image/icon_lockreply.gif" />[锁定回复]</a><%end if%>
-			<%if clng(rs.Fields("guestflag") and 512)<>0 then%><a class="tool" href="admin_unlockreply.asp<%=param_url%>" title="允许访客回复"><img src="image/icon_reply.gif" />[允许回复]</a><%end if%>
+			<%if rs.Fields("parent_id")=0 then%><a class="tool" href="admin_lock2top.asp<%=param_url%>" title="将留言始终显示在顶端"<%if Lock2TopTip=true then Response.Write " onclick=""return confirm('确实要置顶留言吗？');"""%>><img src="asset/image/icon_toplocked.gif" />[置顶留言]</a><%end if%>
+			<%if rs.Fields("parent_id")<0 then%><a class="tool" href="admin_unlock2top.asp<%=param_url%>" title="取消留言置顶"<%if Lock2TopTip=true then Response.Write " onclick=""return confirm('确实要置顶留言吗？');"""%>><img src="asset/image/icon_untoplocked.gif" />[取消置顶]</a><%end if%>
+			<a class="tool" href="admin_bring2top.asp<%=param_url%>" title="提前留言到最前"<%if Bring2TopTip=true then Response.Write " onclick=""return confirm('确实要提前留言吗？');"""%>><img src="asset/image/icon_top.gif" />[提前留言]</a>
+			<%if rs.Fields("parent_id")<0 or rs.Fields("logdate")<>rs.Fields("lastupdated") then%><a class="tool" href="admin_reorder.asp<%=param_url%>" title="使留言恢复到原始排序位置"<%if ReorderTip=true then Response.Write " onclick=""return confirm('确实要重置留言顺序吗？');"""%>><img src="asset/image/icon_reorder.gif" />[重置顺序]</a><%end if%>
+			<%if clng(rs.Fields("guestflag") and 512)=0 then%><a class="tool" href="admin_lockreply.asp<%=param_url%>" title="锁定访客回复"><img src="asset/image/icon_lockreply.gif" />[锁定回复]</a><%end if%>
+			<%if clng(rs.Fields("guestflag") and 512)<>0 then%><a class="tool" href="admin_unlockreply.asp<%=param_url%>" title="允许访客回复"><img src="asset/image/icon_reply.gif" />[允许回复]</a><%end if%>
 		</div>
 	</div>
 	<%end if%>
@@ -236,13 +236,13 @@ param_url=Server.HtmlEncode(param_url)
 	<div class="group">
 		<div class="name">其它状态：</div>
 		<div class="tools">
-			<%if clng(guestflag and 16)<>0 then%><span class="tool"><img src="image/icon_wait2pass.gif" />等待审核</span><%end if%>
-			<%if clng(guestflag and 32)<>0 then%><span class="tool"><img src="image/icon_whisper.gif" />悄悄话<%if clng(guestflag and 64)<>0 then response.write ",已加密"%></span><%end if%>
-			<%if rs.Fields("parent_id")<0 then%><span class="tool"><img src="image/icon_toplocked.gif" />留言已置顶</span><%end if%>
-			<%if clng(guestflag and 512)<>0 and rs.Fields("parent_id")<=0 then%><span class="tool"><img src="image/icon_lockreply.gif" />回复已锁定</span><%end if%>
-			<%if clng(guestflag and 256)<>0 then%><span class="tool"><img src="image/icon_hidecontact.gif" />联系已隐藏</span><%end if%>
-			<%if clng(guestflag and 40)=8 then%><span class="tool"><img src="image/icon_hide.gif" />内容已隐藏</span><%end if%>
-			<%if clng(guestflag and 128)<>0 then%><span class="tool"><img src="image/icon_mail.gif" />回复通知<%if MailReplyInform=false then response.write ",已禁用"%></span><%end if%>
+			<%if clng(guestflag and 16)<>0 then%><span class="tool"><img src="asset/image/icon_wait2pass.gif" />等待审核</span><%end if%>
+			<%if clng(guestflag and 32)<>0 then%><span class="tool"><img src="asset/image/icon_whisper.gif" />悄悄话<%if clng(guestflag and 64)<>0 then response.write ",已加密"%></span><%end if%>
+			<%if rs.Fields("parent_id")<0 then%><span class="tool"><img src="asset/image/icon_toplocked.gif" />留言已置顶</span><%end if%>
+			<%if clng(guestflag and 512)<>0 and rs.Fields("parent_id")<=0 then%><span class="tool"><img src="asset/image/icon_lockreply.gif" />回复已锁定</span><%end if%>
+			<%if clng(guestflag and 256)<>0 then%><span class="tool"><img src="asset/image/icon_hidecontact.gif" />联系已隐藏</span><%end if%>
+			<%if clng(guestflag and 40)=8 then%><span class="tool"><img src="asset/image/icon_hide.gif" />内容已隐藏</span><%end if%>
+			<%if clng(guestflag and 128)<>0 then%><span class="tool"><img src="asset/image/icon_mail.gif" />回复通知<%if MailReplyInform=false then response.write ",已禁用"%></span><%end if%>
 		</div>
 	</div>
 	<%end if%>
@@ -256,25 +256,25 @@ url="leaveword.asp?follow=" & follow_id
 if left(pagename,8)="showword" then url=url & "&return=showword"
 url=Server.HTMLEncode(url)%>
 <div class="guest-tools">
-	<%if parent_id<0 then%><span class="tool"><img src="image/icon_toplocked.gif"/>(置顶)</span><%end if%>
-	<%if show_reply then%><span class="tool"><a href="<%=url%>"><img src="image/icon_reply.gif"/>[回复]</a></span><%end if%>
+	<%if parent_id<0 then%><span class="tool"><img src="asset/image/icon_toplocked.gif"/>(置顶)</span><%end if%>
+	<%if show_reply then%><span class="tool"><a href="<%=url%>"><img src="asset/image/icon_reply.gif"/>[回复]</a></span><%end if%>
 </div>
 <%end sub
 
 sub showguestinfoicons(t_rs)%>
-	<%if t_rs("email")<>"" then%><a class="icon" href="mailto:<%=t_rs("email")%>" title="作者邮箱：<%=t_rs("email")%>"><img src="image/icon_mail.gif"/></a><%end if%>
-	<%if t_rs("qqid")<>"" then%><span class="icon" title="作者QQ：<%=t_rs("qqid")%>"><img src="image/icon_qq.gif"/></span><%end if%>
-	<%if t_rs("msnid")<>"" then%><span class="icon" title="作者Skype：<%=t_rs("msnid")%>"><img src="image/icon_skype.gif"/></span><%end if%>
-	<%if t_rs("homepage")<>"" then%><a class="icon" href="<%=t_rs("homepage")%>" target="_blank" title="作者主页：<%=t_rs("homepage")%>"><img src="image/icon_homepage.gif" /></a><%end if%>
+	<%if t_rs("email")<>"" then%><a class="icon" href="mailto:<%=t_rs("email")%>" title="作者邮箱：<%=t_rs("email")%>"><img src="asset/image/icon_mail.gif"/></a><%end if%>
+	<%if t_rs("qqid")<>"" then%><span class="icon" title="作者QQ：<%=t_rs("qqid")%>"><img src="asset/image/icon_qq.gif"/></span><%end if%>
+	<%if t_rs("msnid")<>"" then%><span class="icon" title="作者Skype：<%=t_rs("msnid")%>"><img src="asset/image/icon_skype.gif"/></span><%end if%>
+	<%if t_rs("homepage")<>"" then%><a class="icon" href="<%=t_rs("homepage")%>" target="_blank" title="作者主页：<%=t_rs("homepage")%>"><img src="asset/image/icon_homepage.gif" /></a><%end if%>
 
 	<%if left(pagename,5)="admin" then%>
-		<%if AdminShowIPv4>0 and Len(t_rs.Fields("ipv4addr"))>0 then%><span class="icon" title="IP：<%=GetIPv4WithMask(t_rs.Fields("ipv4addr"),AdminShowIPv4)%>"><img src="image/icon_ip.gif"/></span><%end if%>
-		<%if AdminShowIPv6>0 and Len(t_rs.Fields("ipv6addr"))>0 then%><span class="icon" title="IP：<%=GetIPv6WithMask(t_rs.Fields("ipv6addr"),AdminShowIPv6)%>"><img src="image/icon_ip.gif"/></span><%end if%>
-		<%if AdminShowOriginalIPv4>0 and Len(t_rs.Fields("originalipv4"))>0 then%><span class="icon" title="原始IP：<%=GetIPv4WithMask(t_rs.Fields("originalipv4"),AdminShowOriginalIPv4)%>"><img src="image/icon_ip2.gif"/></span><%end if%>
-		<%if AdminShowOriginalIPv6>0 and Len(t_rs.Fields("originalipv6"))>0 then%><span class="icon" title="原始IP：<%=GetIPv6WithMask(t_rs.Fields("originalipv6"),AdminShowOriginalIPv6)%>"><img src="image/icon_ip2.gif"/></span><%end if%>
+		<%if AdminShowIPv4>0 and Len(t_rs.Fields("ipv4addr"))>0 then%><span class="icon" title="IP：<%=GetIPv4WithMask(t_rs.Fields("ipv4addr"),AdminShowIPv4)%>"><img src="asset/image/icon_ip.gif"/></span><%end if%>
+		<%if AdminShowIPv6>0 and Len(t_rs.Fields("ipv6addr"))>0 then%><span class="icon" title="IP：<%=GetIPv6WithMask(t_rs.Fields("ipv6addr"),AdminShowIPv6)%>"><img src="asset/image/icon_ip.gif"/></span><%end if%>
+		<%if AdminShowOriginalIPv4>0 and Len(t_rs.Fields("originalipv4"))>0 then%><span class="icon" title="原始IP：<%=GetIPv4WithMask(t_rs.Fields("originalipv4"),AdminShowOriginalIPv4)%>"><img src="asset/image/icon_ip2.gif"/></span><%end if%>
+		<%if AdminShowOriginalIPv6>0 and Len(t_rs.Fields("originalipv6"))>0 then%><span class="icon" title="原始IP：<%=GetIPv6WithMask(t_rs.Fields("originalipv6"),AdminShowOriginalIPv6)%>"><img src="asset/image/icon_ip2.gif"/></span><%end if%>
 	<%else%>
-		<%if ShowIPv4>0 and Len(t_rs.Fields("ipv4addr"))>0 then%><span class="icon" title="IP：<%=GetIPv4WithMask(t_rs.Fields("ipv4addr"),ShowIPv4)%>"><img src="image/icon_ip.gif"/></span><%end if%>
-		<%if ShowIPv6>0 and Len(t_rs.Fields("ipv6addr"))>0 then%><span class="icon" title="IP：<%=GetIPv6WithMask(t_rs.Fields("ipv6addr"),ShowIPv6)%>"><img src="image/icon_ip.gif"/></span><%end if%>
+		<%if ShowIPv4>0 and Len(t_rs.Fields("ipv4addr"))>0 then%><span class="icon" title="IP：<%=GetIPv4WithMask(t_rs.Fields("ipv4addr"),ShowIPv4)%>"><img src="asset/image/icon_ip.gif"/></span><%end if%>
+		<%if ShowIPv6>0 and Len(t_rs.Fields("ipv6addr"))>0 then%><span class="icon" title="IP：<%=GetIPv6WithMask(t_rs.Fields("ipv6addr"),ShowIPv6)%>"><img src="asset/image/icon_ip.gif"/></span><%end if%>
 	<%end if%>
 <%end sub
 
@@ -288,7 +288,7 @@ sub inneradminreply(byref rs2)%>
 	<%if admin_faceurl<>"" then%><img class="face" src="<%=admin_faceurl%>"/><%end if%>
 	<div class="words">
 		<%if encrypted=true and pagename<>"showword" and left(pagename,5)<>"admin" then%>
-			<span class="inner-hint"><img src="image/icon_key.gif"/>(需要预设的密码才能查看...)[<a href="showword.asp?id=<%=rs2("id")%>">点击这里验证...</a>]</span>
+			<span class="inner-hint"><img src="asset/image/icon_key.gif"/>(需要预设的密码才能查看...)[<a href="showword.asp?id=<%=rs2("id")%>">点击这里验证...</a>]</span>
 		<%else
 			reply_htmlflag=rs2("htmlflag")
 			reply_txt=rs2("reinfo")
@@ -313,7 +313,7 @@ sub outeradminreply(byref rs2)%>
 	<div class="detail">
 		<div class="words">
 			<%if encrypted=true and pagename<>"showword" and left(pagename,5)<>"admin" then%>
-				<span class="inner-hint"><img src="image/icon_key.gif"/>(需要预设的密码才能查看...)[<a href="showword.asp?id=<%=rs2("id")%>">点击这里验证...</a>]</span>
+				<span class="inner-hint"><img src="asset/image/icon_key.gif"/>(需要预设的密码才能查看...)[<a href="showword.asp?id=<%=rs2("id")%>">点击这里验证...</a>]</span>
 			<%else
 				reply_htmlflag=rs2("htmlflag")
 				reply_txt=rs2("reinfo")
@@ -332,7 +332,7 @@ sub inneraudit()%>
 		<h2 class="title">(留言待审核...)</h2>
 	</div>
 	<div class="words">
-		<span class="inner-hint"><img src="image/icon_wait2pass.gif"/>(留言待审核...)</span>
+		<span class="inner-hint"><img src="asset/image/icon_wait2pass.gif"/>(留言待审核...)</span>
 	</div>
 </div>
 <%end sub
@@ -353,7 +353,7 @@ sub outeraudit(t_rs)%>
 		<h2 class="title">(留言待审核...)</h2>
 		<%if rs.Fields("parent_id")<=0 and left(pagename,5)<>"admin" then showguestreplyicons rs.Fields("id"),rs.Fields("parent_id"),StatusWrite and StatusGuestReply and clng(rs.Fields("guestflag") and 512)=0%>
 		<div class="words">
-			<span class="inner-hint"><img src="image/icon_wait2pass.gif" />(留言待审核...)</span>
+			<span class="inner-hint"><img src="asset/image/icon_wait2pass.gif" />(留言待审核...)</span>
 		</div>
 	</div>
 </div>
@@ -372,9 +372,9 @@ sub innerword(byref t_rs)%>
 	<%if StatusShowHead and t_rs.Fields("faceid")>=1 and t_rs.Fields("faceid")<=FaceCount then%><img class="face" src="<%=FacePath & t_rs.Fields("faceid")%>.gif"/><%end if%>
 	<div class="words">
 		<%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then%>
-			<span class="inner-hint"><img src="image/icon_whisper.gif"/>(给版主的悄悄话...)</span>
+			<span class="inner-hint"><img src="asset/image/icon_whisper.gif"/>(给版主的悄悄话...)</span>
 		<%elseif ishidden=true and left(pagename,5)<>"admin" then%>
-			<span class="inner-hint"><img src="image/icon_hide.gif"/>(留言被管理员隐藏...)</span>
+			<span class="inner-hint"><img src="asset/image/icon_hide.gif"/>(留言被管理员隐藏...)</span>
 		<%else
 			guest_txt="" & t_rs("article") & ""
 			if left(pagename,5)="admin" and AdminViewCode=true then
@@ -416,9 +416,9 @@ sub outerword(byref rs)%>
 		<%if rs.Fields("parent_id")<=0 and left(pagename,5)<>"admin" then showguestreplyicons rs.Fields("id"),rs.Fields("parent_id"),StatusWrite and StatusGuestReply and clng(rs.Fields("guestflag") and 512)=0%>
 		<div class="words">
 			<%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then%>
-				<span class="inner-hint"><img src="image/icon_whisper.gif"/>(给版主的悄悄话...)</span>
+				<span class="inner-hint"><img src="asset/image/icon_whisper.gif"/>(给版主的悄悄话...)</span>
 			<%elseif ishidden=true and left(pagename,5)<>"admin" then%>
-				<span class="inner-hint"><img src="image/icon_hide.gif"/>(留言被管理员隐藏...)</span>
+				<span class="inner-hint"><img src="asset/image/icon_hide.gif"/>(留言被管理员隐藏...)</span>
 			<%else
 				guest_txt="" & rs("article") & ""
 				if left(pagename,5)="admin" and AdminViewCode=true then

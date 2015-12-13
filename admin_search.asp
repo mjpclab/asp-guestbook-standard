@@ -30,6 +30,7 @@ Response.AddHeader "cache-control","private"
 	<title><%=HomeName%> ÁôÑÔ±¾ ËÑË÷ÁôÑÔ</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 
+	<script type="text/javascript" src="asset/js/jquery-1.x-min.js"></script>
 	<script type="text/javascript">
 	function submitcheck()
 	{

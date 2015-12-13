@@ -96,7 +96,7 @@ end function
 			if(e && e.ctrlKey && e.keyCode==13)e.target.form.submit1.click();
 		}
 
-		<!-- #include file="js/xmlhttp.js" -->
+		<!-- #include file="asset/js/xmlhttp.js" -->
 		function previewRequest()
 		{
 			if(!window.xmlHttp) window.xmlHttp=createXmlHttp();
@@ -180,12 +180,12 @@ end function
 					<%if StatusWhisper=true then%>
 					<div class="field">
 						<div class="row">
-							<img src="image/icon_whisper.gif" class="imgicon" />　
+							<img src="asset/image/icon_whisper.gif" class="imgicon" />　
 							<input type="checkbox" name="chk_whisper" value="1" id="chk_whisper" onclick="chkoption(this.form)"<%=cked(Request.Form("chk_whisper")="1")%> /><label id="lbl_whisper" for="chk_whisper">悄悄话</label>
 							<%if StatusEncryptWhisper=true then%>　<input type="checkbox" name="chk_encryptwhisper" value="1" id="chk_encryptwhisper" onclick="chkoption(this.form);if(this.checked)this.form.iwhisperpwd.select();"<%=cked(Request.Form("chk_encryptwhisper")="1")%><%=dised(Request.Form("chk_whisper")<>"1")%> /><label id="lbl_encryptwhisper" for="chk_encryptwhisper"<%=dised(Request.Form("chk_whisper")<>"1")%>>加密悄悄话</label><%end if%>
 						</div>
 						<%if StatusEncryptWhisper=true then%>
-						<div class="row"><img border="0" src="image/icon_key.gif" class="imgicon" />　<label id="lbl_whisperpwd"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%>>密码</label> <input type="password" name="iwhisperpwd" id="iwhisperpwd" maxlength="16" title="为悄悄话设置密码后，必须提供密码才能查看回复，也可以查看原先留言。" value="<%=server.HTMLEncode(Request.Form("iwhisperpwd"))%>"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%> /></div>
+						<div class="row"><img border="0" src="asset/image/icon_key.gif" class="imgicon" />　<label id="lbl_whisperpwd"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%>>密码</label> <input type="password" name="iwhisperpwd" id="iwhisperpwd" maxlength="16" title="为悄悄话设置密码后，必须提供密码才能查看回复，也可以查看原先留言。" value="<%=server.HTMLEncode(Request.Form("iwhisperpwd"))%>"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%> /></div>
 						<%end if%>
 					</div>
 					<%end if%>
@@ -194,19 +194,19 @@ end function
 				<div id="divContact">
 					<h4>联系方式：</h4>
 					<div class="field">
-						<span class="label"><img src="image/icon_mail.gif" class="imgicon" />邮件</span>
+						<span class="label"><img src="asset/image/icon_mail.gif" class="imgicon" />邮件</span>
 						<span class="value"><input type="text" name="imail" maxlength="50" value="<%=server.htmlEncode(FormOrCookie("imail"))%>"/><%if MailReplyInform=true then%><br/><input type="checkbox" name="imailreplyinform" id="imailreplyinform" value="1"<%=cked(Request.Form("imailreplyinform")="1")%> /><label for="imailreplyinform">版主回复后用邮件通知我</label><%end if%></span>
 					</div>
 					<div class="field">
-						<span class="label"><img src="image/icon_qq.gif" class="imgicon" />QQ号</span>
+						<span class="label"><img src="asset/image/icon_qq.gif" class="imgicon" />QQ号</span>
 						<span class="value"><input type="text" name="iqq" maxlength="16" value="<%=server.htmlEncode(FormOrCookie("iqq"))%>"/></span>
 					</div>
 					<div class="field">
-						<span class="label"><img src="image/icon_skype.gif" class="imgicon" />Skype</span>
+						<span class="label"><img src="asset/image/icon_skype.gif" class="imgicon" />Skype</span>
 						<span class="value"><input type="text" name="imsn" maxlength="50" value="<%=server.htmlEncode(FormOrCookie("imsn"))%>"/></span>
 					</div>
 					<div class="field">
-						<span class="label"><img src="image/icon_homepage.gif" class="imgicon" />主页</span>
+						<span class="label"><img src="asset/image/icon_homepage.gif" class="imgicon" />主页</span>
 						<span class="value"><input type="text" name="ihomepage" maxlength="127" value="<%=server.htmlEncode(FormOrCookie("ihomepage"))%>"/></span>
 					</div>
 					<div class="field">
@@ -227,7 +227,7 @@ end function
 					<!-- #include file="include/template/ubbhelp.inc" -->
 				</div>
 
-				<script type="text/javascript" src="js/tabcontrol.js"></script>
+				<script type="text/javascript" src="asset/js/tabcontrol.js"></script>
 				<script type="text/javascript">
 					tab=new TabControl('tabContainer');
 
@@ -254,7 +254,7 @@ end function
 
 <!-- #include file="include/template/footer.inc" -->
 <script type="text/javascript">
-	<!-- #include file="js/refresh-captcha.js" -->
+	<!-- #include file="asset/js/refresh-captcha.js" -->
 </script>
 <!-- #include file="include/template/getclientinfo.inc" -->
 </body>

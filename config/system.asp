@@ -1,7 +1,7 @@
 <%
-const FacePath="face/"		'头像文件所在目录，可使用相对路径
+const FacePath="asset/face/"		'头像文件所在目录，可使用相对路径
 const FaceCount=51			'头像总数
-const SmallFacePath="smallface/"		'表情图标所在目录，可使用相对路径
+const SmallFacePath="asset/smallface/"		'表情图标所在目录，可使用相对路径
 const SmallFaceCount=77					'表情总数
 
 

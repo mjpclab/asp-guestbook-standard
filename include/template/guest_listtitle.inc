@@ -22,10 +22,10 @@ while rs.eof=false
 	<tr>
 		<td class="icon">
 			<a name="a<%=n_i%>" id="a<%=n_i%>"></a>
-			<%if isauditting then%><img src="image/icon_wait2pass.gif" title="´ýÉóºË" alt="´ýÉóºË"/>
-			<%elseif ishidden then%><img src="image/icon_hide.gif" title="±»Òþ²Ø" alt="±»Òþ²Ø"/>
-			<%elseif iswhisper then%><img src="image/icon_whisper.gif" title="ÇÄÇÄ»°" alt="ÇÄÇÄ»°"/>
-			<%elseif rs.Fields("parent_id")<0 then%><img src="image/icon_toplocked.gif" title="ÖÃ¶¥" alt="ÖÃ¶¥"/>
+			<%if isauditting then%><img src="asset/image/icon_wait2pass.gif" title="´ýÉóºË" alt="´ýÉóºË"/>
+			<%elseif ishidden then%><img src="asset/image/icon_hide.gif" title="±»Òþ²Ø" alt="±»Òþ²Ø"/>
+			<%elseif iswhisper then%><img src="asset/image/icon_whisper.gif" title="ÇÄÇÄ»°" alt="ÇÄÇÄ»°"/>
+			<%elseif rs.Fields("parent_id")<0 then%><img src="asset/image/icon_toplocked.gif" title="ÖÃ¶¥" alt="ÖÃ¶¥"/>
 			<%end if%>
 		</td>
 		<td class="title">
