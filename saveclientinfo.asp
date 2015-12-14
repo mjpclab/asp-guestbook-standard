@@ -6,7 +6,7 @@
 <!-- #include file="loadconfig.asp" -->
 <%
 Response.ContentType="application/x-javascript"
-if session("gotclientinfo")<>true then
+if Session("gotclientinfo")<>true then
 	Dim cn
 	Dim os,browser,screenwidth,screenheight,sourceaddr,fullsource
 
@@ -52,7 +52,7 @@ if session("gotclientinfo")<>true then
 		cn.Close : set cn=nothing
 		
 		'Got Complete
-		session("gotclientinfo")=true
+		Session("gotclientinfo")=true
 	end if
 end if
 %>

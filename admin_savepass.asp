@@ -1,4 +1,5 @@
 <!-- #include file="include/template/page_instruction.inc" -->
+<!-- #include file="config/system.asp" -->
 <!-- #include file="config/database.asp" -->
 <!-- #include file="include/sql/init.asp" -->
 <!-- #include file="include/sql/admin_verify.asp" -->
@@ -29,7 +30,7 @@ else
 			pwd=md5(request.Form("inewpass1"),32)
 			
 			cn.Execute Replace(sql_adminsavepass_update,"{0}",pwd),,1
-			session.Contents(InstanceName & "_adminpass")=pwd
+			Session(InstanceName & "_adminpass")=pwd
 
 			Response.Redirect "admin.asp"
 		else

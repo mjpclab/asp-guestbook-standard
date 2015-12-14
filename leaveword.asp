@@ -26,7 +26,7 @@ elseif StatusWrite=false then
 	Response.End
 end if
 if StatusStatistics then call addstat("leaveword")
-if WriteVcodeCount>0 then session("vcode")=getvcode(WriteVcodeCount)
+if WriteVcodeCount>0 then Session("vcode")=getvcode(WriteVcodeCount)
 
 function getstatus(isopen)
 	if isopen then

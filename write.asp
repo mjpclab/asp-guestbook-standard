@@ -61,8 +61,8 @@ elseif StatusOpen=false then
 elseif StatusWrite=false then
 	Call ErrorPage(3)
 	Response.End
-elseif flood_minwait>0 and isdate(session.Contents("wrote_time")) then
-	if datediff("s",session.Contents("wrote_time"),now())<=flood_minwait then
+elseif flood_minwait>0 and isdate(Session("wrote_time")) then
+	if datediff("s",Session("wrote_time"),now())<=flood_minwait then
 		if StatusStatistics then call addstat("banned")
 		Call ErrorPage(6)
 		Response.End
@@ -79,12 +79,12 @@ if Request.Form("iname")="" or Request.Form("ititle")="" then Response.Redirect(
 Session(InstanceName & "_ititle")=Request.Form("ititle")
 Session(InstanceName & "_icontent")=Request.Form("icontent")
 
-if WriteVcodeCount>0 and (Request.Form("ivcode")<>session("vcode") or session("vcode")="") then
-	session("vcode")=""
+if WriteVcodeCount>0 and (Request.Form("ivcode")<>Session("vcode") or Session("vcode")="") then
+	Session("vcode")=""
 	Call TipsPage("ÑéÖ¤Âë´íÎó¡£","leaveword.asp?" & Request.Form("qstr"))
 	Response.End
 else
-	session("vcode")=""
+	Session("vcode")=""
 end if
 '===================================================================
 
@@ -318,7 +318,7 @@ rs.Close : cn.Close : set rs=nothing : set cn=nothing
 if StatusStatistics then call addstat("written")
 
 SetTimelessCookie "wrote_time",now()
-Session.Contents("wrote_time")=now()
+Session("wrote_time")=now()
 Session(InstanceName & "_ititle")=""
 Session(InstanceName & "_icontent")=""
 Session("guestflag")=guestflag

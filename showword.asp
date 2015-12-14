@@ -88,16 +88,16 @@ rs.Close
 	end if
 	
 	if Request.Form("ispostback")="1" then
-		if VcodeCount>0 and (Request.Form("ivcode")<>session("vcode") or session("vcode")="") then
+		if VcodeCount>0 and (Request.Form("ivcode")<>Session("vcode") or Session("vcode")="") then
 			showbox=true
 			showstr="验证码错误。"
-			session("vcode")=""
-			session("id")=""
-			session("guest_pwd")=""
+			Session("vcode")=""
+			Session("id")=""
+			Session("guest_pwd")=""
 		else
-			session("vcode")=""
-			session("id")=cstr(Request.Form("id"))
-			session("guest_pwd")=md5(Request.Form("ipass"),32)
+			Session("vcode")=""
+			Session("id")=cstr(Request.Form("id"))
+			Session("guest_pwd")=md5(Request.Form("ipass"),32)
 			Response.Redirect "showword.asp?id=" & Request.Form("id")
 		end if
 	end if
@@ -107,9 +107,9 @@ rs.Close
 			showbox=true
 			showstr="留言不存在。"
 		elseif needverify then
-			if session("id")<>cstr(rs("id")) then
+			if Session("id")<>cstr(rs("id")) then
 				showbox=true
-			elseif session("guest_pwd")<>rs("whisperpwd") then
+			elseif Session("guest_pwd")<>rs("whisperpwd") then
 				showbox=true
 				showstr="密码不正确。"
 			end if
@@ -117,9 +117,9 @@ rs.Close
 	end if
 
 	if VcodeCount>0 and showbox=true then
-		session("vcode")=getvcode(VcodeCount)
+		Session("vcode")=getvcode(VcodeCount)
 	else
-		session("vcode")=""
+		Session("vcode")=""
 	end if
 	%>
 

@@ -10,11 +10,8 @@ const SmallFaceCount=77					'表情总数
 '此部分代码供内部处理之用,请勿修改
 const InstanceName=""
 
-Session.CodePage=936
 Response.Buffer=True
-Response.ContentType="text/html"
-Response.CharSet="gbk"
-
+Response.ContentType="text/html; Charset=gbk"
 
 if right(FacePath,1)<>"/" then FacePath=FacePath & "/"
 if right(SmallFacePath,1)<>"/" then SmallFacePath=SmallFacePath & "/"

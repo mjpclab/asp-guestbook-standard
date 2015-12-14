@@ -1,4 +1,5 @@
 <!-- #include file="include/template/page_instruction.inc" -->
+<!-- #include file="config/system.asp" -->
 <!-- #include file="config/database.asp" -->
 <!-- #include file="include/sql/init.asp" -->
 <!-- #include file="include/sql/common.asp" -->
@@ -13,8 +14,8 @@
 Response.Expires=-1
 if StatusStatistics then call addstat("login")
 
-if VcodeCount>0 and (Request.Form("ivcode")<>session("vcode") or session("vcode")="") then
-	session("vcode")=""
+if VcodeCount>0 and (Request.Form("ivcode")<>Session("vcode") or Session("vcode")="") then
+	Session("vcode")=""
 	if StatusStatistics then call addstat("loginfailed")
 	Call TipsPage("ÑéÖ¤Âë´íÎó¡£","admin_login.asp")
 
@@ -22,7 +23,7 @@ if VcodeCount>0 and (Request.Form("ivcode")<>session("vcode") or session("vcode"
 	set cn=nothing
 	Response.End
 else
-	session("vcode")=""
+	Session("vcode")=""
 end if
 
 Dim cn,rs
@@ -32,9 +33,9 @@ set rs=server.CreateObject("ADODB.Recordset")
 Call CreateConn(cn)
 rs.Open sql_adminverify,cn,0,1,1
 
-session.Contents(InstanceName & "_adminpass")=md5(request("iadminpass"),32)
+Session(InstanceName & "_adminpass")=md5(request("iadminpass"),32)
 if rs.EOF=false then
-	if session.Contents(InstanceName & "_adminpass")=rs(0) then
+	if Session(InstanceName & "_adminpass")=rs(0) then
 		session.Timeout=clng(AdminTimeOut)
 		Response.Redirect "admin.asp"
 	else

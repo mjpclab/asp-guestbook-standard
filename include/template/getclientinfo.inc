@@ -1,4 +1,4 @@
-<%if StatusStatistics and session("gotclientinfo")<>true then%>
+<%if StatusStatistics and Session("gotclientinfo")<>true then%>
 <script type="text/javascript" src="asset/js/stats.js"></script>
 <script type="text/javascript">
 	var url = location.href.substring(0, location.href.lastIndexOf('/') + 1);
