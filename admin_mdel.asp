@@ -26,7 +26,7 @@ if Left(ids,1) = "," then
 end if
 
 set cn=server.CreateObject("ADODB.Connection")
-CreateConn cn,dbtype
+Call CreateConn(cn)
 
 cn.BeginTrans
 cn.Execute Replace(sql_noguestreply_flag,"{0}",ids),,1

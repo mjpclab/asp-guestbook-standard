@@ -94,7 +94,7 @@ function addstat(byref fieldname)
 	set cna=server.CreateObject("ADODB.Connection")
 	set rsa=server.CreateObject("ADODB.Recordset")
 
-	CreateConn cna,dbtype
+	Call CreateConn(cna)
 	rsa.open Replace(sql_common_getstat,"{0}",fieldname),cna,0,1,1
 
 	if rsa.EOF then

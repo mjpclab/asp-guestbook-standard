@@ -43,7 +43,7 @@ end if
 
 set cn=server.CreateObject("ADODB.Connection")
 set rs=server.CreateObject("ADODB.Recordset")
-CreateConn cn,dbtype
+Call CreateConn(cn)
 rs.Open sql_admin_showword & id,cn,0,1,1
 if rs.EOF then		'留言不存在，退回主界面
 	rs.Close : cn.Close : set rs=nothing : set cn=nothing

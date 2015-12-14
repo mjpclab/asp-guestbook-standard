@@ -15,8 +15,8 @@ function GetSqlServerConnStr(dbprovider)
 	GetSqlServerConnStr=connstr
 end function
 
-function CreateConn(byref tconn,byval tDBType)
-	select case tDBType
+function CreateConn(byref tconn)
+	select case dbtype
 	case 1
 		tconn.ConnectionString=GetAccessConnStr("Microsoft.Jet.OLEDB.4.0")
 		tconn.Open

@@ -29,7 +29,7 @@
 set cn=server.CreateObject("ADODB.Connection")
 set rs=server.CreateObject("ADODB.Recordset")
 
-CreateConn cn,dbtype
+Call CreateConn(cn)
 rs.open sql_adminstats_startdate,cn,0,3,1
 if rs.EOF then
 	cn.Execute Replace(sql_adminstats_insert,"{0}",now()),,1

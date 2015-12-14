@@ -14,7 +14,7 @@ if isnumeric(Request.Form("filterid")) and Request.Form("filterid")<>"" and (Req
 
 	set cn=server.CreateObject("ADODB.Connection")
 	set rs=server.CreateObject("ADODB.Recordset")
-	CreateConn cn,dbtype
+	Call CreateConn(cn)
 	
 	rs.Open sql_adminmovefilter_sort1 &filterid1,cn,,,1
 	if rs.EOF=false then

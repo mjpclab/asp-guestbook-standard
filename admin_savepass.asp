@@ -14,7 +14,7 @@
 Response.Expires=-1
 set cn=server.CreateObject("ADODB.Connection")
 set rs=server.CreateObject("ADODB.Recordset")
-CreateConn cn,dbtype
+Call CreateConn(cn)
 rs.Open sql_adminsavepass_select,cn,0,1,1
 
 if request.Form("inewpass1")<> request.Form("inewpass2") then

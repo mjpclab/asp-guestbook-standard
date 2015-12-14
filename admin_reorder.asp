@@ -15,7 +15,7 @@ if isnumeric(Request.QueryString("id"))=false or Request.QueryString("id")="" th
 end if
 
 set cn=server.CreateObject("ADODB.Connection")
-CreateConn cn,dbtype
+Call CreateConn(cn)
 
 cn.Execute Replace(sql_adminreorder,"{0}",Request.QueryString("id")),,1
 cn.close : set cn=nothing

@@ -13,7 +13,7 @@
 Response.Expires=-1
 Response.Flush
 set cn=server.CreateObject("ADODB.Connection")
-CreateConn cn,dbtype
+Call CreateConn(cn)
 
 dim tparam
 tparam=Request.Form("iparam")

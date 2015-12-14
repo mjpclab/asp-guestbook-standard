@@ -38,7 +38,7 @@ if isnumeric(Request.QueryString("n")) and trim(Request.QueryString("n"))<>"" th
 	
 	set cn=server.CreateObject("ADODB.Connection")
 	set rs=server.CreateObject("ADODB.Recordset")
-	CreateConn cn,dbtype
+	Call CreateConn(cn)
 	
 	rs.Open Replace(sql_tlist_maxtime,"{0}",GetHiddenWordCondition()),cn,0,1,1
 	if not rs.EOF then max_time=rs.Fields(0) else max_time=now() end if

@@ -54,7 +54,7 @@ end if
 set cn=server.CreateObject("ADODB.Connection")
 set rs=server.CreateObject("ADODB.Recordset")
 
-CreateConn cn,dbtype
+Call CreateConn(cn)
 rs.Open sql_adminreply_reply &Request("id"),cn,,,1
 	
 if rs.EOF=false then 
@@ -102,7 +102,7 @@ cn.close
 </div>
 
 <%
-CreateConn cn,dbtype
+Call CreateConn(cn)
 rs.Open sql_adminreply_words & Request.QueryString("id"),cn,,,1
 
 if rs.EOF=false then

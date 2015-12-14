@@ -13,7 +13,7 @@ if isnumeric(Request.Form("filterid")) and Request.Form("filterid")<>"" then
 	 tfilterid=clng(Request.Form("filterid"))
 
 	set cn=server.CreateObject("ADODB.Connection")
-	CreateConn cn,dbtype
+	Call CreateConn(cn)
 
 	cn.Execute sql_admindelfilter & tfilterid,,1
 	

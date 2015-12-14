@@ -44,7 +44,7 @@ Dim cn,rs
 set cn=server.CreateObject("ADODB.Connection")
 set rs=server.CreateObject("ADODB.Recordset")
 
-CreateConn cn,dbtype
+Call CreateConn(cn)
 
 Dim WordsPerPage
 if GuestDisplayMode()="book" then

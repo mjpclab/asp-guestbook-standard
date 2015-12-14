@@ -41,7 +41,7 @@
 	set cn=server.CreateObject("ADODB.Connection")
 	set rs=server.CreateObject("ADODB.Recordset")
 
-	CreateConn cn,dbtype
+	Call CreateConn(cn)
 	rs.Open sql_adminsetbulletin,cn,,,1
 
 	dim t_html

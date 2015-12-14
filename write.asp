@@ -145,7 +145,7 @@ dim tregexp,tfiltermode,treplacestr,re,filtered
 set re=new RegExp
 filtered=false
 
-CreateConn cn,dbtype
+Call CreateConn(cn)
 rs.Open sql_write_filter,cn,0,1,1
 while rs.EOF=false
 	tregexp=rs("regexp")

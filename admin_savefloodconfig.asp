@@ -42,7 +42,7 @@ if Request.Form("flag_content")="1" then flood_searchflag=flood_searchflag+512
 
 dim cn1
 set cn1=server.CreateObject("ADODB.Connection")
-CreateConn cn1,dbtype
+Call CreateConn(cn1)
 cn1.Execute Replace(Replace(Replace(sql_adminsavefloodconfig,"{0}",flood_minwait),"{1}",flood_searchrange),"{2}",flood_searchflag),,1
 
 cn1.Close : set cn1=nothing

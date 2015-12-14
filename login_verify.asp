@@ -29,7 +29,7 @@ Dim cn,rs
 set cn=server.CreateObject("ADODB.Connection")
 set rs=server.CreateObject("ADODB.Recordset")
 
-CreateConn cn,dbtype
+Call CreateConn(cn)
 rs.Open sql_adminverify,cn,0,1,1
 
 session.Contents(InstanceName & "_adminpass")=md5(request("iadminpass"),32)

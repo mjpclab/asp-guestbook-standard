@@ -54,7 +54,7 @@ Dim cn,rs,ItemsCount
 set cn=server.CreateObject("ADODB.Connection")
 set rs=server.CreateObject("ADODB.Recordset")
 
-CreateConn cn,dbtype
+Call CreateConn(cn)
 rs.Open sql_showword_count,cn,0,1,1
 ItemsCount=rs(0)
 rs.Close

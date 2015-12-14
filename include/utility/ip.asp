@@ -190,7 +190,7 @@ function IsBannedIPv4(byref ipStr)
 		iphex=IPv4ToHex(ipStr,false)
 		set cnx=server.CreateObject("ADODB.Connection")
 		set rsx=server.CreateObject("ADODB.Recordset")
-		CreateConn cnx,dbtype
+		Call CreateConn(cnx)
 		rsx.Open Replace(Replace(sql_common_isbanipv4,"{0}",IPv4ConStatus),"{1}",iphex),cnx,,1
 
 		if IPv4ConStatus=1 then
@@ -215,7 +215,7 @@ function IsBannedIPv6(byref ipStr)
 		iphex=IPv6ToHex(ipStr,false)
 		set cnx=server.CreateObject("ADODB.Connection")
 		set rsx=server.CreateObject("ADODB.Recordset")
-		CreateConn cnx,dbtype
+		Call CreateConn(cnx)
 		rsx.Open Replace(Replace(sql_common_isbanipv6,"{0}",IPv6ConStatus),"{1}",iphex),cnx,,1
 
 		if IPv6ConStatus=1 then

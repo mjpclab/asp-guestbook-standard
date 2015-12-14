@@ -25,7 +25,7 @@ if Left(ids,1) = "," then
 end if
 
 set cn=server.CreateObject("ADODB.Connection")
-CreateConn cn,dbtype
+Call CreateConn(cn)
 
 cn.Execute Replace(sql_adminmpass,"{0}",ids),,1
 cn.Close : set cn=nothing
