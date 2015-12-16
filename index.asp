@@ -7,6 +7,7 @@
 <!-- #include file="include/sql/common2.asp" -->
 <!-- #include file="include/sql/topbulletin.asp" -->
 <!-- #include file="include/sql/index.asp" -->
+<!-- #include file="include/sql/guest_listword.asp" -->
 <!-- #include file="include/utility/database.asp" -->
 <!-- #include file="include/utility/ip.asp" -->
 <!-- #include file="include/utility/ubbcode.asp" -->

@@ -8,6 +8,7 @@
 <!-- #include file="include/sql/topbulletin.asp" -->
 <!-- #include file="include/sql/admin_verify.asp" -->
 <!-- #include file="include/sql/admin.asp" -->
+<!-- #include file="include/sql/admin_listword.asp" -->
 <!-- #include file="include/utility/database.asp" -->
 <!-- #include file="include/utility/ip.asp" -->
 <!-- #include file="include/utility/ubbcode.asp" -->
