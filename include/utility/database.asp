@@ -15,31 +15,33 @@ function GetSqlServerConnStr(dbprovider)
 	GetSqlServerConnStr=connstr
 end function
 
+Dim dbconnstr
+function GetConnStr()
+	if IsEmpty(dbconnstr) then
+		select case dbtype
+		case 1
+			dbconnstr=GetAccessConnStr("Microsoft.Jet.OLEDB.4.0")
+		case 2
+			dbconnstr=GetAccessConnStr("Microsoft.Jet.OLEDB.4.0")
+		case 3
+			dbconnstr=GetAccessConnStr("Microsoft.ACE.OLEDB.12.0")
+		case 10
+			dbconnstr=GetSqlServerConnStr("SQLOLEDB.1")
+		case 11
+			dbconnstr=GetSqlServerConnStr("SQLNCLI")
+		case 12
+			dbconnstr=GetSqlServerConnStr("SQLNCLI10")
+		case 13
+			dbconnstr=GetSqlServerConnStr("SQLNCLI11")
+		case else
+			Err.Raise 513,,"无效的数据库类型号(dbtype)"
+		end select
+	end if
+	GetConnStr=dbconnstr
+end function
+
 function CreateConn(byref tconn)
-	select case dbtype
-	case 1
-		tconn.ConnectionString=GetAccessConnStr("Microsoft.Jet.OLEDB.4.0")
-		tconn.Open
-	case 2
-		tconn.ConnectionString=GetAccessConnStr("Microsoft.Jet.OLEDB.4.0")
-		tconn.Open
-	case 3
-		tconn.ConnectionString=GetAccessConnStr("Microsoft.ACE.OLEDB.12.0")
-		tconn.Open
-	case 10
-		tconn.ConnectionString=GetSqlServerConnStr("SQLOLEDB.1")
-		tconn.Open
-	case 11
-		tconn.ConnectionString=GetSqlServerConnStr("SQLNCLI")
-		tconn.Open
-	case 12
-		tconn.ConnectionString=GetSqlServerConnStr("SQLNCLI10")
-		tconn.Open
-	case 13
-		tconn.ConnectionString=GetSqlServerConnStr("SQLNCLI11")
-		tconn.Open
-	case else
-		Err.Raise 513,,"无效的数据库类型号(dbtype)"
-	end select
+	tconn.ConnectionString=GetConnStr()
+	tconn.Open
 end function
 %>
