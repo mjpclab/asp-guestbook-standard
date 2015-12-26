@@ -177,12 +177,12 @@ function GetHiddenWordCondition()
 	GetHiddenWordCondition=t_condition
 end function
 
-sub showadminicons()%>
-	<%if admin_email<>"" then%><a class="icon" href="mailto:<%=admin_email%>" title="版主邮箱：<%=admin_email%>"><img src="asset/image/icon_mail.gif"/></a><%end if%>
-	<%if admin_qqid<>"" then%><span class="icon" title="版主QQ：<%=admin_qqid%>"><img src="asset/image/icon_qq.gif"/></span><%end if%>
-	<%if admin_msnid<>"" then%><span class="icon"><img src="asset/image/icon_skype.gif" alt="版主Skype：<%=admin_msnid%>"/></span><%end if%>
-	<%if admin_homepage<>"" then%><a class="icon" href="<%=admin_homepage%>" target="_blank" title="版主主页：<%=admin_homepage%>"><img src="asset/image/icon_homepage.gif"/></a><%end if%>
-<%end sub
+sub showAdminIcons()
+	if Len(admin_email)>0 then%><a class="icon" href="mailto:<%=admin_email%>" title="版主邮箱：<%=admin_email%>"><img src="asset/image/icon_mail.gif"/></a><%end if
+	if Len(admin_qqid)>0 then%><span class="icon" title="版主QQ：<%=admin_qqid%>"><img src="asset/image/icon_qq.gif"/></span><%end if
+	if Len(admin_msnid)>0 then%><span class="icon"><img src="asset/image/icon_skype.gif" alt="版主Skype：<%=admin_msnid%>"/></span><%end if
+	if Len(admin_homepage)>0 then%><a class="icon" href="<%=admin_homepage%>" target="_blank" title="版主主页：<%=admin_homepage%>"><img src="asset/image/icon_homepage.gif"/></a><%end if
+end sub
 
 sub showAdminMessageTools(byref rs)
 param_url="?rootid=" & rs.Fields("root_id") & "&id=" & rs.Fields("id") & "&page=" & ipage
@@ -249,41 +249,58 @@ param_url=Server.HtmlEncode(param_url)
 </div><%
 end sub
 
-sub showguestreplyicons(byval follow_id,byval parent_id,byval show_reply)
+sub showGuestMessageTools(byval follow_id,byval parent_id,byval show_reply)
 dim url
-
 url="leaveword.asp?follow=" & follow_id
 if left(pagename,8)="showword" then url=url & "&return=showword"
 url=Server.HTMLEncode(url)%>
-<div class="guest-tools">
+<div class="guest-message-tools">
 	<%if parent_id<0 then%><span class="tool"><img src="asset/image/icon_toplocked.gif"/>(置顶)</span><%end if%>
 	<%if show_reply then%><span class="tool"><a href="<%=url%>"><img src="asset/image/icon_reply.gif"/>[回复]</a></span><%end if%>
 </div>
 <%end sub
 
-sub showguestinfoicons(t_rs)%>
-	<%if t_rs("email")<>"" then%><a class="icon" href="mailto:<%=t_rs("email")%>" title="作者邮箱：<%=t_rs("email")%>"><img src="asset/image/icon_mail.gif"/></a><%end if%>
-	<%if t_rs("qqid")<>"" then%><span class="icon" title="作者QQ：<%=t_rs("qqid")%>"><img src="asset/image/icon_qq.gif"/></span><%end if%>
-	<%if t_rs("msnid")<>"" then%><span class="icon" title="作者Skype：<%=t_rs("msnid")%>"><img src="asset/image/icon_skype.gif"/></span><%end if%>
-	<%if t_rs("homepage")<>"" then%><a class="icon" href="<%=t_rs("homepage")%>" target="_blank" title="作者主页：<%=t_rs("homepage")%>"><img src="asset/image/icon_homepage.gif" /></a><%end if%>
+sub showGuestIcons(rs)
+	Dim email,qqid,msnid,homepage,ipv4addr,ipv6addr,originalipv4,originalipv6
 
-	<%if left(pagename,5)="admin" then%>
-		<%if AdminShowIPv4>0 and Len(t_rs.Fields("ipv4addr"))>0 then%><span class="icon" title="IP：<%=GetIPv4WithMask(t_rs.Fields("ipv4addr"),AdminShowIPv4)%>"><img src="asset/image/icon_ip.gif"/></span><%end if%>
-		<%if AdminShowIPv6>0 and Len(t_rs.Fields("ipv6addr"))>0 then%><span class="icon" title="IP：<%=GetIPv6WithMask(t_rs.Fields("ipv6addr"),AdminShowIPv6)%>"><img src="asset/image/icon_ip.gif"/></span><%end if%>
-		<%if AdminShowOriginalIPv4>0 and Len(t_rs.Fields("originalipv4"))>0 then%><span class="icon" title="原始IP：<%=GetIPv4WithMask(t_rs.Fields("originalipv4"),AdminShowOriginalIPv4)%>"><img src="asset/image/icon_ip2.gif"/></span><%end if%>
-		<%if AdminShowOriginalIPv6>0 and Len(t_rs.Fields("originalipv6"))>0 then%><span class="icon" title="原始IP：<%=GetIPv6WithMask(t_rs.Fields("originalipv6"),AdminShowOriginalIPv6)%>"><img src="asset/image/icon_ip2.gif"/></span><%end if%>
-	<%else%>
-		<%if ShowIPv4>0 and Len(t_rs.Fields("ipv4addr"))>0 then%><span class="icon" title="IP：<%=GetIPv4WithMask(t_rs.Fields("ipv4addr"),ShowIPv4)%>"><img src="asset/image/icon_ip.gif"/></span><%end if%>
-		<%if ShowIPv6>0 and Len(t_rs.Fields("ipv6addr"))>0 then%><span class="icon" title="IP：<%=GetIPv6WithMask(t_rs.Fields("ipv6addr"),ShowIPv6)%>"><img src="asset/image/icon_ip.gif"/></span><%end if%>
-	<%end if%>
-<%end sub
+	email=rs.Fields("email")
+	if Len(email)>0 then%><a class="icon" href="mailto:<%=email%>" title="作者邮箱：<%=email%>"><img src="asset/image/icon_mail.gif"/></a><%end if
+	qqid=rs.Fields("qqid")
+	if Len(qqid)>0 then%><span class="icon" title="作者QQ：<%=qqid%>"><img src="asset/image/icon_qq.gif"/></span><%end if
+	msnid=rs.Fields("msnid")
+	if Len(msnid)>0 then%><span class="icon" title="作者Skype：<%=msnid%>"><img src="asset/image/icon_skype.gif"/></span><%end if
+	homepage=rs.Fields("homepage")
+	if Len(homepage)>0 then%><a class="icon" href="<%=homepage%>" target="_blank" title="作者主页：<%=homepage%>"><img src="asset/image/icon_homepage.gif" /></a><%end if
+
+	if left(pagename,5)="admin" then
+		ipv4addr=rs.Fields("ipv4addr")
+		if AdminShowIPv4>0 and Len(ipv4addr)>0 then
+			ipv4addr=GetIPv4WithMask(ipv4addr,AdminShowIPv4)%><span class="icon-entry"><span class="icon" title="IP：<%=ipv4addr%>"><img src="asset/image/icon_ip.gif"/></span></span><%end if
+		ipv6addr=rs.Fields("ipv6addr")
+		if AdminShowIPv6>0 and Len(ipv6addr)>0 then
+			ipv6addr=GetIPv6WithMask(ipv6addr,AdminShowIPv6)%><span class="icon-entry"><span class="icon" title="IP：<%=ipv6addr%>"><img src="asset/image/icon_ip.gif"/></span></span><%end if
+		originalipv4=rs.Fields("originalipv4")
+		if AdminShowOriginalIPv4>0 and Len(originalipv4)>0 then
+			originalipv4=GetIPv4WithMask(originalipv4,AdminShowOriginalIPv4)%><span class="icon-entry"><span class="icon" title="原始IP：<%=originalipv4%>"><img src="asset/image/icon_ip2.gif"/></span></span><%end if
+		originalipv6=rs.Fields("originalipv6")
+		if AdminShowOriginalIPv6>0 and Len(originalipv6)>0 then
+			originalipv6=GetIPv6WithMask(originalipv6,AdminShowOriginalIPv6)%><span class="icon-entry"><span class="icon" title="原始IP：<%=originalipv6%>"><img src="asset/image/icon_ip2.gif"/></span></span><%end if
+	else
+		ipv4addr=rs.Fields("ipv4addr")
+		if ShowIPv4>0 and Len(ipv4addr)>0 then
+			ipv4addr=GetIPv4WithMask(ipv4addr,ShowIPv4)%><span class="icon" title="IP：<%=ipv4addr%>"><img src="asset/image/icon_ip.gif"/></span><%end if
+		ipv6addr=rs.Fields("ipv6addr")
+		if ShowIPv6>0 and Len(ipv6addr)>0 then
+			ipv6addr=GetIPv6WithMask(ipv6addr,ShowIPv6)%><span class="icon" title="IP：<%=ipv6addr%>"><img src="asset/image/icon_ip.gif"/></span><%end if
+	end if
+end sub
 
 sub inneradminreply(byref rs2)%>
 <div class="message inner-message admin-message">
 	<div class="summary">
 		<div class="name">版主<%if admin_name<>"" then response.write "(" & admin_name & ")"%>回复：</div>
 		<div class="date">(<%=rs2("replydate")%>)</div>
-		<div class="icons"><%showadminicons()%></div>
+		<div class="icons"><%showAdminIcons()%></div>
 	</div>
 	<%if admin_faceurl<>"" then%><img class="face" src="<%=admin_faceurl%>"/><%end if%>
 	<div class="words">
@@ -306,7 +323,7 @@ sub outeradminreply(byref rs2)%>
 	<div class="info">
 		<%if admin_faceurl<>"" then%><img class="face" src="<%=admin_faceurl%>"/><%end if%>
 		<%if admin_email<>"" or admin_qqid<>"" or admin_msnid<>"" or admin_homepage<>"" then%>
-			<div class="icons"><%showadminicons()%></div>
+			<div class="icons"><%showAdminIcons()%></div>
 		<%end if%>
 		<div class="date"><%=rs2("replydate")%></div>
 	</div>
@@ -351,7 +368,7 @@ sub outeraudit(t_rs)%>
 	</div>
 	<div class="detail">
 		<h2 class="title">(留言待审核...)</h2>
-		<%if rs.Fields("parent_id")<=0 and left(pagename,5)<>"admin" then showguestreplyicons rs.Fields("id"),rs.Fields("parent_id"),StatusWrite and StatusGuestReply and clng(rs.Fields("guestflag") and 512)=0%>
+		<%if rs.Fields("parent_id")<=0 and left(pagename,5)<>"admin" then showGuestMessageTools rs.Fields("id"),rs.Fields("parent_id"),StatusWrite and StatusGuestReply and clng(rs.Fields("guestflag") and 512)=0%>
 		<div class="words">
 			<span class="inner-hint"><img src="asset/image/icon_wait2pass.gif" />(留言待审核...)</span>
 		</div>
@@ -365,7 +382,7 @@ sub innerword(byref t_rs)%>
 		<div class="name"><%=t_rs("name")%>：</div>
 		<div class="date">(<%=t_rs("logdate")%>)</div>
 			<%if (iswhisper=false and clng(guestflag and 256)=0) or (pagename="showword" and needverify) or left(pagename,5)="admin" then%>
-				<div class="icons"><%showguestinfoicons(t_rs)%></div>
+				<div class="icons"><%showGuestIcons(t_rs)%></div>
 			<%end if%>
 		<h2 class="title"><%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then response.write "(给版主的悄悄话...)" else response.write t_rs("title")%></h2>
 	</div>
@@ -406,14 +423,14 @@ sub outerword(byref rs)%>
 		end if%>
 
 		<%if (iswhisper=false and clng(guestflag and 256)=0) or (pagename="showword" and needverify) or left(pagename,5)="admin" then%>
-			<div class="icons"><%showguestinfoicons(rs)%></div>
+			<div class="icons"><%showGuestIcons(rs)%></div>
 		<%end if%>
 
 		<div class="date"><%=rs("logdate")%></div>
 	</div>
 	<div class="detail">
 		<h2 class="title"><%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then response.write "(给版主的悄悄话...)" else response.write rs("title")%></h2>
-		<%if rs.Fields("parent_id")<=0 and left(pagename,5)<>"admin" then showguestreplyicons rs.Fields("id"),rs.Fields("parent_id"),StatusWrite and StatusGuestReply and clng(rs.Fields("guestflag") and 512)=0%>
+		<%if rs.Fields("parent_id")<=0 and left(pagename,5)<>"admin" then showGuestMessageTools rs.Fields("id"),rs.Fields("parent_id"),StatusWrite and StatusGuestReply and clng(rs.Fields("guestflag") and 512)=0%>
 		<div class="words">
 			<%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then%>
 				<span class="inner-hint"><img src="asset/image/icon_whisper.gif"/>(给版主的悄悄话...)</span>

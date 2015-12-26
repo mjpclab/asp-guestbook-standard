@@ -315,11 +315,11 @@ form .row {
 	max-width: 100%;
 }
 
-.topic .guest-tools {
+.topic .guest-message-tools {
 	margin:10px;
 	text-align: right;
 }
-.topic .guest-tools .tool {
+.topic .guest-message-tools .tool {
 	display: inline-block;
 	vertical-align: bottom;
 	margin-left: 0.5em;;
