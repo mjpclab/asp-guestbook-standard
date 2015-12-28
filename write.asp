@@ -208,10 +208,12 @@ content1=replace(content1,"<%","< %")
 
 logdate1=now()
 
-homepage1=replace(server.htmlEncode(homepage1)," ","")
-if lcase(left(homepage1,7))<>"http://" and lcase(left(homepage1,6))<>"ftp://" and homepage1<>"" then homepage1="http://" & homepage1
-homepage1=textfilter(homepage1,true)
-homepage1=left(homepage1,127)
+homepage1=Trim(homepage1)
+if homepage1<>"" then
+	if InStr(homepage1,"//")=0 then homepage1="http://" & homepage1
+	homepage1=textfilter(homepage1,true)
+	homepage1=left(homepage1,127)
+end if
 
 if isnumeric(face1)=false or face1="" then
 	face1=0

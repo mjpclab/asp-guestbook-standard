@@ -113,16 +113,20 @@ else
 
 		tstatus=clng(tstatus1)+clng(tstatus2)+clng(tstatus3)+clng(tstatus4)+clng(tstatus5)+clng(tstatus6)+clng(tstatus7)+clng(tstatus8)+clng(tstatus9)
 				
-		thomelogo=server.htmlEncode(Request.Form("homelogo"))
-		thomelogo=textfilter(replace(thomelogo," ",""),true)
-		if lcase(left(thomelogo,4))="www." then thomelogo="http://" & thomelogo
+		thomelogo=Trim(Request.Form("homelogo"))
+		if thomelogo<>"" then
+			thomelogo=textfilter(thomelogo,true)
+			if InStr(thomelogo,"//")=0 then thomelogo="http://" & thomelogo
+		end if
 
 		thomename=server.htmlEncode(Request.Form("homename"))
 				
-		thomeaddr=server.htmlEncode(Request.Form("homeaddr"))
-		thomeaddr=textfilter(replace(thomeaddr," ",""),true)
-		if lcase(left(thomeaddr,4))="www." then thomeaddr="http://" & thomeaddr
-				
+		thomeaddr=Trim(Request.Form("homeaddr"))
+		if thomeaddr<>"" then
+			thomeaddr=textfilter(thomeaddr,true)
+			if InStr(thomeaddr,"//")=0 then thomeaddr="http://" & thomeaddr
+		end if
+
 		tadminhtml=0
 		if Request.Form("adminhtml")="1" then tadminhtml=tadminhtml+1
 		if Request.Form("adminubb")="1" then tadminhtml=tadminhtml+2

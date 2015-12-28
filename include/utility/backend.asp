@@ -166,7 +166,7 @@ function geturlpath()
 	dim host,url,buffer,port,httpHost
 	host="http://"
 	httpHost=Request.ServerVariables("HTTP_HOST")
-	if Len(httpHost)>0 then
+	if httpHost<>"" then
 		host=host & httpHost
 	else
 		buffer=Request.ServerVariables("SERVER_NAME")
@@ -176,7 +176,7 @@ function geturlpath()
 		host=host & buffer
 
 		port=Request.ServerVariables("SERVER_PORT")
-		if Len(port)>0 and port<>"80" then
+		if port<>"" and port<>"80" then
 			host=host & ":" & port
 		end if
 	end if
