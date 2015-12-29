@@ -2,7 +2,7 @@
 body {
 	line-height:<%=CssLineHeight%>;
 }
-body, input, textarea, h1, h2, h3, h4, h5, h6 {
+body, input, textarea, select, h1, h2, h3, h4, h5, h6 {
 	font-family:'<%=CssFontFamily%>', sans-serif;
 	<%=CssOptionalSize("font-size",CssFontSize)%>
 }
