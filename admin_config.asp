@@ -40,7 +40,7 @@
 			<ul>
 				<li><a href="admin_config.asp?page=1">基本配置</a></li>
 				<li><a href="admin_config.asp?page=2">邮件通知</a></li>
-				<li><a href="admin_config.asp?page=4">界面尺寸</a></li>
+				<li><a href="admin_config.asp?page=4">界面与尺寸</a></li>
 				<li><a href="admin_config.asp?page=8">功能设置</a></li>
 				<li><a href="admin_config.asp">全部参数</a></li>
 			</ul>
@@ -51,7 +51,7 @@
 			showpage=15
 			if isnumeric(Request.QueryString("page")) and Request.QueryString("page")<>"" then showpage=clng(Request.QueryString("page"))
 
-			if clng(showpage and 1)<> 0 then
+			if CBool(showpage AND 1) then
 			%>
 				<h4>基本配置</h4>
 				<%tstatus=rs("status")%>
@@ -164,7 +164,7 @@
 			<%
 			end if
 
-			if clng(showpage and 2)<> 0 then
+			if CBool(showpage AND 2) then
 			%>
 				<%tmailflag=rs("mailflag")%>
 				<h4>邮件通知</h4>
@@ -206,9 +206,9 @@
 				</div>
 			<%end if
 
-			if clng(showpage and 4)<> 0 then
+			if CBool(showpage AND 4) then
 			%>
-				<h4>界面尺寸</h4>
+				<h4>界面与尺寸</h4>
 				<div class="field">
 					<span class="label">字体名：</span>
 					<span class="value"><input type="text" size="10" maxlength="30" name="cssfontfamily" value="<%=rs("cssfontfamily")%>" /></span>
@@ -261,10 +261,34 @@
 					<span class="label">少量载入的头像数：</span>
 					<span class="value"><input type="text" size="10" maxlength="3" name="frequentfacecount" value="<%=rs("frequentfacecount")%>" /> (默认=15,单击"更多头像"显示全部)</span>
 				</div>
+				<div class="field">
+					<span class="label">留言本配色方案：</span>
+					<span class="value">
+						<select name="style">
+						<%
+						styleid=rs("styleid")
+
+						set rs1=server.CreateObject("ADODB.Recordset")
+						rs1.Open sql_adminconfig_style,cn,,,1
+
+						dim onestyleid,onestylename
+						while rs1.EOF=false
+							onestyleid=rs1("styleid")
+							onestylename=rs1("stylename")
+							Response.Write "<option value=""" & onestyleid & """"
+							Response.Write seled(onestyleid=styleid or onestyleid="")
+							Response.Write ">" &onestylename& "</option>"
+							rs1.MoveNext
+						wend
+						rs1.Close : set rs1=nothing
+						%>
+						</select>
+					</span>
+				</div>
 			<%
 			end if
 
-			if clng(showpage and 8)<> 0 then
+			if CBool(showpage AND 8) then
 			%>
 				<h4>功能设置</h4>
 				<%tvisualflag=rs("visualflag")%>
@@ -406,28 +430,6 @@
 				<div class="field">
 					<span class="label">重置留言顺序时提示：</span>
 					<span class="value"><input type="radio" name="reordertip" value="1" id="reordertip1"<%=cked(clng(tdelconfirm and 512)<>0)%> /><label for="reordertip1">提示</label>　　<input type="radio" name="reordertip" value="0" id="reordertip2"<%=cked(clng(tdelconfirm and 512)=0)%> /><label for="reordertip2">不提示</label></span>
-				</div>
-				<div class="field">
-					<span class="label">留言本配色方案：</span>
-					<span class="value">
-						<select name="style">
-						<%
-						styleid=rs("styleid")
-						rs.Close
-						rs.Open sql_adminconfig_style,cn,,,1
-
-						dim onestyleid,onestylename
-						while rs.EOF=false
-							onestyleid=rs("styleid")
-							onestylename=rs("stylename")
-							Response.Write "<option value=" &chr(34)& onestyleid &chr(34)
-							if onestyleid=styleid or onestyleid="" then Response.Write " selected=""selected"""
-							Response.Write ">" &onestylename& "</option>"
-							rs.MoveNext
-						wend
-						%>
-						</select>
-					</span>
 				</div>
 			<%end if%>
 

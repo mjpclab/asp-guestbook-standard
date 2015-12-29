@@ -83,7 +83,7 @@ elseif isnumeric(request.Form("advpagelistcount"))=false and clng(showpage and 8
 elseif isnumeric(request.Form("wordslimit"))=false and clng(showpage and 8)<> 0 then
 	errbox "“留言字数限制”必须为数字。"
 else
-	if clng(showpage and 1)<> 0 then
+	if CBool(showpage AND 1) then
 		tstatus1=Request.Form("status1")
 		if tstatus1<>"0" and tstatus1<>"1" then tstatus1=1
 				
@@ -184,7 +184,7 @@ else
 
 	end if
 	
-	if clng(showpage and 2)<> 0 then
+	if CBool(showpage AND 2) then
 		tmailflag=0
 		if Request.Form("mailnewinform")="1" then tmailflag=tmailflag+1
 		if Request.Form("mailreplyinform")="1" then tmailflag=tmailflag+2
@@ -209,8 +209,8 @@ else
 		if len(cstr(tmaillevel))>1 then maillevel=3
 		if clng(tmaillevel)<1 or clng(tmaillevel)>5 then tmaillevel=3
 	end if
-	
-	if clng(showpage and 4)<> 0 then
+
+	if CBool(showpage AND 4) then
 		tcssfontfamily=Request.Form("cssfontfamily")
 		if len(tcssfontfamily)>48 then tcssfontfamily=left(tcssfontfamily,48)
 		
@@ -279,9 +279,15 @@ else
 		if clng(tfrequentfacecount)<0 then tfrequentfacecount=14
 		if clng(tfrequentfacecount)>clng(FaceCount) then tfrequentfacecount=FaceCount
 
+		tstyleid=Request.Form("style")
+		if isnumeric(tstyleid)=false then
+			tstyleid=0
+		else
+			tstyleid=clng(tstyleid)
+		end if
 	end if
 	
-	if clng(showpage and 8)<> 0	then
+	if CBool(showpage AND 8) then
 		tvisualflag=0
 		if Request.Form("replyinword")="1" then tvisualflag=tvisualflag+1
 		if Request.Form("showubbtool")="1" then tvisualflag=tvisualflag+2
@@ -322,8 +328,8 @@ else
 		
 		ttablealign=Request.Form("tablealign")
 		if ttablealign<>"left" and ttablealign<>"center" and ttablealign<>"right" then ttablealign="left"
-				
-		tpagecontrol=0			
+
+		tpagecontrol=0
 		if Request.Form("showborder")="1" then tpagecontrol=tpagecontrol+1
 		if Request.Form("showtitle")="1" then tpagecontrol=tpagecontrol+2
 		if Request.Form("showcontext")="1" then tpagecontrol=tpagecontrol+4
@@ -335,7 +341,7 @@ else
 		if len(cstr(twordslimit))>10 then twordslimit=0
 		if twordslimit>2147483647 then twordslimit=2147483647
 		twordslimit=abs(twordslimit)
-		
+
 		tdelconfirm=0
 		if Request.Form("deltip")="1" then tdelconfirm=tdelconfirm+1
 		if Request.Form("delretip")="1" then tdelconfirm=tdelconfirm+2
@@ -347,10 +353,6 @@ else
 		if Request.Form("bring2toptip")="1" then tdelconfirm=tdelconfirm+128
 		if Request.Form("lock2toptip")="1" then tdelconfirm=tdelconfirm+256
 		if Request.Form("reordertip")="1" then tdelconfirm=tdelconfirm+512
-
-		tstyleid=Request.Form("style")
-		if isnumeric(tstyleid)=false then tstyleid=0
-		tstyleid=clng(tstyleid)
 	end if
 
 	set cn1=server.CreateObject("ADODB.Connection")
@@ -359,7 +361,7 @@ else
 	Call CreateConn(cn1)
 	rs1.open sql_adminsaveconfig,cn1,0,3
 
-	if clng(showpage and 1)<> 0	then
+	if CBool(showpage AND 1) then
 		rs1("status")=tstatus
 		rs1("homelogo")=thomelogo
 		rs1("homename")=thomename
@@ -372,7 +374,7 @@ else
 		rs1("adminshoworiginalip")=tadminshoworiginalip
 		rs1("vcodecount")=tvcodecount + twritevcodecount
 	end if
-	if clng(showpage and 2)<> 0	then
+	if CBool(showpage AND 2) then
 		rs1("mailflag")=tmailflag
 		rs1("mailreceive")=tmailreceive
 		rs1("mailfrom")=tmailfrom
@@ -381,7 +383,7 @@ else
 		rs1("mailuserpass")=tmailuserpass
 		rs1("maillevel")=tmaillevel
 	end if
-	if clng(showpage and 4)<> 0	then
+	if CBool(showpage AND 4) then
 		rs1("cssfontfamily")=tcssfontfamily
 		rs1("cssfontsize")=tcssfontsize
 		rs1("csslineheight")=tcsslineheight
@@ -395,8 +397,9 @@ else
 		rs1("titlesperpage")=ttitlesperpage
 		rs1("picturesperrow")=tpicturesperrow
 		rs1("frequentfacecount")=tfrequentfacecount
+		rs1("styleid")=tstyleid
 	end if
-	if clng(showpage and 8)<> 0	then
+	if CBool(showpage AND 8) then
 		rs1("visualflag")=tvisualflag
 		rs1("advpagelistcount")=tadvpagelistcount
 		rs1("ubbflag")=tubbflag
@@ -404,7 +407,6 @@ else
 		rs1("pagecontrol")=tpagecontrol
 		rs1("wordslimit")=twordslimit
 		rs1("delconfirm")=tdelconfirm
-		rs1("styleid")=tstyleid
 	end if
 	rs1.Update
 	
