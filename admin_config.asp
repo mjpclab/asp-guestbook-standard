@@ -61,35 +61,35 @@
 				</div>
 				<div class="field">
 					<span class="label">访客留言权限：</span>
-					<span class="value"><input type="radio" name="status2" value="2" id="status21"<%=cked(clng(tstatus and 2)<>0)%> /><label for="status21">开启</label>　　<input type="radio" name="status2" value="0" id="status22"<%=cked(clng(tstatus and 2)=0)%> /><label for="status22">关闭</label></span>
+					<span class="value"><input type="radio" name="status2" value="1" id="status21"<%=cked(clng(tstatus and 2)<>0)%> /><label for="status21">开启</label>　　<input type="radio" name="status2" value="0" id="status22"<%=cked(clng(tstatus and 2)=0)%> /><label for="status22">关闭</label></span>
 				</div>
 				<div class="field">
 					<span class="label">访客搜索留言权限：</span>
-					<span class="value"><input type="radio" name="status3" value="4" id="status31"<%=cked(clng(tstatus and 4)<>0)%> /><label for="status31">开启</label>　　<input type="radio" name="status3" value="0" id="status32"<%=cked(clng(tstatus and 4)=0)%> /><label for="status32">关闭</label></span>
+					<span class="value"><input type="radio" name="status3" value="1" id="status31"<%=cked(clng(tstatus and 4)<>0)%> /><label for="status31">开启</label>　　<input type="radio" name="status3" value="0" id="status32"<%=cked(clng(tstatus and 4)=0)%> /><label for="status32">关闭</label></span>
 				</div>
 				<div class="field">
 					<span class="label">访客头像功能：</span>
-					<span class="value"><input type="radio" name="status7" value="8" id="status71"<%=cked(clng(tstatus and 8)<>0)%> /><label for="status71">开启</label>　　<input type="radio" name="status7" value="0" id="status72"<%=cked(clng(tstatus and 8)=0)%> /><label for="status72">关闭</label></span>
+					<span class="value"><input type="radio" name="status4" value="1" id="status41"<%=cked(clng(tstatus and 8)<>0)%> /><label for="status41">开启</label>　　<input type="radio" name="status4" value="0" id="status42"<%=cked(clng(tstatus and 8)=0)%> /><label for="status42">关闭</label></span>
 				</div>
 				<div class="field">
 					<span class="label">留言显示前需审核：</span>
-					<span class="value"><input type="radio" name="status4" value="16" id="status41"<%=cked(clng(tstatus and 16)<>0)%> /><label for="status41">审核</label>　　<input type="radio" name="status4" value="0" id="status42"<%=cked(clng(tstatus and 16)=0)%> /><label for="status42">不审核</label></span>
+					<span class="value"><input type="radio" name="status5" value="1" id="status51"<%=cked(clng(tstatus and 16)<>0)%> /><label for="status51">审核</label>　　<input type="radio" name="status5" value="0" id="status52"<%=cked(clng(tstatus and 16)=0)%> /><label for="status52">不审核</label></span>
 				</div>
 				<div class="field">
 					<span class="label">悄悄话功能：</span>
-					<span class="value"><input type="radio" name="status5" value="32" id="status51"<%=cked(clng(tstatus and 32)<>0)%> /><label for="status51">开启</label>　　<input type="radio" name="status5" value="0" id="status52"<%=cked(clng(tstatus and 32)=0)%> /><label for="status52">关闭</label></span>
+					<span class="value"><input type="radio" name="status6" value="1" id="status61"<%=cked(clng(tstatus and 32)<>0)%> /><label for="status61">开启</label>　　<input type="radio" name="status6" value="0" id="status62"<%=cked(clng(tstatus and 32)=0)%> /><label for="status62">关闭</label></span>
 				</div>
 				<div class="field">
 					<span class="label">访客为悄悄话加密：</span>
-					<span class="value"><input type="radio" name="status6" value="64" id="status61"<%=cked(clng(tstatus and 64)<>0)%> /><label for="status61">允许</label>　　<input type="radio" name="status6" value="0" id="status62"<%=cked(clng(tstatus and 64)=0)%> /><label for="status62">禁止</label></span>
+					<span class="value"><input type="radio" name="status7" value="1" id="status71"<%=cked(clng(tstatus and 64)<>0)%> /><label for="status71">允许</label>　　<input type="radio" name="status7" value="0" id="status72"<%=cked(clng(tstatus and 64)=0)%> /><label for="status72">禁止</label></span>
 				</div>
 				<div class="field">
 					<span class="label">允许访客回复：</span>
-					<span class="value"><input type="radio" name="status8" value="128" id="status81"<%=cked(clng(tstatus and 128)<>0)%> /><label for="status81">允许</label>　　<input type="radio" name="status8" value="0" id="status82"<%=cked(clng(tstatus and 128)=0)%> /><label for="status82">禁止</label></span>
+					<span class="value"><input type="radio" name="status8" value="1" id="status81"<%=cked(clng(tstatus and 128)<>0)%> /><label for="status81">允许</label>　　<input type="radio" name="status8" value="0" id="status82"<%=cked(clng(tstatus and 128)=0)%> /><label for="status82">禁止</label></span>
 				</div>
 				<div class="field">
 					<span class="label">访问统计：</span>
-					<span class="value"><input type="radio" name="status9" value="256" id="status91"<%=cked(clng(tstatus and 256)<>0)%> /><label for="status91">开启</label>　　<input type="radio" name="status9" value="0" id="status92"<%=cked(clng(tstatus and 256)=0)%> /><label for="status92">关闭</label></span>
+					<span class="value"><input type="radio" name="status9" value="1" id="status91"<%=cked(clng(tstatus and 256)<>0)%> /><label for="status91">开启</label>　　<input type="radio" name="status9" value="0" id="status92"<%=cked(clng(tstatus and 256)=0)%> /><label for="status92">关闭</label></span>
 				</div>
 				<div class="field">
 					<span class="label">所属网站Logo地址：</span>
