@@ -179,7 +179,10 @@ function convertstr(byref str,byval htmlflag,byval allUbbFlags)
 	tUBB=CBool(htmlflag and 2)
 	tNewline=CBool(htmlflag and 4)
 
-	if tHTML=false then
+	if tHTML then
+		str=Replace(str,"<script","&lt;script")
+		str=Replace(str,"</script>","&lt;/script>")
+	else
 		str=server.HTMLEncode(str)
 		str=replace(str,chr(9),"        ")
 		'str=replace(str," ","&nbsp;")
