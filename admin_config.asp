@@ -57,39 +57,39 @@
 				<%tstatus=rs("status")%>
 				<div class="field">
 					<span class="label">留言本状态：</span>
-					<span class="value"><input type="radio" name="status1" value="1" id="status11"<%=cked(clng(tstatus and 1)<>0)%> /><label for="status11">开启</label>　　<input type="radio" name="status1" value="0" id="status12"<%=cked(clng(tstatus and 1)=0)%> /><label for="status12">关闭</label> (关闭时"访客留言权限"设置无效)</span>
+					<span class="value"><input type="radio" name="status1" value="1" id="status11"<%=cked(CBool(tstatus AND 1))%> /><label for="status11">开启</label>　　<input type="radio" name="status1" value="0" id="status12"<%=cked(Not CBool(tstatus AND 1))%> /><label for="status12">关闭</label> (关闭时"访客留言权限"设置无效)</span>
 				</div>
 				<div class="field">
 					<span class="label">访客留言权限：</span>
-					<span class="value"><input type="radio" name="status2" value="1" id="status21"<%=cked(clng(tstatus and 2)<>0)%> /><label for="status21">开启</label>　　<input type="radio" name="status2" value="0" id="status22"<%=cked(clng(tstatus and 2)=0)%> /><label for="status22">关闭</label></span>
+					<span class="value"><input type="radio" name="status2" value="1" id="status21"<%=cked(CBool(tstatus AND 2))%> /><label for="status21">开启</label>　　<input type="radio" name="status2" value="0" id="status22"<%=cked(Not CBool(tstatus AND 2))%> /><label for="status22">关闭</label></span>
 				</div>
 				<div class="field">
 					<span class="label">访客搜索留言权限：</span>
-					<span class="value"><input type="radio" name="status3" value="1" id="status31"<%=cked(clng(tstatus and 4)<>0)%> /><label for="status31">开启</label>　　<input type="radio" name="status3" value="0" id="status32"<%=cked(clng(tstatus and 4)=0)%> /><label for="status32">关闭</label></span>
+					<span class="value"><input type="radio" name="status3" value="1" id="status31"<%=cked(CBool(tstatus AND 4))%> /><label for="status31">开启</label>　　<input type="radio" name="status3" value="0" id="status32"<%=cked(Not CBool(tstatus AND 4))%> /><label for="status32">关闭</label></span>
 				</div>
 				<div class="field">
 					<span class="label">访客头像功能：</span>
-					<span class="value"><input type="radio" name="status4" value="1" id="status41"<%=cked(clng(tstatus and 8)<>0)%> /><label for="status41">开启</label>　　<input type="radio" name="status4" value="0" id="status42"<%=cked(clng(tstatus and 8)=0)%> /><label for="status42">关闭</label></span>
+					<span class="value"><input type="radio" name="status4" value="1" id="status41"<%=cked(CBool(tstatus AND 8))%> /><label for="status41">开启</label>　　<input type="radio" name="status4" value="0" id="status42"<%=cked(Not CBool(tstatus AND 8))%> /><label for="status42">关闭</label></span>
 				</div>
 				<div class="field">
 					<span class="label">留言显示前需审核：</span>
-					<span class="value"><input type="radio" name="status5" value="1" id="status51"<%=cked(clng(tstatus and 16)<>0)%> /><label for="status51">审核</label>　　<input type="radio" name="status5" value="0" id="status52"<%=cked(clng(tstatus and 16)=0)%> /><label for="status52">不审核</label></span>
+					<span class="value"><input type="radio" name="status5" value="1" id="status51"<%=cked(CBool(tstatus AND 16))%> /><label for="status51">审核</label>　　<input type="radio" name="status5" value="0" id="status52"<%=cked(Not CBool(tstatus AND 16))%> /><label for="status52">不审核</label></span>
 				</div>
 				<div class="field">
 					<span class="label">悄悄话功能：</span>
-					<span class="value"><input type="radio" name="status6" value="1" id="status61"<%=cked(clng(tstatus and 32)<>0)%> /><label for="status61">开启</label>　　<input type="radio" name="status6" value="0" id="status62"<%=cked(clng(tstatus and 32)=0)%> /><label for="status62">关闭</label></span>
+					<span class="value"><input type="radio" name="status6" value="1" id="status61"<%=cked(CBool(tstatus AND 32))%> /><label for="status61">开启</label>　　<input type="radio" name="status6" value="0" id="status62"<%=cked(Not CBool(tstatus AND 32))%> /><label for="status62">关闭</label></span>
 				</div>
 				<div class="field">
 					<span class="label">访客为悄悄话加密：</span>
-					<span class="value"><input type="radio" name="status7" value="1" id="status71"<%=cked(clng(tstatus and 64)<>0)%> /><label for="status71">允许</label>　　<input type="radio" name="status7" value="0" id="status72"<%=cked(clng(tstatus and 64)=0)%> /><label for="status72">禁止</label></span>
+					<span class="value"><input type="radio" name="status7" value="1" id="status71"<%=cked(CBool(tstatus AND 64))%> /><label for="status71">允许</label>　　<input type="radio" name="status7" value="0" id="status72"<%=cked(Not CBool(tstatus AND 64))%> /><label for="status72">禁止</label></span>
 				</div>
 				<div class="field">
 					<span class="label">允许访客回复：</span>
-					<span class="value"><input type="radio" name="status8" value="1" id="status81"<%=cked(clng(tstatus and 128)<>0)%> /><label for="status81">允许</label>　　<input type="radio" name="status8" value="0" id="status82"<%=cked(clng(tstatus and 128)=0)%> /><label for="status82">禁止</label></span>
+					<span class="value"><input type="radio" name="status8" value="1" id="status81"<%=cked(CBool(tstatus AND 128))%> /><label for="status81">允许</label>　　<input type="radio" name="status8" value="0" id="status82"<%=cked(Not CBool(tstatus AND 128))%> /><label for="status82">禁止</label></span>
 				</div>
 				<div class="field">
 					<span class="label">访问统计：</span>
-					<span class="value"><input type="radio" name="status9" value="1" id="status91"<%=cked(clng(tstatus and 256)<>0)%> /><label for="status91">开启</label>　　<input type="radio" name="status9" value="0" id="status92"<%=cked(clng(tstatus and 256)=0)%> /><label for="status92">关闭</label></span>
+					<span class="value"><input type="radio" name="status9" value="1" id="status91"<%=cked(CBool(tstatus AND 256))%> /><label for="status91">开启</label>　　<input type="radio" name="status9" value="0" id="status92"<%=cked(Not CBool(tstatus AND 256))%> /><label for="status92">关闭</label></span>
 				</div>
 				<div class="field">
 					<span class="label">所属网站Logo地址：</span>
@@ -106,23 +106,23 @@
 				<%adminlimit=rs("adminhtml")%>
 				<div class="field">
 					<span class="label">管理员安全性设置：</span>
-					<span class="value"><input type="checkbox" value="1" name="adminviewcode" id="adminviewcode"<%=cked(clng(adminlimit and 8)<>0)%> /><label for="adminviewcode">访客留言显示实际HTML或UBB代码</label></span>
+					<span class="value"><input type="checkbox" value="1" name="adminviewcode" id="adminviewcode"<%=cked(CBool(adminlimit AND 8))%> /><label for="adminviewcode">访客留言显示实际HTML或UBB代码</label></span>
 				</div>
 				<div class="field">
 					<span class="label">管理员默认HTML权限：</span>
 					<span class="value">
-						<span class="row"><input type="checkbox" value="1" name="adminhtml" id="adminhtml"<%=cked(clng(adminlimit and 1)<>0)%> /><label for="adminhtml">管理员回复、公告默认支持HTML</label></span>
-						<span class="row"><input type="checkbox" value="1" name="adminubb" id="adminubb"<%=cked(clng(adminlimit and 2)<>0)%> /><label for="adminubb">管理员回复、公告默认支持UBB</label></span>
-						<span class="row"><input type="checkbox" value="1" name="adminertn" id="adminertn"<%=cked(clng(adminlimit and 4)<>0)%> /><label for="adminertn">管理员不支持HTML和UBB时，默认允许回车换行</label></span>
+						<span class="row"><input type="checkbox" value="1" name="adminhtml" id="adminhtml"<%=cked(CBool(adminlimit AND 1))%> /><label for="adminhtml">管理员回复、公告默认支持HTML</label></span>
+						<span class="row"><input type="checkbox" value="1" name="adminubb" id="adminubb"<%=cked(CBool(adminlimit AND 2))%> /><label for="adminubb">管理员回复、公告默认支持UBB</label></span>
+						<span class="row"><input type="checkbox" value="1" name="adminertn" id="adminertn"<%=cked(CBool(adminlimit AND 4))%> /><label for="adminertn">管理员不支持HTML和UBB时，默认允许回车换行</label></span>
 					</span>
 				</div>
 				<%guestlimit=rs("guesthtml")%>
 				<div class="field">
 					<span class="label">访客HTML权限：</span>
 					<span class="value">
-						<span class="row"><input type="checkbox" value="1" name="guesthtml" id="guesthtml"<%=cked(clng(guestlimit and 1)<>0)%> /><label for="guesthtml">访客留言支持HTML</label></span>
-						<span class="row"><input type="checkbox" value="1" name="guestubb" id="guestubb"<%=cked(clng(guestlimit and 2)<>0)%> /><label for="guestubb">访客留言支持UBB</label></span>
-						<span class="row"><input type="checkbox" value="1" name="guestertn" id="guestertn"<%=cked(clng(guestlimit and 4)<>0)%> /><label for="guestertn">访客不支持HTML和UBB时，允许回车换行</label></span>
+						<span class="row"><input type="checkbox" value="1" name="guesthtml" id="guesthtml"<%=cked(CBool(guestlimit AND 1))%> /><label for="guesthtml">访客留言支持HTML</label></span>
+						<span class="row"><input type="checkbox" value="1" name="guestubb" id="guestubb"<%=cked(CBool(guestlimit AND 2))%> /><label for="guestubb">访客留言支持UBB</label></span>
+						<span class="row"><input type="checkbox" value="1" name="guestertn" id="guestertn"<%=cked(CBool(guestlimit AND 4))%> /><label for="guestertn">访客不支持HTML和UBB时，允许回车换行</label></span>
 					</span>
 				</div>
 				<div class="field">
@@ -170,15 +170,15 @@
 				<h4>邮件通知</h4>
 				<div class="field">
 					<span class="label">新留言到达通知版主：</span>
-					<span class="value"><input type="checkbox" value="1" name="mailnewinform" id="mailnewinform"<%=cked(clng(tmailflag and 1)<>0)%> /><label for="mailnewinform">启用</label></span>
+					<span class="value"><input type="checkbox" value="1" name="mailnewinform" id="mailnewinform"<%=cked(CBool(tmailflag AND 1))%> /><label for="mailnewinform">启用</label></span>
 				</div>
 				<div class="field">
 					<span class="label">版主回复通知留言人：</span>
-					<span class="value"><input type="checkbox" value="1" name="mailreplyinform" id="mailreplyinform"<%=cked(clng(tmailflag and 2)<>0)%> /><label for="mailreplyinform">开启</label></span>
+					<span class="value"><input type="checkbox" value="1" name="mailreplyinform" id="mailreplyinform"<%=cked(CBool(tmailflag AND 2))%> /><label for="mailreplyinform">开启</label></span>
 				</div>
 				<div class="field">
 					<span class="label">邮件发送组件：</span>
-					<span class="value"><input type="radio" value="0" name="mailcomponent" id="mailcomponent0"<%=cked(clng(tmailflag and 4)=0)%> /><label for="mailcomponent0">JMail</label>　<input type="radio" value="1" name="mailcomponent" id="mailcomponent1"<%=cked(clng(tmailflag and 4)<>0)%> /><label for="mailcomponent1">CDO</label></span>
+					<span class="value"><input type="radio" value="0" name="mailcomponent" id="mailcomponent0"<%=cked(Not CBool(tmailflag AND 4))%> /><label for="mailcomponent0">JMail</label>　<input type="radio" value="1" name="mailcomponent" id="mailcomponent1"<%=cked(CBool(tmailflag AND 4))%> /><label for="mailcomponent1">CDO</label></span>
 				</div>
 				<div class="field">
 					<span class="label">新留言通知接收地址：</span>
@@ -294,27 +294,27 @@
 				<%tvisualflag=rs("visualflag")%>
 				<div class="field">
 					<span class="label">默认版面模式：</span>
-					<span class="value"><input type="radio" name="displaymode" value="1" id="displaymode1"<%=cked(clng(tvisualflag and 1024)<>0)%> /><label for="displaymode1">标题模式</label>　　<input type="radio" name="displaymode" value="0" id="displaymode2"<%=cked(clng(tvisualflag and 1024)=0)%> /><label for="displaymode2">完整模式</label></span>
+					<span class="value"><input type="radio" name="displaymode" value="1" id="displaymode1"<%=cked(CBool(tvisualflag AND 1024))%> /><label for="displaymode1">标题模式</label>　　<input type="radio" name="displaymode" value="0" id="displaymode2"<%=cked(Not CBool(tvisualflag AND 1024))%> /><label for="displaymode2">完整模式</label></span>
 				</div>
 				<div class="field">
 					<span class="label">回复内容显示位置：</span>
-					<span class="value"><input type="radio" name="replyinword" value="1" id="replyinword1"<%=cked(clng(tvisualflag and 1)<>0)%> /><label for="replyinword1">内嵌于访客留言</label>　　<input type="radio" name="replyinword" value="0" id="replyinword2"<%=cked(clng(tvisualflag and 1)=0)%> /><label for="replyinword2">显示在访客留言下方</label></span>
+					<span class="value"><input type="radio" name="replyinword" value="1" id="replyinword1"<%=cked(CBool(tvisualflag AND 1))%> /><label for="replyinword1">内嵌于访客留言</label>　　<input type="radio" name="replyinword" value="0" id="replyinword2"<%=cked(Not CBool(tvisualflag AND 1))%> /><label for="replyinword2">显示在访客留言下方</label></span>
 				</div>
 				<div class="field">
 					<span class="label">隐藏内容被隐藏的留言：</span>
-					<span class="value"><input type="radio" name="hidehidden" value="1" id="hidehidden1"<%=cked(clng(tvisualflag and 128)<>0)%> /><label for="hidehidden1" >隐藏</label>　　<input type="radio" name="hidehidden" value="0" id="hidehidden2"<%=cked(clng(tvisualflag and 128)=0)%> /><label for="hidehidden2" >显示</label></span>
+					<span class="value"><input type="radio" name="hidehidden" value="1" id="hidehidden1"<%=cked(CBool(tvisualflag AND 128))%> /><label for="hidehidden1" >隐藏</label>　　<input type="radio" name="hidehidden" value="0" id="hidehidden2"<%=cked(Not CBool(tvisualflag AND 128))%> /><label for="hidehidden2" >显示</label></span>
 				</div>
 				<div class="field">
 					<span class="label">隐藏待审核留言：</span>
-					<span class="value"><input type="radio" name="hideaudit" value="1" id="hideaudit1"<%=cked(clng(tvisualflag and 256)<>0)%> /><label for="hideaudit1" >隐藏</label>　　<input type="radio" name="hideaudit" value="0" id="hideaudit2"<%=cked(clng(tvisualflag and 256)=0)%> /><label for="hideaudit2" >显示</label></span>
+					<span class="value"><input type="radio" name="hideaudit" value="1" id="hideaudit1"<%=cked(CBool(tvisualflag AND 256))%> /><label for="hideaudit1" >隐藏</label>　　<input type="radio" name="hideaudit" value="0" id="hideaudit2"<%=cked(Not CBool(tvisualflag AND 256))%> /><label for="hideaudit2" >显示</label></span>
 				</div>
 				<div class="field">
 					<span class="label">隐藏版主未回复悄悄话：</span>
-					<span class="value"><input type="radio" name="hidewhisper" value="1" id="hidewhisper1"<%=cked(clng(tvisualflag and 512)<>0)%> /><label for="hidewhisper1" >隐藏</label>　　<input type="radio" name="hidewhisper" value="0" id="hidewhisper2"<%=cked(clng(tvisualflag and 512)=0)%> /><label for="hidewhisper2" >显示</label></span>
+					<span class="value"><input type="radio" name="hidewhisper" value="1" id="hidewhisper1"<%=cked(CBool(tvisualflag AND 512))%> /><label for="hidewhisper1" >隐藏</label>　　<input type="radio" name="hidewhisper" value="0" id="hidewhisper2"<%=cked(Not CBool(tvisualflag AND 512))%> /><label for="hidewhisper2" >显示</label></span>
 				</div>
 				<div class="field">
 					<span class="label">Logo显示模式：</span>
-					<span class="value"><input type="radio" name="logobannermode" value="1" id="logobannermode1"<%=cked(clng(tvisualflag and 2048)<>0)%> /><label for="logobannermode1" >横幅模式</label>　　<input type="radio" name="logobannermode" value="0" id="logobannermode2"<%=cked(clng(tvisualflag and 2048)=0)%> /><label for="logobannermode2" >图片模式</label></span>
+					<span class="value"><input type="radio" name="logobannermode" value="1" id="logobannermode1"<%=cked(CBool(tvisualflag AND 2048))%> /><label for="logobannermode1" >横幅模式</label>　　<input type="radio" name="logobannermode" value="0" id="logobannermode2"<%=cked(Not CBool(tvisualflag AND 2048))%> /><label for="logobannermode2" >图片模式</label></span>
 				</div>
 				<div class="field">
 					<span class="label">分页窗口显示位置：</span>
@@ -326,7 +326,7 @@
 				</div>
 				<div class="field">
 					<span class="label">分页列表模式：</span>
-					<span class="value"><input type="radio" name="advpagelist" value="1" id="advpagelist1"<%=cked(clng(tvisualflag and 64)<>0)%> /><label for="advpagelist1">区段式</label>　<input type="radio" name="advpagelist" value="0" id="advpagelist2"<%=cked(clng(tvisualflag and 64)=0)%> /><label for="advpagelist2">平面式</label></span>
+					<span class="value"><input type="radio" name="advpagelist" value="1" id="advpagelist1"<%=cked(CBool(tvisualflag AND 64))%> /><label for="advpagelist1">区段式</label>　<input type="radio" name="advpagelist" value="0" id="advpagelist2"<%=cked(Not CBool(tvisualflag AND 64))%> /><label for="advpagelist2">平面式</label></span>
 				</div>
 				<div class="field">
 					<span class="label">区段式分页项数：</span>
@@ -334,7 +334,7 @@
 				</div>
 				<div class="field">
 					<span class="label">UBB工具栏：</span>
-					<span class="value"><input type="radio" name="showubbtool" value="1" id="showubbtool1"<%=cked(clng(tvisualflag and 2)<>0)%> /><label for="showubbtool1">显示</label>　　<input type="radio" name="showubbtool" value="0" id="showubbtool2"<%=cked(clng(tvisualflag and 2)=0)%> /><label for="showubbtool2">隐藏</label></span>
+					<span class="value"><input type="radio" name="showubbtool" value="1" id="showubbtool1"<%=cked(CBool(tvisualflag AND 2))%> /><label for="showubbtool1">显示</label>　　<input type="radio" name="showubbtool" value="0" id="showubbtool2"<%=cked(Not CBool(tvisualflag AND 2))%> /><label for="showubbtool2">隐藏</label></span>
 				</div>
 				<div class="field">
 					<span class="label">UBB开关(须启用UBB)：</span>
@@ -364,27 +364,27 @@
 				<%tpagecontrol=rs("pagecontrol")%>
 				<div class="field">
 					<span class="label">留言本边框线：</span>
-					<span class="value"><input type="radio" name="showborder" value="1" id="showborder1"<%=cked(clng(tpagecontrol and 1)<>0)%> /><label for="showborder1">显示</label>　　<input type="radio" name="showborder" value="0" id="showborder2"<%=cked(clng(tpagecontrol and 1)=0)%> /><label for="showborder2">隐藏</label></span>
+					<span class="value"><input type="radio" name="showborder" value="1" id="showborder1"<%=cked(CBool(tpagecontrol AND 1))%> /><label for="showborder1">显示</label>　　<input type="radio" name="showborder" value="0" id="showborder2"<%=cked(Not CBool(tpagecontrol AND 1))%> /><label for="showborder2">隐藏</label></span>
 				</div>
 				<div class="field">
 					<span class="label">留言本总标题：</span>
-					<span class="value"><input type="radio" name="showtitle" value="1" id="showtitle1"<%=cked(clng(tpagecontrol and 2)<>0)%> /><label for="showtitle1">显示</label>　　<input type="radio" name="showtitle" value="0" id="showtitle2"<%=cked(clng(tpagecontrol and 2)=0)%> /><label for="showtitle2">隐藏</label></span>
+					<span class="value"><input type="radio" name="showtitle" value="1" id="showtitle1"<%=cked(CBool(tpagecontrol AND 2))%> /><label for="showtitle1">显示</label>　　<input type="radio" name="showtitle" value="0" id="showtitle2"<%=cked(Not CBool(tpagecontrol AND 2))%> /><label for="showtitle2">隐藏</label></span>
 				</div>
 				<div class="field">
 					<span class="label">网页右键菜单：</span>
-					<span class="value"><input type="radio" name="showcontext" value="1" id="showcontext1"<%=cked(clng(tpagecontrol and 4)<>0)%> /><label for="showcontext1">启用</label>　　<input type="radio" name="showcontext" value="0" id="showcontext2"<%=cked(clng(tpagecontrol and 4)=0)%> /><label for="showcontext2">禁用</label></span>
+					<span class="value"><input type="radio" name="showcontext" value="1" id="showcontext1"<%=cked(CBool(tpagecontrol AND 4))%> /><label for="showcontext1">启用</label>　　<input type="radio" name="showcontext" value="0" id="showcontext2"<%=cked(Not CBool(tpagecontrol AND 4))%> /><label for="showcontext2">禁用</label></span>
 				</div>
 				<div class="field">
 					<span class="label">选择网页内容：</span>
-					<span class="value"><input type="radio" name="selectcontent" value="1" id="selectcontent1"<%=cked(clng(tpagecontrol and 8)<>0)%> /><label for="selectcontent1">允许</label>　　<input type="radio" name="selectcontent" value="0" id="selectcontent2"<%=cked(clng(tpagecontrol and 8)=0)%> /><label for="selectcontent2">禁止</label></span>
+					<span class="value"><input type="radio" name="selectcontent" value="1" id="selectcontent1"<%=cked(CBool(tpagecontrol AND 8))%> /><label for="selectcontent1">允许</label>　　<input type="radio" name="selectcontent" value="0" id="selectcontent2"<%=cked(Not CBool(tpagecontrol AND 8))%> /><label for="selectcontent2">禁止</label></span>
 				</div>
 				<div class="field">
 					<span class="label">复制网页(Ctrl-C)：</span>
-					<span class="value"><input type="radio" name="copycontent" value="1" id="copycontent1"<%=cked(clng(tpagecontrol and 16)<>0)%> /><label for="copycontent1">允许</label>　　<input type="radio" name="copycontent" value="0" id="copycontent2"<%=cked(clng(tpagecontrol and 16)=0)%> /><label for="copycontent2">禁止</label></span>
+					<span class="value"><input type="radio" name="copycontent" value="1" id="copycontent1"<%=cked(CBool(tpagecontrol AND 16))%> /><label for="copycontent1">允许</label>　　<input type="radio" name="copycontent" value="0" id="copycontent2"<%=cked(Not CBool(tpagecontrol AND 16))%> /><label for="copycontent2">禁止</label></span>
 				</div>
 				<div class="field">
 					<span class="label">被IFrame内嵌：</span>
-					<span class="value"><input type="radio" name="beframed" value="1" id="beframed1"<%=cked(clng(tpagecontrol and 32)<>0)%> /><label for="beframed1">允许</label>　　<input type="radio" name="beframed" value="0" id="beframed2"<%=cked(clng(tpagecontrol and 32)=0)%> /><label for="beframed2">禁止</label></span>
+					<span class="value"><input type="radio" name="beframed" value="1" id="beframed1"<%=cked(CBool(tpagecontrol AND 32))%> /><label for="beframed1">允许</label>　　<input type="radio" name="beframed" value="0" id="beframed2"<%=cked(Not CBool(tpagecontrol AND 32))%> /><label for="beframed2">禁止</label></span>
 				</div>
 				<div class="field">
 					<span class="label">留言字数限制：</span>
@@ -393,43 +393,43 @@
 				<%tdelconfirm=rs("delconfirm")%>
 				<div class="field">
 					<span class="label">留言通过审核前提示：</span>
-					<span class="value"><input type="radio" name="passaudittip" value="1" id="passaudittip1"<%=cked(clng(tdelconfirm and 16)<>0)%> /><label for="passaudittip1">提示</label>　　<input type="radio" name="passaudittip" value="0" id="passaudittip2"<%=cked(clng(tdelconfirm and 16)=0)%> /><label for="passaudittip2">不提示</label></span>
+					<span class="value"><input type="radio" name="passaudittip" value="1" id="passaudittip1"<%=cked(CBool(tdelconfirm AND 16))%> /><label for="passaudittip1">提示</label>　　<input type="radio" name="passaudittip" value="0" id="passaudittip2"<%=cked(Not CBool(tdelconfirm AND 16))%> /><label for="passaudittip2">不提示</label></span>
 				</div>
 				<div class="field">
 					<span class="label">选定留言通过审核提示：</span>
-					<span class="value"><input type="radio" name="passseltip" value="1" id="passseltip1"<%=cked(clng(tdelconfirm and 32)<>0)%> /><label for="passseltip1">提示</label>　　<input type="radio" name="passseltip" value="0" id="passseltip2"<%=cked(clng(tdelconfirm and 32)=0)%> /><label for="passseltip2">不提示</label></span>
+					<span class="value"><input type="radio" name="passseltip" value="1" id="passseltip1"<%=cked(CBool(tdelconfirm AND 32))%> /><label for="passseltip1">提示</label>　　<input type="radio" name="passseltip" value="0" id="passseltip2"<%=cked(Not CBool(tdelconfirm AND 32))%> /><label for="passseltip2">不提示</label></span>
 				</div>
 				<div class="field">
 					<span class="label">删除留言时提示：</span>
-					<span class="value"><input type="radio" name="deltip" value="1" id="deltip1"<%=cked(clng(tdelconfirm and 1)<>0)%> /><label for="deltip1">提示</label>　　<input type="radio" name="deltip" value="0" id="deltip2"<%=cked(clng(tdelconfirm and 1)=0)%> /><label for="deltip2">不提示</label></span>
+					<span class="value"><input type="radio" name="deltip" value="1" id="deltip1"<%=cked(CBool(tdelconfirm AND 1))%> /><label for="deltip1">提示</label>　　<input type="radio" name="deltip" value="0" id="deltip2"<%=cked(Not CBool(tdelconfirm AND 1))%> /><label for="deltip2">不提示</label></span>
 				</div>
 				<div class="field">
 					<span class="label">删除回复时提示：</span>
-					<span class="value"><input type="radio" name="delretip" value="1" id="delretip1"<%=cked(clng(tdelconfirm and 2)<>0)%> /><label for="delretip1">提示</label>　　<input type="radio" name="delretip" value="0" id="delretip2"<%=cked(clng(tdelconfirm and 2)=0)%> /><label for="delretip2">不提示</label></span>
+					<span class="value"><input type="radio" name="delretip" value="1" id="delretip1"<%=cked(CBool(tdelconfirm AND 2))%> /><label for="delretip1">提示</label>　　<input type="radio" name="delretip" value="0" id="delretip2"<%=cked(Not CBool(tdelconfirm AND 2))%> /><label for="delretip2">不提示</label></span>
 				</div>
 				<div class="field">
 					<span class="label">删除选定留言时提示：</span>
-					<span class="value"><input type="radio" name="delseltip" value="1" id="delseltip1"<%=cked(clng(tdelconfirm and 4)<>0)%> /><label for="delseltip1">提示</label>　　<input type="radio" name="delseltip" value="0" id="delseltip2"<%=cked(clng(tdelconfirm and 4)=0)%> /><label for="delseltip2">不提示</label></span>
+					<span class="value"><input type="radio" name="delseltip" value="1" id="delseltip1"<%=cked(CBool(tdelconfirm AND 4))%> /><label for="delseltip1">提示</label>　　<input type="radio" name="delseltip" value="0" id="delseltip2"<%=cked(Not CBool(tdelconfirm AND 4))%> /><label for="delseltip2">不提示</label></span>
 				</div>
 				<div class="field">
 					<span class="label">执行高级删除时提示：</span>
-					<span class="value"><input type="radio" name="deladvtip" value="1" id="deladvtip1"<%=cked(clng(tdelconfirm and 8)<>0)%> /><label for="deladvtip1">提示</label>　　<input type="radio" name="deladvtip" value="0" id="deladvtip2"<%=cked(clng(tdelconfirm and 8)=0)%> /><label for="deladvtip2">不提示</label></span>
+					<span class="value"><input type="radio" name="deladvtip" value="1" id="deladvtip1"<%=cked(CBool(tdelconfirm AND 8))%> /><label for="deladvtip1">提示</label>　　<input type="radio" name="deladvtip" value="0" id="deladvtip2"<%=cked(Not CBool(tdelconfirm AND 8))%> /><label for="deladvtip2">不提示</label></span>
 				</div>
 				<div class="field">
 					<span class="label">公开悄悄话时提示：</span>
-					<span class="value"><input type="radio" name="pubwhispertip" value="1" id="pubwhispertip1"<%=cked(clng(tdelconfirm and 64)<>0)%> /><label for="pubwhispertip1">提示</label>　　<input type="radio" name="pubwhispertip" value="0" id="pubwhispertip2"<%=cked(clng(tdelconfirm and 64)=0)%> /><label for="pubwhispertip2">不提示</label></span>
+					<span class="value"><input type="radio" name="pubwhispertip" value="1" id="pubwhispertip1"<%=cked(CBool(tdelconfirm AND 64))%> /><label for="pubwhispertip1">提示</label>　　<input type="radio" name="pubwhispertip" value="0" id="pubwhispertip2"<%=cked(Not CBool(tdelconfirm AND 64))%> /><label for="pubwhispertip2">不提示</label></span>
 				</div>
 				<div class="field">
 					<span class="label">置顶留言时提示：</span>
-					<span class="value"><input type="radio" name="lock2toptip" value="1" id="lock2toptip1"<%=cked(clng(tdelconfirm and 256)<>0)%> /><label for="lock2toptip1">提示</label>　　<input type="radio" name="lock2toptip" value="0" id="lock2toptip2"<%=cked(clng(tdelconfirm and 256)=0)%> /><label for="lock2toptip2">不提示</label></span>
+					<span class="value"><input type="radio" name="lock2toptip" value="1" id="lock2toptip1"<%=cked(CBool(tdelconfirm AND 256))%> /><label for="lock2toptip1">提示</label>　　<input type="radio" name="lock2toptip" value="0" id="lock2toptip2"<%=cked(Not CBool(tdelconfirm AND 256))%> /><label for="lock2toptip2">不提示</label></span>
 				</div>
 				<div class="field">
 					<span class="label">提前留言时提示：</span>
-					<span class="value"><input type="radio" name="bring2toptip" value="1" id="bring2toptip1"<%=cked(clng(tdelconfirm and 128)<>0)%> /><label for="bring2toptip1">提示</label>　　<input type="radio" name="bring2toptip" value="0" id="bring2toptip2"<%=cked(clng(tdelconfirm and 128)=0)%> /><label for="bring2toptip2">不提示</label></span>
+					<span class="value"><input type="radio" name="bring2toptip" value="1" id="bring2toptip1"<%=cked(CBool(tdelconfirm AND 128))%> /><label for="bring2toptip1">提示</label>　　<input type="radio" name="bring2toptip" value="0" id="bring2toptip2"<%=cked(Not CBool(tdelconfirm AND 128))%> /><label for="bring2toptip2">不提示</label></span>
 				</div>
 				<div class="field">
 					<span class="label">重置留言顺序时提示：</span>
-					<span class="value"><input type="radio" name="reordertip" value="1" id="reordertip1"<%=cked(clng(tdelconfirm and 512)<>0)%> /><label for="reordertip1">提示</label>　　<input type="radio" name="reordertip" value="0" id="reordertip2"<%=cked(clng(tdelconfirm and 512)=0)%> /><label for="reordertip2">不提示</label></span>
+					<span class="value"><input type="radio" name="reordertip" value="1" id="reordertip1"<%=cked(CBool(tdelconfirm AND 512))%> /><label for="reordertip1">提示</label>　　<input type="radio" name="reordertip" value="0" id="reordertip2"<%=cked(Not CBool(tdelconfirm AND 512))%> /><label for="reordertip2">不提示</label></span>
 				</div>
 			<%end if%>
 

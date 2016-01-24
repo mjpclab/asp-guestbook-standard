@@ -71,23 +71,23 @@
 				<%tfiltermode=clng(rs("filtermode"))%>
 				<p>查找内容<br/>
 				<input type="text" name="findexp" value="<%=rs("regexp")%>" /><br/>
-				<input type="checkbox" name="matchcase" id="matchcase<%=tfilterid%>" value="8192"<%=cked(clng(tfiltermode and 8192)<>0)%> /><label for="matchcase<%=tfilterid%>">区分大小写</label>
-				<input type="checkbox" name="multiline" id="multiline<%=tfilterid%>" value="2048"<%=cked(clng(tfiltermode and 2048)<>0)%> /><label for="multiline<%=tfilterid%>">正则多行模式</label>
+				<input type="checkbox" name="matchcase" id="matchcase<%=tfilterid%>" value="8192"<%=cked(CBool(tfiltermode AND 8192))%> /><label for="matchcase<%=tfilterid%>">区分大小写</label>
+				<input type="checkbox" name="multiline" id="multiline<%=tfilterid%>" value="2048"<%=cked(CBool(tfiltermode AND 2048))%> /><label for="multiline<%=tfilterid%>">正则多行模式</label>
 				</p>
 				<p>查找范围<br/>
-				<input type="checkbox" name="findrange" id="findname<%=tfilterid%>" value="1"<%=cked(clng(tfiltermode and 1)<>0)%> /><label for="findname<%=tfilterid%>">称呼</label>
-				<input type="checkbox" name="findrange" id="findmail<%=tfilterid%>" value="2"<%=cked(clng(tfiltermode and 2)<>0)%> /><label for="findmail<%=tfilterid%>">邮件</label>
-				<input type="checkbox" name="findrange" id="findqq<%=tfilterid%>" value="4"<%=cked(clng(tfiltermode and 4)<>0)%> /><label for="findqq<%=tfilterid%>">QQ号</label>
-				<input type="checkbox" name="findrange" id="findmsn<%=tfilterid%>" value="8"<%=cked(clng(tfiltermode and 8)<>0)%> /><label for="findmsn<%=tfilterid%>">Skype</label>
-				<input type="checkbox" name="findrange" id="findhome<%=tfilterid%>" value="16"<%=cked(clng(tfiltermode and 16)<>0)%> /><label for="findhome<%=tfilterid%>">主页</label>
-				<input type="checkbox" name="findrange" id="findtitle<%=tfilterid%>" value="32"<%=cked(clng(tfiltermode and 32)<>0)%> /><label for="findtitle<%=tfilterid%>">标题</label>
-				<input type="checkbox" name="findrange" id="findcontent<%=tfilterid%>" value="64"<%=cked(clng(tfiltermode and 64)<>0)%> /><label for="findcontent<%=tfilterid%>">内容</label>
+				<input type="checkbox" name="findrange" id="findname<%=tfilterid%>" value="1"<%=cked(CBool(tfiltermode AND 1))%> /><label for="findname<%=tfilterid%>">称呼</label>
+				<input type="checkbox" name="findrange" id="findmail<%=tfilterid%>" value="2"<%=cked(CBool(tfiltermode AND 2))%> /><label for="findmail<%=tfilterid%>">邮件</label>
+				<input type="checkbox" name="findrange" id="findqq<%=tfilterid%>" value="4"<%=cked(CBool(tfiltermode AND 4))%> /><label for="findqq<%=tfilterid%>">QQ号</label>
+				<input type="checkbox" name="findrange" id="findmsn<%=tfilterid%>" value="8"<%=cked(CBool(tfiltermode AND 8))%> /><label for="findmsn<%=tfilterid%>">Skype</label>
+				<input type="checkbox" name="findrange" id="findhome<%=tfilterid%>" value="16"<%=cked(CBool(tfiltermode AND 16))%> /><label for="findhome<%=tfilterid%>">主页</label>
+				<input type="checkbox" name="findrange" id="findtitle<%=tfilterid%>" value="32"<%=cked(CBool(tfiltermode AND 32))%> /><label for="findtitle<%=tfilterid%>">标题</label>
+				<input type="checkbox" name="findrange" id="findcontent<%=tfilterid%>" value="64"<%=cked(CBool(tfiltermode AND 64))%> /><label for="findcontent<%=tfilterid%>">内容</label>
 				</p>
 				<p>处理方式<br/>
-				<input type="radio" name="filtermethod" id="filtermethoda<%=tfilterid%>" value="0"<%=cked(clng(tfiltermode and 16384)=0)%> onclick="if(typeof(this.form.replacetxt.disabled)!='undefined')this.form.replacetxt.disabled=false;" /><label for="filtermethoda<%=tfilterid%>">替换为下面的文本</label>
-				<input type="radio" name="filtermethod" id="filtermethodb<%=tfilterid%>" value="4096"<%=cked(clng(tfiltermode and 4096)<>0)%> onclick="if(typeof(this.form.replacetxt.disabled)!='undefined')this.form.replacetxt.disabled=true;" /><label for="filtermethodb<%=tfilterid%>">等待审核</label>
-				<input type="radio" name="filtermethod" id="filtermethodc<%=tfilterid%>" value="16384"<%=cked(clng(tfiltermode and 16384)<>0)%> onclick="if(typeof(this.form.replacetxt.disabled)!='undefined')this.form.replacetxt.disabled=true;" /><label for="filtermethodc<%=tfilterid%>">拒绝留言</label><br/>
-				<input type="text" name="replacetxt" value="<%=rs("replacestr")%>"<%=dised(clng(tfiltermode and 16384+4096)<>0)%> />
+				<input type="radio" name="filtermethod" id="filtermethoda<%=tfilterid%>" value="0"<%=cked(Not CBool(tfiltermode AND 16384))%> onclick="if(typeof(this.form.replacetxt.disabled)!='undefined')this.form.replacetxt.disabled=false;" /><label for="filtermethoda<%=tfilterid%>">替换为下面的文本</label>
+				<input type="radio" name="filtermethod" id="filtermethodb<%=tfilterid%>" value="4096"<%=cked(CBool(tfiltermode AND 4096))%> onclick="if(typeof(this.form.replacetxt.disabled)!='undefined')this.form.replacetxt.disabled=true;" /><label for="filtermethodb<%=tfilterid%>">等待审核</label>
+				<input type="radio" name="filtermethod" id="filtermethodc<%=tfilterid%>" value="16384"<%=cked(CBool(tfiltermode AND 16384))%> onclick="if(typeof(this.form.replacetxt.disabled)!='undefined')this.form.replacetxt.disabled=true;" /><label for="filtermethodc<%=tfilterid%>">拒绝留言</label><br/>
+				<input type="text" name="replacetxt" value="<%=rs("replacestr")%>"<%=dised(CBool(tfiltermode and 16384+4096))%> />
 				</p>
 				<p>备注<br/>
 				<input type="text" name="memo" maxlength="25" value="<%=rs("memo")%>" />
