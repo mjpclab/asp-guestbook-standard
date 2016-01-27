@@ -164,7 +164,7 @@ sub getadmininfo()
 	rs3.close
 	set rs3=nothing
 
-	if clng(admin_faceid)<>0 and admin_faceurl="" then admin_faceurl=FacePath & admin_faceid  & ".gif"
+	if clng(admin_faceid)<>0 and admin_faceurl="" then admin_faceurl="asset/face/" & admin_faceid  & ".gif"
 end sub
 
 function GetHiddenWordCondition()
@@ -360,7 +360,7 @@ sub outeraudit(t_rs)%>
 		<%fid=t_rs("faceid")
 		if isnumeric(fid) and StatusShowHead=true then
 			if fid>=1 and fid<=FaceCount then%>
-				<img class="face" src="<%=FacePath & cstr(fid)%>.gif" />
+				<img class="face" src="asset/face/<%=fid%>.gif" />
 			<%end if
 		end if%>
 
@@ -386,7 +386,7 @@ sub innerword(byref t_rs)%>
 			<%end if%>
 		<h2 class="title"><%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then response.write "(给版主的悄悄话...)" else response.write t_rs("title")%></h2>
 	</div>
-	<%if StatusShowHead and t_rs.Fields("faceid")>=1 and t_rs.Fields("faceid")<=FaceCount then%><img class="face" src="<%=FacePath & t_rs.Fields("faceid")%>.gif"/><%end if%>
+	<%if StatusShowHead and t_rs.Fields("faceid")>=1 and t_rs.Fields("faceid")<=FaceCount then%><img class="face" src="asset/face/<%=t_rs.Fields("faceid")%>.gif"/><%end if%>
 	<div class="words">
 		<%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then%>
 			<span class="inner-hint"><img src="asset/image/icon_whisper.gif"/>(给版主的悄悄话...)</span>
@@ -418,7 +418,7 @@ sub outerword(byref rs)%>
 		<%fid=rs("faceid")
 		if isnumeric(fid) and StatusShowHead=true then
 			if fid>=1 and fid<=FaceCount then%>
-				<img class="face" src="<%=FacePath & cstr(fid)%>.gif" />
+				<img class="face" src="asset/face/<%=fid%>.gif" />
 			<%end if
 		end if%>
 

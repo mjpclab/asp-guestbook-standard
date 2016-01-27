@@ -16,7 +16,7 @@
 		var minHeadId=<%=FrequentFaceCount%>;
 		var maxHeadId=<%=FaceCount%>;
 		var picsPerRow=<%=PicturesPerRow%>;
-		var facePath='<%=FacePath%>';
+		var facePath='asset/face/';
 		
 		for(var i=minHeadId; i<=maxHeadId+(picsPerRow - (maxHeadId+1) % picsPerRow); i++)
 		{
@@ -73,7 +73,7 @@
 			
 			if ihead_id+1 <= FrequentFaceCount Or ihead_id=0 then
 				hidestyle=" style="""""
-				imagesrc= " src=""" &FacePath & ihead_id & ".gif"""
+				imagesrc= " src=""asset/face/" & ihead_id & ".gif"""
 			else
 				hidestyle=" style=""display:none;"""
 				imagesrc=" src=""about:blank"""

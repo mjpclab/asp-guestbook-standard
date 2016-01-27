@@ -12,7 +12,7 @@
 	</div>
 	<%if UbbFlag_face Or allflags then%>
 	<div class="row">
-		<%for i=1 to SmallFaceCount%><a name="ubbface" class="ubbface face<%=i%>" title="[face<%=i%>]"><img alt="[face<%=i%>]" src="<%=SmallFacePath & i%>.gif"/></a><%next%>
+		<%for i=1 to SmallFaceCount%><a name="ubbface" class="ubbface face<%=i%>" title="[face<%=i%>]"><img alt="[face<%=i%>]" src="asset/smallface/<%=i%>.gif"/></a><%next%>
 	</div>
 	<%end if%>
 </div>

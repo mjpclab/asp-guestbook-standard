@@ -100,7 +100,7 @@ else
 	if UbbFlag_face or allUbbFlags then
 		if isnumeric(SmallFaceCount) and SmallFaceCount<>"" then
 			re.Pattern="\[face(\d{1," & len(cstr(SmallFaceCount)) & "})\]"
-			strContent=re.Replace(strContent,"<img src=""" & SmallFacePath & "$1.gif"" />")
+			strContent=re.Replace(strContent,"<img src=""asset/smallface/$1.gif"" />")
 		end if
 	end if
 
