@@ -832,6 +832,23 @@ form .row {
 	border-color:#fff;
 }
 
+.tlist {
+	text-align: left;
+	overflow: hidden;
+	background: none;
+}
+.tlist ul {
+	display: block;
+	margin:0 0 1em 0;
+	padding:0;
+}
+.tlist li,
+.tlist a {
+	display: block;
+	margin:0;
+	padding:0;
+}
+
 /**************** Responsible ****************/
 @media only screen and (max-width: 420px) {
 	.outerborder {

@@ -4,6 +4,7 @@
 <!-- #include file="include/sql/init.asp" -->
 <!-- #include file="include/sql/admin_verify.asp" -->
 <!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/backend.asp" -->
 <!-- #include file="include/utility/frontend.asp" -->
 <!-- #include file="include/utility/book.asp" -->
 <!-- #include file="loadconfig.asp" -->
@@ -20,37 +21,20 @@ Response.Expires=-1
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 
 	<script type="text/javascript">
-	function swIframe(jschk)
-	{
-		var span=document.getElementById('iframeSettings');
-		if(jschk.checked)
-			span.style.visibility='hidden';
-		else
-			span.style.visibility='visible';
-	}
-	
-	function urlEncode(url)
-	{
-		return url.replace('%','%25').replace('?','%3F').replace(' ','%20').replace('#','%23').replace('&','%26').replace('\'','%27').replace('/','%2F').replace('<','%3C').replace('>','%3E');
-	}
-	
 	function generateCallCode()
 	{
 		var frm_n=document.getElementById('frm_n');
 		var frm_len=document.getElementById('frm_len');
 		var frm_code=document.getElementById('frm_code');
-	
-		var url=document.getElementById('url').value;
-		var n=document.getElementById('frm_n').value;
-		var target=document.getElementById('frm_target').value;
+
+		var mode=document.getElementById('frm_mode').value;
+		var baseurl=document.getElementById('frm_baseurl').value;
+		var n=frm_n.value;
+		var len=frm_len.value;
 		var prefix=document.getElementById('frm_prefix').value;
-		var len=document.getElementById('frm_len').value;
-		var nobr=document.getElementById('frm_nobr').checked;
-		var js=document.getElementById('frm_js').checked;
-		var width=document.getElementById('frm_width').value;
-		var height=document.getElementById('frm_height').value;
-		
-		if(n==='')
+		var target=document.getElementById('frm_target').value;
+
+		if(n.length===0)
 		{
 			alert('请输入显示条数。');
 			frm_n.focus();
@@ -68,27 +52,33 @@ Response.Expires=-1
 			frm_len.select();
 			return false;
 		}
-		else
-		{
-			var temp;
-			if(js) temp='<' + 'script type="text/javascript" src="{0}" charset="gbk"><\/script>';
-			else temp='<iframe width="{w}" height="{h}" src="{0}" frameborder="0"><\/iframe>';
-			
-			var src=
-				url +
-				'?n=' + n +
-				(js ? '&js=yes' : '') +
-				(target!='' ? '&target='+target : '') +
-				(prefix!='' ? '&prefix='+urlEncode(prefix) : '') +
-				(len!='' ? '&len='+len : '') +
-				(nobr ? '&nobr=yes' : '');
-			
-			frm_code.value=temp.replace('{w}',width).replace('{h}',height).replace('{0}',src);
-			return false;
+
+		if(baseurl.substr(-1)!=='/') {
+			baseurl+='/';
+		}
+
+		var url=baseurl + 'tlist.asp?mode=' + mode + '&n=' + n;
+		if(len) {
+			url+='&len='+len;
+		}
+		if(prefix) {
+			url+='&prefix='+encodeURIComponent(prefix)
+		}
+		if(target) {
+			url+='&target='+target;
+		}
+
+		if(mode==='iframe') {
+			frm_code.value='<iframe src="' +url+ '" frameborder="0"><\/iframe>';
+		}
+		else if(mode==='js') {
+			frm_code.value='<' + 'script type="text/javascript" src="' +url+ '" charset="gbk"><\/script>';
+		}
+		else if(mode==='json') {
+			frm_code.value='请用GET方式访问以下URL：\n' + url;
 		}
 	}
 	</script>
-
 </head>
 
 <body<%=bodylimit%> onload="<%=framecheck%>">
@@ -98,58 +88,52 @@ Response.Expires=-1
 <%if ShowTitle=true then show_book_title 3,"管理"%>
 <!-- #include file="include/template/admin_mainmenu.inc" -->
 
-<div class="region region-callgen">
+<div class="region region-longtext region-callgen">
 	<h3 class="title">生成调用代码</h3>
 	<div class="content">
 		<p>此页用于生成留言本留言标题调用代码。请输入调用代码所需的参数，其中“显示条数”为必填项：</p>
 
-		<form method="post" action="" onsubmit="return generateCallCode();">
-		<input type="hidden" name="IsPostBack" id="IsPostBack" value="1" />
-		<input type="hidden" name="url" id="url" value="<%=geturlpath%>tlist.asp" />
-		<div class="field">
-			<span class="label">显示条数：<span class="required">*</span></span>
-			<span class="value"><input type="text" name="frm_n" id="frm_n" maxlength="10" value="10" /></span>
-		</div>
-		<div class="field">
-			<span class="label">打开窗口：</span>
+		<form>
+		<div class="field field-mode">
+			<span class="label">使用模式：</span>
 			<span class="value">
-				<select name="frm_target" id="frm_target">
-					<option value="" <%=seled(Request.Form("frm_target")="")%>>(默认)</option>
-					<option value="_blank" <%=seled(Request.Form("frm_target")="_blank")%>>打开新页面</option>
-					<option value="_self" <%=seled(Request.Form("frm_target")="_self")%>>相同窗口或框架窗口</option>
-					<option value="_top" <%=seled(Request.Form("frm_target")="_top")%>>整个浏览器窗口</option>
-					<option value="_parent" <%=seled(Request.Form("frm_target")="_parent")%>>父框架窗口</option>
+				<select name="frm_mode" id="frm_mode">
+					<option value="iframe">iframe</option>
+					<option value="js">JS输出</option>
+					<option value="json">JSON数据</option>
 				</select>
 			</span>
 		</div>
-		<div class="field">
+		<div class="field field-base-url">
+			<span class="label">留言本根URL：</span>
+			<span class="value"><input type="text" name="frm_baseurl" id="frm_baseurl" value="<%=geturlpath%>" /></span>
+		</div>
+		<div class="field field-n">
+			<span class="label">显示条数：<span class="required">*</span></span>
+			<span class="value"><input type="text" name="frm_n" id="frm_n" maxlength="10" value="10"/></span>
+		</div>
+		<div class="field field-len">
+			<span class="label">标题字数限制：</span>
+			<span class="value"><input type="text" name="frm_len" id="frm_len"/></span>
+		</div>
+		<div class="field field-prefix">
 			<span class="label">标题前缀：</span>
-			<span class="value"><input type="text" name="frm_prefix" id="frm_prefix" value="<%=Request.Form("frm_prefix")%>" /></span>
+			<span class="value"><input type="text" name="frm_prefix" id="frm_prefix"/></span>
 		</div>
-		<div class="field">
-			<span class="label">字数限制：</span>
-			<span class="value"><input type="text" name="frm_len" id="frm_len" value="<%=Request.Form("frm_len")%>" /></span>
-		</div>
-		<div class="field">
-			<span class="label">不输出断行：</span>
-			<span class="value"><input type="checkbox" name="frm_nobr" id="frm_nobr" value="1" <%=cked(Request.Form("frm_nobr")="1")%> /></span>
-		</div>
-		<div class="field">
-			<span class="label">使用JS模式：</span>
-			<span class="value"><input type="checkbox" name="frm_js" id="frm_js" value="1" <%=cked(Request.Form("frm_js")="1")%> onclick="swIframe(this);" /></span>
-		</div>
-		<div id="iframeSettings">
-			<div class="field">
-				<span class="label">窗口宽度：</span>
-				<span class="value"><input type="text" name="frm_width" id="frm_width" value="<%=Request.Form("frm_width")%>" /></span>
-			</div>
-			<div class="field">
-				<span class="label">窗口高度：</span>
-				<span class="value"><input type="text" name="frm_height" id="frm_height" value="<%=Request.Form("frm_height")%>" /></span>
-			</div>
+		<div class="field field-target">
+			<span class="label">打开窗口：</span>
+			<span class="value">
+				<select name="frm_target" id="frm_target">
+					<option value="">(默认)</option>
+					<option value="_blank">打开新页面(_blank)</option>
+					<option value="_self">相同窗口或框架窗口(_self)</option>
+					<option value="_top">整个浏览器窗口(_top)</option>
+					<option value="_parent">父框架窗口(_parent)</option>
+				</select>
+			</span>
 		</div>
 		<div class="field-command">
-			<input type="submit" name="submit1" id="submit1" value="生成调用代码" />
+			<input type="button" name="btn_generate" id="btn_generate" value="生成调用代码" onclick="generateCallCode();" />
 		</div>
 		<div class="field">
 			<span class="row">已生成的调用代码：</span>
