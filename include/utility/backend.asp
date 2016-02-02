@@ -164,7 +164,11 @@ End Function
 
 function geturlpath()
 	dim host,url,buffer,port,httpHost
-	host="http://"
+	if LCase(Request.ServerVariables("HTTPS"))="on" then
+		host="https://"
+	else
+		host="http://"
+	end if
 	httpHost=Request.ServerVariables("HTTP_HOST")
 	if httpHost<>"" then
 		host=host & httpHost
