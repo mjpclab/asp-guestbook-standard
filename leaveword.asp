@@ -143,6 +143,7 @@ end function
 	end if
 	%>
 
+	<div id="mainborder" class="mainborder">
 	<div class="region">
 		<h3 class="title">╩╤с╜дЗаТят</h3>
 		<div class="content">
@@ -250,9 +251,11 @@ end function
 			</form>
 		</div>
 	</div>
+	</div>
+
+	<!-- #include file="include/template/footer.inc" -->
 </div>
 
-<!-- #include file="include/template/footer.inc" -->
 <script type="text/javascript">
 	<!-- #include file="asset/js/refresh-captcha.js" -->
 </script>

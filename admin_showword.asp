@@ -60,6 +60,7 @@ end if
 <div id="outerborder" class="outerborder">
 
 	<%if ShowTitle=true then show_book_title 3,"№ЬАн"%>
+	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/admin_mainmenu.inc" -->
 	<!-- #include file="include/template/topbulletin.inc" -->
 
@@ -78,9 +79,9 @@ end if
 		<input type="hidden" name="searchtxt" value="<%=Request.QueryString("searchtxt")%>" />
 		<!-- #include file="include/template/admin_func.inc" -->
 	</form>
+	</div>
 
+	<!-- #include file="include/template/footer.inc" -->
 </div>
-
-<!-- #include file="include/template/footer.inc" -->
 </body>
 </html>

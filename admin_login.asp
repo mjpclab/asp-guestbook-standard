@@ -47,6 +47,7 @@ if VcodeCount>0 then Session("vcode")=getvcode(VcodeCount)
 
 <body onload="if(form5.iadminpass.value.length===0)form5.iadminpass.focus()">
 
+<div id="mainborder" class="mainborder narrow-mainborder">
 <div class="region form-region narrow-region">
 	<h3 class="title">¹ÜÀíÔ±µÇÂ¼</h3>
 	<div class="content">
@@ -67,6 +68,7 @@ if VcodeCount>0 then Session("vcode")=getvcode(VcodeCount)
 			</div>
 			</form>
 	</div>
+</div>
 </div>
 <script type="text/javascript">
 	<!-- #include file="asset/js/refresh-captcha.js" -->

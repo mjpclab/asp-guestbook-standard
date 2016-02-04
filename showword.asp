@@ -64,6 +64,7 @@ rs.Close
 
 	<%if ShowTitle=true then show_book_title 3,"ä¯ÀÀÁôÑÔ"%>
 
+	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/guest_func.inc" -->
 	<!-- #include file="include/template/topbulletin.inc" -->
 	<%if StatusSearch and ShowTopSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
@@ -168,9 +169,11 @@ rs.Close
 	<!-- #include file="include/template/guest_func.inc" -->
 
 	<%if StatusSearch and ShowBottomSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
+	</div>
+
+	<!-- #include file="include/template/footer.inc" -->
 </div>
 
-<!-- #include file="include/template/footer.inc" -->
 <script type="text/javascript">
 	<!-- #include file="asset/js/refresh-captcha.js" -->
 </script>

@@ -83,9 +83,6 @@ label {
 
 .outerborder {
 	overflow: hidden;
-	border-style: solid;
-	margin-top: 10px;
-	margin-bottom: 10px;
 }
 
 
@@ -191,6 +188,21 @@ form .row {
 }
 *+html .header .breadcrumb {
 	display: inline;
+}
+
+/**************** mainborder ****************/
+.mainborder {
+	overflow: hidden;
+	background: #f7f7f7;
+	border: 1px #ccc solid;
+	box-shadow: 0 0 20px #ccc;
+}
+
+body .narrow-mainborder {
+	max-width: 400px;
+}
+*html body .narrow-mainborder {
+	width: 400px;
 }
 
 /**************** guest-functions ****************/
@@ -619,6 +631,9 @@ form .row {
 .narrow-region {
 	max-width:400px;
 }
+.narrow-region:first-child {
+	margin-top: 0;
+}
 *html .narrow-region {
 	width:400px;
 }
@@ -851,8 +866,19 @@ form .row {
 
 /**************** Responsible ****************/
 @media only screen and (max-width: 420px) {
-	.outerborder {
+	body .mainborder {
+		border-width:0 0 1px 0;
+		margin-top:0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	body .region:first-child {
 		margin-top: 0;
+	}
+
+	body .narrow-mainborder {
+		padding:0;
+		border:0;
 	}
 
 	body .topic .info {

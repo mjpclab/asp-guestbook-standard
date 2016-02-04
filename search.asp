@@ -76,7 +76,7 @@ end if
 
 <div id="outerborder" class="outerborder">
 	<%if ShowTitle=true then show_book_title 3,"搜索结果"%>
-
+	<div id="mainborder" class="mainborder">
 	<%RPage="search.asp"%><!-- #include file="include/template/guest_func.inc" -->
 	<!-- #include file="include/template/topbulletin.inc" -->
 	<%if CanOpenDB=true and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"search.asp","[搜索结果分页]","type=" &request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
@@ -103,8 +103,13 @@ end if
 
 	<%if CanOpenDB=true and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"search.asp","[搜索结果分页]","type=" &request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
 	<%if ShowBottomSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
-</div>
+	</div>
 
+	<!-- #include file="include/template/footer.inc" -->
+</div>
+<!-- #include file="include/template/getclientinfo.inc" -->
+</body>
+</html>
 <%
 if CanOpenDB=true then
 	cn.Close
@@ -112,8 +117,3 @@ if CanOpenDB=true then
 	set cn=nothing
 end if
 %>
-
-<!-- #include file="include/template/footer.inc" -->
-<!-- #include file="include/template/getclientinfo.inc" -->
-</body>
-</html>

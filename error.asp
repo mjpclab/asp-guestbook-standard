@@ -36,6 +36,7 @@ sub ErrorPage(errorCode)
 
 		<%if ShowTitle=true then show_book_title 3,"´íÎó"%>
 
+		<div id="mainborder" class="mainborder">
 		<div class="guest-functions">
 			<div class="aside">
 				<a class="function" href="admin.asp">¹ÜÀí</a>
@@ -43,9 +44,10 @@ sub ErrorPage(errorCode)
 		</div>
 
 		<p style="margin-bottom: 3em;">¡¡¡¡¡ö¡¡<%=errmsg%></p>
-	</div>
+		</div>
 
-	<!-- #include file="include/template/footer.inc" -->
+		<!-- #include file="include/template/footer.inc" -->
+	</div>
 	</body>
 	</html>
 	<%

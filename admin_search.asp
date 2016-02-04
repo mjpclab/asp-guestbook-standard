@@ -89,8 +89,8 @@ end if
 <div id="outerborder" class="outerborder">
 
 	<%if ShowTitle=true then show_book_title 3,"管理"%>
+	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/admin_mainmenu.inc" -->
-
 	<div class="region form-region center-region">
 		<h3 class="title">搜索留言</h3>
 		<div class="content">
@@ -143,14 +143,14 @@ end if
 	</form>
 
 	<%if CanOpenDB and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"admin_search.asp","[搜索结果分页]","type=" &Request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
-</div>
+	</div>
 
+	<!-- #include file="include/template/footer.inc" -->
+</div>
+</body>
+</html>
 <%
 if CanOpenDB=true then
 	cn.Close : set rs=nothing : set cn=nothing
 end if
 %>
-
-<!-- #include file="include/template/footer.inc" -->
-</body>
-</html>

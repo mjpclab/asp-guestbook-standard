@@ -14,12 +14,6 @@ textarea, input, select {
 	background-color: #a00;
 }
 
-.outerborder {
-	border-width: 2px;
-	border-color: #fff200;
-	padding: 2px;
-}
-
 .header {
 	color: #fff200;
 	background-color: #e00000;

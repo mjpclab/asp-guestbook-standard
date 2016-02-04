@@ -25,8 +25,8 @@
 <div id="outerborder" class="outerborder">
 
 	<%if ShowTitle=true then show_book_title 3,"№ЬАн"%>
+	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/admin_mainmenu.inc" -->
-
 	<%
 	set cn=server.CreateObject("ADODB.Connection")
 	set rs=server.CreateObject("ADODB.Recordset")
@@ -164,9 +164,10 @@
 	</div>
 </div>
 
-<%cn.Close : set rs=nothing : set cn=nothing%>
-</div>
+	</div>
 
-<!-- #include file="include/template/footer.inc" -->
+	<!-- #include file="include/template/footer.inc" -->
+</div>
 </body>
 </html>
+<%cn.Close : set rs=nothing : set cn=nothing%>

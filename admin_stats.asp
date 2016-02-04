@@ -24,8 +24,8 @@
 <div id="outerborder" class="outerborder">
 
 	<%if ShowTitle=true then show_book_title 3,"管理"%>
+	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/admin_mainmenu.inc" -->
-
 <%
 set cn=server.CreateObject("ADODB.Connection")
 set rs=server.CreateObject("ADODB.Recordset")
@@ -266,6 +266,8 @@ on error resume next
 </div>
 </div>
 
+<!-- #include file="include/template/footer.inc" -->
+</div>
 <script type="text/javascript" src="asset/js/tabcontrol.js"></script>
 <script type="text/javascript">
 	tab=new TabControl('div_outer');
@@ -289,7 +291,5 @@ on error resume next
 	tab.addPage('div_30day','最近30天访问量');
 	tab.addPage('div_source','访问来源');
 </script>
-	
-<!-- #include file="include/template/footer.inc" -->
 </body>
 </html>

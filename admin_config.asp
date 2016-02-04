@@ -24,8 +24,8 @@
 <div id="outerborder" class="outerborder">
 
 	<%if ShowTitle=true then show_book_title 3,"№ЬАн"%>
+	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/admin_mainmenu.inc" -->
-
 	<%
 	set cn=server.CreateObject("ADODB.Connection")
 	set rs=server.CreateObject("ADODB.Recordset")
@@ -438,9 +438,11 @@
 			</form>
 		</div>
 	</div>
+	</div>
 
-<%rs.Close : cn.Close : set rs=nothing : set cn=nothing%>
+	<!-- #include file="include/template/footer.inc" -->
 </div>
+<%rs.Close : cn.Close : set rs=nothing : set cn=nothing%>
 
 <script type="text/javascript">
 function check()
@@ -568,7 +570,5 @@ function check()
 	return true;
 }
 </script>
-
-<!-- #include file="include/template/footer.inc" -->
 </body>
 </html>
