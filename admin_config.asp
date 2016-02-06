@@ -356,16 +356,7 @@
 						</span>
 					</span>
 				</div>
-				<%talign=rs("tablealign")%>
-				<div class="field">
-					<span class="label">留言本对齐方式：</span>
-					<span class="value"><input type="radio" name="tablealign" value="left" id="align1"<%=cked(talign<>"center" and talign<>"right")%> /><label for="align1">左对齐</label>　<input type="radio" name="tablealign" value="center" id="align2"<%=cked(talign="center")%> /><label for="align2">居中</label>　　<input type="radio" name="tablealign" value="right" id="align3"<%=cked(talign="right")%> /><label for="align3">右对齐</label></span>
-				</div>
 				<%tpagecontrol=rs("pagecontrol")%>
-				<div class="field">
-					<span class="label">留言本边框线：</span>
-					<span class="value"><input type="radio" name="showborder" value="1" id="showborder1"<%=cked(CBool(tpagecontrol AND 1))%> /><label for="showborder1">显示</label>　　<input type="radio" name="showborder" value="0" id="showborder2"<%=cked(Not CBool(tpagecontrol AND 1))%> /><label for="showborder2">隐藏</label></span>
-				</div>
 				<div class="field">
 					<span class="label">留言本总标题：</span>
 					<span class="value"><input type="radio" name="showtitle" value="1" id="showtitle1"<%=cked(CBool(tpagecontrol AND 2))%> /><label for="showtitle1">显示</label>　　<input type="radio" name="showtitle" value="0" id="showtitle2"<%=cked(Not CBool(tpagecontrol AND 2))%> /><label for="showtitle2">隐藏</label></span>

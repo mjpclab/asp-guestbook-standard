@@ -8,13 +8,9 @@ body, input, textarea, select, h1, h2, h3, h4, h5, h6 {
 }
 
 .mainborder {
-	margin:<%=WindowSpace%>px;
+	margin:<%=WindowSpace%>px auto;
 	padding:<%=WindowSpace%>px;
 	<%=CssOptionalSize("max-width",TableWidth)%>
-	<%if TableAlign="left" then Response.Write "margin-right:auto;"%>
-	<%if TableAlign="right" then Response.Write "margin-left:auto;"%>
-	<%if TableAlign="center" then Response.Write "margin-left:auto; margin-right:auto;"%>
-	<%if ShowBorder=false then%>border:0 none transparent;<%end if%>
 }
 *html .mainborder {
 	<%=CssOptionalSize("width",TableWidth)%>
@@ -41,9 +37,6 @@ body, input, textarea, select, h1, h2, h3, h4, h5, h6 {
 
 .footer {
 	<%=CssOptionalSize("max-width",TableWidth)%>
-	<%if TableAlign="left" then Response.Write "margin-right:auto;"%>
-	<%if TableAlign="right" then Response.Write "margin-left:auto;"%>
-	<%if TableAlign="center" then Response.Write "margin-left:auto; margin-right:auto;"%>
 }
 *html .footer {
 	<%=CssOptionalSize("width",TableWidth)%>

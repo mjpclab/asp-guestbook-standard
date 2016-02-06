@@ -106,7 +106,6 @@ UbbFlag_alignment=CBool(UbbFlag and 128)
 'UbbFlag_cssfilter=CBool(UbbFlag and 512)
 UbbFlag_face=CBool(UbbFlag and 1024)
 
-TableAlign=lrs("tablealign")		'表格对齐方式 left:左对齐 center:居中 right:右对齐
 TableWidth=lrs("tablewidth")		'表格宽度，可用百分比
 TableLeftWidth=lrs("tableleftwidth")	'表格左方宽度，可用百分比
 WindowSpace=lrs("windowspace")			'窗格区块间距
@@ -122,7 +121,7 @@ FrequentFaceCount=lrs("frequentfacecount")	'少量载入的头像数
 if FrequentFaceCount>FaceCount then FrequentFaceCount=FaceCount
 
 PageControl=clng(lrs("pagecontrol"))
-ShowBorder=CBool(PageControl and 1)			'显示边框
+'ShowBorder=CBool(PageControl and 1)		'显示边框
 ShowTitle=CBool(PageControl and 2)			'显示标题栏
 ShowContext=CBool(PageControl and 4)		'显示右键菜单
 SelectContent=CBool(PageControl and 8)		'允许选择
