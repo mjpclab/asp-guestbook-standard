@@ -1,23 +1,17 @@
 body {
-	color: #000;
-	background-color: #eff4fa;
-	background-image: url(../../image/bg_darkblue.gif);
-}
-
-a {
-	color: #000;
+	background: #ebf2f8 url(../../image/bg_grayblue.gif);
 }
 
 textarea, input, select {
-	border-color: #69c;
-	color: #000;
-	background-color: #fff;
+	border-color: #86b1dc;
+	outline-color: #69c;
+	background: #fff;
 }
 
 .header {
-	color: #000;
-	background-color: #69c;
-	background-image: url(../../image/bar_top_darkblue.gif);
+	border-color:#86b1dc;
+	background: #d2e4f6;
+	box-shadow:0 0 3px #86b1dc;
 }
 
 .guest-functions .aside .function {
@@ -25,41 +19,35 @@ textarea, input, select {
 }
 
 .topic {
-	border-color: #69c;
-	background-color: #eff1f3;
+	border-color: #86b1dc;
+	background: #eff1f3;
 }
 
 .topic .message {
-	border-color: #69c;
-	color: #000;
+	border-color: #86b1dc;
 }
 
 .topic .info {
-	color: #000;
-	border-color: #69c;
-	background-color: #eff1f3;
-	background-image: none;
+	border-color: #86b1dc;
+	background: #eff1f3;
 }
 
 .topic .detail {
-	border-color: #69c;
+	border-color: #86b1dc;
 }
 
 .topic .title {
-	border-color: #69c;
-	color: #000;
-	background-color: #69c;
-	background-image: url(../../image/bar_darkblue.gif);
+	border-color: #86b1dc;
+	background:#bfdfff;
 }
 
 .topic .inner-message {
-	border-color: #69c;
-	background-color: #f7f8f9;
+	border-color: #86b1dc;
+	background: #f7f8f9;
 }
 
 .topic .inner-message .summary {
-	color: #000;
-	border-color: #69c;
+	border-color: #86b1dc;
 }
 
 .topic .admin-message .title,
@@ -72,16 +60,16 @@ textarea, input, select {
 }
 
 .topic .outer-hint {
-	border-color: #69c;
+	border-color: #86b1dc;
 }
 
 .topic .admin-message-tools {
-	border-color: #69c;
+	border-color: #86b1dc;
 }
 
 .topic-list {
-	border-color: #69c;
-	background-color: #eff1f3;
+	border-color: #86b1dc;
+	background: #eff1f3;
 }
 
 .topic-list tbody tr:hover td {
@@ -90,35 +78,30 @@ textarea, input, select {
 
 .topic-list th,
 .topic-list td {
-	border-color: #69c;
+	border-color: #86b1dc;
 }
 
 .topic-list th {
-	color: #000;
-	background-color: #69c;
-	background-image: url(../../image/bar_darkblue.gif);
+	background:#bfdfff;
 }
 
 .region {
-	border-color: #69c;
-	color: #000;
-	background-color: #eff1f3;
+	border-color: #86b1dc;
+	background: #eff1f3;
 }
 
 .region .title {
-	border-color: #69c;
-	color: #000;
-	background-color: #69c;
-	background-image: url(../../image/bar_darkblue.gif);
+	border-color: #86b1dc;
+	background:#bfdfff;
 }
 
 .region .content table {
-	border-color: #69c;
+	border-color: #86b1dc;
 }
 
 .region .content table th,
 .region .content table td {
-	border-color: #69c;
+	border-color: #86b1dc;
 }
 
 .page-list .nav a {
@@ -127,7 +110,7 @@ textarea, input, select {
 
 .page-list .nav a:hover {
 	border-color: #69c;
-	background-color: #f7f8f9;
+	background: #f7f8f9;
 }
 
 .page-list .pagenum,
@@ -136,12 +119,11 @@ textarea, input, select {
 .page-list .pagenum:active,
 .page-list .pagenum:hover {
 	border-color: #eff1f3;
-	color: #000;
 }
 
 .page-list .pagenum:hover {
 	border-color: #69c;
-	background-color: #f7f8f9;
+	background: #f7f8f9;
 }
 
 .page-list .pagenum-current,
@@ -169,7 +151,7 @@ textarea, input, select {
 .tab-outer-container .tab-title-selected {
 	border-color: #69c;
 	border-bottom-color: transparent;
-	background-color: #eff1f3;
+	background: #eff1f3;
 }
 
 * html .tab-outer-container .tab-title-selected {
@@ -189,5 +171,5 @@ textarea, input, select {
 .ubbtoolbar .ubbbutton:hover,
 .ubbtoolbar .ubbface:hover {
 	border-color: #69c;
-	background-color: #f7f8f9;
+	background: #f7f8f9;
 }

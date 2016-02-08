@@ -1,11 +1,13 @@
 /**************** common ****************/
 body {
+	color:#333;
 	margin: 0;
 	padding: 0;
 	font-style: normal;
 }
 
 input, textarea, select {
+	color:#333;
 	border:1px solid;
 	margin:0;
 	box-sizing: border-box;
@@ -21,7 +23,7 @@ input[type=text],
 input[type=password],
 select,
 textarea {
-	box-shadow: inset 0 3px 3px rgba(192, 192, 192, 0.3);
+	box-shadow: inset 0 3px 3px rgba(224, 224, 224, 0.3);
 }
 textarea {
 	display: block;
@@ -57,11 +59,34 @@ textarea[disabled] {
 	border-style:dashed;
 }
 
+input.longtext,
+select.longtext
+{
+	width:100%;
+}
+*html input.longtext,
+*html select.longtext
+{
+	width:90%;
+}
+*+html input.longtext,
+*+html select.longtext
+{
+	width:99%;
+}
+.region-longtext input[type=text],
+.region-longtext input[type=password],
+.region-longtext select
+{
+	width:100%;
+}
+
 img {
 	border: 0;
 }
 
 a {
+	color: #333;
 	text-decoration: none;
 }
 
@@ -151,8 +176,9 @@ form .row {
 
 /**************** header ****************/
 .header {
-	background-size:100% 100%;
+	border-bottom: 1px #eee solid;
 	overflow: hidden;
+	background-size:100% 100%;
 }
 *html .header {
 	zoom:1;
@@ -193,7 +219,7 @@ form .row {
 /**************** mainborder ****************/
 .mainborder {
 	overflow: hidden;
-	background: #f7f7f7;
+	background: #f8f8f8;
 	border: 1px #ccc solid;
 	box-shadow: 0 0 20px #ccc;
 }

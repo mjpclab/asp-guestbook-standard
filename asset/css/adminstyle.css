@@ -43,29 +43,6 @@
 	zoom:1;
 }
 
-
-input.longtext,
-select.longtext
-{
-	width:100%;
-}
-*html input.longtext,
-*html select.longtext
-{
-	width:90%;
-}
-*+html input.longtext,
-*+html select.longtext
-{
-	width:99%;
-}
-.region-longtext input[type=text],
-.region-longtext input[type=password],
-.region-longtext select
-{
-	width:100%;
-}
-
 .region-callgen .field .label {
 	width:7em;
 }
