@@ -12,12 +12,16 @@
 <!-- #include file="tips.asp" -->
 <%
 Response.Expires=-1
+
 if StatusStatistics then call addstat("login")
+
+Dim referrer
+referrer=Request.Form("referrer")
 
 if VcodeCount>0 and (Request.Form("ivcode")<>Session("vcode") or Session("vcode")="") then
 	Session("vcode")=""
 	if StatusStatistics then call addstat("loginfailed")
-	Call TipsPage("验证码错误。","admin_login.asp")
+	Call TipsPage("验证码错误。","admin_login.asp?referrer=" & Server.UrlEncode(referrer))
 
 	set rs=nothing
 	set cn=nothing
@@ -29,25 +33,28 @@ end if
 Dim cn,rs
 set cn=server.CreateObject("ADODB.Connection")
 set rs=server.CreateObject("ADODB.Recordset")
-
 Call CreateConn(cn)
 rs.Open sql_adminverify,cn,0,1,1
 
 Session(InstanceName & "_adminpass")=md5(request("iadminpass"),32)
-if rs.EOF=false then
+if Not rs.EOF then
 	if Session(InstanceName & "_adminpass")=rs(0) then
 		session.Timeout=clng(AdminTimeOut)
-		Response.Redirect "admin.asp"
+		if referrer<>"" then
+			Response.Redirect referrer
+		else
+			Response.Redirect "admin.asp"
+		end if
 	else
 		if StatusStatistics then call addstat("loginfailed")
-		Call TipsPage("密码不正确。","admin_login.asp")
+		Call TipsPage("密码不正确。","admin_login.asp?referrer=" & Server.UrlEncode(referrer))
 
 		rs.Close : cn.Close : set rs=nothing : set cn=nothing
 		Response.End
 	end if
 else
 	if StatusStatistics then call addstat("loginfailed")
-	Call TipsPage("密码验证失败。","admin_login.asp")
+	Call TipsPage("密码验证失败。","admin_login.asp?referrer=" & Server.UrlEncode(referrer))
 
 	rs.Close : cn.Close : set rs=nothing : set cn=nothing
 	Response.End

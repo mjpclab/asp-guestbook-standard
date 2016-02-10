@@ -51,6 +51,7 @@ if VcodeCount>0 then Session("vcode")=getvcode(VcodeCount)
 	<h3 class="title">¹ÜÀíÔ±µÇÂ¼</h3>
 	<div class="content">
 		<form method="post" action="login_verify.asp" name="form5" onsubmit="return submitCheck(this);">
+			<input type="hidden" name="referrer" value="<%=Request.QueryString("referrer")%>"/>
 			<div class="field">
 				<span class="label">ÃÜÂë£º</span>
 				<span class="value"><input type="password" name="iadminpass" maxlength="32" autofocus="autofocus" /></span>
