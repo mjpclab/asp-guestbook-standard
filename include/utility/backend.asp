@@ -184,11 +184,7 @@ function geturlpath()
 			host=host & ":" & port
 		end if
 	end if
-	if Request.ServerVariables("PATH_INFO")<>"" then
-		host=host & Request.ServerVariables("PATH_INFO")
-	else
-		host=host & Request.ServerVariables("URL")
-	end if
+	host=host & Request.ServerVariables("URL")
 	url=left(host,InStrRev(host,"/"))
 
 	geturlpath=url
