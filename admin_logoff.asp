@@ -2,5 +2,5 @@
 <!-- #include file="config/system.asp" -->
 <%
 Session.Contents.Remove(InstanceName & "_adminpass")
-Response.Redirect "index.asp"
+Response.Redirect "admin_login.asp"
 %>
