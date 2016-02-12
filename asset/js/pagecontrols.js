@@ -11,36 +11,37 @@ function toArray(arrayObj) {
 }
 
 function refresh_pagenum(increment) {
-	var pageNums = document.getElementsByName('pagenum');
-	pageNums = toArray(pageNums);
-	if (pageNums.length) {
-		var old_start = Number(pageNums[0].firstChild.data);
-		var new_start = old_start + increment;
+	function do_refresh_pagenum(increment) {
+		var pageNums = document.getElementsByName('pagenum');
+		pageNums = toArray(pageNums);
+		if (pageNums.length) {
+			var old_start = Number(pageNums[0].firstChild.data);
+			var new_start = old_start + increment;
 
-		if (new_start < 1) new_start = 1;
-		if (new_start + PageListCount - 1 > PagesCount) new_start = PagesCount - PageListCount + 1;
-		if (new_start < 1) new_start = 1;
+			if (new_start < 1) new_start = 1;
+			if (new_start + PageListCount - 1 > PagesCount) new_start = PagesCount - PageListCount + 1;
+			if (new_start < 1) new_start = 1;
 
-		var delta = new_start - old_start;
-		for (var i = 0; i < pageNums.length && delta != 0; i++) {
-			var pageNum = pageNums[i];
-			var old_current = Number(pageNum.firstChild.data);
-			var new_current = old_current + delta;
+			var delta = new_start - old_start;
+			for (var i = 0; i < pageNums.length && delta != 0; i++) {
+				var pageNum = pageNums[i];
+				var old_current = Number(pageNum.firstChild.data);
+				var new_current = old_current + delta;
 
-			pageNum.href = pageNum.href.replace(/page=\d+/i, 'page=' + new_current.toString(10));
-			pageNum.firstChild.data = new_current.toString(10);
+				pageNum.href = pageNum.href.replace(/page=\d+/i, 'page=' + new_current.toString(10));
+				pageNum.firstChild.data = new_current.toString(10);
 
-			if (new_current === CurrentPage)
-				pageNum.className = 'pagenum pagenum-current';
-			else
-				pageNum.className = 'pagenum';
-
+				if (new_current === CurrentPage)
+					pageNum.className = 'pagenum pagenum-current';
+				else
+					pageNum.className = 'pagenum';
+			}
 		}
-
 	}
 
-	ghandle = setTimeout(function () {
-		refresh_pagenum(increment);
+	do_refresh_pagenum(increment);
+	ghandle = setInterval(function () {
+		do_refresh_pagenum(increment);
 	}, 250);
 }
 
