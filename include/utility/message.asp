@@ -88,7 +88,7 @@ sub show_page_list(byval CurPage,byval PagesCount,byval filename,byval pagetitle
 	end if
 
 	'计算各分页控件目标页号
-	if ShowAdvPageList then
+	if ShowAdvPageList and PagesCount>AdvPageListCount then
 		first_page_no=1
 		last_page_no=PagesCount
 		if CurPage+1>PagesCount then next_page_no=PagesCount else next_page_no=CurPage+1
@@ -116,7 +116,7 @@ sub show_page_list(byval CurPage,byval PagesCount,byval filename,byval pagetitle
 	<div class="region page-list">
 		<h3 class="title"><%=pagetitle%></h3>
 		<div class="content">
-			<%if ShowAdvPageList then%>
+			<%if ShowAdvPageList and PagesCount>AdvPageListCount then%>
 				<div class="nav backward-nav"><%=str_first_page & str_largeprev_page & str_prev_page & str_first2_page & str_largeprev2_page & str_prev2_page%></div>
 				<div class="nav forward-nav"><%=str_next_page & str_largenext_page & str_last_page & str_next2_page & str_largenext2_page & str_last2_page%></div>
 			<%end if%>
