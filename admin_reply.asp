@@ -57,7 +57,7 @@ set rs=server.CreateObject("ADODB.Recordset")
 Call CreateConn(cn)
 rs.Open sql_adminreply_reply &Request("id"),cn,,,1
 	
-if rs.EOF=false then 
+if Not rs.EOF then
 	t_html=rs("htmlflag")
 	c_old="" & rs("reinfo") & ""
 	c_old=replace(server.htmlEncode(c_old),chr(13)&chr(10),"&#13;&#10;")
@@ -105,7 +105,7 @@ cn.close
 Call CreateConn(cn)
 rs.Open sql_adminreply_words & Request.QueryString("id"),cn,,,1
 
-if rs.EOF=false then
+if Not rs.EOF then
 	dim pagename
 	pagename="admin_reply"
 	%><!-- #include file="include/template/admin_listword.inc" --><%

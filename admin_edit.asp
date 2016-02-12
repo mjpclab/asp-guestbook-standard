@@ -27,7 +27,7 @@ set rs=server.CreateObject("ADODB.Recordset")
 Call CreateConn(cn)
 rs.Open sql_adminedit & Request.QueryString("id"),cn,,,1
 	
-if rs.EOF=false then
+if Not rs.EOF then
 	guestflag=rs("guestflag")
 	guest_txt="" & rs("article") & ""
 	guest_txt=replace(server.htmlEncode(guest_txt),chr(13)&chr(10),"&#13;&#10;")

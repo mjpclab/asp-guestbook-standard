@@ -17,7 +17,7 @@ if isnumeric(Request.Form("filterid")) and Request.Form("filterid")<>"" and (Req
 	Call CreateConn(cn)
 	
 	rs.Open sql_adminmovefilter_sort1 &filterid1,cn,,,1
-	if rs.EOF=false then
+	if Not rs.EOF then
 		qid1=rs(0)
 		rs.Close
 	
@@ -30,7 +30,7 @@ if isnumeric(Request.Form("filterid")) and Request.Form("filterid")<>"" and (Req
 		elseif Request.Form("movedirection")="bottom" then
 			rs.Open sql_adminmovefilter_sort2_bottom,cn,,,1
 		end if
-		if rs.EOF=false then
+		if Not rs.EOF then
 			qid2=rs(0)
 			rs.Close
 			

@@ -124,7 +124,7 @@ on error resume next
 		on error goto 0
 
 		rs.Open sql_adminstats_client_count,cn,0,1,1
-		if rs.EOF=false then tclientcount=rs.Fields(0) else tclientcount=0
+		if Not rs.EOF then tclientcount=rs.Fields(0) else tclientcount=0
 
 		if tclientcount>0 then
 			'客户端操作系统
@@ -134,7 +134,7 @@ on error resume next
 			Response.Write "<div id=""div_os"">"
 			Response.Write "<h4>客户端操作系统</h4>"
 			Response.Write "<blockquote><table>"
-			while rs.EOF=false
+			while Not rs.EOF
 				Response.Write "<tr><td style=""width:180px;"">"
 				Response.Write server.HTMLEncode(rs.Fields("os")) & "："
 				Response.Write "</td><td>"
@@ -151,7 +151,7 @@ on error resume next
 			Response.Write "<div id=""div_browser"">"
 			Response.Write "<h4>客户端浏览器</h4>"
 			Response.Write "<blockquote><table>"
-			while rs.EOF=false
+			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
 				Response.Write server.HTMLEncode(rs.Fields("browser")) & "："
 				Response.Write "</td><td>"
@@ -168,7 +168,7 @@ on error resume next
 			Response.Write "<div id=""div_screen"">"
 			Response.Write "<h4>客户端屏幕分辨率</h4>"
 			Response.Write "<blockquote><table>"
-			while rs.EOF=false
+			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
 				if rs.Fields("screenwh")<>"0*0" then
 					Response.Write server.HTMLEncode(rs.Fields("screenwh")) & "："
@@ -189,7 +189,7 @@ on error resume next
 			Response.Write "<div id=""div_timesect"">"
 			Response.Write "<h4>访问时段</h4>"
 			Response.Write "<blockquote><table>"
-			while rs.EOF=false
+			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
 				Response.Write server.HTMLEncode(rs.Fields(0) & ":00～" & rs.Fields(0) & ":59") & "："
 				Response.Write "</td><td>"
@@ -209,7 +209,7 @@ on error resume next
 			Response.Write "<div id=""div_week"">"
 			Response.Write "<h4>访问周期</h4>"
 			Response.Write "<blockquote><table>"
-			while rs.EOF=false
+			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
 				'Response.Write server.HTMLEncode(weekdayname(rs.Fields(0),false,1))
 				Response.Write server.HTMLEncode(weeklist(rs.Fields(0)-1)) & "："
@@ -227,7 +227,7 @@ on error resume next
 			Response.Write "<div id=""div_30day"">"
 			Response.Write "<h4>最近30天访问量</h4>"
 			Response.Write "<blockquote><table>"
-			while rs.EOF=false
+			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
 				Response.Write server.HTMLEncode(rs.Fields("datesect")) & "："
 				Response.Write "</td><td>"
@@ -244,7 +244,7 @@ on error resume next
 			Response.Write "<div id=""div_source"">"
 			Response.Write "<h4>访问来源</h4>"
 			Response.Write "<blockquote><table>"
-			while rs.EOF=false
+			while Not rs.EOF
 				Response.Write "<tr><td style=""width:150px;"">"
 				Response.Write server.HTMLEncode(rs.Fields("sourceaddr")) & "："
 				Response.Write "</td><td>"

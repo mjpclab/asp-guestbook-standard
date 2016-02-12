@@ -147,7 +147,7 @@ filtered=false
 
 Call CreateConn(cn)
 rs.Open sql_write_filter,cn,0,1,1
-while rs.EOF=false
+while Not rs.EOF
 	tregexp=rs("regexp")
 	tfiltermode=rs("filtermode")
 	treplacestr=rs("replacestr")

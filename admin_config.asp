@@ -155,11 +155,11 @@
 				</div>
 				<div class="field">
 					<span class="label">登录验证码长度：</span>
-					<span class="value"><input type="text" size="4" maxlength="2" name="vcodecount" value="<%=clng(rs("vcodecount") and &H0F)%>" />位 (可选值：0～10)</span>
+					<span class="value"><input type="text" size="4" maxlength="2" name="vcodecount" value="<%=rs("vcodecount") and &H0F%>" />位 (可选值：0～10)</span>
 				</div>
 				<div class="field">
 					<span class="label">留言验证码长度：</span>
-					<span class="value"><input type="text" size="4" maxlength="2" name="writevcodecount" value="<%=clng(rs("vcodecount") and &HF0) \ &H10%>" />位 (可选值：0～10)</span>
+					<span class="value"><input type="text" size="4" maxlength="2" name="writevcodecount" value="<%=(rs("vcodecount") and &HF0) \ &H10%>" />位 (可选值：0～10)</span>
 				</div>
 			<%
 			end if
@@ -318,11 +318,11 @@
 				</div>
 				<div class="field">
 					<span class="label">分页窗口显示位置：</span>
-					<span class="value"><input type="radio" name="showpagelist" value="3" id="showpagelist3"<%=cked(clng(tvisualflag and 12)=12)%> /><label for="showpagelist3">上下方</label>　<input type="radio" name="showpagelist" value="1" id="showpagelist1"<%=cked(clng(tvisualflag and 12)=4)%> /><label for="showpagelist1">上方</label>　　<input type="radio" name="showpagelist" value="2" id="showpagelist2"<%=cked(clng(tvisualflag and 12)=8)%> /><label for="showpagelist2">下方</label></span>
+					<span class="value"><input type="radio" name="showpagelist" value="3" id="showpagelist3"<%=cked((tvisualflag and 12)=12)%> /><label for="showpagelist3">上下方</label>　<input type="radio" name="showpagelist" value="1" id="showpagelist1"<%=cked((tvisualflag and 12)=4)%> /><label for="showpagelist1">上方</label>　　<input type="radio" name="showpagelist" value="2" id="showpagelist2"<%=cked((tvisualflag and 12)=8)%> /><label for="showpagelist2">下方</label></span>
 				</div>
 				<div class="field">
 					<span class="label">访客搜索窗口显示位置：</span>
-					<span class="value"><input type="radio" name="showsearchbox" value="3" id="showsearchbox3"<%=cked(clng(tvisualflag and 48)=48)%> /><label for="showsearchbox3">上下方</label>　<input type="radio" name="showsearchbox" value="1" id="showsearchbox1"<%=cked(clng(tvisualflag and 48)=16)%> /><label for="showsearchbox1">上方</label>　　<input type="radio" name="showsearchbox" value="2" id="showsearchbox2"<%=cked(clng(tvisualflag and 48)=32)%> /><label for="showsearchbox2">下方</label></span>
+					<span class="value"><input type="radio" name="showsearchbox" value="3" id="showsearchbox3"<%=cked((tvisualflag and 48)=48)%> /><label for="showsearchbox3">上下方</label>　<input type="radio" name="showsearchbox" value="1" id="showsearchbox1"<%=cked((tvisualflag and 48)=16)%> /><label for="showsearchbox1">上方</label>　　<input type="radio" name="showsearchbox" value="2" id="showsearchbox2"<%=cked((tvisualflag and 48)=32)%> /><label for="showsearchbox2">下方</label></span>
 				</div>
 				<div class="field">
 					<span class="label">分页列表模式：</span>

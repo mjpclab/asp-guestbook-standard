@@ -38,49 +38,49 @@ Response.Expires=-1
 showpage=15
 if isnumeric(Request.Form("page")) and len(Request.Form("page"))<=2 and Request.Form("page")<>"" then showpage=clng(Request.Form("page"))
 
-if isnumeric(request.Form("admintimeout"))=false and clng(showpage and 1)<> 0 then
+if Not IsNumeric(request.Form("admintimeout")) and CBool(showpage AND 1) then
 	errbox "“管理员登录超时”必须为数字。"
-elseif isnumeric(request.Form("showipv4"))=false and clng(showpage and 1)<> 0 then
+elseif Not IsNumeric(request.Form("showipv4")) and CBool(showpage AND 1) then
 	errbox "“为访客显示IPv4”必须为数字。"
-elseif isnumeric(request.Form("showipv6"))=false and clng(showpage and 1)<> 0 then
+elseif Not IsNumeric(request.Form("showipv6")) and CBool(showpage AND 1) then
 	errbox "“为访客显示IPv6”必须为数字。"
-elseif isnumeric(request.Form("adminshowipv4"))=false and clng(showpage and 1)<> 0 then
+elseif Not IsNumeric(request.Form("adminshowipv4")) and CBool(showpage AND 1) then
 	errbox "“为管理员显示IPv4”必须为数字。"
-elseif isnumeric(request.Form("adminshowipv6"))=false and clng(showpage and 1)<> 0 then
+elseif Not IsNumeric(request.Form("adminshowipv6")) and CBool(showpage AND 1) then
 	errbox "“为管理员显示IPv6”必须为数字。"
-elseif isnumeric(request.Form("adminshoworiginalipv4"))=false and clng(showpage and 1)<> 0 then
+elseif Not IsNumeric(request.Form("adminshoworiginalipv4")) and CBool(showpage AND 1) then
 	errbox "“为管理员显示原IPv4”必须为数字。"
-elseif isnumeric(request.Form("adminshoworiginalipv6"))=false and clng(showpage and 1)<> 0 then
+elseif Not IsNumeric(request.Form("adminshoworiginalipv6")) and CBool(showpage AND 1) then
 	errbox "“为管理员显示原IPv6”必须为数字。"
-elseif isnumeric(request.Form("vcodecount"))=false and clng(showpage and 1)<> 0 then
+elseif Not IsNumeric(request.Form("vcodecount")) and CBool(showpage AND 1) then
 	errbox "“登录验证码长度”必须为数字。"
-elseif isnumeric(request.Form("writevcodecount"))=false and clng(showpage and 1)<> 0 then
+elseif Not IsNumeric(request.Form("writevcodecount")) and CBool(showpage AND 1) then
 	errbox "“留言验证码长度”必须为数字。"
-elseif isnumeric(request.Form("maillevel"))=false and clng(showpage and 2)<> 0 then
+elseif Not IsNumeric(request.Form("maillevel")) and CBool(showpage AND 2) then
 	errbox "“邮件紧急程度”必须为数字。"
-elseif isnum(request.Form("tablewidth"))=false and clng(showpage and 4)<> 0 then
+elseif isnum(request.Form("tablewidth"))=false and CBool(showpage AND 4) then
 	errbox "“留言本最大宽度”必须为数字或百分比。"
-elseif isnum(request.Form("tableleftwidth"))=false and clng(showpage and 4)<> 0 then
+elseif isnum(request.Form("tableleftwidth"))=false and CBool(showpage AND 4) then
 	errbox "“留言本左窗格宽度”必须为数字或百分比。"
-elseif isnumeric(request.Form("windowspace"))=false and clng(showpage and 4)<> 0 then
+elseif Not IsNumeric(request.Form("windowspace")) and CBool(showpage AND 4) then
 	errbox "“窗口区块间距”必须为数字。"
-elseif isnumeric(request.Form("leavecontentheight"))=false and clng(showpage and 4)<> 0 then
+elseif Not IsNumeric(request.Form("leavecontentheight")) and CBool(showpage AND 4) then
 	errbox "“‘留言内容’文本高度”必须为数字。"
-elseif isnumeric(request.Form("searchtextwidth"))=false and clng(showpage and 4)<> 0 then
+elseif Not IsNumeric(request.Form("searchtextwidth")) and CBool(showpage AND 4) then
 	errbox "“搜索框宽度”必须为数字。"
-elseif isnumeric(request.Form("replytextheight"))=false and clng(showpage and 4)<> 0 then
+elseif Not IsNumeric(request.Form("replytextheight")) and CBool(showpage AND 4) then
 	errbox "“回复、公告编辑框高度”必须为数字。"
-elseif isnumeric(request.Form("itemsperpage"))=false and clng(showpage and 4)<> 0 then
+elseif Not IsNumeric(request.Form("itemsperpage")) and CBool(showpage AND 4) then
 	errbox "“每页显示的留言数”必须为数字。"
-elseif isnumeric(request.Form("titlesperpage"))=false and clng(showpage and 4)<> 0 then
+elseif Not IsNumeric(request.Form("titlesperpage")) and CBool(showpage AND 4) then
 	errbox "“每页显示的标题数”必须为数字。"
-elseif isnumeric(request.Form("picturesperrow"))=false and clng(showpage and 4)<> 0 then
+elseif Not IsNumeric(request.Form("picturesperrow")) and CBool(showpage AND 4) then
 	errbox "“头像每行显示的数目”必须为数字。"
-elseif isnumeric(request.Form("frequentfacecount"))=false and clng(showpage and 4)<> 0 then
+elseif Not IsNumeric(request.Form("frequentfacecount")) and CBool(showpage AND 4) then
 	errbox "“少量载入的头像数”必须为数字。"
-elseif isnumeric(request.Form("advpagelistcount"))=false and clng(showpage and 8)<> 0 then
+elseif Not IsNumeric(request.Form("advpagelistcount")) and CBool(showpage AND 8) then
 	errbox "“区段式分页项数”必须为数字。"
-elseif isnumeric(request.Form("wordslimit"))=false and clng(showpage and 8)<> 0 then
+elseif Not IsNumeric(request.Form("wordslimit")) and CBool(showpage AND 8) then
 	errbox "“留言字数限制”必须为数字。"
 else
 	if CBool(showpage AND 1) then
@@ -121,34 +121,34 @@ else
 		if Request.Form("guestertn")="1" then tguesthtml=tguesthtml OR 4
 
 		tadmintimeout=Request.Form("admintimeout")
-		if len(cstr(tadmintimeout))>4 or isnumeric(tadmintimeout)=false then tadmintimeout=1440
+		if len(cstr(tadmintimeout))>4 or Not IsNumeric(tadmintimeout) then tadmintimeout=1440
 		if clng(tadmintimeout)>1440 then tadmintimeout=1440
 		if clng(tadmintimeout)<1 then tadmintimeout="20"
 
 		tshowip=0
 		tshowipv4=Request.Form("showipv4")
-		if Len(tshowipv4)=0 or IsNumeric(tshowipv4)=false then tshowipv4=2 else tshowipv4=clng(tshowipv4)
+		if Len(tshowipv4)=0 or Not IsNumeric(tshowipv4) then tshowipv4=2 else tshowipv4=clng(tshowipv4)
 		if tshowipv4<0 or tshowipv4>4 then tshowipv4=2
 		tshowipv6=Request.Form("showipv6")
-		if Len(tshowipv6)=0 or IsNumeric(tshowipv6)=false then tshowipv6=2 else tshowipv6=clng(tshowipv6)
+		if Len(tshowipv6)=0 or Not IsNumeric(tshowipv6) then tshowipv6=2 else tshowipv6=clng(tshowipv6)
 		if tshowipv6<0 or tshowipv6>8 then tshowipv6=2
 		tshowip=tshowipv6*16 + tshowipv4
 
 		tadminshowip=0
 		tadminshowipv4=Request.Form("adminshowipv4")
-		if Len(tadminshowipv4)=0 or IsNumeric(tadminshowipv4)=false then tadminshowipv4=2 else tadminshowipv4=clng(tadminshowipv4)
+		if Len(tadminshowipv4)=0 or Not IsNumeric(tadminshowipv4) then tadminshowipv4=2 else tadminshowipv4=clng(tadminshowipv4)
 		if tadminshowipv4<0 or tadminshowipv4>4 then tadminshowipv4=2
 		tadminshowipv6=Request.Form("adminshowipv6")
-		if Len(tadminshowipv6)=0 or IsNumeric(tadminshowipv6)=false then tadminshowipv6=2 else tadminshowipv6=clng(tadminshowipv6)
+		if Len(tadminshowipv6)=0 or Not IsNumeric(tadminshowipv6) then tadminshowipv6=2 else tadminshowipv6=clng(tadminshowipv6)
 		if tadminshowipv6<0 or tadminshowipv6>8 then tadminshowipv6=2
 		tadminshowip=tadminshowipv6*16 + tadminshowipv4
 
 		tadminshoworiginalip=0
 		tadminshoworiginalipv4=Request.Form("adminshoworiginalipv4")
-		if Len(tadminshoworiginalipv4)=0 or IsNumeric(tadminshoworiginalipv4)=false then tadminshoworiginalipv4=2 else tadminshoworiginalipv4=clng(tadminshoworiginalipv4)
+		if Len(tadminshoworiginalipv4)=0 or Not IsNumeric(tadminshoworiginalipv4) then tadminshoworiginalipv4=2 else tadminshoworiginalipv4=clng(tadminshoworiginalipv4)
 		if tadminshoworiginalipv4<0 or tadminshoworiginalipv4>4 then tadminshoworiginalipv4=2
 		tadminshoworiginalipv6=Request.Form("adminshoworiginalipv6")
-		if Len(tadminshoworiginalipv6)=0 or IsNumeric(tadminshoworiginalipv6)=false then tadminshoworiginalipv6=2 else tadminshoworiginalipv6=clng(tadminshoworiginalipv6)
+		if Len(tadminshoworiginalipv6)=0 or Not IsNumeric(tadminshoworiginalipv6) then tadminshoworiginalipv6=2 else tadminshoworiginalipv6=clng(tadminshoworiginalipv6)
 		if tadminshoworiginalipv6<0 or tadminshoworiginalipv6>8 then tadminshoworiginalipv6=2
 		tadminshoworiginalip=tadminshoworiginalipv6*16 + tadminshoworiginalipv4
 
@@ -261,7 +261,7 @@ else
 		if clng(tfrequentfacecount)>clng(FaceCount) then tfrequentfacecount=FaceCount
 
 		tstyleid=Request.Form("style")
-		if isnumeric(tstyleid)=false then
+		if Not IsNumeric(tstyleid) then
 			tstyleid=0
 		else
 			tstyleid=clng(tstyleid)

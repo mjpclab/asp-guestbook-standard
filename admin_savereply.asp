@@ -28,7 +28,7 @@ if Request.Form("ubb1")="1" then tlimit=tlimit+2
 if Request.Form("newline1")="1" then tlimit=tlimit+4
 	
 rs.Open sql_adminsavereply_main & request.form("mainid"),cn,0,3,1
-if rs.EOF=false then		'ÁôÑÔ´æÔÚ
+if Not rs.EOF then		'ÁôÑÔ´æÔÚ
 	cn.BeginTrans
 	rs("replied")=clng(rs("replied") OR 1)
 	if clng(rs("guestflag") and 16)<>0 then rs("guestflag")=rs("guestflag")-16	'Í¨¹ıÉóºË

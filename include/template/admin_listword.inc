@@ -6,7 +6,7 @@ dim param_url
 
 getadmininfo()
 
-while rs.eof=false
+while Not rs.EOF
 	guestflag=rs("guestflag")
 	%>
 
@@ -17,17 +17,17 @@ while rs.eof=false
 			Call showAdminMessageTools(rs)
 		end if
 
-		if rs.Fields("parent_id")<=0 and clng(rs.Fields("replied") AND 2)<>0 and ReplyInWord=false then
+		if rs.Fields("parent_id")<=0 and CBool(rs.Fields("replied") AND 2) and ReplyInWord=false then
 			set rs1=Server.CreateObject("ADODB.Recordset")
 			rs1.open Replace(sql_listword_admin,"{0}",rs.Fields("id")),cn,0,1,1
 			while not rs1.eof
 				guestflag=rs1("guestflag")
-				ishidden=(clng(guestflag and 40)=8)
-				iswhisper=(clng(guestflag and 32)<>0)
-				encrypted=(clng(guestflag and 96)=96)
+				ishidden=((guestflag AND 40)=8)
+				iswhisper=CBool(guestflag AND 32)
+				encrypted=((guestflag AND 96)=96)
 
 				outerword(rs1)
-				if clng(rs1.Fields("replied") AND 1)<>0 then outeradminreply(rs1)
+				if CBool(rs1.Fields("replied") AND 1) then outeradminreply(rs1)
 				Call showAdminMessageTools(rs1)
 				rs1.movenext
 			wend

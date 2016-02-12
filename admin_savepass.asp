@@ -25,7 +25,7 @@ elseif request.Form("inewpass1")="" then
 	Call TipsPage("密码不能为空，请重新输入。","admin_chpass.asp")
 	Response.End
 else
-	if rs.EOF=false then
+	if Not rs.EOF then
 		if md5(request.Form("ioldpass"),32)=rs(0) then
 			pwd=md5(request.Form("inewpass1"),32)
 			

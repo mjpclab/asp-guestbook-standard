@@ -10,12 +10,12 @@
 'dim reply_txt,reply_htmlflag
 n_i=0
 
-while rs.eof=false
+while Not rs.eof
 	guestflag=rs("guestflag")
-	isauditting=(clng(guestflag and 16)<>0)
-	ishidden=(clng(guestflag and 40)=8)
-	iswhisper=(clng(guestflag and 32)<>0)
-	encrypted=(clng(guestflag and 96)=96)
+	isauditting=CBool(guestflag AND 16)
+	ishidden=((guestflag AND 40)=8)
+	iswhisper=CBool(guestflag AND 32)
+	encrypted=((guestflag AND 96)=96)
 
 	n_i=n_i+1
 	%>
