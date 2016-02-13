@@ -347,6 +347,7 @@ body .narrow-mainborder {
 
 .topic .words {
 	margin:10px;
+	word-wrap:break-word;
 }
 
 .topic .words img {
