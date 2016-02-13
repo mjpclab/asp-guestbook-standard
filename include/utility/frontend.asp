@@ -53,4 +53,14 @@ Function CssOptionalSize(property,size)
 		CssOptionalSize=""
 	end if
 End Function
+
+Function CssOptionalSeparator(value,separator)
+	Dim result
+	result = Trim(value)
+	if result <> "" then
+		result = result & separator
+	end if
+
+	CssOptionalSeparator = result
+End Function
 %>

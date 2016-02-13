@@ -210,16 +210,16 @@
 			%>
 				<h4>界面与尺寸</h4>
 				<div class="field">
-					<span class="label">字体名：</span>
-					<span class="value"><input type="text" size="10" maxlength="30" name="cssfontfamily" value="<%=rs("cssfontfamily")%>" /></span>
+					<span class="label">字体列表（","分隔）：</span>
+					<span class="value"><input type="text" class="longtext" maxlength="48" name="cssfontfamily" value="<%=rs("cssfontfamily")%>" /></span>
 				</div>
 				<div class="field">
 					<span class="label">字体大小：</span>
-					<span class="value"><input type="text" size="10" maxlength="30" name="cssfontsize" value="<%=rs("cssfontsize")%>" /></span>
+					<span class="value"><input type="text" size="10" maxlength="8" name="cssfontsize" value="<%=rs("cssfontsize")%>" /></span>
 				</div>
 				<div class="field">
 					<span class="label">文字行间距：</span>
-					<span class="value"><input type="text" size="10" maxlength="30" name="csslineheight" value="<%=rs("csslineheight")%>" /></span>
+					<span class="value"><input type="text" size="10" maxlength="8" name="csslineheight" value="<%=rs("csslineheight")%>" /></span>
 				</div>
 				<div class="field">
 					<span class="label">留言本最大宽度：</span>
