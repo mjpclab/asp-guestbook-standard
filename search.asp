@@ -22,10 +22,10 @@ Response.Expires=-1
 if checkIsBannedIP() then
 	Call ErrorPage(1)
 	Response.End
-elseif StatusOpen=false then
+elseif Not StatusOpen then
 	Call ErrorPage(2)
 	Response.End
-elseif StatusSearch=false then
+elseif Not StatusSearch then
 	Call ErrorPage(5)
 	Response.End
 end if
@@ -52,7 +52,7 @@ tparam=FilterGuestLike(Request("searchtxt"))
 
 dim sql_condition,sql_count,sql_full
 if (request("type")="reply" or request("type")="name" or request("type")="title" or request("type")="article") and tparam<>"" then CanOpenDB=true
-if CanOpenDB=true then
+if CanOpenDB then
 	if request("type")="reply" then
 		sql_condition=Replace(sql_search_condition_reply,"{0}",tparam)
 	elseif request("type")="name" then
@@ -75,15 +75,15 @@ end if
 %>
 
 <div id="outerborder" class="outerborder">
-	<%if ShowTitle=true then show_book_title 3,"搜索结果"%>
+	<%if ShowTitle then show_book_title 3,"搜索结果"%>
 	<div id="mainborder" class="mainborder">
 	<%RPage="search.asp"%><!-- #include file="include/template/guest_func.inc" -->
 	<!-- #include file="include/template/topbulletin.inc" -->
-	<%if CanOpenDB=true and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"search.asp","[搜索结果分页]","type=" &request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
+	<%if CanOpenDB and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"search.asp","[搜索结果分页]","type=" &request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
 	<%if ShowTopSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
 
 	<%
-	if CanOpenDB=true then
+	if CanOpenDB then
 		if ItemsCount=0 then
 			Response.Write "<br/><br/><div class=""centertext"">没有找到符合条件的留言。</div><br/><br/>"
 		else
@@ -101,7 +101,7 @@ end if
 
 	<!-- #include file="include/template/guest_func.inc" -->
 
-	<%if CanOpenDB=true and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"search.asp","[搜索结果分页]","type=" &request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
+	<%if CanOpenDB and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"search.asp","[搜索结果分页]","type=" &request("type")& "&searchtxt=" &server.URLEncode(request("searchtxt"))%>
 	<%if ShowBottomSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
 	</div>
 
@@ -111,7 +111,7 @@ end if
 </body>
 </html>
 <%
-if CanOpenDB=true then
+if CanOpenDB then
 	cn.Close
 	set rs=nothing
 	set cn=nothing

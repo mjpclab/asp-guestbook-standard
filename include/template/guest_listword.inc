@@ -22,9 +22,9 @@ while Not rs.EOF
 		outeraudit(rs)
 	else
 		outerword(rs)
-		if CBool(rs.Fields("replied") AND 1) and ReplyInWord=false then outeradminreply(rs)
+		if CBool(rs.Fields("replied") AND 1) and Not ReplyInWord then outeradminreply(rs)
 
-		if rs.Fields("parent_id")<=0 and CBool(rs.Fields("replied") AND 2) and (encrypted=false or pagename="showword") and ReplyInWord=false then
+		if rs.Fields("parent_id")<=0 and CBool(rs.Fields("replied") AND 2) and (encrypted=false or pagename="showword") and Not ReplyInWord then
 			set rs1=Server.CreateObject("ADODB.Recordset")
 			rs1.open Replace(Replace(sql_listword_guest,"{0}",rs.Fields("id")),"{1}",GetHiddenWordCondition()),cn,0,1,1
 			while not rs1.eof

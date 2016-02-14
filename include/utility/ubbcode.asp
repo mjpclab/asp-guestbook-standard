@@ -187,9 +187,9 @@ function convertstr(byref str,byval htmlflag,byval allUbbFlags)
 		str=replace(str,chr(9),"        ")
 		'str=replace(str," ","&nbsp;")
 	end if
-	if tUBB=true then str=ubbcode(str,allUbbFlags)
-	if tHTML=false and tUBB=false then
-		if tNewline=true then
+	if tUBB then str=ubbcode(str,allUbbFlags)
+	if Not tHTML and Not tUBB then
+		if tNewline then
 			str=replace(str,chr(13)&chr(10),"<br/>")
 		else
 			str=replace(str,chr(13)&chr(10)," ")

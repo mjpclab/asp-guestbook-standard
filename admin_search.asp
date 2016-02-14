@@ -67,7 +67,7 @@ end if
 
 dim sql_condition,sql_count,sql_full
 if Request("type")<>"" and tparam<>"" then CanOpenDB=true
-if CanOpenDB=true then
+if CanOpenDB then
 	if Request("type")="audit" then
 		if tparam<>"0" and tparam<>"1" then tparam="1"
 		sql_condition=sql_adminsearch_condition_audit & tparam
@@ -88,7 +88,7 @@ end if
 
 <div id="outerborder" class="outerborder">
 
-	<%if ShowTitle=true then show_book_title 3,"管理"%>
+	<%if ShowTitle then show_book_title 3,"管理"%>
 	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/admin_mainmenu.inc" -->
 	<div class="region form-region center-region">
@@ -120,7 +120,7 @@ end if
 	<form method="post" action="admin_mdel.asp" name="form7">
 	<%RPage="admin_search.asp"%><!-- #include file="include/template/admin_func.inc" -->
 	<%
-	if CanOpenDB=true then
+	if CanOpenDB then
 		if ItemsCount=0 then
 			Response.Write "<br/><br/><div class=""centertext"">没有找到符合条件的留言。</div><br/><br/>"
 		else
@@ -150,7 +150,7 @@ end if
 </body>
 </html>
 <%
-if CanOpenDB=true then
+if CanOpenDB then
 	cn.Close : set rs=nothing : set cn=nothing
 end if
 %>

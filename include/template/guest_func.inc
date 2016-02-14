@@ -1,6 +1,6 @@
 <div class="guest-functions">
 	<div class="main">
-		<%if StatusWrite=true then%><a class="function" href="leaveword.asp" title="Ç©Ð´ÁôÑÔ"><img src="asset/image/icon_write.gif"/>Ç©Ð´ÁôÑÔ</a><%end if%>
+		<%if StatusWrite then%><a class="function" href="leaveword.asp" title="Ç©Ð´ÁôÑÔ"><img src="asset/image/icon_write.gif"/>Ç©Ð´ÁôÑÔ</a><%end if%>
 		<%if RPage<>"" then%>
 			<%if GuestDisplayMode="book" then%>
 				<a class="function" href="setdisplaymode.asp?mode=forum&modeflag=guest&rpage=<%=RPage%><%=GetRequests()%>"><img src="asset/image/icon_mode_forum.gif"/>ÇÐ»»µ½±êÌâÄ£Ê½</a>

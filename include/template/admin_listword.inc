@@ -12,12 +12,12 @@ while Not rs.EOF
 
 	<div class="topic"><%
 		outerword(rs)
-		if CBool(rs.Fields("replied") AND 1) and ReplyInWord=false then outeradminreply(rs)
-		if ReplyInWord=false then
+		if CBool(rs.Fields("replied") AND 1) and Not ReplyInWord then outeradminreply(rs)
+		if Not ReplyInWord then
 			Call showAdminMessageTools(rs)
 		end if
 
-		if rs.Fields("parent_id")<=0 and CBool(rs.Fields("replied") AND 2) and ReplyInWord=false then
+		if rs.Fields("parent_id")<=0 and CBool(rs.Fields("replied") AND 2) and Not ReplyInWord then
 			set rs1=Server.CreateObject("ADODB.Recordset")
 			rs1.open Replace(sql_listword_admin,"{0}",rs.Fields("id")),cn,0,1,1
 			while not rs1.eof

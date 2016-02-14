@@ -18,10 +18,10 @@ Response.AddHeader "cache-control","no-cache, must-revalidate"
 if checkIsBannedIP() then
 	Call ErrorPage(1)
 	Response.End
-elseif StatusOpen=false then
+elseif Not StatusOpen then
 	Call ErrorPage(2)
 	Response.End
-elseif StatusWrite=false then
+elseif Not StatusWrite then
 	Call ErrorPage(3)
 	Response.End
 end if
@@ -173,19 +173,19 @@ end function
 						<span class="value"><input type="text" name="ititle" class="longtext" maxlength="30" value="<%=server.htmlEncode(FormOrSession(InstanceName & "_ititle"))%><%if Request.Form("ititle")="" and isnumeric(Request("follow")) and Request("follow")<>"" then response.write "Re:"%>"/></span>
 					</div>
 					<div class="field">
-						<div class="row">内容： <%=getstatus(HTMLSupport)%>HTML标记　<%=getstatus(UBBSupport)%>UBB标记<%if HTMLSupport=false and UBBSupport=false and AllowNewLine=true then Response.Write "　" & getstatus(true) & "允许换行"%></div>
+						<div class="row">内容： <%=getstatus(HTMLSupport)%>HTML标记　<%=getstatus(UBBSupport)%>UBB标记<%if Not HTMLSupport and UBBSupport=false and AllowNewLine then Response.Write "　" & getstatus(true) & "允许换行"%></div>
 						<div class="row"><textarea name="icontent" id="icontent" rows="<%=LeaveContentHeight%>" onkeydown="icontent_keydown(arguments[0]);"<%if WordsLimit>0 then Response.Write " onpropertychange=""checklength(this,"&WordsLimit&");"""%>><%=server.htmlEncode(FormOrSession(InstanceName & "_icontent"))%></textarea></div>
 						<!-- #include file="include/template/ubbtoolbar.inc" -->
 						<%if UBBSupport then ShowUbbToolBar(false)%>
 					</div>
-					<%if StatusWhisper=true then%>
+					<%if StatusWhisper then%>
 					<div class="field">
 						<div class="row">
 							<img src="asset/image/icon_whisper.gif" class="imgicon" />　
 							<input type="checkbox" name="chk_whisper" value="1" id="chk_whisper" onclick="chkoption(this.form)"<%=cked(Request.Form("chk_whisper")="1")%> /><label id="lbl_whisper" for="chk_whisper">悄悄话</label>
-							<%if StatusEncryptWhisper=true then%>　<input type="checkbox" name="chk_encryptwhisper" value="1" id="chk_encryptwhisper" onclick="chkoption(this.form);if(this.checked)this.form.iwhisperpwd.select();"<%=cked(Request.Form("chk_encryptwhisper")="1")%><%=dised(Request.Form("chk_whisper")<>"1")%> /><label id="lbl_encryptwhisper" for="chk_encryptwhisper"<%=dised(Request.Form("chk_whisper")<>"1")%>>加密悄悄话</label><%end if%>
+							<%if StatusEncryptWhisper then%>　<input type="checkbox" name="chk_encryptwhisper" value="1" id="chk_encryptwhisper" onclick="chkoption(this.form);if(this.checked)this.form.iwhisperpwd.select();"<%=cked(Request.Form("chk_encryptwhisper")="1")%><%=dised(Request.Form("chk_whisper")<>"1")%> /><label id="lbl_encryptwhisper" for="chk_encryptwhisper"<%=dised(Request.Form("chk_whisper")<>"1")%>>加密悄悄话</label><%end if%>
 						</div>
-						<%if StatusEncryptWhisper=true then%>
+						<%if StatusEncryptWhisper then%>
 						<div class="row"><img border="0" src="asset/image/icon_key.gif" class="imgicon" />　<label id="lbl_whisperpwd"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%>>密码</label> <input type="password" name="iwhisperpwd" id="iwhisperpwd" maxlength="16" title="为悄悄话设置密码后，必须提供密码才能查看回复，也可以查看原先留言。" value="<%=server.HTMLEncode(Request.Form("iwhisperpwd"))%>"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%> /></div>
 						<%end if%>
 					</div>
@@ -196,7 +196,7 @@ end function
 					<h4>联系方式：</h4>
 					<div class="field">
 						<span class="label"><img src="asset/image/icon_mail.gif" class="imgicon" />邮件</span>
-						<span class="value"><input type="text" name="imail" class="longtext" maxlength="50" value="<%=server.htmlEncode(FormOrCookie("imail"))%>"/><%if MailReplyInform=true then%><br/><input type="checkbox" name="imailreplyinform" id="imailreplyinform" value="1"<%=cked(Request.Form("imailreplyinform")="1")%> /><label for="imailreplyinform">版主回复后用邮件通知我</label><%end if%></span>
+						<span class="value"><input type="text" name="imail" class="longtext" maxlength="50" value="<%=server.htmlEncode(FormOrCookie("imail"))%>"/><%if MailReplyInform then%><br/><input type="checkbox" name="imailreplyinform" id="imailreplyinform" value="1"<%=cked(Request.Form("imailreplyinform")="1")%> /><label for="imailreplyinform">版主回复后用邮件通知我</label><%end if%></span>
 					</div>
 					<div class="field">
 						<span class="label"><img src="asset/image/icon_qq.gif" class="imgicon" />QQ号</span>

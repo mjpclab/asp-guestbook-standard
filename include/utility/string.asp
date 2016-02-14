@@ -8,7 +8,7 @@ else
 	re.IgnoreCase=true
 	strContent=str
 
-	if filterScript=true then
+	if filterScript then
 		on error resume next
 
 		re.pattern="(?:javascript|vbscript)\s*:"

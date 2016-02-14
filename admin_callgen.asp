@@ -85,7 +85,7 @@ Response.Expires=-1
 
 <div id="outerborder" class="outerborder">
 
-<%if ShowTitle=true then show_book_title 3,"管理"%>
+<%if ShowTitle then show_book_title 3,"管理"%>
 <div id="mainborder" class="mainborder">
 <!-- #include file="include/template/admin_mainmenu.inc" -->
 <div class="region region-longtext region-callgen">

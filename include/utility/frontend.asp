@@ -3,15 +3,15 @@ function bodylimit()
 	dim limitstr
 	limitstr=""
 
-	if ShowContext=false then limitstr=limitstr & " oncontextmenu=""return false;"""
-	if SelectContent=false then limitstr=limitstr & " onselectstart=""return false;"""
-	if CopyContent=false then limitstr=limitstr & " oncopy=""return false;"""
+	if Not ShowContext then limitstr=limitstr & " oncontextmenu=""return false;"""
+	if Not SelectContent then limitstr=limitstr & " onselectstart=""return false;"""
+	if Not CopyContent then limitstr=limitstr & " oncopy=""return false;"""
 
 	bodylimit=limitstr
 end function
 
 function framecheck()
-	if BeFramed=false then
+	if Not BeFramed then
 		framecheck="if (window.top!=window) window.top.location.href=window.location.href;"
 	else
 		framecheck=""
@@ -19,7 +19,7 @@ function framecheck()
 end function
 
 function cked(exp)
-	if exp=true then
+	if exp then
 		cked=" checked=""checked"""
 	else
 		cked=""
@@ -27,7 +27,7 @@ function cked(exp)
 end function
 
 function dised(exp)
-	if exp=true then
+	if exp then
 		dised=" disabled=""disabled"""
 	else
 		dised=""
@@ -35,7 +35,7 @@ function dised(exp)
 end function
 
 function seled(exp)
-	if exp=true then
+	if exp then
 		seled=" selected=""selected"""
 	else
 		seled=""

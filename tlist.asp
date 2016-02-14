@@ -14,7 +14,7 @@
 Response.Expires=-1
 if checkIsBannedIP() then
 	Response.End
-elseif StatusOpen=false then
+elseif Not StatusOpen then
 	Response.End
 end if
 

@@ -24,7 +24,7 @@ Response.AddHeader "cache-control","no-cache, must-revalidate"
 if checkIsBannedIP() then
 	Call ErrorPage(1)
 	Response.End
-elseif StatusOpen=false then
+elseif Not StatusOpen then
 	Call ErrorPage(2)
 	Response.End
 end if
@@ -62,7 +62,7 @@ rs.Close
 
 <div id="outerborder" class="outerborder">
 
-	<%if ShowTitle=true then show_book_title 3,"‰Ø¿¿¡Ù—‘"%>
+	<%if ShowTitle then show_book_title 3,"‰Ø¿¿¡Ù—‘"%>
 
 	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/guest_func.inc" -->
@@ -117,14 +117,14 @@ rs.Close
 		end if
 	end if
 
-	if VcodeCount>0 and showbox=true then
+	if VcodeCount>0 and showbox then
 		Session("vcode")=getvcode(VcodeCount)
 	else
 		Session("vcode")=""
 	end if
 	%>
 
-	<%if showbox=true then%>
+	<%if showbox then%>
 	<%if rs.State=1 then rs.Close%>
 		<div class="region form-region">
 			<h3 class="title">—È÷§“—º”√‹¡Ù—‘</h3>

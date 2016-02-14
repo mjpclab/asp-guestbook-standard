@@ -1,5 +1,5 @@
 <%Sub ShowUbbToolBar(byval allflags)%>
-<%if ShowUbbTool=true then%>
+<%if ShowUbbTool then%>
 <div class="ubbtoolbar">
 	<div class="row">
 		<%if UbbFlag_fontstyle Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_bold" onclick="sendUbbCode &&sendUbbCode('b')"><img alt="ДжЬх" src="asset/image/icon_ubb_bold.gif"/></a><%end if%>

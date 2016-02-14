@@ -202,9 +202,9 @@ param_url=Server.HtmlEncode(param_url)
 	<div class="group">
 		<div class="name">访客留言：</div>
 		<div class="tools">
-			<%if CBool(guestflag AND 16) then%><a class="tool" href="admin_passaudit.asp<%=param_url%>" title="通过审核"<%if PassAuditTip=true then response.Write " onclick=""return confirm('确实要通过审核吗？');"""%>><img src="asset/image/icon_pass.gif" />[通过审核]</a><%end if%>
+			<%if CBool(guestflag AND 16) then%><a class="tool" href="admin_passaudit.asp<%=param_url%>" title="通过审核"<%if PassAuditTip then response.Write " onclick=""return confirm('确实要通过审核吗？');"""%>><img src="asset/image/icon_pass.gif" />[通过审核]</a><%end if%>
 			<a class="tool" href="admin_edit.asp<%=param_url%>" title="编辑访客留言"><img src="asset/image/icon_edit.gif" />[编辑留言]</a>
-			<%if CBool(guestflag AND 32) then%><a class="tool" href="admin_pubwhisper.asp<%=param_url%>" title="公开悄悄话"<%if PubWhisperTip=true then response.Write " onclick=""return confirm('确实要公开悄悄话吗？');"""%>><img src="asset/image/icon_pub.gif" />[公开悄悄话]</a><%end if%>
+			<%if CBool(guestflag AND 32) then%><a class="tool" href="admin_pubwhisper.asp<%=param_url%>" title="公开悄悄话"<%if PubWhisperTip then response.Write " onclick=""return confirm('确实要公开悄悄话吗？');"""%>><img src="asset/image/icon_pub.gif" />[公开悄悄话]</a><%end if%>
 			<%if Not CBool(guestflag AND 256) then%><a class="tool" href="admin_hidecontact.asp<%=param_url%>" title="隐藏访客联系方式"><img src="asset/image/icon_hidecontact.gif" />[隐藏联系]</a><%end if%>
 			<%if CBool(guestflag AND 256) then%><a class="tool" href="admin_unhidecontact.asp<%=param_url%>" title="公开访客联系方式"><img src="asset/image/icon_unhidecontact.gif" />[公开联系]</a><%end if%>
 			<%if Not CBool(guestflag AND 40) then%><a class="tool" href="admin_hideword.asp<%=param_url%>" title="隐藏访客留言内容"><img src="asset/image/icon_hide.gif" />[隐藏内容]</a><%end if%>
@@ -214,19 +214,19 @@ param_url=Server.HtmlEncode(param_url)
 	<div class="group">
 		<div class="name">版主功能：</div>
 		<div class="tools">
-			<a class="tool" href="admin_reply.asp<%=param_url%>" title="<%if CBool(guestflag AND 16) then response.write "通过审核并"%>回复此留言"<%if CBool(guestflag AND 16) and PassAuditTip=true then response.Write " onclick=""return confirm('确实要通过审核吗？');"""%>><img src="asset/image/icon_reply.gif" />[<%if CBool(guestflag AND 16) then response.write "通过审核并"%>回复留言]</a>
-			<a class="tool" href="admin_del.asp<%=param_url%>" title="删除留言(包括回复)"<%if DelTip=true then Response.Write " onclick=""return confirm('确实要删除留言吗？');"""%>><img src="asset/image/icon_del.gif" />[删除留言]</a>
-			<%if CBool(rs.Fields("replied") AND 1) then %><a class="tool" href="admin_delreply.asp<%=param_url%>" title="删除回复"<%if DelReTip=true then Response.Write " onclick=""return confirm('确实要删除回复吗？');"""%>><img src="asset/image/icon_delreply.gif" />[删除回复]</a><%end if%>
+			<a class="tool" href="admin_reply.asp<%=param_url%>" title="<%if CBool(guestflag AND 16) then response.write "通过审核并"%>回复此留言"<%if CBool(guestflag AND 16) and PassAuditTip then response.Write " onclick=""return confirm('确实要通过审核吗？');"""%>><img src="asset/image/icon_reply.gif" />[<%if CBool(guestflag AND 16) then response.write "通过审核并"%>回复留言]</a>
+			<a class="tool" href="admin_del.asp<%=param_url%>" title="删除留言(包括回复)"<%if DelTip then Response.Write " onclick=""return confirm('确实要删除留言吗？');"""%>><img src="asset/image/icon_del.gif" />[删除留言]</a>
+			<%if CBool(rs.Fields("replied") AND 1) then %><a class="tool" href="admin_delreply.asp<%=param_url%>" title="删除回复"<%if DelReTip then Response.Write " onclick=""return confirm('确实要删除回复吗？');"""%>><img src="asset/image/icon_delreply.gif" />[删除回复]</a><%end if%>
 		</div>
 	</div>
 	<%if rs.Fields("parent_id")<=0 then%>
 	<div class="group">
 		<div class="name">留言控制：</div>
 		<div class="tools">
-			<%if rs.Fields("parent_id")=0 then%><a class="tool" href="admin_lock2top.asp<%=param_url%>" title="将留言始终显示在顶端"<%if Lock2TopTip=true then Response.Write " onclick=""return confirm('确实要置顶留言吗？');"""%>><img src="asset/image/icon_toplocked.gif" />[置顶留言]</a><%end if%>
-			<%if rs.Fields("parent_id")<0 then%><a class="tool" href="admin_unlock2top.asp<%=param_url%>" title="取消留言置顶"<%if Lock2TopTip=true then Response.Write " onclick=""return confirm('确实要置顶留言吗？');"""%>><img src="asset/image/icon_untoplocked.gif" />[取消置顶]</a><%end if%>
-			<a class="tool" href="admin_bring2top.asp<%=param_url%>" title="提前留言到最前"<%if Bring2TopTip=true then Response.Write " onclick=""return confirm('确实要提前留言吗？');"""%>><img src="asset/image/icon_top.gif" />[提前留言]</a>
-			<%if rs.Fields("parent_id")<0 or rs.Fields("logdate")<>rs.Fields("lastupdated") then%><a class="tool" href="admin_reorder.asp<%=param_url%>" title="使留言恢复到原始排序位置"<%if ReorderTip=true then Response.Write " onclick=""return confirm('确实要重置留言顺序吗？');"""%>><img src="asset/image/icon_reorder.gif" />[重置顺序]</a><%end if%>
+			<%if rs.Fields("parent_id")=0 then%><a class="tool" href="admin_lock2top.asp<%=param_url%>" title="将留言始终显示在顶端"<%if Lock2TopTip then Response.Write " onclick=""return confirm('确实要置顶留言吗？');"""%>><img src="asset/image/icon_toplocked.gif" />[置顶留言]</a><%end if%>
+			<%if rs.Fields("parent_id")<0 then%><a class="tool" href="admin_unlock2top.asp<%=param_url%>" title="取消留言置顶"<%if Lock2TopTip then Response.Write " onclick=""return confirm('确实要置顶留言吗？');"""%>><img src="asset/image/icon_untoplocked.gif" />[取消置顶]</a><%end if%>
+			<a class="tool" href="admin_bring2top.asp<%=param_url%>" title="提前留言到最前"<%if Bring2TopTip then Response.Write " onclick=""return confirm('确实要提前留言吗？');"""%>><img src="asset/image/icon_top.gif" />[提前留言]</a>
+			<%if rs.Fields("parent_id")<0 or rs.Fields("logdate")<>rs.Fields("lastupdated") then%><a class="tool" href="admin_reorder.asp<%=param_url%>" title="使留言恢复到原始排序位置"<%if ReorderTip then Response.Write " onclick=""return confirm('确实要重置留言顺序吗？');"""%>><img src="asset/image/icon_reorder.gif" />[重置顺序]</a><%end if%>
 			<%if CBool(guestflag AND 512) then%>
 				<a class="tool" href="admin_unlockreply.asp<%=param_url%>" title="允许访客回复"><img src="asset/image/icon_reply.gif" />[允许回复]</a>
 			<%else%>
@@ -245,7 +245,7 @@ param_url=Server.HtmlEncode(param_url)
 			<%if CBool(guestflag AND 512) and rs.Fields("parent_id")<=0 then%><span class="tool"><img src="asset/image/icon_lockreply.gif" />回复已锁定</span><%end if%>
 			<%if CBool(guestflag AND 256) then%><span class="tool"><img src="asset/image/icon_hidecontact.gif" />联系已隐藏</span><%end if%>
 			<%if (guestflag AND 40)=8 then%><span class="tool"><img src="asset/image/icon_hide.gif" />内容已隐藏</span><%end if%>
-			<%if CBool(guestflag AND 128) then%><span class="tool"><img src="asset/image/icon_mail.gif" />回复通知<%if MailReplyInform=false then response.write ",已禁用"%></span><%end if%>
+			<%if CBool(guestflag AND 128) then%><span class="tool"><img src="asset/image/icon_mail.gif" />回复通知<%if Not MailReplyInform then response.write ",已禁用"%></span><%end if%>
 		</div>
 	</div>
 	<%end if%>
@@ -307,7 +307,7 @@ sub inneradminreply(byref rs2)%>
 	</div>
 	<%if admin_faceurl<>"" then%><img class="face" src="<%=admin_faceurl%>"/><%end if%>
 	<div class="words">
-		<%if encrypted=true and pagename<>"showword" and left(pagename,5)<>"admin" then%>
+		<%if encrypted and pagename<>"showword" and left(pagename,5)<>"admin" then%>
 			<span class="inner-hint"><img src="asset/image/icon_key.gif"/>(需要预设的密码才能查看...)[<a href="showword.asp?id=<%=rs2("id")%>">点击这里验证...</a>]</span>
 		<%else
 			reply_htmlflag=rs2("htmlflag")
@@ -332,7 +332,7 @@ sub outeradminreply(byref rs2)%>
 	</div>
 	<div class="detail">
 		<div class="words">
-			<%if encrypted=true and pagename<>"showword" and left(pagename,5)<>"admin" then%>
+			<%if encrypted and pagename<>"showword" and left(pagename,5)<>"admin" then%>
 				<span class="inner-hint"><img src="asset/image/icon_key.gif"/>(需要预设的密码才能查看...)[<a href="showword.asp?id=<%=rs2("id")%>">点击这里验证...</a>]</span>
 			<%else
 				reply_htmlflag=rs2("htmlflag")
@@ -361,7 +361,7 @@ sub outeraudit(t_rs)%>
 <div class="message outer-message guest-message auditing-message">
 	<div class="info">
 		<%fid=t_rs("faceid")
-		if isnumeric(fid) and StatusShowHead=true then
+		if isnumeric(fid) and StatusShowHead then
 			if fid>=1 and fid<=FaceCount then%>
 				<img class="face" src="asset/face/<%=fid%>.gif" />
 			<%end if
@@ -387,17 +387,17 @@ sub innerword(byref t_rs)%>
 			<%if (iswhisper=false and Not CBool(guestflag AND 256)) or (pagename="showword" and needverify) or left(pagename,5)="admin" then%>
 				<div class="icons"><%showGuestIcons(t_rs)%></div>
 			<%end if%>
-		<h2 class="title"><%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then response.write "(给版主的悄悄话...)" else response.write t_rs("title")%></h2>
+		<h2 class="title"><%if iswhisper and pagename<>"showword" and left(pagename,5)<>"admin" then response.write "(给版主的悄悄话...)" else response.write t_rs("title")%></h2>
 	</div>
 	<%if StatusShowHead and t_rs.Fields("faceid")>=1 and t_rs.Fields("faceid")<=FaceCount then%><img class="face" src="asset/face/<%=t_rs.Fields("faceid")%>.gif"/><%end if%>
 	<div class="words">
-		<%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then%>
+		<%if iswhisper and pagename<>"showword" and left(pagename,5)<>"admin" then%>
 			<span class="inner-hint"><img src="asset/image/icon_whisper.gif"/>(给版主的悄悄话...)</span>
-		<%elseif ishidden=true and left(pagename,5)<>"admin" then%>
+		<%elseif ishidden and left(pagename,5)<>"admin" then%>
 			<span class="inner-hint"><img src="asset/image/icon_hide.gif"/>(留言被管理员隐藏...)</span>
 		<%else
 			guest_txt="" & t_rs("article") & ""
-			if left(pagename,5)="admin" and AdminViewCode=true then
+			if left(pagename,5)="admin" and AdminViewCode then
 				guest_txt=server.htmlEncode(guest_txt)
 			else
 				convertstr guest_txt,guestflag,false
@@ -419,7 +419,7 @@ sub outerword(byref rs)%>
 		<div class="name"><%=rs("name")%></div>
 
 		<%fid=rs("faceid")
-		if isnumeric(fid) and StatusShowHead=true then
+		if isnumeric(fid) and StatusShowHead then
 			if fid>=1 and fid<=FaceCount then%>
 				<img class="face" src="asset/face/<%=fid%>.gif" />
 			<%end if
@@ -432,16 +432,16 @@ sub outerword(byref rs)%>
 		<div class="date"><%=rs("logdate")%></div>
 	</div>
 	<div class="detail">
-		<h2 class="title"><%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then response.write "(给版主的悄悄话...)" else response.write rs("title")%></h2>
+		<h2 class="title"><%if iswhisper and pagename<>"showword" and left(pagename,5)<>"admin" then response.write "(给版主的悄悄话...)" else response.write rs("title")%></h2>
 		<%if rs.Fields("parent_id")<=0 and left(pagename,5)<>"admin" then showGuestMessageTools rs.Fields("id"),rs.Fields("parent_id"),StatusWrite and StatusGuestReply and clng(rs.Fields("guestflag") and 512)=0%>
 		<div class="words">
-			<%if iswhisper=true and pagename<>"showword" and left(pagename,5)<>"admin" then%>
+			<%if iswhisper and pagename<>"showword" and left(pagename,5)<>"admin" then%>
 				<span class="inner-hint"><img src="asset/image/icon_whisper.gif"/>(给版主的悄悄话...)</span>
-			<%elseif ishidden=true and left(pagename,5)<>"admin" then%>
+			<%elseif ishidden and left(pagename,5)<>"admin" then%>
 				<span class="inner-hint"><img src="asset/image/icon_hide.gif"/>(留言被管理员隐藏...)</span>
 			<%else
 				guest_txt="" & rs("article") & ""
-				if left(pagename,5)="admin" and AdminViewCode=true then
+				if left(pagename,5)="admin" and AdminViewCode then
 					guest_txt=server.htmlEncode(guest_txt)
 				else
 					convertstr guest_txt,guestflag,false
@@ -457,13 +457,13 @@ sub outerword(byref rs)%>
 		</div>
 
 		<%
-		if CBool(rs.Fields("replied") AND 1) and ReplyInWord=true then inneradminreply(rs)	'内嵌
+		if CBool(rs.Fields("replied") AND 1) and ReplyInWord then inneradminreply(rs)	'内嵌
 
-		if (pagename="admin" or pagename="admin_search" or pagename="admin_showword") and ReplyInWord=true then
+		if (pagename="admin" or pagename="admin_search" or pagename="admin_showword") and ReplyInWord then
 			Call showAdminMessageTools(rs)
 		end if
 
-		if rs.Fields("parent_id")<=0 and CBool(rs.Fields("replied") AND 2) and (encrypted=false or pagename="showword" or left(pagename,5)="admin") and ReplyInWord=true then
+		if rs.Fields("parent_id")<=0 and CBool(rs.Fields("replied") AND 2) and (encrypted=false or pagename="showword" or left(pagename,5)="admin") and ReplyInWord then
 			dim hidden_condition
 			hidden_condition=""
 			if left(pagename,5)<>"admin" then hidden_condition=GetHiddenWordCondition()

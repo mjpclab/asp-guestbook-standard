@@ -38,7 +38,7 @@ if Not rs.EOF then		'留言存在
 	replydate1=DateTimeStr(now())
 	content1=Replace(Replace(Request.Form("rcontent"),"'","''"),"<%","< %")
 	rs.Open sql_adminsavereply_reply &request.form("mainid"),cn,0,1,1
-	if rs.EOF=true then	'新回复
+	if rs.EOF then	'新回复
 		rs.Close 
 		cn.Execute Replace(Replace(Replace(Replace(sql_adminsavereply_insert,"{0}",request.form("mainid")),"{1}",replydate1),"{2}",tlimit),"{3}",content1),,1
 	else	'更新回复
@@ -59,7 +59,7 @@ if Not rs.EOF then		'留言存在
 	set rs=nothing
 	set cn=nothing
 	
-	if MailReplyInform=true then replyinform()
+	if MailReplyInform then replyinform()
 	%><!-- #include file="include/template/admin_traceback.inc" --><%
 	rs.close : cn.close : set rs=nothing : set cn=nothing
 else

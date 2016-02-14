@@ -34,7 +34,7 @@ sub ErrorPage(errorCode)
 
 	<div id="outerborder" class="outerborder">
 
-		<%if ShowTitle=true then show_book_title 3,"´íÎó"%>
+		<%if ShowTitle then show_book_title 3,"´íÎó"%>
 
 		<div id="mainborder" class="mainborder">
 		<div class="guest-functions">

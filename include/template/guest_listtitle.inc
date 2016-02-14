@@ -36,7 +36,7 @@ while Not rs.eof
 			<%else%><a href="showword.asp?id=<%=rs.Fields("id")%>" title="<%=rs.Fields("title")%>"><%=rs.Fields("title")%></a>
 			<%end if%>
 		</td>
-		<td class="name"><%if isauditting=false then Response.Write rs.Fields("name")%></td>
+		<td class="name"><%if Not isauditting then Response.Write rs.Fields("name")%></td>
 		<td class="date"><%=rs.Fields("logdate")%></td>
 	</tr>
 	<%rs.MoveNext
