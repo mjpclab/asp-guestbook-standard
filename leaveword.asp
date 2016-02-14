@@ -136,10 +136,11 @@ end function
 	<%
 	if ShowTitle then
 		if StatusGuestReply and isnumeric(request("follow")) and request("follow")<>"" then
-			show_book_title 3,"»Ø¸´ÁôÑÔ"
+			InitHeaderData("»Ø¸´ÁôÑÔ")
 		else
-			show_book_title 3,"Ç©Ð´ÁôÑÔ"
+			InitHeaderData("Ç©Ð´ÁôÑÔ")
 		end if
+		%><!-- #include file="include/template/header.inc" --><%
 	end if
 	%>
 

@@ -52,7 +52,7 @@ get_divided_page cn,rs,sql_pk_main,sql_admin_words_count,sql_admin_words_query,"
 
 <div id="outerborder" class="outerborder">
 
-	<%if ShowTitle then show_book_title 3,"管理"%>
+	<%if ShowTitle then%><%Call InitHeaderData("管理")%><!-- #include file="include/template/header.inc" --><%end if%>
 	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/admin_mainmenu.inc" -->
 	<!-- #include file="include/template/topbulletin.inc" -->

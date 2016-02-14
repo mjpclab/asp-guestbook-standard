@@ -32,10 +32,8 @@ sub ErrorPage(errorCode)
 
 	<body<%=bodylimit%> onload="<%=framecheck%>">
 
+	<%if ShowTitle then%><%Call InitHeaderData("´íÎó")%><!-- #include file="include/template/header.inc" --><%end if%>
 	<div id="outerborder" class="outerborder">
-
-		<%if ShowTitle then show_book_title 3,"´íÎó"%>
-
 		<div id="mainborder" class="mainborder">
 		<div class="guest-functions">
 			<div class="aside">

@@ -63,7 +63,7 @@ get_divided_page cn,rs,sql_pk_main,local_sql_count,local_sql_query,"parent_id IN
 %>
 
 <div id="outerborder" class="outerborder">
-	<%if ShowTitle then show_book_title 2,""%>
+	<%if ShowTitle then%><%Call InitHeaderData("")%><!-- #include file="include/template/header.inc" --><%end if%>
 
 	<div id="mainborder" class="mainborder">
 	<%RPage="index.asp"%><!-- #include file="include/template/guest_func.inc" -->

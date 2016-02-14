@@ -62,7 +62,7 @@ rs.Close
 
 <div id="outerborder" class="outerborder">
 
-	<%if ShowTitle then show_book_title 3,"ä¯ÀÀÁôÑÔ"%>
+	<%if ShowTitle then%><%Call InitHeaderData("ä¯ÀÀÁôÑÔ")%><!-- #include file="include/template/header.inc" --><%end if%>
 
 	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/guest_func.inc" -->

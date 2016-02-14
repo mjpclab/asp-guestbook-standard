@@ -67,7 +67,7 @@ end if
 
 <div id="outerborder" class="outerborder">
 
-<%if ShowTitle then show_book_title 3,"管理"%>
+<%if ShowTitle then%><%Call InitHeaderData("管理")%><!-- #include file="include/template/header.inc" --><%end if%>
 <div id="mainborder" class="mainborder">
 <!-- #include file="include/template/admin_mainmenu.inc" -->
 <div class="region region-longtext">

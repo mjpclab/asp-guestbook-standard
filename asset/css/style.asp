@@ -7,6 +7,13 @@ body, input, textarea, select, h1, h2, h3, h4, h5, h6 {
 	<%=CssOptionalSize("font-size",CssFontSize)%>
 }
 
+.header .header-container {
+	<%=CssOptionalSize("max-width",TableWidth)%>
+}
+*html .header .header-container {
+	<%=CssOptionalSize("width",TableWidth)%>
+}
+
 .mainborder {
 	margin:<%=WindowSpace%>px auto;
 	padding:<%=WindowSpace%>px;
