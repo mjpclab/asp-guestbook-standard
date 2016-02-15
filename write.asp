@@ -79,12 +79,12 @@ if Request.Form("iname")="" or Request.Form("ititle")="" then Response.Redirect(
 Session(InstanceName & "_ititle")=Request.Form("ititle")
 Session(InstanceName & "_icontent")=Request.Form("icontent")
 
-if WriteVcodeCount>0 and (Request.Form("ivcode")<>Session("vcode") or Session("vcode")="") then
-	Session("vcode")=""
+if WriteVcodeCount>0 and (Request.Form("ivcode")<>Session("vcode_write") or Session("vcode_write")="") then
+	Session("vcode_write")=""
 	Call TipsPage("ÑéÖ¤Âë´íÎó¡£","leaveword.asp?" & Request.Form("qstr"))
 	Response.End
 else
-	Session("vcode")=""
+	Session("vcode_write")=""
 end if
 '===================================================================
 
