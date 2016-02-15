@@ -5,6 +5,7 @@
 <!-- #include file="include/utility/database.asp" -->
 <!-- #include file="include/utility/backend.asp" -->
 <!-- #include file="include/utility/frontend.asp" -->
+<!-- #include file="include/utility/book.asp" -->
 <!-- #include file="loadconfig.asp" -->
 <%
 Response.Expires = -1
@@ -18,7 +19,7 @@ if VcodeCount>0 then Session("vcode")=getvcode(VcodeCount)
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> 留言本 管理登录</title>
+	<title><%=HomeName%> 留言本 管理员登录</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 	
 	<script type="text/javascript">
@@ -46,6 +47,7 @@ if VcodeCount>0 then Session("vcode")=getvcode(VcodeCount)
 </head>
 
 <body onload="if(form5.iadminpass.value.length===0)form5.iadminpass.focus()">
+<%if ShowTitle then%><%Call InitHeaderData("管理员登录")%><!-- #include file="include/template/header.inc" --><%end if%>
 
 <div id="mainborder" class="mainborder narrow-mainborder">
 <div class="region form-region narrow-region">
