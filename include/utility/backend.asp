@@ -14,7 +14,7 @@ Function UrlDecode(encoded)
 			decoded = decoded & Mid(encoded, startPos, nextPos - startPos)
 			str1 = Mid(encoded, nextPos + 1, 2)
 			code1 = "&H" & str1
-			If Len(str1) > 0 And IsNumeric(code1) Then
+			If str1<>"" And IsNumeric(code1) Then
 				num1 = CLng(code1)
 				If num1 < 128 Then
 					decoded = decoded & Chr(num1)
@@ -24,14 +24,14 @@ Function UrlDecode(encoded)
 					If behindLeadingChar = escape Then
 						str2 = Mid(encoded, nextPos + 4, 2)
 						code2 = "&H" & str2
-						If Len(str2) > 0 And IsNumeric(code2) Then
+						If str2<>"" And IsNumeric(code2) Then
 							decoded = decoded & Chr(CLng("&H" & str1 & str2))
 							startPos = nextPos + 6
 						Else
 							decoded = decoded & Chr(CLng("&H" & str1 & "25"))   '25 is the hex of escape
 							startPos = nextPos + 4
 						End If
-					ElseIf Len(behindLeadingChar) > 0 Then
+					ElseIf behindLeadingChar<>"" Then
 						num2 = Asc(behindLeadingChar)
 						If num2 < 16 Then
 							str2 = "0" & Hex(num2)

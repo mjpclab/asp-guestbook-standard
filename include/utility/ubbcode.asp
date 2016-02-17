@@ -1,6 +1,6 @@
 <%
 function UBBCode(byref strContent,byval allUbbFlags)
-if Len(strContent)=0 then
+if strContent="" then
 	UBBCode=""
 else
 	const embed_prefix="<div class=""ubb-wrapper"">"

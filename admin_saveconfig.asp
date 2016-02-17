@@ -125,28 +125,28 @@ else
 
 		tshowip=0
 		tshowipv4=Request.Form("showipv4")
-		if Len(tshowipv4)=0 or Not IsNumeric(tshowipv4) then tshowipv4=2 else tshowipv4=clng(tshowipv4)
+		if tshowipv4="" or Not IsNumeric(tshowipv4) then tshowipv4=2 else tshowipv4=clng(tshowipv4)
 		if tshowipv4<0 or tshowipv4>4 then tshowipv4=2
 		tshowipv6=Request.Form("showipv6")
-		if Len(tshowipv6)=0 or Not IsNumeric(tshowipv6) then tshowipv6=2 else tshowipv6=clng(tshowipv6)
+		if tshowipv6="" or Not IsNumeric(tshowipv6) then tshowipv6=2 else tshowipv6=clng(tshowipv6)
 		if tshowipv6<0 or tshowipv6>8 then tshowipv6=2
 		tshowip=tshowipv6*16 + tshowipv4
 
 		tadminshowip=0
 		tadminshowipv4=Request.Form("adminshowipv4")
-		if Len(tadminshowipv4)=0 or Not IsNumeric(tadminshowipv4) then tadminshowipv4=2 else tadminshowipv4=clng(tadminshowipv4)
+		if tadminshowipv4="" or Not IsNumeric(tadminshowipv4) then tadminshowipv4=2 else tadminshowipv4=clng(tadminshowipv4)
 		if tadminshowipv4<0 or tadminshowipv4>4 then tadminshowipv4=2
 		tadminshowipv6=Request.Form("adminshowipv6")
-		if Len(tadminshowipv6)=0 or Not IsNumeric(tadminshowipv6) then tadminshowipv6=2 else tadminshowipv6=clng(tadminshowipv6)
+		if tadminshowipv6="" or Not IsNumeric(tadminshowipv6) then tadminshowipv6=2 else tadminshowipv6=clng(tadminshowipv6)
 		if tadminshowipv6<0 or tadminshowipv6>8 then tadminshowipv6=2
 		tadminshowip=tadminshowipv6*16 + tadminshowipv4
 
 		tadminshoworiginalip=0
 		tadminshoworiginalipv4=Request.Form("adminshoworiginalipv4")
-		if Len(tadminshoworiginalipv4)=0 or Not IsNumeric(tadminshoworiginalipv4) then tadminshoworiginalipv4=2 else tadminshoworiginalipv4=clng(tadminshoworiginalipv4)
+		if tadminshoworiginalipv4="" or Not IsNumeric(tadminshoworiginalipv4) then tadminshoworiginalipv4=2 else tadminshoworiginalipv4=clng(tadminshoworiginalipv4)
 		if tadminshoworiginalipv4<0 or tadminshoworiginalipv4>4 then tadminshoworiginalipv4=2
 		tadminshoworiginalipv6=Request.Form("adminshoworiginalipv6")
-		if Len(tadminshoworiginalipv6)=0 or Not IsNumeric(tadminshoworiginalipv6) then tadminshoworiginalipv6=2 else tadminshoworiginalipv6=clng(tadminshoworiginalipv6)
+		if tadminshoworiginalipv6="" or Not IsNumeric(tadminshoworiginalipv6) then tadminshoworiginalipv6=2 else tadminshoworiginalipv6=clng(tadminshoworiginalipv6)
 		if tadminshoworiginalipv6<0 or tadminshoworiginalipv6>8 then tadminshoworiginalipv6=2
 		tadminshoworiginalip=tadminshoworiginalipv6*16 + tadminshoworiginalipv4
 

@@ -12,7 +12,7 @@ end function
 function IsIPv4Range(byref ipStr)
 	if Instr(ipStr,".")>0 then
 		IsIPv4Range=true
-	elseif Len(ipStr)>0 and IsNumeric(ipStr) then
+	elseif ipStr<>"" and IsNumeric(ipStr) then
 		IsIPv4Range=true
 	else
 		IsIPv4Range=false
@@ -22,7 +22,7 @@ end function
 function IsIPv6Range(byref ipStr)
 	if Instr(ipStr,":")>0 then
 		IsIPv6Range=true
-	elseif Len(ipStr)>0 and IsNumeric("&H" & ipStr) then
+	elseif ipStr<>"" and IsNumeric("&H" & ipStr) then
 		IsIPv6Range=true
 	else
 		IsIPv6Range=false
@@ -89,7 +89,7 @@ function expandIPv6(byval ipStr,byval toMax)
 
 	for i=0 to 7
 		value=items(i)
-		if Len(value)>0 then
+		if value<>"" then
 			value=Left(value,4)
 			if IsNumeric("&H" & value) then
 				if NeedReplaceX then
@@ -170,7 +170,7 @@ function compactIPv6(byref ipStr)
 		next
 	end if
 
-	if Len(result)>0 then
+	if result<>"" then
 		result=":" & Left(result,Len(result)-1)
 	end if
 	result=Replace(result,":0",":")
@@ -274,7 +274,7 @@ function hexToIPv6(byref hexip)
 end function
 
 function GetIPv4WithMask(byref strIP, byval itemCount)
-	if Len(strIP)=0 then
+	if strIP="" then
 		GetIPv4WithMask=""
 	elseif itemCount>=4 then
 		GetIPv4WithMask=strIP
@@ -295,7 +295,7 @@ function GetIPv4WithMask(byref strIP, byval itemCount)
 end function
 
 function GetIPv6WithMask(byref strIP, byval itemCount)
-	if Len(strIP)=0 then
+	if strIP="" then
 		GetIPv6WithMask=""
 	elseif itemCount>=8 then
 		GetIPv6WithMask=strIP

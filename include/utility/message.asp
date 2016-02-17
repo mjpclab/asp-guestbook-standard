@@ -178,10 +178,10 @@ function GetHiddenWordCondition()
 end function
 
 sub showAdminIcons()
-	if Len(admin_email)>0 then%><a class="icon" href="mailto:<%=admin_email%>" title="版主邮箱：<%=admin_email%>"><img src="asset/image/icon_mail.gif"/></a><%end if
-	if Len(admin_qqid)>0 then%><span class="icon" title="版主QQ：<%=admin_qqid%>"><img src="asset/image/icon_qq.gif"/></span><%end if
-	if Len(admin_msnid)>0 then%><span class="icon"><img src="asset/image/icon_skype.gif" alt="版主Skype：<%=admin_msnid%>"/></span><%end if
-	if Len(admin_homepage)>0 then%><a class="icon" href="<%=admin_homepage%>" target="_blank" title="版主主页：<%=admin_homepage%>"><img src="asset/image/icon_homepage.gif"/></a><%end if
+	if admin_email<>"" then%><a class="icon" href="mailto:<%=admin_email%>" title="版主邮箱：<%=admin_email%>"><img src="asset/image/icon_mail.gif"/></a><%end if
+	if admin_qqid<>"" then%><span class="icon" title="版主QQ：<%=admin_qqid%>"><img src="asset/image/icon_qq.gif"/></span><%end if
+	if admin_msnid<>"" then%><span class="icon"><img src="asset/image/icon_skype.gif" alt="版主Skype：<%=admin_msnid%>"/></span><%end if
+	if admin_homepage<>"" then%><a class="icon" href="<%=admin_homepage%>" target="_blank" title="版主主页：<%=admin_homepage%>"><img src="asset/image/icon_homepage.gif"/></a><%end if
 end sub
 
 sub showAdminMessageTools(byref rs)
@@ -267,33 +267,33 @@ sub showGuestIcons(rs)
 	Dim email,qqid,msnid,homepage,ipv4addr,ipv6addr,originalipv4,originalipv6
 
 	email=rs.Fields("email")
-	if Len(email)>0 then%><a class="icon" href="mailto:<%=email%>" title="作者邮箱：<%=email%>"><img src="asset/image/icon_mail.gif"/></a><%end if
+	if email<>"" then%><a class="icon" href="mailto:<%=email%>" title="作者邮箱：<%=email%>"><img src="asset/image/icon_mail.gif"/></a><%end if
 	qqid=rs.Fields("qqid")
-	if Len(qqid)>0 then%><span class="icon" title="作者QQ：<%=qqid%>"><img src="asset/image/icon_qq.gif"/></span><%end if
+	if qqid<>"" then%><span class="icon" title="作者QQ：<%=qqid%>"><img src="asset/image/icon_qq.gif"/></span><%end if
 	msnid=rs.Fields("msnid")
-	if Len(msnid)>0 then%><span class="icon" title="作者Skype：<%=msnid%>"><img src="asset/image/icon_skype.gif"/></span><%end if
+	if msnid<>"" then%><span class="icon" title="作者Skype：<%=msnid%>"><img src="asset/image/icon_skype.gif"/></span><%end if
 	homepage=rs.Fields("homepage")
-	if Len(homepage)>0 then%><a class="icon" href="<%=homepage%>" target="_blank" title="作者主页：<%=homepage%>"><img src="asset/image/icon_homepage.gif" /></a><%end if
+	if homepage<>"" then%><a class="icon" href="<%=homepage%>" target="_blank" title="作者主页：<%=homepage%>"><img src="asset/image/icon_homepage.gif" /></a><%end if
 
 	if left(pagename,5)="admin" then
 		ipv4addr=rs.Fields("ipv4addr")
-		if AdminShowIPv4>0 and Len(ipv4addr)>0 then
+		if AdminShowIPv4>0 and ipv4addr<>"" then
 			ipv4addr=GetIPv4WithMask(ipv4addr,AdminShowIPv4)%><span class="icon-entry"><span class="icon" title="IP：<%=ipv4addr%>"><img src="asset/image/icon_ip.gif"/></span></span><%end if
 		ipv6addr=rs.Fields("ipv6addr")
-		if AdminShowIPv6>0 and Len(ipv6addr)>0 then
+		if AdminShowIPv6>0 and ipv6addr<>"" then
 			ipv6addr=GetIPv6WithMask(ipv6addr,AdminShowIPv6)%><span class="icon-entry"><span class="icon" title="IP：<%=ipv6addr%>"><img src="asset/image/icon_ip.gif"/></span></span><%end if
 		originalipv4=rs.Fields("originalipv4")
-		if AdminShowOriginalIPv4>0 and Len(originalipv4)>0 then
+		if AdminShowOriginalIPv4>0 and originalipv4<>"" then
 			originalipv4=GetIPv4WithMask(originalipv4,AdminShowOriginalIPv4)%><span class="icon-entry"><span class="icon" title="原始IP：<%=originalipv4%>"><img src="asset/image/icon_ip2.gif"/></span></span><%end if
 		originalipv6=rs.Fields("originalipv6")
-		if AdminShowOriginalIPv6>0 and Len(originalipv6)>0 then
+		if AdminShowOriginalIPv6>0 and originalipv6<>"" then
 			originalipv6=GetIPv6WithMask(originalipv6,AdminShowOriginalIPv6)%><span class="icon-entry"><span class="icon" title="原始IP：<%=originalipv6%>"><img src="asset/image/icon_ip2.gif"/></span></span><%end if
 	else
 		ipv4addr=rs.Fields("ipv4addr")
-		if ShowIPv4>0 and Len(ipv4addr)>0 then
+		if ShowIPv4>0 and ipv4addr<>"" then
 			ipv4addr=GetIPv4WithMask(ipv4addr,ShowIPv4)%><span class="icon" title="IP：<%=ipv4addr%>"><img src="asset/image/icon_ip.gif"/></span><%end if
 		ipv6addr=rs.Fields("ipv6addr")
-		if ShowIPv6>0 and Len(ipv6addr)>0 then
+		if ShowIPv6>0 and ipv6addr<>"" then
 			ipv6addr=GetIPv6WithMask(ipv6addr,ShowIPv6)%><span class="icon" title="IP：<%=ipv6addr%>"><img src="asset/image/icon_ip.gif"/></span><%end if
 	end if
 end sub
