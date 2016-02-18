@@ -16,7 +16,7 @@ while Not rs.eof
 	iswhisper=CBool(guestflag AND 32)
 	encrypted=((guestflag AND 96)=96)
 	%>
-	<tr>
+	<tr class="message<%if isauditting then%> auditting-message<%end if%>">
 		<td class="select">
 			<input type="checkbox" name="seltodel" class="seltodel checkbox" value="<%=rs.Fields("id")%>" />
 		</td>

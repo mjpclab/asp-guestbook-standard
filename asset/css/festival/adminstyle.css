@@ -6,6 +6,11 @@
 	background:#c00000;
 }
 
+.auditting-message .title,
+.auditting-message .title a,
+.auditting-message .words {
+	color:#b5a759;
+}
 
 .detail-item {
 	border-color:#e3c629;

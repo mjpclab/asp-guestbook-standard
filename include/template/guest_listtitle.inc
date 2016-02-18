@@ -19,7 +19,7 @@ while Not rs.eof
 
 	n_i=n_i+1
 	%>
-	<tr>
+	<tr class="message<%if isauditting then%> auditting-message<%end if%>">
 		<td class="icon">
 			<a name="a<%=n_i%>" id="a<%=n_i%>"></a>
 			<%if isauditting then%><img src="asset/image/icon_wait2pass.gif" title="´ıÉóºË" alt="´ıÉóºË"/>

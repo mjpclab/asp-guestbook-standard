@@ -8,6 +8,7 @@ getadmininfo()
 
 while Not rs.EOF
 	guestflag=rs("guestflag")
+	isauditting=CBool(guestflag AND 16)
 	ishidden=((guestflag AND 40)=8)
 	iswhisper=CBool(guestflag AND 32)
 	encrypted=((guestflag AND 96)=96)
@@ -18,7 +19,7 @@ while Not rs.EOF
 	<a name="a<%=n_i%>" id="a<%=n_i%>"></a>
 
 	<div class="topic"><%
-	if CBool(guestflag and 16) then		'´ýÉóºË
+	if isauditting then
 		outeraudit(rs)
 	else
 		outerword(rs)
@@ -29,11 +30,12 @@ while Not rs.EOF
 			rs1.open Replace(Replace(sql_listword_guest,"{0}",rs.Fields("id")),"{1}",GetHiddenWordCondition()),cn,0,1,1
 			while not rs1.eof
 				guestflag=rs1("guestflag")
+				isauditting=CBool(guestflag AND 16)
 				ishidden=((guestflag AND 40)=8)
 				iswhisper=CBool(guestflag AND 32)
 				encrypted=((guestflag AND 96)=96)
 
-				if CBool(guestflag and 16) then		'´ýÉóºË
+				if isauditting then
 					outeraudit(rs1)
 				else
 					outerword(rs1)

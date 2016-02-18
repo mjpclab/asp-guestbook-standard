@@ -43,10 +43,15 @@
 	zoom:1;
 }
 
+.auditting-message .title,
+.auditting-message .title a,
+.auditting-message .words {
+	color:#777;
+}
+
 .region-callgen .field .label {
 	width:7em;
 }
-
 
 .region-config .field .label {
 	width:11em;
@@ -62,7 +67,6 @@
 	box-shadow: 0 0 10px #808080;
 	border-radius: 5px;
 }
-
 
 .iplist {
 	overflow: hidden;

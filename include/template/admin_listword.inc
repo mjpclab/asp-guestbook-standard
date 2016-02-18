@@ -8,6 +8,7 @@ getadmininfo()
 
 while Not rs.EOF
 	guestflag=rs("guestflag")
+	isauditting=CBool(guestflag AND 16)
 	%>
 
 	<div class="topic"><%
@@ -22,6 +23,7 @@ while Not rs.EOF
 			rs1.open Replace(sql_listword_admin,"{0}",rs.Fields("id")),cn,0,1,1
 			while not rs1.eof
 				guestflag=rs1("guestflag")
+				isauditting=CBool(guestflag AND 16)
 				ishidden=((guestflag AND 40)=8)
 				iswhisper=CBool(guestflag AND 32)
 				encrypted=((guestflag AND 96)=96)

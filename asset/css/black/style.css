@@ -1,5 +1,5 @@
 body {
-	color: #333;
+	color: #ccc;
 	background: #000 url(../../image/bg_black.gif);
 }
 
@@ -44,7 +44,6 @@ textarea {
 
 .topic .message {
 	border-color: #333;
-	color: #ccc;
 }
 
 .topic .info {

@@ -380,7 +380,7 @@ sub outeraudit(t_rs)%>
 <%end sub
 
 sub innerword(byref t_rs)%>
-<div class="message inner-message guest-message">
+<div class="message inner-message guest-message<%if isauditting then%> auditting-message<%end if%>">
 	<div class="summary">
 		<div class="name"><%=t_rs("name")%>£º</div>
 		<div class="date">(<%=t_rs("logdate")%>)</div>
@@ -414,7 +414,7 @@ sub innerword(byref t_rs)%>
 <%end sub
 
 sub outerword(byref rs)%>
-<div class="message outer-message guest-message">
+<div class="message outer-message guest-message<%if isauditting then%> auditting-message<%end if%>">
 	<div class="info">
 		<div class="name"><%=rs("name")%></div>
 
@@ -472,11 +472,12 @@ sub outerword(byref rs)%>
 			rs1.Open Replace(Replace(sql_common2_guestreply,"{0}",rs.Fields("id")),"{1}",hidden_condition),cn,0,1,1
 			while not rs1.eof
 				guestflag=rs1("guestflag")
+				isauditting=CBool(guestflag AND 16)
 				ishidden=((guestflag AND 40)=8)
 				iswhisper=(CBool(guestflag AND 32))
 				encrypted=(clng(guestflag and 96)=96)
 
-				if CBool(guestflag AND 16) and left(pagename,5)<>"admin" then		'´ýÉóºË
+				if isauditting and left(pagename,5)<>"admin" then
 					inneraudit()
 				else
 					innerword(rs1)
