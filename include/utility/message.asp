@@ -275,7 +275,7 @@ sub showGuestIcons(rs)
 	homepage=rs.Fields("homepage")
 	if homepage<>"" then%><a class="icon" href="<%=homepage%>" target="_blank" title="作者主页：<%=homepage%>"><img src="asset/image/icon_homepage.gif" /></a><%end if
 
-	if left(pagename,5)="admin" then
+	if inAdminPage then
 		ipv4addr=rs.Fields("ipv4addr")
 		if AdminShowIPv4>0 and ipv4addr<>"" then
 			ipv4addr=GetIPv4WithMask(ipv4addr,AdminShowIPv4)%><span class="icon-entry"><span class="icon" title="IP：<%=ipv4addr%>"><img src="asset/image/icon_ip.gif"/></span></span><%end if
@@ -307,7 +307,7 @@ sub inneradminreply(byref rs2)%>
 	</div>
 	<%if admin_faceurl<>"" then%><img class="face" src="<%=admin_faceurl%>"/><%end if%>
 	<div class="words">
-		<%if encrypted and pagename<>"showword" and left(pagename,5)<>"admin" then%>
+		<%if encrypted and pagename<>"showword" and Not inAdminPage then%>
 			<span class="inner-hint"><img src="asset/image/icon_key.gif"/>(需要预设的密码才能查看...)[<a href="showword.asp?id=<%=rs2("id")%>">点击这里验证...</a>]</span>
 		<%else
 			reply_htmlflag=rs2("htmlflag")
@@ -332,7 +332,7 @@ sub outeradminreply(byref rs2)%>
 	</div>
 	<div class="detail">
 		<div class="words">
-			<%if encrypted and pagename<>"showword" and left(pagename,5)<>"admin" then%>
+			<%if encrypted and pagename<>"showword" and Not inAdminPage then%>
 				<span class="inner-hint"><img src="asset/image/icon_key.gif"/>(需要预设的密码才能查看...)[<a href="showword.asp?id=<%=rs2("id")%>">点击这里验证...</a>]</span>
 			<%else
 				reply_htmlflag=rs2("htmlflag")
@@ -371,7 +371,7 @@ sub outeraudit(t_rs)%>
 	</div>
 	<div class="detail">
 		<h2 class="title">(留言待审核...)</h2>
-		<%if rs.Fields("parent_id")<=0 and left(pagename,5)<>"admin" then showGuestMessageTools rs.Fields("id"),rs.Fields("parent_id"),StatusWrite and StatusGuestReply and Not CBool(rs.Fields("guestflag") AND 512)%>
+		<%if rs.Fields("parent_id")<=0 and Not inAdminPage then showGuestMessageTools rs.Fields("id"),rs.Fields("parent_id"),StatusWrite and StatusGuestReply and Not CBool(rs.Fields("guestflag") AND 512)%>
 		<div class="words">
 			<span class="inner-hint"><img src="asset/image/icon_wait2pass.gif" />(留言待审核...)</span>
 		</div>
@@ -384,20 +384,20 @@ sub innerword(byref t_rs)%>
 	<div class="summary">
 		<div class="name"><%=t_rs("name")%>：</div>
 		<div class="date">(<%=t_rs("logdate")%>)</div>
-			<%if (iswhisper=false and Not CBool(guestflag AND 256)) or (pagename="showword" and needverify) or left(pagename,5)="admin" then%>
+			<%if (Not iswhisper and Not CBool(guestflag AND 256)) or (pagename="showword" and needverify) or inAdminPage then%>
 				<div class="icons"><%showGuestIcons(t_rs)%></div>
 			<%end if%>
-		<h2 class="title"><%if iswhisper and pagename<>"showword" and left(pagename,5)<>"admin" then response.write "(给版主的悄悄话...)" else response.write t_rs("title")%></h2>
+		<h2 class="title"><%if iswhisper and pagename<>"showword" and Not inAdminPage then response.write "(给版主的悄悄话...)" else response.write t_rs("title")%></h2>
 	</div>
 	<%if StatusShowHead and t_rs.Fields("faceid")>=1 and t_rs.Fields("faceid")<=FaceCount then%><img class="face" src="asset/face/<%=t_rs.Fields("faceid")%>.gif"/><%end if%>
 	<div class="words">
-		<%if iswhisper and pagename<>"showword" and left(pagename,5)<>"admin" then%>
+		<%if iswhisper and pagename<>"showword" and Not inAdminPage then%>
 			<span class="inner-hint"><img src="asset/image/icon_whisper.gif"/>(给版主的悄悄话...)</span>
-		<%elseif ishidden and left(pagename,5)<>"admin" then%>
+		<%elseif ishidden and Not inAdminPage then%>
 			<span class="inner-hint"><img src="asset/image/icon_hide.gif"/>(留言被管理员隐藏...)</span>
 		<%else
 			guest_txt="" & t_rs("article") & ""
-			if left(pagename,5)="admin" and AdminViewCode then
+			if inAdminPage and AdminViewCode then
 				guest_txt=server.htmlEncode(guest_txt)
 			else
 				convertstr guest_txt,guestflag,false
@@ -425,23 +425,23 @@ sub outerword(byref rs)%>
 			<%end if
 		end if%>
 
-		<%if (iswhisper=false and Not CBool(guestflag AND 256)) or (pagename="showword" and needverify) or left(pagename,5)="admin" then%>
+		<%if (Not iswhisper and Not CBool(guestflag AND 256)) or (pagename="showword" and needverify) or inAdminPage then%>
 			<div class="icons"><%showGuestIcons(rs)%></div>
 		<%end if%>
 
 		<div class="date"><%=rs("logdate")%></div>
 	</div>
 	<div class="detail">
-		<h2 class="title"><%if iswhisper and pagename<>"showword" and left(pagename,5)<>"admin" then response.write "(给版主的悄悄话...)" else response.write rs("title")%></h2>
-		<%if rs.Fields("parent_id")<=0 and left(pagename,5)<>"admin" then showGuestMessageTools rs.Fields("id"),rs.Fields("parent_id"),StatusWrite and StatusGuestReply and clng(rs.Fields("guestflag") and 512)=0%>
+		<h2 class="title"><%if iswhisper and pagename<>"showword" and Not inAdminPage then response.write "(给版主的悄悄话...)" else response.write rs("title")%></h2>
+		<%if rs.Fields("parent_id")<=0 and Not inAdminPage then showGuestMessageTools rs.Fields("id"),rs.Fields("parent_id"),StatusWrite and StatusGuestReply and Not CBool(rs.Fields("guestflag") and 512)%>
 		<div class="words">
-			<%if iswhisper and pagename<>"showword" and left(pagename,5)<>"admin" then%>
+			<%if iswhisper and pagename<>"showword" and Not inAdminPage then%>
 				<span class="inner-hint"><img src="asset/image/icon_whisper.gif"/>(给版主的悄悄话...)</span>
-			<%elseif ishidden and left(pagename,5)<>"admin" then%>
+			<%elseif ishidden and Not inAdminPage then%>
 				<span class="inner-hint"><img src="asset/image/icon_hide.gif"/>(留言被管理员隐藏...)</span>
 			<%else
 				guest_txt="" & rs("article") & ""
-				if left(pagename,5)="admin" and AdminViewCode then
+				if inAdminPage and AdminViewCode then
 					guest_txt=server.htmlEncode(guest_txt)
 				else
 					convertstr guest_txt,guestflag,false
@@ -459,14 +459,14 @@ sub outerword(byref rs)%>
 		<%
 		if CBool(rs.Fields("replied") AND 1) and ReplyInWord then inneradminreply(rs)	'内嵌
 
-		if (pagename="admin" or pagename="admin_search" or pagename="admin_showword") and ReplyInWord then
+		if inAdminPage and ReplyInWord then
 			Call showAdminMessageTools(rs)
 		end if
 
-		if rs.Fields("parent_id")<=0 and CBool(rs.Fields("replied") AND 2) and (encrypted=false or pagename="showword" or left(pagename,5)="admin") and ReplyInWord then
+		if rs.Fields("parent_id")<=0 and CBool(rs.Fields("replied") AND 2) and (Not encrypted or pagename="showword" or inAdminPage) and ReplyInWord then
 			dim hidden_condition
 			hidden_condition=""
-			if left(pagename,5)<>"admin" then hidden_condition=GetHiddenWordCondition()
+			if Not inAdminPage then hidden_condition=GetHiddenWordCondition()
 
 			set rs1=Server.CreateObject("ADODB.Recordset")
 			rs1.Open Replace(Replace(sql_common2_guestreply,"{0}",rs.Fields("id")),"{1}",hidden_condition),cn,0,1,1
@@ -477,14 +477,14 @@ sub outerword(byref rs)%>
 				iswhisper=(CBool(guestflag AND 32))
 				encrypted=(clng(guestflag and 96)=96)
 
-				if isauditting and left(pagename,5)<>"admin" then
+				if isauditting and Not inAdminPage then
 					inneraudit()
 				else
 					innerword(rs1)
 					if rs1.Fields("replied") then inneradminreply(rs1)
 				end if
 
-				if pagename="admin" or pagename="admin_search" or pagename="admin_showword" then
+				if inAdminPage then
 					Call showAdminMessageTools(rs1)
 				end if
 				rs1.movenext

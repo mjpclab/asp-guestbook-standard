@@ -101,8 +101,11 @@ end if
 	</div>
 </div>
 
-<%dim pagename
-pagename="admin_edit"%>
+<%
+dim pagename, inAdminPage
+pagename="admin_edit"
+inAdminPage=true
+%>
 <!-- #include file="include/template/admin_listword.inc" -->
 <%rs.Close : cn.Close : set rs=nothing : set cn=nothing%>
 </div>

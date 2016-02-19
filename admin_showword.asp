@@ -67,8 +67,9 @@ end if
 	<form method="post" action="admin_mdel.asp" name="form7">
 		<!-- #include file="include/template/admin_func.inc" -->
 		<%
-			dim pagename
+			dim pagename, inAdminPage
 			pagename="admin_showword"
+			inAdminPage=true
 			%><!-- #include file="include/template/admin_listword.inc" --><%
 			rs.Close : cn.Close : set rs=nothing : set cn=nothing
 		%>

@@ -64,8 +64,9 @@ get_divided_page cn,rs,sql_pk_main,sql_admin_words_count,sql_admin_words_query,"
 		if ItemsCount=0 then
 			Response.Write "<br/><br/><div class=""centertext"">Ä¿Ç°ÉĞÎŞÁôÑÔ¡£</div><br/><br/>"
 		else
-			dim pagename
+			dim pagename, inAdminPage
 			pagename="admin"
+			inAdminPage=true
 			if AdminDisplayMode()="book" then
 				%><!-- #include file="include/template/admin_listword.inc" --><%
 			elseif AdminDisplayMode()="forum" then

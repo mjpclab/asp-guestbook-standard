@@ -124,8 +124,9 @@ end if
 		if ItemsCount=0 then
 			Response.Write "<br/><br/><div class=""centertext"">没有找到符合条件的留言。</div><br/><br/>"
 		else
-			dim pagename
+			dim pagename, inAdminPage
 			pagename="admin_search"
+			inAdminPage=true
 			if AdminDisplayMode()="book" then
 				%><!-- #include file="include/template/admin_listword.inc" --><%
 			elseif AdminDisplayMode()="forum" then
