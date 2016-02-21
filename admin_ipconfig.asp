@@ -143,16 +143,9 @@
 
 			<script type="text/javascript" src="asset/js/tabcontrol.js"></script>
 			<script type="text/javascript">
-				tab=new TabControl('tabContainer');
+				var tab=new TabControl('tabContainer');
 				tab.savingFieldId='tabIndex';
 				var prevIndex=tab.loadPageIndex();
-
-				tab.setOuterContainerCssClass('tab-outer-container');
-				tab.setTitleContainerCssClass('tab-title-container');
-				tab.setTitleCssClass('tab-title');
-				tab.setTitleSelectedCssClass('tab-title-selected');
-				tab.setPageContainerCssClass('tab-page-container');
-				tab.setPageCssClass('tab-page');
 
 				tab.addPage('div-ipv4','IPv4');
 				tab.addPage('div-ipv6','IPv6');

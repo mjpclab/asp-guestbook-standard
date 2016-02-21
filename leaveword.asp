@@ -153,8 +153,7 @@ end function
 				<input type="hidden" name="return" value="<%=request("return")%>"/>
 				<input type="hidden" name="qstr" value="<%=Server.HtmlEncode(request.QueryString)%>"/>
 
-				<div id="tabContainer">
-				</div>
+				<div id="tabContainer"></div>
 
 				<div id="divRequired">
 					<h4>必填项目：</h4>
@@ -231,14 +230,7 @@ end function
 
 				<script type="text/javascript" src="asset/js/tabcontrol.js"></script>
 				<script type="text/javascript">
-					tab=new TabControl('tabContainer');
-
-					tab.setOuterContainerCssClass('tab-outer-container');
-					tab.setTitleContainerCssClass('tab-title-container');
-					tab.setTitleCssClass('tab-title');
-					tab.setTitleSelectedCssClass('tab-title-selected');
-					tab.setPageContainerCssClass('tab-page-container');
-					tab.setPageCssClass('tab-page');
+					var tab=new TabControl('tabContainer');
 
 					tab.addPage('divRequired','必填项目');
 					tab.addPage('divContact','联系方式');

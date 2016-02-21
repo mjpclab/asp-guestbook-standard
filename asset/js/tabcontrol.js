@@ -11,9 +11,9 @@ function TabControl(id) {
 	//Attributes of Styles
 	var outerContainerCssClass = '';
 	var titleContainerCssClass = '';
-	var pageContainerCssClass = '';
 	var titleCssClass = '';
 	var titleSelectedCssClass = '';
+	var pageContainerCssClass = '';
 	var pageCssClass = '';
 
 	//Other fields
@@ -147,9 +147,19 @@ function TabControl(id) {
 		outerContainer.appendChild(fragment);
 	}
 
+	function setDefaultCssClass() {
+		that.setOuterContainerCssClass('tab-outer-container');
+		that.setTitleContainerCssClass('tab-title-container');
+		that.setTitleCssClass('tab-title');
+		that.setTitleSelectedCssClass('tab-title-selected');
+		that.setPageContainerCssClass('tab-page-container');
+		that.setPageCssClass('tab-page');
+	}
+
 	if (outerContainer) {
 		init();
 		hookMethods();
+		setDefaultCssClass();
 	}
 	else {
 		throw new Error('tab container not found')

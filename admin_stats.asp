@@ -270,14 +270,7 @@ on error resume next
 </div>
 <script type="text/javascript" src="asset/js/tabcontrol.js"></script>
 <script type="text/javascript">
-	tab=new TabControl('div_outer');
-
-	tab.setOuterContainerCssClass('tab-outer-container');
-	tab.setTitleContainerCssClass('tab-title-container');
-	tab.setTitleCssClass('tab-title');
-	tab.setTitleSelectedCssClass('tab-title-selected');
-	tab.setPageContainerCssClass('tab-page-container');
-	tab.setPageCssClass('tab-page');
+	var tab=new TabControl('div_outer');
 
 	tab.addPage('div_words','留言列表页面');
 	tab.addPage('div_search','搜索页面');
