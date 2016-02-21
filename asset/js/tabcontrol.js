@@ -139,6 +139,12 @@ function TabControl(id) {
 			}
 		};
 
+		that.restoreFromField = function (fieldName) {
+			that.savingFieldId = fieldName;
+			var prevIndex = that.loadPageIndex();
+			isFinite(prevIndex) && that.selectPage(prevIndex);
+		};
+
 		//Combine the Containers
 		var fragment = document.createDocumentFragment();
 		fragment.appendChild(titleContainer);

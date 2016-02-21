@@ -144,12 +144,11 @@
 			<script type="text/javascript" src="asset/js/tabcontrol.js"></script>
 			<script type="text/javascript">
 				var tab=new TabControl('tabContainer');
-				tab.savingFieldId='tabIndex';
-				var prevIndex=tab.loadPageIndex();
 
 				tab.addPage('div-ipv4','IPv4');
 				tab.addPage('div-ipv6','IPv6');
-				isFinite(prevIndex) && tab.selectPage(prevIndex);
+
+				tab.restoreFromField('tabIndex');
 			</script>
 		</div>
 		<div class="command"><input type="submit" name="submit1" value="更新数据" /></div>
