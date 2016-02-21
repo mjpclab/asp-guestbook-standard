@@ -53,14 +53,12 @@ elseif Not IsNumeric(request.Form("vcodecount")) then
 	errbox "“登录验证码长度”必须为数字。"
 elseif Not IsNumeric(request.Form("writevcodecount")) then
 	errbox "“留言验证码长度”必须为数字。"
-elseif Not IsNumeric(request.Form("maillevel")) then
-	errbox "“邮件紧急程度”必须为数字。"
 elseif isnum(request.Form("tablewidth"))=false then
 	errbox "“留言本最大宽度”必须为数字或百分比。"
-elseif isnum(request.Form("tableleftwidth"))=false then
-	errbox "“留言本左窗格宽度”必须为数字或百分比。"
 elseif Not IsNumeric(request.Form("windowspace")) then
 	errbox "“窗口区块间距”必须为数字。"
+elseif isnum(request.Form("tableleftwidth"))=false then
+	errbox "“留言本左窗格宽度”必须为数字或百分比。"
 elseif Not IsNumeric(request.Form("leavecontentheight")) then
 	errbox "“‘留言内容’文本高度”必须为数字。"
 elseif Not IsNumeric(request.Form("searchtextwidth")) then
@@ -79,6 +77,8 @@ elseif Not IsNumeric(request.Form("advpagelistcount")) then
 	errbox "“区段式分页项数”必须为数字。"
 elseif Not IsNumeric(request.Form("wordslimit")) then
 	errbox "“留言字数限制”必须为数字。"
+elseif Not IsNumeric(request.Form("maillevel")) then
+	errbox "“邮件紧急程度”必须为数字。"
 else
 	tstatus=0
 	if Request.Form("status1")="1" then tstatus=tstatus OR 1
@@ -157,31 +157,6 @@ else
 	if clng(twritevcodecount)>10 then twritevcodecount=4
 	if clng(twritevcodecount)<0 then twritevcodecount=4
 	twritevcodecount=clng(twritevcodecount) * &H10
-
-
-	tmailflag=0
-	if Request.Form("mailnewinform")="1" then tmailflag=tmailflag OR 1
-	if Request.Form("mailreplyinform")="1" then tmailflag=tmailflag OR 2
-	if Request.Form("mailcomponent")="1" then tmailflag=tmailflag OR 4
-
-	tmailreceive=Request.Form("mailreceive")
-	if len(tmailreceive)>48 then tmailreceive=left(tmailreceive,48)
-
-	tmailfrom=Request.Form("mailfrom")
-	if len(tmailfrom)>48 then tmailfrom=left(tmailfrom,48)
-
-	tmailsmtpserver=Request.Form("mailsmtpserver")
-	if len(tmailsmtpserver)>48 then tmailsmtpserver=left(tmailsmtpserver,48)
-
-	tmailuserid=Request.Form("mailuserid")
-	if len(tmailuserid)>48 then tmailuserid=left(tmailuserid,48)
-
-	tmailuserpass=Request.Form("mailuserpass")
-	if len(tmailuserpass)>48 then tmailuserpass=left(tmailuserpass,48)
-
-	tmaillevel=Request.Form("maillevel")
-	if len(cstr(tmaillevel))>1 then maillevel=3
-	if clng(tmaillevel)<1 or clng(tmaillevel)>5 then tmaillevel=3
 
 
 	tcssfontfamily=Request.Form("cssfontfamily")
@@ -323,6 +298,31 @@ else
 	if Request.Form("lock2toptip")="1" then tdelconfirm=tdelconfirm OR 256
 	if Request.Form("reordertip")="1" then tdelconfirm=tdelconfirm OR 512
 
+
+	tmailflag=0
+	if Request.Form("mailnewinform")="1" then tmailflag=tmailflag OR 1
+	if Request.Form("mailreplyinform")="1" then tmailflag=tmailflag OR 2
+	if Request.Form("mailcomponent")="1" then tmailflag=tmailflag OR 4
+
+	tmailreceive=Request.Form("mailreceive")
+	if len(tmailreceive)>48 then tmailreceive=left(tmailreceive,48)
+
+	tmailfrom=Request.Form("mailfrom")
+	if len(tmailfrom)>48 then tmailfrom=left(tmailfrom,48)
+
+	tmailsmtpserver=Request.Form("mailsmtpserver")
+	if len(tmailsmtpserver)>48 then tmailsmtpserver=left(tmailsmtpserver,48)
+
+	tmailuserid=Request.Form("mailuserid")
+	if len(tmailuserid)>48 then tmailuserid=left(tmailuserid,48)
+
+	tmailuserpass=Request.Form("mailuserpass")
+	if len(tmailuserpass)>48 then tmailuserpass=left(tmailuserpass,48)
+
+	tmaillevel=Request.Form("maillevel")
+	if len(cstr(tmaillevel))>1 then maillevel=3
+	if clng(tmaillevel)<1 or clng(tmaillevel)>5 then tmaillevel=3
+
 	set cn1=server.CreateObject("ADODB.Connection")
 	set rs1=server.CreateObject("ADODB.Recordset")
 
@@ -340,14 +340,6 @@ else
 	rs1("adminshowip")=tadminshowip
 	rs1("adminshoworiginalip")=tadminshoworiginalip
 	rs1("vcodecount")=tvcodecount + twritevcodecount
-
-	rs1("mailflag")=tmailflag
-	rs1("mailreceive")=tmailreceive
-	rs1("mailfrom")=tmailfrom
-	rs1("mailsmtpserver")=tmailsmtpserver
-	rs1("mailuserid")=tmailuserid
-	rs1("mailuserpass")=tmailuserpass
-	rs1("maillevel")=tmaillevel
 
 	rs1("cssfontfamily")=tcssfontfamily
 	rs1("cssfontsize")=tcssfontsize
@@ -370,6 +362,14 @@ else
 	rs1("pagecontrol")=tpagecontrol
 	rs1("wordslimit")=twordslimit
 	rs1("delconfirm")=tdelconfirm
+
+	rs1("mailflag")=tmailflag
+	rs1("mailreceive")=tmailreceive
+	rs1("mailfrom")=tmailfrom
+	rs1("mailsmtpserver")=tmailsmtpserver
+	rs1("mailuserid")=tmailuserid
+	rs1("mailuserpass")=tmailuserpass
+	rs1("maillevel")=tmaillevel
 
 	rs1.Update
 	rs1.Close : cn1.close : set rs1=nothing : set cn1=nothing
