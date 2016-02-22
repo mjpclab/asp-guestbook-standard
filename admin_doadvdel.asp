@@ -12,7 +12,6 @@
 <!-- #include file="tips.asp" -->
 <%
 Response.Expires=-1
-Response.Flush
 set cn=server.CreateObject("ADODB.Connection")
 Call CreateConn(cn)
 
@@ -111,6 +110,10 @@ case "8"
 	'cn.Execute "delete from reply",,1
 	cn.Execute Replace(sql_admindoadvdel_main,"{0}",tparam),,1
 	Call TipsPage("É¾³ý²Ù×÷Íê³É¡£","admin_advdel.asp")
+case else
+	Response.Redirect "admin_advdel.asp"
+	cn.Close : set cn=nothing
+	Response.End
 end select
 
 cn.Execute sql_admindoadvdel_clearfragment_main,,1
