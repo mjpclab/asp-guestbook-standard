@@ -95,7 +95,7 @@ Response.Expires=-1
 
 		<form>
 		<div class="field field-mode">
-			<span class="label">使用模式：</span>
+			<span class="label">使用模式</span>
 			<span class="value">
 				<select name="frm_mode" id="frm_mode">
 					<option value="iframe">iframe</option>
@@ -105,23 +105,23 @@ Response.Expires=-1
 			</span>
 		</div>
 		<div class="field field-base-url">
-			<span class="label">留言本根URL：</span>
+			<span class="label">留言本根URL</span>
 			<span class="value"><input type="text" name="frm_baseurl" id="frm_baseurl" value="<%=geturlpath%>" /></span>
 		</div>
 		<div class="field field-n">
-			<span class="label">显示条数：<span class="required">*</span></span>
+			<span class="label">显示条数<span class="required">*</span></span>
 			<span class="value"><input type="text" name="frm_n" id="frm_n" maxlength="10" value="10"/></span>
 		</div>
 		<div class="field field-len">
-			<span class="label">标题字数限制：</span>
+			<span class="label">标题字数限制</span>
 			<span class="value"><input type="text" name="frm_len" id="frm_len"/></span>
 		</div>
 		<div class="field field-prefix">
-			<span class="label">标题前缀：</span>
+			<span class="label">标题前缀</span>
 			<span class="value"><input type="text" name="frm_prefix" id="frm_prefix"/></span>
 		</div>
 		<div class="field field-target">
-			<span class="label">打开窗口：</span>
+			<span class="label">打开窗口</span>
 			<span class="value">
 				<select name="frm_target" id="frm_target">
 					<option value="">(默认)</option>

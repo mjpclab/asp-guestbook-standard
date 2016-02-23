@@ -40,31 +40,31 @@
 		<div class="content">
 			<form method="post" action="admin_saveinfo.asp" name="form1" onsubmit="form1.submit1.disabled=true;">
 			<div class="field">
-				<span class="label">昵称：</span>
+				<span class="label">昵称</span>
 				<span class="value"><input type="text" name="aname" maxlength="20" value="<%="" & rs("name") & ""%>" /></span>
 			</div>
 			<div class="field">
-				<span class="label">邮件：</span>
+				<span class="label">邮件</span>
 				<span class="value"><input type="text" name="aemail" maxlength="50" value="<%="" & rs("email") & ""%>" /></span>
 			</div>
 			<div class="field">
-				<span class="label">QQ号：</span>
+				<span class="label">QQ号</span>
 				<span class="value"><input type="text" name="aqqid" maxlength="16" value="<%="" & rs("qqid") & ""%>" /></span>
 			</div>
 			<div class="field">
-				<span class="label">Skype：</span>
+				<span class="label">Skype</span>
 				<span class="value"><input type="text" name="amsnid" maxlength="50" value="<%="" & rs("msnid") & ""%>" /></span>
 			</div>
 			<div class="field">
-				<span class="label">主页：</span>
+				<span class="label">主页</span>
 				<span class="value"><input type="text" name="ahomepage" maxlength="127" value="<%="" & rs("homepage") & ""%>" /></span>
 			</div>
 			<div class="field">
-				<span class="label">头像编号：</span>
+				<span class="label">头像编号</span>
 				<span class="value"><input type="text" name="afaceid" maxlength="3" value="<%=tfaceid%>" title="填写头像编号时URL必须清空" /></span>
 			</div>
 			<div class="field">
-				<span class="label">或URL：</span>
+				<span class="label">或URL</span>
 				<span class="value"><input type="text" name="afaceurl" maxlength="127" value="<%="" & rs("faceurl") & ""%>" title="填写URL时忽略头像编号" /></span>
 			</div>
 			<div class="field">

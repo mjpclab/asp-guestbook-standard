@@ -74,10 +74,10 @@ on error resume next
 			<h4>留言列表页面</h4>
 			<blockquote>
 				<table>
-					<tr><td style="width:120px;">访问次数：</td><td><%=tview%></td></tr>
-					<tr><td style="width:120px;">平均月访问次数：</td><td><%=formatnumber(tview/((datediff("m",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
-					<tr><td style="width:120px;">平均周访问次数：</td><td><%=formatnumber(tview/((datediff("ww",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
-					<tr><td style="width:120px;">平均日访问次数：</td><td><%=formatnumber(tview/((datediff("d",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
+					<tr><td style="width:120px;">访问次数</td><td><%=tview%></td></tr>
+					<tr><td style="width:120px;">平均月访问次数</td><td><%=formatnumber(tview/((datediff("m",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
+					<tr><td style="width:120px;">平均周访问次数</td><td><%=formatnumber(tview/((datediff("ww",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
+					<tr><td style="width:120px;">平均日访问次数</td><td><%=formatnumber(tview/((datediff("d",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
 				</table>
 			</blockquote>
 		</div>
@@ -86,10 +86,10 @@ on error resume next
 			<h4>搜索页面</h4>
 			<blockquote>
 				<table>
-					<tr><td style="width:120px;">搜索次数：</td><td><%=tsearch%></td></tr>
-					<tr><td style="width:120px;">平均月搜索次数：</td><td><%=formatnumber(tsearch/((datediff("m",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
-					<tr><td style="width:120px;">平均周搜索次数：</td><td><%=formatnumber(tsearch/((datediff("ww",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
-					<tr><td style="width:120px;">平均日搜索次数：</td><td><%=formatnumber(tsearch/((datediff("d",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
+					<tr><td style="width:120px;">搜索次数</td><td><%=tsearch%></td></tr>
+					<tr><td style="width:120px;">平均月搜索次数</td><td><%=formatnumber(tsearch/((datediff("m",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
+					<tr><td style="width:120px;">平均周搜索次数</td><td><%=formatnumber(tsearch/((datediff("ww",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
+					<tr><td style="width:120px;">平均日搜索次数</td><td><%=formatnumber(tsearch/((datediff("d",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
 				</table>
 			</blockquote>
 		</div>
@@ -98,13 +98,13 @@ on error resume next
 			<h4>写留言/回复页面</h4>
 			<blockquote>
 				<table>
-					<tr><td style="width:120px;">访问次数：</td><td><%=tleaveword%></td></tr>
-					<tr><td style="width:120px;">成功留言次数：</td><td><%=twritten%></td></tr>
-					<tr><td style="width:120px;">放弃留言率：</td><td><%if tleaveword=0 then Response.Write "/" else Response.Write formatpercent((tleaveword-twritten)/tleaveword,2,true)%></td></tr>
-					<tr><td style="width:120px;">留言被过滤次数：</td><td><%=tfiltered%></td></tr>
-					<tr><td style="width:120px;">过滤率：</td><td><%if twritten+tfiltered+tbanned=0 then Response.Write "/" else Response.Write formatpercent(tfiltered/(twritten+tfiltered+tbanned),2,true)%></td></tr>
-					<tr><td style="width:120px;">留言被拒绝次数：</td><td><%=tbanned%></td></tr>
-					<tr><td style="width:120px;">拒绝率：</td><td><%if twritten+tfiltered+tbanned=0 then Response.Write "/" else Response.Write formatpercent(tbanned/(twritten+tfiltered+tbanned),2,true)%></td></tr>
+					<tr><td style="width:120px;">访问次数</td><td><%=tleaveword%></td></tr>
+					<tr><td style="width:120px;">成功留言次数</td><td><%=twritten%></td></tr>
+					<tr><td style="width:120px;">放弃留言率</td><td><%if tleaveword=0 then Response.Write "/" else Response.Write formatpercent((tleaveword-twritten)/tleaveword,2,true)%></td></tr>
+					<tr><td style="width:120px;">留言被过滤次数</td><td><%=tfiltered%></td></tr>
+					<tr><td style="width:120px;">过滤率</td><td><%if twritten+tfiltered+tbanned=0 then Response.Write "/" else Response.Write formatpercent(tfiltered/(twritten+tfiltered+tbanned),2,true)%></td></tr>
+					<tr><td style="width:120px;">留言被拒绝次数</td><td><%=tbanned%></td></tr>
+					<tr><td style="width:120px;">拒绝率</td><td><%if twritten+tfiltered+tbanned=0 then Response.Write "/" else Response.Write formatpercent(tbanned/(twritten+tfiltered+tbanned),2,true)%></td></tr>
 				</table>
 			</blockquote>
 		</div>
@@ -113,9 +113,9 @@ on error resume next
 			<h4>管理登录页面</h4>
 			<blockquote>
 				<table>
-					<tr><td style="width:120px;">登录次数：</td><td><%=tlogin%></td></tr>
-					<tr><td style="width:120px;">登录失败次数：</td><td><%=tloginfailed%></td></tr>
-					<tr><td style="width:120px;">登录失败率：</td><td><%if tlogin=0 then Response.Write "/" else Response.Write formatpercent(tloginfailed/tlogin,2,true)%></td></tr>
+					<tr><td style="width:120px;">登录次数</td><td><%=tlogin%></td></tr>
+					<tr><td style="width:120px;">登录失败次数</td><td><%=tloginfailed%></td></tr>
+					<tr><td style="width:120px;">登录失败率</td><td><%if tlogin=0 then Response.Write "/" else Response.Write formatpercent(tloginfailed/tlogin,2,true)%></td></tr>
 				</table>
 			</blockquote>
 		</div>
@@ -136,7 +136,7 @@ on error resume next
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:180px;"">"
-				Response.Write server.HTMLEncode(rs.Fields("os")) & "："
+				Response.Write server.HTMLEncode(rs.Fields("os"))
 				Response.Write "</td><td>"
 				Response.Write rs.Fields(1) & "(" & formatpercent(rs.Fields(1)/tclientcount,2,true) & ")"
 				Response.Write "</td></tr>"
@@ -153,7 +153,7 @@ on error resume next
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
-				Response.Write server.HTMLEncode(rs.Fields("browser")) & "："
+				Response.Write server.HTMLEncode(rs.Fields("browser"))
 				Response.Write "</td><td>"
 				Response.Write rs.Fields(1) & "(" & formatpercent(rs.Fields(1)/tclientcount,2,true) & ")"
 				Response.Write "</td></tr>"
@@ -171,7 +171,7 @@ on error resume next
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
 				if rs.Fields("screenwh")<>"0*0" then
-					Response.Write server.HTMLEncode(rs.Fields("screenwh")) & "："
+					Response.Write server.HTMLEncode(rs.Fields("screenwh"))
 				else
 					Response.Write "未知："
 				end if
@@ -191,7 +191,7 @@ on error resume next
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
-				Response.Write server.HTMLEncode(rs.Fields(0) & ":00～" & rs.Fields(0) & ":59") & "："
+				Response.Write server.HTMLEncode(rs.Fields(0) & ":00～" & rs.Fields(0) & ":59")
 				Response.Write "</td><td>"
 				Response.Write rs.Fields(1) & "(" & formatpercent(rs.Fields(1)/tclientcount,2,true) & ")"
 				Response.Write "</td></tr>"
@@ -212,7 +212,7 @@ on error resume next
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
 				'Response.Write server.HTMLEncode(weekdayname(rs.Fields(0),false,1))
-				Response.Write server.HTMLEncode(weeklist(rs.Fields(0)-1)) & "："
+				Response.Write server.HTMLEncode(weeklist(rs.Fields(0)-1))
 				Response.Write "</td><td>"
 				Response.Write rs.Fields(1) & "(" & formatpercent(rs.Fields(1)/tclientcount,2,true) & ")"
 				Response.Write "</td></tr>"
@@ -229,7 +229,7 @@ on error resume next
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
-				Response.Write server.HTMLEncode(rs.Fields("datesect")) & "："
+				Response.Write server.HTMLEncode(rs.Fields("datesect"))
 				Response.Write "</td><td>"
 				Response.Write rs.Fields(1)
 				Response.Write "</td></tr>"
@@ -246,7 +246,7 @@ on error resume next
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:150px;"">"
-				Response.Write server.HTMLEncode(rs.Fields("sourceaddr")) & "："
+				Response.Write server.HTMLEncode(rs.Fields("sourceaddr"))
 				Response.Write "</td><td>"
 				Response.Write rs.Fields(1) & "(" & formatpercent(rs.Fields(1)/tclientcount,2,true) & ")"
 				Response.Write "</td></tr>"
