@@ -45,7 +45,8 @@
 
 .auditting-message .title,
 .auditting-message .title a,
-.auditting-message .words {
+.auditting-message .words,
+.auditting-message .words a {
 	color:#777;
 }
 
