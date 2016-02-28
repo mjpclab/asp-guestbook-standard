@@ -32,19 +32,41 @@ sub floodbaned
 end sub
 '======================================================
 sub bancheck(byref re,byref field,byval tfiltermode,byval bitflag)
-	if clng(tfiltermode and bitflag)<>0 then
-		if re.Test(field)=true then Call wordsbaned
+	if CBool(tfiltermode and bitflag) then
+		if CBool(tfiltermode AND 256) then  'pure text
+			Dim tcompareflag
+			if re.IgnoreCase then tcompareflag=1 else tcompareflag=0 end if
+			if Instr(1, field, re.Pattern, tcompareflag)>0 then Call wordsbaned
+		else
+			if re.Test(field) then Call wordsbaned
+		end if
 	end if
 end sub
 '======================================================
 sub filtercheck(byref re,byref field,byval tfiltermode,byval bitflag,byref treplacestr,byref filtered)
-	if clng(tfiltermode and bitflag)<>0 then
-		if re.Test(field)=true then
-			if clng(tfiltermode and 4096)<>0 then	'wait to audit
-				guestflag=clng(guestflag or 16)
-			else
-				filtered=true
-				field=re.Replace(field,treplacestr)
+	if CBool(tfiltermode and bitflag) then
+		Dim tmatchcase
+		tmatchcase=CBool(tfiltermode AND 8192)
+
+		if CBool(tfiltermode AND 256) then  'pure text
+			Dim tcompareflag
+			if re.IgnoreCase then tcompareflag=1 else tcompareflag=0 end if
+			if Instr(1, field, re.Pattern, tcompareflag)>0 then    'matched
+				if CBool(tfiltermode and 4096) then     'wait to audit
+					guestflag=guestflag OR 16
+				else
+					filtered=true
+					field=Replace(field, re.Pattern, treplacestr, 1, -1, tcompareflag)
+				end if
+			end if
+		else
+			if re.Test(field) then  'matched
+				if CBool(tfiltermode and 4096) then     'wait to audit
+					guestflag=guestflag OR 16
+				else
+					filtered=true
+					field=re.Replace(field,treplacestr)
+				end if
 			end if
 		end if
 	end if
@@ -141,7 +163,7 @@ end if
 if Request.Form("imailreplyinform")="1" then guestflag=guestflag OR 128
 if Request.Form("hidecontact")="1" then guestflag=guestflag OR 256
 '-------------------------
-dim tregexp,tfiltermode,treplacestr,re,filtered
+Dim tregexp,tfiltermode,treplacestr,filtered
 set re=new RegExp
 filtered=false
 
@@ -153,10 +175,17 @@ while Not rs.EOF
 	treplacestr=rs("replacestr")
 
 	if tregexp<>"" then
-		re.Multiline=(clng(tfiltermode and 2048)<>0)
-		re.IgnoreCase=(clng(tfiltermode and 8192)=0)
 		re.Global=true
 		re.Pattern=tregexp
+		re.IgnoreCase=Not CBool(tfiltermode AND 8192)
+		if CBool(tfiltermode AND 512) then  'wildcard
+			re.Multiline=false
+			re.Pattern=Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(re.Pattern,"(","\("),")","\)"),"[","\["),"]","\]"),"{","\{"),"}","\}"),"<","\<"),">","\>"),"^","\^"),"$","\$"),"\","\\"),".","\."),"?","."),"*",".*?")
+		elseif CBool(tfiltermode AND 1024) then     'regexp
+			re.Multiline=false
+		elseif CBool(tfiltermode AND 2048) then     'regexp multiline
+			re.Multiline=true
+		end if
 
 		if clng(tfiltermode and 16384)<>0 then    'baned
 			bancheck re,name1,tfiltermode,1

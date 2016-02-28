@@ -11,37 +11,50 @@ Response.Expires=-1
 
 tfindexp=Request.Form("findexp")
 if tfindexp<>"" then
+	Dim tfiltermode
 	tfiltermode=0
+
+	Dim tsearchmode
+	tsearchmode=Request.Form("searchmode")
+	if tsearchmode="256" then
+		tfiltermode=tfiltermode+256
+	elseif tsearchmode="512" then
+		tfiltermode=tfiltermode+512
+	elseif tsearchmode="1024" then
+		tfiltermode=tfiltermode+1024
+	elseif tsearchmode="2048" then
+		tfiltermode=tfiltermode+2048
+	end if
+	if Request.Form("matchcase")="8192" then tfiltermode=tfiltermode+8192
 
 	arr_findrange=split(Request.Form("findrange"),",")
 	for fi=0 to ubound(arr_findrange)
 		if len(arr_findrange(fi))<=5 then
 			if isnumeric(arr_findrange(fi)) then
-				if cint(arr_findrange(fi))<16384 then
+				if cint(arr_findrange(fi))<=64 then
 					tfiltermode=tfiltermode+cint(arr_findrange(fi))
 				end if
 			end if
 		end if
 	next
 
-	if Request.Form("multiline")="2048" then tfiltermode=tfiltermode+2048
-	if Request.Form("matchcase")="8192" then tfiltermode=tfiltermode+8192
-	if Request.Form("filtermethod")="16384" then
-		tfiltermode=tfiltermode+16384
-	elseif Request.Form("filtermethod")="4096" then
-		tfiltermode=tfiltermode+4096
-	end if
-	
-	if Request.Form("filtermethod")="0" then
+	Dim tfiltermethod,treplacestr
+	tfiltermethod=Request.Form("filtermethod")
+	if tfiltermethod="0" then
 		treplacestr=Request.Form("replacetxt")
 	else
 		treplacestr=""
+		if tfiltermethod="4096" then
+			tfiltermode=tfiltermode+4096
+		elseif tfiltermethod="16384" then
+			tfiltermode=tfiltermode+16384
+		end if
 	end if
 
-	if len(Request.Form("memo"))>25 then
-		tmemo=left(Request.Form("memo"),25)
-	else
-		tmemo="" & Request.Form("memo") & ""
+	Dim tmemo
+	tmemo=Request.Form("memo")
+	if len(tmemo)>25 then
+		tmemo=left(tmemo,25)
 	end if
 
 	set cn=server.CreateObject("ADODB.Connection")
