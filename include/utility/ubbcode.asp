@@ -1,4 +1,9 @@
 <%
+Dim charCr, charLf, charCrLf
+charCr=Chr(13)
+charLf=Chr(10)
+charCrLf=charCr & charLf
+
 function UBBCode(byref strContent,byval allUbbFlags)
 if strContent="" then
 	UBBCode=""
@@ -167,8 +172,7 @@ else
 	strContent=replace(strContent,"width:px;","width:auto;")
 	strContent=replace(strContent,"height:px;","height:auto;")
 
-	strContent=replace(strContent,chr(13)&chr(10),chr(10))
-	strContent=replace(strContent,chr(10),"<br/>" &chr(13)&chr(10))
+	strContent=replace(strContent,charLf,"<br/>")
 	UBBCode=strContent
 end if
 end function
@@ -183,16 +187,14 @@ function convertstr(byref str,byval htmlflag,byval allUbbFlags)
 		str=Replace(str,"<script","&lt;script")
 		str=Replace(str,"</script>","&lt;/script>")
 	else
+		str=replace(str,charCrLf,charLf)
+		str=replace(str,charCr,charLf)
 		str=server.HTMLEncode(str)
-		str=replace(str,chr(9),"        ")
-		'str=replace(str," ","&nbsp;")
-	end if
-	if tUBB then str=ubbcode(str,allUbbFlags)
-	if Not tHTML and Not tUBB then
-		if tNewline then
-			str=replace(str,chr(13)&chr(10),"<br/>")
-		else
-			str=replace(str,chr(13)&chr(10)," ")
+
+		if tUBB then
+			str=ubbcode(str,allUbbFlags)
+		elseif tNewline then
+			str=replace(str,charLf,"<br/>")
 		end if
 	end if
 end function
