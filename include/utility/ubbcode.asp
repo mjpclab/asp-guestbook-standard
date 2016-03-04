@@ -163,9 +163,9 @@ else
 		if originalStr=strContent then exit for
 	next
 
-	re.pattern="<(.*?)(?:javascript|vbscript)\s*:(.*?)>"
+	re.pattern="<(.*?)(?:javascript|vbscript)\s*:([^>]*)>"
 	strContent=re.replace(strContent,"<$1$2>")
-	re.pattern="(<.*?style\s*=.*?):expression(.*?>)"
+	re.pattern="(<.*?style\s*=.*?):expression([^>]*>)"
 	strContent=re.replace(strContent,"$1$2")
 	set re=Nothing
 
