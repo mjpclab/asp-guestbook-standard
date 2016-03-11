@@ -111,8 +111,8 @@ case "8"
 	cn.Execute Replace(sql_admindoadvdel_main,"{0}",tparam),,1
 	Call TipsPage("É¾³ý²Ù×÷Íê³É¡£","admin_advdel.asp")
 case else
-	Response.Redirect "admin_advdel.asp"
 	cn.Close : set cn=nothing
+	Response.Redirect "admin_advdel.asp"
 	Response.End
 end select
 
