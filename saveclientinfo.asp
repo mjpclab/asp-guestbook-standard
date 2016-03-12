@@ -6,19 +6,23 @@
 <!-- #include file="loadconfig.asp" -->
 <%
 Response.ContentType="application/x-javascript"
-if Session("gotclientinfo")<>true then
-	Dim cn
-	Dim os,browser,screenwidth,screenheight,sourceaddr,fullsource
 
-	'Get Parameters
-	os=Request.QueryString("sys")
-	browser=Request.QueryString("brow")
-	screenwidth=Request.QueryString("sw")
-	screenheight=Request.QueryString("sh")
-	sourceaddr=Request.QueryString("src")
-	fullsource=Request.QueryString("fsrc")
+Dim keyGotClientinfo
+keyGotClientInfo=InstanceName & "_gotclientinfo"
 
-	if not (os="" and browser="" and screenwidth="" and screenheight="" and sourceaddr="" and fullsource="") then
+if StatusStatistics and Not IsEmpty(Session(keyGotClientInfo)) and Not Session(keyGotClientInfo) then
+	if Not IsEmpty(Request.QueryString) then
+		Dim cn
+		Dim os,browser,screenwidth,screenheight,sourceaddr,fullsource
+
+		'Get Parameters
+		os=Request.QueryString("sys")
+		browser=Request.QueryString("brow")
+		screenwidth=Request.QueryString("sw")
+		screenheight=Request.QueryString("sh")
+		sourceaddr=Request.QueryString("src")
+		fullsource=Request.QueryString("fsrc")
+
 		'Verify Parameters
 		if len(os)>25 then os=left(os,25)
 		if os="" then os="δ֪"
@@ -52,7 +56,7 @@ if Session("gotclientinfo")<>true then
 		cn.Close : set cn=nothing
 		
 		'Got Complete
-		Session("gotclientinfo")=true
+		Session(keyGotClientInfo)=true
 	end if
 end if
 %>

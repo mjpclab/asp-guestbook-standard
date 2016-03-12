@@ -1,4 +1,10 @@
-<%if StatusStatistics and Session("gotclientinfo")<>true then%>
+<%
+Dim keyGotClientinfo
+keyGotClientInfo=InstanceName & "_gotclientinfo"
+
+if StatusStatistics and Not Session(keyGotClientInfo) then
+Session(keyGotClientInfo)=false
+%>
 <script type="text/javascript" src="asset/js/stats.js"></script>
 <script type="text/javascript">
 	var url = location.href.substring(0, location.href.lastIndexOf('/') + 1);
