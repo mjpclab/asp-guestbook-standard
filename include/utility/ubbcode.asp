@@ -187,15 +187,19 @@ function convertstr(byref str,byval htmlflag,byval allUbbFlags)
 		str=Replace(str,"<script","&lt;script")
 		str=Replace(str,"</script>","&lt;/script>")
 	else
+		str=server.HTMLEncode(str)
+	end if
+
+	if tUBB then
 		str=replace(str,charCrLf,charLf)
 		str=replace(str,charCr,charLf)
-		str=server.HTMLEncode(str)
+		str=ubbcode(str,allUbbFlags)
+	end if
 
-		if tUBB then
-			str=ubbcode(str,allUbbFlags)
-		elseif tNewline then
-			str=replace(str,charLf,"<br/>")
-		end if
+	if Not tHTML and Not tUBB and tNewline then
+		str=replace(str,charCrLf,charLf)
+		str=replace(str,charCr,charLf)
+		str=replace(str,charLf,"<br/>")
 	end if
 end function
 %>
