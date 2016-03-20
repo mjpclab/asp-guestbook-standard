@@ -9,8 +9,8 @@ const i_offsetrange=4
 const i_textcolor="666666"		'fore color RGB
 const i_bgcolor="ffffff"		'bg color RGB
 const i_noisecolor="999999"
-const i_noisefrequency=0.07		'between 0 and 1
-const i_offsetcolor=20
+const i_noisefrequency=0.25		'between 0 and 1
+const i_offsetcolor=25
 
 const i_mingridwidth=0
 const i_maxgridwidth=0
