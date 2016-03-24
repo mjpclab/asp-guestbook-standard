@@ -12,7 +12,7 @@ Response.Expires = -1
 Response.AddHeader "Pragma","no-cache"
 Response.AddHeader "cache-control","no-cache, must-revalidate"
 
-if VcodeCount>0 then Session("vcode")=getvcode(VcodeCount)
+if VcodeCount>0 then Session(InstanceName & "_vcode")=getvcode(VcodeCount)
 %>
 
 <!-- #include file="include/template/dtd.inc" -->

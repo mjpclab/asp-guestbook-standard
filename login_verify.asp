@@ -18,8 +18,8 @@ if StatusStatistics then call addstat("login")
 Dim referrer
 referrer=Request.Form("referrer")
 
-if VcodeCount>0 and (Request.Form("ivcode")<>Session("vcode") or Session("vcode")="") then
-	Session("vcode")=""
+if VcodeCount>0 and (Request.Form("ivcode")<>Session(InstanceName & "_vcode") or Session(InstanceName & "_vcode")="") then
+	Session(InstanceName & "_vcode")=""
 	if StatusStatistics then call addstat("loginfailed")
 	Call TipsPage("ÑéÖ¤Âë´íÎó¡£","admin_login.asp?referrer=" & Server.UrlEncode(referrer))
 
@@ -27,7 +27,7 @@ if VcodeCount>0 and (Request.Form("ivcode")<>Session("vcode") or Session("vcode"
 	set cn=nothing
 	Response.End
 else
-	Session("vcode")=""
+	Session(InstanceName & "_vcode")=""
 end if
 
 Dim cn,rs
