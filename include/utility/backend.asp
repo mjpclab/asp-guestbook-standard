@@ -106,6 +106,14 @@ Function DateTimeStr(theTime)
 	DateTimeStr = Year(t) & "-" & Month(t) & "-" & Day(t) & " " & Hour(t) & ":" & Minute(t) & ":" & Second(t)
 End Function
 
+Function ServerTimeToUTC(time)
+	ServerTimeToUTC=DateAdd("n",-ServerTimezoneOffset,time)
+End Function
+
+Function UTCToDisplayTime(time)
+	UTCToDisplayTime=DateAdd("n",DisplayTimezoneOffset,time)
+End Function
+
 function geturlpath()
 	dim host,url,buffer,port,httpHost
 	if LCase(Request.ServerVariables("HTTPS"))="on" then

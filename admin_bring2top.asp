@@ -18,7 +18,7 @@ end if
 set cn=server.CreateObject("ADODB.Connection")
 Call CreateConn(cn)
 
-cn.Execute Replace(Replace(sql_adminbring2top,"{0}",now()),"{1}",Request.QueryString("id")),,1
+cn.Execute Replace(Replace(sql_adminbring2top,"{0}",ServerTimeToUTC(now())),"{1}",Request.QueryString("id")),,1
 cn.close : set cn=nothing
 %>
 <!-- #include file="include/template/admin_traceback.inc" -->

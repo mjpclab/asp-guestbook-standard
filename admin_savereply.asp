@@ -35,7 +35,7 @@ if Not IsEmpty(Request.Form) then
 		rs.Update
 		rs.Close
 
-		replydate1=DateTimeStr(now())
+		replydate1=DateTimeStr(ServerTimeToUTC(now()))
 		content1=Replace(Replace(Request.Form("rcontent"),"'","''"),"<%","< %")
 		rs.Open sql_adminsavereply_reply &request.form("mainid"),cn,0,1,1
 		if rs.EOF then	'新回复
@@ -52,7 +52,7 @@ if Not IsEmpty(Request.Form) then
 		end if
 
 		if Request.Form("bring2top")="1" then	'提前
-			cn.Execute Replace(Replace(sql_adminsavereply_bring2top,"{0}",now()),"{1}",Request.Form("mainid")),,1
+			cn.Execute Replace(Replace(sql_adminsavereply_bring2top,"{0}",replydate1),"{1}",Request.Form("mainid")),,1
 		end if
 
 		cn.close

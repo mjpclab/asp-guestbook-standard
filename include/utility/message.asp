@@ -311,7 +311,7 @@ sub inneradminreply(byref rs2)%>
 <div class="message inner-message admin-message">
 	<div class="summary">
 		<div class="name">版主<%if admin_name<>"" then response.write "(" & admin_name & ")"%>回复：</div>
-		<div class="date">(<%=rs2("replydate")%>)</div>
+		<div class="date">(<%=UTCToDisplayTime(rs2("replydate"))%>)</div>
 		<div class="icons"><%showAdminIcons()%></div>
 	</div>
 	<%if admin_faceurl<>"" then%><img class="face" src="<%=admin_faceurl%>"/><%end if%>
@@ -337,7 +337,7 @@ sub outeradminreply(byref rs2)%>
 		<%if admin_email<>"" or admin_qqid<>"" or admin_msnid<>"" or admin_homepage<>"" then%>
 			<div class="icons"><%showAdminIcons()%></div>
 		<%end if%>
-		<div class="date"><%=rs2("replydate")%></div>
+		<div class="date"><%=UTCToDisplayTime(rs2("replydate"))%></div>
 	</div>
 	<div class="detail">
 		<div class="words">
@@ -376,7 +376,7 @@ sub outeraudit(t_rs)%>
 			<%end if
 		end if%>
 
-		<div class="date"><%=t_rs("logdate")%></div>
+		<div class="date"><%=UTCToDisplayTime(t_rs("logdate"))%></div>
 	</div>
 	<div class="detail">
 		<h2 class="title">(留言待审核...)</h2>
@@ -392,7 +392,7 @@ sub innerword(byref t_rs)%>
 <div class="message inner-message guest-message<%if isauditting then%> auditting-message<%end if%>">
 	<div class="summary">
 		<div class="name"><%=t_rs("name")%>：</div>
-		<div class="date">(<%=t_rs("logdate")%>)</div>
+		<div class="date">(<%=UTCToDisplayTime(t_rs("logdate"))%>)</div>
 			<%if (Not iswhisper and Not CBool(guestflag AND 256)) or (pagename="showword" and needverify) or inAdminPage then%>
 				<div class="icons"><%showGuestIcons(t_rs)%></div>
 			<%end if%>
@@ -438,7 +438,7 @@ sub outerword(byref rs)%>
 			<div class="icons"><%showGuestIcons(rs)%></div>
 		<%end if%>
 
-		<div class="date"><%=rs("logdate")%></div>
+		<div class="date"><%=UTCToDisplayTime(rs("logdate"))%></div>
 	</div>
 	<div class="detail">
 		<h2 class="title"><%if iswhisper and pagename<>"showword" and Not inAdminPage then response.write "(给版主的悄悄话...)" else response.write rs("title")%></h2>
