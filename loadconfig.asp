@@ -75,6 +75,9 @@ CssFontFamily=lrs("cssfontfamily")
 CssFontSize=lrs("cssfontsize")
 CssLineHeight=lrs("csslineheight")
 
+ServerTimezoneOffset=lrs("servertimezoneoffset")
+DisplayTimezoneOffset=lrs("displaytimezoneoffset")
+
 VisualFlag=lrs("visualflag")
 ReplyInWord=CBool(VisualFlag and 1)					'回复内嵌于留言
 ShowUbbTool=CBool(VisualFlag and 2)					'显示UBB工具栏

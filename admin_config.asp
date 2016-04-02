@@ -279,6 +279,14 @@
 			<div id="tab-behavior">
 				<h4>行为</h4>
 				<div class="field">
+					<span class="label">服务器时区偏移</span>
+					<span class="value"><input type="text" size="10" maxlength="5" name="servertimezoneoffset" value="<%=rs("servertimezoneoffset")%>" /> (默认=0,单位:分钟)</span>
+				</div>
+				<div class="field">
+					<span class="label">显示时区偏移</span>
+					<span class="value"><input type="text" size="10" maxlength="5" name="displaytimezoneoffset" value="<%=rs("displaytimezoneoffset")%>" /> (默认=0,单位:分钟)</span>
+				</div>
+				<div class="field">
 					<span class="label">默认版面模式</span>
 					<span class="value"><input type="radio" name="displaymode" value="1" id="displaymode1"<%=cked(CBool(tvisualflag AND 1024))%> /><label for="displaymode1">标题模式</label>　　<input type="radio" name="displaymode" value="0" id="displaymode2"<%=cked(Not CBool(tvisualflag AND 1024))%> /><label for="displaymode2">完整模式</label></span>
 				</div>
@@ -507,6 +515,8 @@ function check()
 		checkRange(4, "每页显示的标题数", frm.titlesperpage, 1, 32767) &&
 		checkRange(4, "头像每行显示的数目", frm.picturesperrow, 1, 255) &&
 		checkRange(4, "少量载入的头像数", frm.frequentfacecount, 0, 255) &&
+		checkRange(5, "服务器时区偏移", frm.servertimezoneoffset, -1440, 1440) &&
+		checkRange(5, "显示时区偏移", frm.displaytimezoneoffset, -1440, 1440) &&
 		checkRange(5, "区段式分页项数", frm.advpagelistcount, 1, 255) &&
 		checkRange(5, "留言字数限制", frm.wordslimit, 0, 2147483647) &&
 		checkRange(6, "邮件紧急程度", frm.maillevel, 1, 5) &&

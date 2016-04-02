@@ -75,6 +75,8 @@ if Not IsEmpty(Request.Form) then
 	Call CheckRange("每页显示的标题数", "titlesperpage", 1, 32767)
 	Call CheckRange("头像每行显示的数目", "picturesperrow", 1, 255)
 	Call CheckRange("少量载入的头像数", "frequentfacecount", 0, 255)
+	Call CheckRange("服务器时区偏移", "servertimezoneoffset", -1440, 1440)
+	Call CheckRange("显示时区偏移", "displaytimezoneoffset", -1440, 1440)
 	Call CheckRange("区段式分页项数", "advpagelistcount", 1, 255)
 	Call CheckRange("留言字数限制", "wordslimit", 0, 2147483647)
 	Call CheckRange("邮件紧急程度", "maillevel", 1, 5)
@@ -235,6 +237,12 @@ if Not IsEmpty(Request.Form) then
 	end if
 
 
+	tservertimezoneoffset=CInt(Request.Form("servertimezoneoffset"))
+	if tservertimezoneoffset<-1440 or tservertimezoneoffset>1440 then tservertimezoneoffset=0
+
+	tdisplaytimezoneoffset=CInt(Request.Form("displaytimezoneoffset"))
+	if tdisplaytimezoneoffset<-1440 or tdisplaytimezoneoffset>1440 then tdisplaytimezoneoffset=0
+
 	tvisualflag=0
 	if Request.Form("replyinword")="1" then tvisualflag=tvisualflag OR 1
 	if Request.Form("showubbtool")="1" then tvisualflag=tvisualflag OR 2
@@ -320,8 +328,8 @@ if Not IsEmpty(Request.Form) then
 	if len(tmailuserpass)>48 then tmailuserpass=left(tmailuserpass,48)
 
 	tmaillevel=Request.Form("maillevel")
-	if len(cstr(tmaillevel))>1 then maillevel=3
-	if clng(tmaillevel)<1 or clng(tmaillevel)>5 then tmaillevel=3
+	if len(cstr(tmaillevel))>1 then maillevel=3 else maillevel=clng(tmaillevel)
+	if tmaillevel<1 or tmaillevel>5 then tmaillevel=3
 
 	set cn1=server.CreateObject("ADODB.Connection")
 	set rs1=server.CreateObject("ADODB.Recordset")
@@ -356,6 +364,8 @@ if Not IsEmpty(Request.Form) then
 	rs1("frequentfacecount")=tfrequentfacecount
 	rs1("styleid")=tstyleid
 
+	rs1("servertimezoneoffset")=tservertimezoneoffset
+	rs1("displaytimezoneoffset")=tdisplaytimezoneoffset
 	rs1("visualflag")=tvisualflag
 	rs1("advpagelistcount")=tadvpagelistcount
 	rs1("ubbflag")=tubbflag
