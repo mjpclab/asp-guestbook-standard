@@ -64,11 +64,20 @@ sub get_divided_page(byref cn,byref rs,byval pk,byval countsql,byval sql,byval k
 end sub
 
 sub show_page_list(byval CurPage,byval PagesCount,byval filename,byval pagetitle,byval param)
-	if param<>"" then
-		if left(param,1)<>"&" then param="&" & param
-	end if
-
-	arr_param=split(param,"&")
+	Dim arr_param_names, arr_param_values, param_name, param_value
+	arr_param_names=split(param,",")
+	ReDim arr_param_values(UBound(arr_param_names))
+	Dim url_param
+	url_param=""
+	for i=0 to ubound(arr_param_names)
+		param_name=arr_param_names(i)
+		if(param_name)<>"" then
+			param_value=Request(param_name)
+			arr_param_values(i)=param_value
+			if url_param<>"" then url_param = url_param & "&"
+			url_param = url_param & param_name & "=" & Server.UrlEncode(param_value)
+		end if
+	next
 
 	if ShowAdvPageList then
 		txt_align="center"
@@ -122,16 +131,16 @@ sub show_page_list(byval CurPage,byval PagesCount,byval filename,byval pagetitle
 			<%end if%>
 			<form method="get" action="<%=filename%>">
 			<div class="pagenum-list">
-				<%for j=start_page to end_page%><a name="pagenum" class="pagenum<%if j=CurPage then Response.Write " pagenum-current"%>" href="<%=filename%>?page=<%=j & param%>"><%=j%></a><%next%>
+				<%for j=start_page to end_page%><a name="pagenum" class="pagenum<%if j=CurPage then Response.Write " pagenum-current"%>" href="<%=filename%>?page=<%=j & "&" & url_param%>"><%=j%></a><%next%>
 			</div>
 			<div class="goto">(共<%=PagesCount%>页)　转到页数<input type="text" name="page" class="page" maxlength="10" /> <input type="submit" class="submit" value="GO" /></div>
 			<%
-			for i=0 to ubound(arr_param)
-				if arr_param(i)<>"" then%>
-					<%t_name=left(arr_param(i),instr(arr_param(i),"=")-1)
-					t_value=right(arr_param(i),len(arr_param(i))-len(t_name)-1)
-					if t_name<>"page" then%><input type="hidden" name="<%=t_name%>" value="<%=UrlDecode(t_value)%>" /><%end if%>
-				<%end if
+			for i=0 to ubound(arr_param_names)
+				param_name=arr_param_names(i)
+				if param_name<>"" then
+				param_value=arr_param_values(i)
+				%><input type="hidden" name="<%=param_name%>" value="<%=param_value%>" /><%
+				end if
 			next
 			%>
 			</form>
