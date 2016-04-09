@@ -9,6 +9,7 @@
 <!-- #include file="include/utility/database.asp" -->
 <!-- #include file="include/utility/ip.asp" -->
 <!-- #include file="include/utility/md5.asp" -->
+<!-- #include file="include/utility/sqlfilter.asp" -->
 <!-- #include file="include/utility/ubbcode.asp" -->
 <!-- #include file="include/utility/backend.asp" -->
 <!-- #include file="include/utility/frontend.asp" -->
@@ -28,13 +29,67 @@ elseif Not StatusOpen then
 	Call ErrorPage(2)
 	Response.End
 end if
+
+Dim cn,rs
+set cn=server.CreateObject("ADODB.Connection")
+set rs=server.CreateObject("ADODB.Recordset")
+Call CreateConn(cn)
+
+Dim showWord, showVerify, showMessage, pagename
+showWord=false : showVerify=false : showMessage=""
+
+Dim id
+id=FilterKeyword(Trim(Request.QueryString("id")))
+if id="" Or Not Isnumeric(id) then
+	showMessage="¡Ù—‘≤ª¥Ê‘⁄°£"
+Else
+	rs.Open sql_showword & id,cn,,,1
+
+	if rs.EOF then
+		showMessage="¡Ù—‘≤ª¥Ê‘⁄°£"
+	elseif Not CBool(rs.Fields("guestflag") and 32) then
+		showWord=true
+		pagename="showword"
+	elseif Not CBool(rs.Fields("guestflag") and 64) then
+		showWord=true
+		pagename="showword_cannot_verify"
+	elseif IsEmpty(Request.Form("ispostback")) And Session(InstanceName & "_id")=id And Session(InstanceName & "_guest_pwd")=rs.Fields("whisperpwd") then
+		showWord=true
+		pagename="showword"
+	elseif IsEmpty(Request.Form("ispostback")) then
+		showVerify=true
+		if VcodeCount>0 then
+			Session(InstanceName & "_vcode")=getvcode(VcodeCount)
+		else
+			Session(InstanceName & "_vcode")=""
+		end if
+	elseif VcodeCount>0 and (Request.Form("ivcode")<>Session(InstanceName & "_vcode") or Session(InstanceName & "_vcode")="") then
+		showVerify=true
+		showMessage="—È÷§¬Î¥ÌŒÛ°£"
+		Session(InstanceName & "_vcode")=getvcode(VcodeCount)
+	elseif md5(Request.Form("ipass"),32)<>rs.Fields("whisperpwd") then
+		showVerify=true
+		showMessage="√‹¬Î¥ÌŒÛ°£"
+		if VcodeCount>0 then
+			Session(InstanceName & "_vcode")=getvcode(VcodeCount)
+		else
+			Session(InstanceName & "_vcode")=""
+		end if
+	else
+		showWord=true
+		pagename="showword"
+		Session(InstanceName & "_vcode")=""
+		Session(InstanceName & "_id")=id
+		Session(InstanceName & "_guest_pwd")=rs.Fields("whisperpwd")
+	end if
+End If
 %>
 
 <!-- #include file="include/template/dtd.inc" -->
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ¡Ù—‘±æ ‰Ø¿¿¡Ù—‘</title>
+	<title><%=HomeName%> ¡Ù—‘±æ ‰Ø¿¿¡Ù—‘<%if showWord and pagename="showword" then Response.Write " " & rs.Fields("title")%></title>
 	<!-- #include file="inc_stylesheet.asp" -->
 
 	<script type="text/javascript">
@@ -46,20 +101,6 @@ end if
 </head>
 
 <body<%=bodylimit%> onload="<%=framecheck%>setFocus();">
-
-<%
-
-'<ShowArticle>
-Dim cn,rs,ItemsCount
-set cn=server.CreateObject("ADODB.Connection")
-set rs=server.CreateObject("ADODB.Recordset")
-
-Call CreateConn(cn)
-rs.Open sql_showword_count,cn,0,1,1
-ItemsCount=rs(0)
-rs.Close
-%>
-
 <div id="outerborder" class="outerborder">
 
 	<%if ShowTitle then%><%Call InitHeaderData("‰Ø¿¿¡Ù—‘")%><!-- #include file="include/template/header.inc" --><%end if%>
@@ -69,69 +110,12 @@ rs.Close
 	<!-- #include file="include/template/topbulletin.inc" -->
 	<%if StatusSearch and ShowTopSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
 
-	<%
-	dim showbox,showstr,needverify,cantverify,idexists
-	showbox=false
-	showstr=""
-	needverify=false
-	cantverify=false
-	idexists=false
-	if isnumeric(Request("id")) and Request("id")<>"" then
-		rs.Open sql_showword & Request("id"),cn,,,1
-		if not rs.EOF then
-			idexists=true
-			if CBool(rs.Fields("guestflag") and 64) then
-				needverify=true
-			elseif CBool(rs.Fields("guestflag") and 32) then
-				cantverify=true
-			end if
-		end if
-	end if
-	
-	if Request.Form("ispostback")="1" then
-		if VcodeCount>0 and (Request.Form("ivcode")<>Session(InstanceName & "_vcode") or Session(InstanceName & "_vcode")="") then
-			showbox=true
-			showstr="—È÷§¬Î¥ÌŒÛ°£"
-			Session(InstanceName & "_vcode")=""
-			Session(InstanceName & "_id")=""
-			Session(InstanceName & "_guest_pwd")=""
-		else
-			Session(InstanceName & "_vcode")=""
-			Session(InstanceName & "_id")=cstr(Request.Form("id"))
-			Session(InstanceName & "_guest_pwd")=md5(Request.Form("ipass"),32)
-			Response.Redirect "showword.asp?id=" & Request.Form("id")
-		end if
-	end if
-
-	if not showbox then
-		if not idexists then
-			showbox=true
-			showstr="¡Ù—‘≤ª¥Ê‘⁄°£"
-		elseif needverify then
-			if Session(InstanceName & "_id")<>cstr(rs("id")) then
-				showbox=true
-			elseif Session(InstanceName & "_guest_pwd")<>rs("whisperpwd") then
-				showbox=true
-				showstr="√‹¬Î≤ª’˝»∑°£"
-			end if
-		end if
-	end if
-
-	if VcodeCount>0 and showbox then
-		Session(InstanceName & "_vcode")=getvcode(VcodeCount)
-	else
-		Session(InstanceName & "_vcode")=""
-	end if
-	%>
-
-	<%if showbox then%>
-	<%if rs.State=1 then rs.Close%>
+	<%if showVerify then%>
 		<div class="region form-region">
 			<h3 class="title">—È÷§“—º”√‹¡Ù—‘</h3>
 			<div class="content">
-				<form method="post" action="showword.asp" name="form5" onsubmit="if(this.ipass.value==''){alert('«Î ‰»Î√‹¬Î°£');this.ipass.focus();return false;} else if(this.ivcode && this.ivcode.value==''){alert('«Î ‰»Î—È÷§¬Î°£');this.ivcode.focus(); return false;} else this.submit1.disabled=true;">
-				<input type="hidden" name="ispostback" value="1" />
-				<input type="hidden" name="id" value="<%=request("id")%>" />
+				<form method="post" action="showword.asp?id=<%=id%>" name="form5" onsubmit="if(this.ipass.value==''){alert('«Î ‰»Î√‹¬Î°£');this.ipass.focus();return false;} else if(this.ivcode && this.ivcode.value==''){alert('«Î ‰»Î—È÷§¬Î°£');this.ivcode.focus(); return false;} else this.submit1.disabled=true;">
+				<input type="hidden" name="ispostback" />
 
 				<div class="field">
 					<span class="label">√‹¬Î£∫</span>
@@ -152,19 +136,18 @@ rs.Close
 				</form>
 			</div>
 		</div>
-		<%if showstr<>"" then Response.Write "<br/><p style=""text-align:center"">" &showstr& "</p>"%>
-	<%else
-		dim ItemsPerPage,pagename
-		ItemsPerPage=1
-		if cantverify then
-			pagename="showword_cantverify"
-		else
-			pagename="showword"
-		end if%>
+	<%elseif showWord then
+		dim ItemsPerPage
+		ItemsPerPage=1%>
 		<!-- #include file="include/template/guest_listword.inc" -->
-		<%rs.Close%>
 	<%end if%>
-	<%cn.Close : set rs=nothing : set cn=nothing%>
+
+	<%
+	if rs.State=1 then rs.Close
+	cn.Close : set rs=nothing : set cn=nothing
+	%>
+
+	<%if showMessage<>"" then Response.Write "<br/><br/><div class=""centertext"">" & showMessage & "</div><br/><br/>"%>
 
 	<!-- #include file="include/template/guest_func.inc" -->
 
