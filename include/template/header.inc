@@ -17,7 +17,7 @@
 	<%end if%>
 
 	<%if Not IsEmpty(BreadcrumbItems) then%>
-	<div class="breadcrumb">
+	<h1 class="breadcrumb">
 		<% Dim itemIndex, url, text, renderedCount
 		renderedCount=0
 		for itemIndex = 0 to UBound(BreadcrumbItems)
@@ -33,7 +33,7 @@
 				<%end if
 			end if
 		next%>
-	</div>
+	</h1>
 	<%end if%>
 	</div>
 </div>
