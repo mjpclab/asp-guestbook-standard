@@ -20,20 +20,7 @@
 <%
 Response.Expires=-1
 Response.AddHeader "cache-control","private"
-%>
 
-<!-- #include file="include/template/dtd.inc" -->
-<html>
-<head>
-	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> 留言本 管理首页</title>
-	<!-- #include file="inc_admin_stylesheet.asp" -->
-	<script type="text/javascript" src="asset/js/jquery-1.x-min.js"></script>
-</head>
-
-<body<%=bodylimit%> onload="<%=framecheck%>">
-
-<%
 dim id,ipage
 ipage=Request("page")
 if isnumeric(Request.QueryString("id")) and Request.QueryString("id")<>"" then
@@ -57,6 +44,16 @@ if rs.EOF then		'留言不存在，退回主界面
 end if
 %>
 
+<!-- #include file="include/template/dtd.inc" -->
+<html>
+<head>
+	<!-- #include file="include/template/metatag.inc" -->
+	<title><%=HomeName%> 留言本 管理首页 <%=rs.Fields("title")%></title>
+	<!-- #include file="inc_admin_stylesheet.asp" -->
+	<script type="text/javascript" src="asset/js/jquery-1.x-min.js"></script>
+</head>
+
+<body<%=bodylimit%> onload="<%=framecheck%>">
 <div id="outerborder" class="outerborder">
 
 	<%if ShowTitle then%><%Call InitHeaderData("管理")%><!-- #include file="include/template/header.inc" --><%end if%>
