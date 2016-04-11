@@ -45,89 +45,83 @@ end function
 	<!-- #include file="inc_stylesheet.asp" -->
 
 	<script type="text/javascript">
-		function submitcheck(cobject)
-		{
-			if (cobject.ivcode && cobject.ivcode.value==='') {alert('请输入验证码。'); if(tab){tab.selectPage(0); cobject.ivcode.focus();} return false;}
-			if (cobject.iname.value==='') {alert('请输入称呼。'); if(tab){tab.selectPage(0); cobject.iname.focus();} return false;}
-			if (cobject.ititle.value==='') {alert('请输入标题。'); if(tab){tab.selectPage(0); cobject.ititle.focus();} return false;}
-			if (cobject.chk_encryptwhisper && cobject.chk_encryptwhisper.checked && cobject.iwhisperpwd && cobject.iwhisperpwd.value==='') {alert('请输入悄悄话密码。'); if(tab){tab.selectPage(0); cobject.iwhisperpwd.focus();} return false;}
-			if (cobject.imailreplyinform && cobject.imailreplyinform.checked && cobject.imail.value==='') {alert('请输入邮件地址以便回复时通知，或者去掉回复通知选项。'); if(tab){tab.selectPage(1); cobject.imail.focus();} return false;}
-			cobject.submit1.disabled=true;
-			return (true);
+	function submitcheck(frm)
+	{
+		if (frm.ivcode && frm.ivcode.value.length===0) {alert('请输入验证码。'); if(tab){tab.selectPage(0); frm.ivcode.focus();} return false;}
+		if (frm.iname.value.length===0) {alert('请输入称呼。'); if(tab){tab.selectPage(0); frm.iname.focus();} return false;}
+		if (frm.ititle.value.length===0) {alert('请输入标题。'); if(tab){tab.selectPage(0); frm.ititle.focus();} return false;}
+		if (frm.chk_encryptwhisper && frm.chk_encryptwhisper.checked && frm.iwhisperpwd && frm.iwhisperpwd.value.length===0) {alert('请输入悄悄话密码。'); if(tab){tab.selectPage(0); frm.iwhisperpwd.focus();} return false;}
+		if (frm.imailreplyinform && frm.imailreplyinform.checked && frm.imail.value.length===0) {alert('请输入邮件地址以便回复时通知，或者去掉回复通知选项。'); if(tab){tab.selectPage(1); frm.imail.focus();} return false;}
+		frm.submit1.disabled=true;
+		return true;
+	}
+
+	function updateWhisperField(frm)
+	{
+		var chkWhisper=frm.chk_whisper;
+
+		var chkEncryptWhisper=frm.chk_encryptwhisper;
+		var lblEncryptWhisper=document.getElementById('lbl_encryptwhisper');
+
+		var iWhisperPwd=frm.iwhisperpwd;
+
+		chkEncryptWhisper.disabled=lblEncryptWhisper.disabled=!chkWhisper.checked;
+		if(!chkWhisper.checked) {
+			chkEncryptWhisper.checked=false;
+			iWhisperPwd.value='';
 		}
 
-		function chkoption(frm)
-		{
-			var objlbl;
-			if (frm && frm.chk_whisper && frm.chk_whisper.checked && frm.chk_encryptwhisper) {		//悄悄话yes
-				frm.chk_encryptwhisper.disabled=false;
-				if (document && document.getElementById && document.getElementById('lbl_encryptwhisper')) {
-					objlbl=document.getElementById('lbl_encryptwhisper');
-					if(objlbl && (typeof(objlbl.disabled)).toLowerString!='undefined') objlbl.disabled=false;
-				}
-
-				objlbl=null;
-				if (document && document.getElementById && document.getElementById('lbl_whisperpwd')) objlbl=document.getElementById('lbl_whisperpwd');
-				if (frm.chk_encryptwhisper.checked) {			//加密悄悄话yes
-					if(objlbl && (typeof(objlbl.disabled)).toLowerString!='undefined') objlbl.disabled=false;
-					frm.iwhisperpwd.disabled=false;
-				} else {			//加密悄悄话no
-					if(objlbl && (typeof(objlbl.disabled)).toLowerString!='undefined') objlbl.disabled=true;
-					frm.iwhisperpwd.disabled=true;
-				}
-			} else if (frm && frm.chk_whisper && !frm.chk_whisper.checked && frm.chk_encryptwhisper) {		//悄悄话no
-				frm.chk_encryptwhisper.disabled=true;
-				if (document && document.getElementById && document.getElementById('lbl_encryptwhisper')) {objlbl=document.getElementById('lbl_encryptwhisper'); if(objlbl &&(typeof(objlbl.disabled)).toLowerString!='undefined') objlbl.disabled=true;}
-				if (document && document.getElementById && document.getElementById('lbl_whisperpwd')) {objlbl=document.getElementById('lbl_whisperpwd'); if(objlbl && (typeof(objlbl.disabled)).toLowerString!='undefined') objlbl.disabled=true;}
-				frm.iwhisperpwd.disabled=true;
-			}
+		iWhisperPwd.disabled=!chkEncryptWhisper.checked;
+		if(!chkEncryptWhisper.checked) {
+			iWhisperPwd.value='';
 		}
+	}
 
-		var bkcontent='';
-		function checklength(txtobj,max)
+	var bkcontent='';
+	function checklength(txtobj,max)
+	{
+		if (txtobj.value.length>max) {txtobj.value=bkcontent;alert('已达最大字数限制！');} else bkcontent=txtobj.value;
+	}
+
+	function icontent_keydown(e)
+	{
+		if(!e)e=window.event;
+		if(e && !e.target)e.target=e.srcElement;
+		if(e && e.ctrlKey && e.keyCode==13)e.target.form.submit1.click();
+	}
+
+	<!-- #include file="asset/js/xmlhttp.js" -->
+	function previewRequest()
+	{
+		if(!window.xmlHttp) window.xmlHttp=createXmlHttp();
+		var divPreview=document.getElementById('divPreview');
+		var iContent=document.getElementById('icontent');
+
+		if(xmlHttp && divPreview && iContent)
 		{
-			if (txtobj.value.length>max) {txtobj.value=bkcontent;alert('已达最大字数限制！');} else bkcontent=txtobj.value;
+			setPureText(divPreview, '正在生成预览，请稍候……');
+
+			xmlHttp.abort();
+			xmlHttp.onreadystatechange=previewArrived;
+			xmlHttp.open('POST','leaveword_preview.asp'+window.location.search);
+			xmlHttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+			xmlHttp.send('icontent=' + escape(iContent.value));
 		}
+	}
 
-		function icontent_keydown(e)
+	function previewArrived()
+	{
+		if(xmlHttp.readyState===4 && xmlHttp.status===200)
 		{
-			if(!e)e=window.event;
-			if(e && !e.target)e.target=e.srcElement;
-			if(e && e.ctrlKey && e.keyCode==13)e.target.form.submit1.click();
-		}
-
-		<!-- #include file="asset/js/xmlhttp.js" -->
-		function previewRequest()
-		{
-			if(!window.xmlHttp) window.xmlHttp=createXmlHttp();
 			var divPreview=document.getElementById('divPreview');
-			var iContent=document.getElementById('icontent');
-			
-			if(xmlHttp && divPreview && iContent)
+			if(xmlHttp && divPreview)
 			{
-				setPureText(divPreview, '正在生成预览，请稍候……');
-
+				divPreview.innerHTML=xmlHttp.responseText;
 				xmlHttp.abort();
-				xmlHttp.onreadystatechange=previewArrived;
-				xmlHttp.open('POST','leaveword_preview.asp'+window.location.search);
-				xmlHttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-				xmlHttp.send('icontent=' + escape(iContent.value));
 			}
 		}
-		
-		function previewArrived()
-		{
-			if(xmlHttp.readyState===4 && xmlHttp.status===200)
-			{
-				var divPreview=document.getElementById('divPreview');
-				if(xmlHttp && divPreview)
-				{
-					divPreview.innerHTML=xmlHttp.responseText;
-					xmlHttp.abort();
-				}
-			}
-		}
-</script>
+	}
+	</script>
 </head>
 
 <body<%=bodylimit%> onload="<%=framecheck%>if(tab && tab.selectedIndex==0 && form1 && form1.ivcode && form1.ivcode.value==''){form1.ivcode.focus();}">
@@ -182,8 +176,8 @@ end function
 					<div class="field">
 						<div class="row">
 							<img src="asset/image/icon_whisper.gif" class="imgicon" />　
-							<input type="checkbox" name="chk_whisper" value="1" id="chk_whisper" onclick="chkoption(this.form)"<%=cked(Request.Form("chk_whisper")="1")%> /><label id="lbl_whisper" for="chk_whisper">悄悄话</label>
-							<%if StatusEncryptWhisper then%>　<input type="checkbox" name="chk_encryptwhisper" value="1" id="chk_encryptwhisper" onclick="chkoption(this.form);if(this.checked)this.form.iwhisperpwd.select();"<%=cked(Request.Form("chk_encryptwhisper")="1")%><%=dised(Request.Form("chk_whisper")<>"1")%> /><label id="lbl_encryptwhisper" for="chk_encryptwhisper"<%=dised(Request.Form("chk_whisper")<>"1")%>>加密悄悄话</label><%end if%>
+							<input type="checkbox" name="chk_whisper" value="1" id="chk_whisper" onclick="updateWhisperField(this.form)"<%=cked(Request.Form("chk_whisper")="1")%> /><label id="lbl_whisper" for="chk_whisper">悄悄话</label>
+							<%if StatusEncryptWhisper then%>　<input type="checkbox" name="chk_encryptwhisper" value="1" id="chk_encryptwhisper" onclick="updateWhisperField(this.form);if(this.checked)this.form.iwhisperpwd.select();"<%=cked(Request.Form("chk_encryptwhisper")="1")%><%=dised(Request.Form("chk_whisper")<>"1")%> /><label id="lbl_encryptwhisper" for="chk_encryptwhisper"<%=dised(Request.Form("chk_whisper")<>"1")%>>加密悄悄话</label><%end if%>
 						</div>
 						<%if StatusEncryptWhisper then%>
 						<div class="row"><img border="0" src="asset/image/icon_key.gif" class="imgicon" />　<label id="lbl_whisperpwd"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%>>密码</label> <input type="password" name="iwhisperpwd" id="iwhisperpwd" maxlength="16" title="为悄悄话设置密码后，必须提供密码才能查看回复，也可以查看原先留言。" value="<%=server.HTMLEncode(Request.Form("iwhisperpwd"))%>"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%> /></div>
