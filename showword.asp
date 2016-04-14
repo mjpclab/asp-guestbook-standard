@@ -41,11 +41,13 @@ showWord=false : showVerify=false : showMessage=""
 Dim id
 id=FilterKeyword(Trim(Request.QueryString("id")))
 if id="" Or Not Isnumeric(id) then
+	Response.Status="404 Not Found"
 	showMessage="留言不存在。"
 Else
 	rs.Open sql_showword & id,cn,,,1
 
 	if rs.EOF then
+		Response.Status="404 Not Found"
 		showMessage="留言不存在。"
 	elseif Not CBool(rs.Fields("guestflag") and 32) then
 		showWord=true
