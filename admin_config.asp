@@ -79,7 +79,7 @@
 					<span class="value"><input type="radio" name="status6" value="1" id="status61"<%=cked(CBool(tstatus AND 32))%> /><label for="status61">开启</label>　　<input type="radio" name="status6" value="0" id="status62"<%=cked(Not CBool(tstatus AND 32))%> /><label for="status62">关闭</label></span>
 				</div>
 				<div class="field">
-					<span class="label">访客为悄悄话加密</span>
+					<span class="label">为悄悄话加密</span>
 					<span class="value"><input type="radio" name="status7" value="1" id="status71"<%=cked(CBool(tstatus AND 64))%> /><label for="status71">允许</label>　　<input type="radio" name="status7" value="0" id="status72"<%=cked(Not CBool(tstatus AND 64))%> /><label for="status72">禁止</label></span>
 				</div>
 				<div class="field">
@@ -360,7 +360,7 @@
 				</div>
 				<div class="field">
 					<span class="label">版主回复通知留言人</span>
-					<span class="value"><input type="checkbox" value="1" name="mailreplyinform" id="mailreplyinform"<%=cked(CBool(tmailflag AND 2))%> /><label for="mailreplyinform">开启</label></span>
+					<span class="value"><input type="checkbox" value="1" name="mailreplyinform" id="mailreplyinform"<%=cked(CBool(tmailflag AND 2))%> /><label for="mailreplyinform">启用</label></span>
 				</div>
 				<div class="field">
 					<span class="label">邮件发送组件</span>
