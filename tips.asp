@@ -10,7 +10,7 @@ sub TipsPage(strTips,backPage)
 	</head>
 	<body>
 		<div id="mainborder" class="mainborder">
-		<p><%=server.HtmlEncode(strTips)%></p>
+		<p><%=HtmlEncode(strTips)%></p>
 		<p><a href="<%=backPage%>">[·µ»Ø]</a></p>
 		</div>
 		<script type="text/javascript" defer="defer" async="async">

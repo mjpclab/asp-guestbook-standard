@@ -1,9 +1,4 @@
 <%
-Dim charCr, charLf, charCrLf
-charCr=Chr(13)
-charLf=Chr(10)
-charCrLf=charCr & charLf
-
 function UBBCode(byref strContent,byval allUbbFlags)
 if strContent="" then
 	UBBCode=""
@@ -196,7 +191,7 @@ function convertstr(byref str,byval htmlflag,byval allUbbFlags)
 		str=Replace(str,"<script","&lt;script")
 		str=Replace(str,"</script>","&lt;/script>")
 	else
-		str=server.HTMLEncode(str)
+		str=HtmlEncode(str)
 	end if
 
 	if tUBB then

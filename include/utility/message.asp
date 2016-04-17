@@ -197,7 +197,7 @@ param_url="?rootid=" & rs.Fields("root_id") & "&id=" & rs.Fields("id") & "&page=
 if request("type")<>"" and request("searchtxt")<>"" then
 	param_url=param_url & "&type=" & server.URLEncode(request("type")) & "&searchtxt=" & server.URLEncode(request("searchtxt"))
 end if
-param_url=Server.HtmlEncode(param_url)
+param_url=HtmlEncode(param_url)
 %>
 
 <div class="admin-message-tools">
@@ -264,7 +264,7 @@ sub showGuestMessageTools(byval follow_id,byval parent_id,byval show_reply)
 dim url
 url="leaveword.asp?follow=" & follow_id
 if left(pagename,8)="showword" then url=url & "&return=showword"
-url=Server.HTMLEncode(url)%>
+url=HtmlEncode(url)%>
 <div class="guest-message-tools">
 	<%if parent_id<0 then%><span class="tool"><img src="asset/image/icon_toplocked.gif"/>(÷√∂•)</span><%end if%>
 	<%if show_reply then%><span class="tool"><a href="<%=url%>"><img src="asset/image/icon_reply.gif"/>[ªÿ∏¥]</a></span><%end if%>
@@ -406,7 +406,7 @@ sub innerword(byref t_rs)%>
 		<%else
 			guest_txt="" & t_rs("article") & ""
 			if inAdminPage and AdminViewCode then
-				guest_txt=server.htmlEncode(guest_txt)
+				guest_txt=HtmlEncode(guest_txt)
 			else
 				convertstr guest_txt,guestflag,false
 			end if
@@ -450,7 +450,7 @@ sub outerword(byref rs)%>
 			<%else
 				guest_txt="" & rs("article") & ""
 				if inAdminPage and AdminViewCode then
-					guest_txt=server.htmlEncode(guest_txt)
+					guest_txt=HtmlEncode(guest_txt)
 				else
 					convertstr guest_txt,guestflag,false
 				end if

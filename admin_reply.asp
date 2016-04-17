@@ -9,8 +9,8 @@
 <!-- #include file="include/sql/admin_reply.asp" -->
 <!-- #include file="include/utility/database.asp" -->
 <!-- #include file="include/utility/ip.asp" -->
-<!-- #include file="include/utility/ubbcode.asp" -->
 <!-- #include file="include/utility/backend.asp" -->
+<!-- #include file="include/utility/ubbcode.asp" -->
 <!-- #include file="include/utility/frontend.asp" -->
 <!-- #include file="include/utility/book.asp" -->
 <!-- #include file="include/utility/message.asp" -->
@@ -60,7 +60,7 @@ rs.Open sql_adminreply_reply &Request("id"),cn,,,1
 if Not rs.EOF then
 	t_html=rs("htmlflag")
 	c_old="" & rs("reinfo") & ""
-	c_old=replace(server.htmlEncode(c_old),chr(13)&chr(10),"&#13;&#10;")
+	c_old=HtmlNewLineEncode(HtmlEncode(c_old))
 else
 	t_html=adminlimit
 	c_old=""

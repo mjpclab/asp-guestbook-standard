@@ -145,7 +145,7 @@ end function
 			<form method="post" action="write.asp" onsubmit="return submitcheck(this)" name="form1">
 				<input type="hidden" name="follow" value="<%=request("follow")%>"/>
 				<input type="hidden" name="return" value="<%=request("return")%>"/>
-				<input type="hidden" name="qstr" value="<%=Server.HtmlEncode(request.QueryString)%>"/>
+				<input type="hidden" name="qstr" value="<%=HtmlEncode(request.QueryString)%>"/>
 
 				<div id="tabContainer"></div>
 
@@ -160,15 +160,15 @@ end function
 					<%end if%>
 					<div class="field">
 						<span class="label">称呼<span class="required">*</span></span>
-						<span class="value"><input type="text" name="iname" class="longtext" maxlength="20" value="<%=server.htmlEncode(FormOrCookie("iname"))%>" /></span>
+						<span class="value"><input type="text" name="iname" class="longtext" maxlength="20" value="<%=HtmlEncode(FormOrCookie("iname"))%>" /></span>
 					</div>
 					<div class="field">
 						<span class="label">标题<span class="required">*</span></span>
-						<span class="value"><input type="text" name="ititle" class="longtext" maxlength="30" value="<%=server.htmlEncode(FormOrSession(InstanceName & "_ititle"))%><%if Request.Form("ititle")="" and isnumeric(Request("follow")) and Request("follow")<>"" then response.write "Re:"%>"/></span>
+						<span class="value"><input type="text" name="ititle" class="longtext" maxlength="30" value="<%=HtmlEncode(FormOrSession(InstanceName & "_ititle"))%><%if Request.Form("ititle")="" and isnumeric(Request("follow")) and Request("follow")<>"" then response.write "Re:"%>"/></span>
 					</div>
 					<div class="field">
 						<div class="row">内容： <%=getstatus(HTMLSupport)%>HTML标记　<%=getstatus(UBBSupport)%>UBB标记<%if Not HTMLSupport and UBBSupport=false and AllowNewLine then Response.Write "　" & getstatus(true) & "允许换行"%></div>
-						<div class="row"><textarea name="icontent" id="icontent" rows="<%=LeaveContentHeight%>" onkeydown="icontent_keydown(arguments[0]);"<%if WordsLimit>0 then Response.Write " onpropertychange=""checklength(this,"&WordsLimit&");"""%>><%=server.htmlEncode(FormOrSession(InstanceName & "_icontent"))%></textarea></div>
+						<div class="row"><textarea name="icontent" id="icontent" rows="<%=LeaveContentHeight%>" onkeydown="icontent_keydown(arguments[0]);"<%if WordsLimit>0 then Response.Write " onpropertychange=""checklength(this,"&WordsLimit&");"""%>><%=HtmlEncode(FormOrSession(InstanceName & "_icontent"))%></textarea></div>
 						<!-- #include file="include/template/ubbtoolbar.inc" -->
 						<%if UBBSupport then ShowUbbToolBar(false)%>
 					</div>
@@ -180,7 +180,7 @@ end function
 							<%if StatusEncryptWhisper then%>　<input type="checkbox" name="chk_encryptwhisper" value="1" id="chk_encryptwhisper" onclick="updateWhisperField(this.form);if(this.checked)this.form.iwhisperpwd.select();"<%=cked(Request.Form("chk_encryptwhisper")="1")%><%=dised(Request.Form("chk_whisper")<>"1")%> /><label id="lbl_encryptwhisper" for="chk_encryptwhisper"<%=dised(Request.Form("chk_whisper")<>"1")%>>加密悄悄话</label><%end if%>
 						</div>
 						<%if StatusEncryptWhisper then%>
-						<div class="row"><img border="0" src="asset/image/icon_key.gif" class="imgicon" />　<label id="lbl_whisperpwd"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%>>密码</label> <input type="password" name="iwhisperpwd" id="iwhisperpwd" maxlength="16" title="为悄悄话设置密码后，必须提供密码才能查看回复，也可以查看原先留言。" value="<%=server.HTMLEncode(Request.Form("iwhisperpwd"))%>"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%> /></div>
+						<div class="row"><img border="0" src="asset/image/icon_key.gif" class="imgicon" />　<label id="lbl_whisperpwd"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%>>密码</label> <input type="password" name="iwhisperpwd" id="iwhisperpwd" maxlength="16" title="为悄悄话设置密码后，必须提供密码才能查看回复，也可以查看原先留言。" value="<%=HtmlEncode(Request.Form("iwhisperpwd"))%>"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%> /></div>
 						<%end if%>
 					</div>
 					<%end if%>
@@ -190,19 +190,19 @@ end function
 					<h4>联系方式：</h4>
 					<div class="field">
 						<span class="label"><img src="asset/image/icon_mail.gif" class="imgicon" />邮件</span>
-						<span class="value"><input type="text" name="imail" class="longtext" maxlength="50" value="<%=server.htmlEncode(FormOrCookie("imail"))%>"/><%if MailReplyInform then%><br/><input type="checkbox" name="imailreplyinform" id="imailreplyinform" value="1"<%=cked(Request.Form("imailreplyinform")="1")%> /><label for="imailreplyinform">版主回复后用邮件通知我</label><%end if%></span>
+						<span class="value"><input type="text" name="imail" class="longtext" maxlength="50" value="<%=HtmlEncode(FormOrCookie("imail"))%>"/><%if MailReplyInform then%><br/><input type="checkbox" name="imailreplyinform" id="imailreplyinform" value="1"<%=cked(Request.Form("imailreplyinform")="1")%> /><label for="imailreplyinform">版主回复后用邮件通知我</label><%end if%></span>
 					</div>
 					<div class="field">
 						<span class="label"><img src="asset/image/icon_qq.gif" class="imgicon" />QQ号</span>
-						<span class="value"><input type="text" name="iqq" class="longtext" maxlength="16" value="<%=server.htmlEncode(FormOrCookie("iqq"))%>"/></span>
+						<span class="value"><input type="text" name="iqq" class="longtext" maxlength="16" value="<%=HtmlEncode(FormOrCookie("iqq"))%>"/></span>
 					</div>
 					<div class="field">
 						<span class="label"><img src="asset/image/icon_skype.gif" class="imgicon" />Skype</span>
-						<span class="value"><input type="text" name="imsn" class="longtext" maxlength="50" value="<%=server.htmlEncode(FormOrCookie("imsn"))%>"/></span>
+						<span class="value"><input type="text" name="imsn" class="longtext" maxlength="50" value="<%=HtmlEncode(FormOrCookie("imsn"))%>"/></span>
 					</div>
 					<div class="field">
 						<span class="label"><img src="asset/image/icon_homepage.gif" class="imgicon" />主页</span>
-						<span class="value"><input type="text" name="ihomepage" class="longtext" maxlength="127" value="<%=server.htmlEncode(FormOrCookie("ihomepage"))%>"/></span>
+						<span class="value"><input type="text" name="ihomepage" class="longtext" maxlength="127" value="<%=HtmlEncode(FormOrCookie("ihomepage"))%>"/></span>
 					</div>
 					<div class="field">
 						<input type="checkbox" name="hidecontact" id="hidecontact" value="1"<%=cked(request.form("hidecontact")="1")%> /><label for="hidecontact">联系方式仅版主可见</label>

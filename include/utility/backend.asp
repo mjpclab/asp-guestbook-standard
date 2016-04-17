@@ -1,11 +1,64 @@
 <%
-Function HtmlDecode(sText)
-    sText = Replace(sText, "&quot;", """")
-    sText = Replace(sText, "&lt;"  , "<")
-    sText = Replace(sText, "&gt;"  , ">")
-    sText = Replace(sText, "&amp;" , "&")
-    sText = Replace(sText, "&nbsp;", " ")
-    HtmlDecode = sText
+Dim charCr, charLf, charCrLf
+charCr=Chr(13)
+charLf=Chr(10)
+charCrLf=charCr & charLf
+
+Function HtmlEncode(byref text)
+	if Instr(text,"&")>0 then
+		text=Replace(text,"&","&amp;")
+	end if
+	if Instr(text,"<")>0 then
+		text=Replace(text,"<","&lt;")
+	end if
+	if Instr(text,">")>0 then
+		text=Replace(text,">","&gt;")
+	end if
+	if Instr(text,"""")>0 then
+		text=Replace(text,"""","&quot;")
+	end if
+	if Instr(text,"'")>0 then
+		text=Replace(text,"'","&#x27;")
+	end if
+
+	HtmlEncode=text
+End Function
+
+Function HtmlNewLineEncode(byref text)
+	if Instr(text,charCrLf)>0 then
+		text=Replace(text,charCrLf,"&#xd;&#xa;")
+	end if
+	if Instr(text,charCr)>0 then
+		text=Replace(text,charCr,"&#xd;")
+	end if
+	if Instr(text,charLf)>0 then
+		text=Replace(text,charLf,"&#xa;")
+	end if
+
+	HtmlNewLineEncode=text
+End Function
+
+Function HtmlDecode(byref text)
+	if Instr(text,"&quot;")>0 then
+		text = Replace(text, "&quot;", """")
+	end if
+	if Instr(text,"&apos;")>0 then
+		text = Replace(text, "&apos;", "'")
+	end if
+	if Instr(text,"&lt;")>0 then
+		text = Replace(text, "&lt;"  , "<")
+	end if
+	if Instr(text,"&gt;")>0 then
+		text = Replace(text, "&gt;"  , ">")
+	end if
+	if Instr(text,"&amp;")>0 then
+		text = Replace(text, "&amp;" , "&")
+	end if
+	if Instr(text,"&nbsp;")>0 then
+		text = Replace(text, "&nbsp;", " ")
+	end if
+
+	HtmlDecode = text
 End Function
 
 function SetTimelessCookie(byval CookieName,byval CookieValue)
@@ -97,7 +150,7 @@ function GetRequests
 			end if
 		next
 	end if
-	GetRequests=Server.HTMLEncode(rvalue)
+	GetRequests=HtmlEncode(rvalue)
 end function
 
 Function DateTimeStr(theTime)

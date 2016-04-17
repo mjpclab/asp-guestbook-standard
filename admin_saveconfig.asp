@@ -5,6 +5,7 @@
 <!-- #include file="include/sql/admin_verify.asp" -->
 <!-- #include file="include/sql/admin_saveconfig.asp" -->
 <!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/backend.asp" -->
 <!-- #include file="include/utility/string.asp" -->
 <!-- #include file="include/utility/frontend.asp" -->
 <!-- #include file="loadconfig.asp" -->
@@ -98,7 +99,7 @@ if Not IsEmpty(Request.Form) then
 		thomelogo=textfilter(thomelogo,true)
 	end if
 
-	thomename=server.htmlEncode(Request.Form("homename"))
+	thomename=HtmlEncode(Request.Form("homename"))
 
 	thomeaddr=Trim(Request.Form("homeaddr"))
 	if thomeaddr<>"" then

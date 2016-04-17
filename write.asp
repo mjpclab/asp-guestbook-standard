@@ -220,23 +220,23 @@ if filtered and StatusStatistics then addstat("filtered")
 '-------------------------
 if name1="" or title1="" then Response.Redirect "index.asp"
 
-name1=server.htmlEncode(name1)
+name1=HtmlEncode(name1)
 name1=textfilter(name1,false)
 name1=left(name1,20)
 
-title1=server.htmlEncode(title1)
+title1=HtmlEncode(title1)
 title1=textfilter(title1,false)
 title1=left(title1,30)
 
-email1=replace(server.htmlEncode(email1)," ","")
+email1=replace(HtmlEncode(email1)," ","")
 email1=textfilter(email1,true)
 email1=left(email1,50)
 
-qqid1=replace(server.htmlEncode(qqid1)," ","")
+qqid1=replace(HtmlEncode(qqid1)," ","")
 qqid1=textfilter(qqid1,false)
 qqid1=left(qqid1,16)
 
-msnid1=replace(server.htmlEncode(msnid1)," ","")
+msnid1=replace(HtmlEncode(msnid1)," ","")
 msnid1=textfilter(msnid1,false)
 msnid1=left(msnid1,50)
 

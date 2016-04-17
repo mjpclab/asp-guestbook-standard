@@ -5,6 +5,7 @@
 <!-- #include file="include/sql/admin_verify.asp" -->
 <!-- #include file="include/sql/admin_stats.asp" -->
 <!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/backend.asp" -->
 <!-- #include file="include/utility/frontend.asp" -->
 <!-- #include file="include/utility/book.asp" -->
 <!-- #include file="loadconfig.asp" -->
@@ -136,7 +137,7 @@ on error resume next
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:180px;"">"
-				Response.Write server.HTMLEncode(rs.Fields("os"))
+				Response.Write HtmlEncode(rs.Fields("os"))
 				Response.Write "</td><td>"
 				Response.Write rs.Fields(1) & "(" & formatpercent(rs.Fields(1)/tclientcount,2,true) & ")"
 				Response.Write "</td></tr>"
@@ -153,7 +154,7 @@ on error resume next
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
-				Response.Write server.HTMLEncode(rs.Fields("browser"))
+				Response.Write HtmlEncode(rs.Fields("browser"))
 				Response.Write "</td><td>"
 				Response.Write rs.Fields(1) & "(" & formatpercent(rs.Fields(1)/tclientcount,2,true) & ")"
 				Response.Write "</td></tr>"
@@ -171,7 +172,7 @@ on error resume next
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
 				if rs.Fields("screenwh")<>"0*0" then
-					Response.Write server.HTMLEncode(rs.Fields("screenwh"))
+					Response.Write HtmlEncode(rs.Fields("screenwh"))
 				else
 					Response.Write "Î´Öª£º"
 				end if
@@ -191,7 +192,7 @@ on error resume next
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
-				Response.Write server.HTMLEncode(rs.Fields(0) & ":00¡«" & rs.Fields(0) & ":59")
+				Response.Write HtmlEncode(rs.Fields(0) & ":00¡«" & rs.Fields(0) & ":59")
 				Response.Write "</td><td>"
 				Response.Write rs.Fields(1) & "(" & formatpercent(rs.Fields(1)/tclientcount,2,true) & ")"
 				Response.Write "</td></tr>"
@@ -211,8 +212,8 @@ on error resume next
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
-				'Response.Write server.HTMLEncode(weekdayname(rs.Fields(0),false,1))
-				Response.Write server.HTMLEncode(weeklist(rs.Fields(0)-1))
+				'Response.Write HtmlEncode(weekdayname(rs.Fields(0),false,1))
+				Response.Write HtmlEncode(weeklist(rs.Fields(0)-1))
 				Response.Write "</td><td>"
 				Response.Write rs.Fields(1) & "(" & formatpercent(rs.Fields(1)/tclientcount,2,true) & ")"
 				Response.Write "</td></tr>"
@@ -229,7 +230,7 @@ on error resume next
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
-				Response.Write server.HTMLEncode(rs.Fields("datesect"))
+				Response.Write HtmlEncode(rs.Fields("datesect"))
 				Response.Write "</td><td>"
 				Response.Write rs.Fields(1)
 				Response.Write "</td></tr>"
@@ -246,7 +247,7 @@ on error resume next
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:150px;"">"
-				Response.Write server.HTMLEncode(rs.Fields("sourceaddr"))
+				Response.Write HtmlEncode(rs.Fields("sourceaddr"))
 				Response.Write "</td><td>"
 				Response.Write rs.Fields(1) & "(" & formatpercent(rs.Fields(1)/tclientcount,2,true) & ")"
 				Response.Write "</td></tr>"

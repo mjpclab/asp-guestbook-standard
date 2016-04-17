@@ -5,6 +5,7 @@
 <!-- #include file="include/sql/admin_verify.asp" -->
 <!-- #include file="include/sql/admin_saveinfo.asp" -->
 <!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/backend.asp" -->
 <!-- #include file="include/utility/string.asp" -->
 <!-- #include file="include/utility/frontend.asp" -->
 <!-- #include file="include/utility/book.asp" -->
@@ -13,7 +14,7 @@
 <%
 Response.Expires=-1
 if Not IsEmpty(Request.Form) then
-	tname=server.htmlEncode(Request.Form("aname"))
+	tname=HtmlEncode(Request.Form("aname"))
 
 	tfaceid=Request.Form("afaceid")
 	if len(cstr(tfaceid))>3 or Request.Form("afaceurl")<>"" then
@@ -26,14 +27,14 @@ if Not IsEmpty(Request.Form) then
 		tfaceid=cbyte(tfaceid)
 	end if
 
-	tfaceurl=replace(Server.HTMLEncode(Request.Form("afaceurl"))," ","")
+	tfaceurl=replace(HtmlEncode(Request.Form("afaceurl"))," ","")
 	if lcase(left(tfaceurl,7))<>"http://" and lcase(left(tfaceurl,6))<>"ftp://" and tfaceurl<>"" then tfaceurl="http://" & tfaceurl
 
-	temail=replace(server.htmlEncode(Request.Form("aemail"))," ","")
-	tqqid=replace(server.htmlEncode(Request.Form("aqqid"))," ","")
-	tmsnid=replace(server.htmlEncode(Request.Form("amsnid"))," ","")
+	temail=replace(HtmlEncode(Request.Form("aemail"))," ","")
+	tqqid=replace(HtmlEncode(Request.Form("aqqid"))," ","")
+	tmsnid=replace(HtmlEncode(Request.Form("amsnid"))," ","")
 
-	thomepage=replace(server.htmlEncode(Request.Form("ahomepage"))," ","")
+	thomepage=replace(HtmlEncode(Request.Form("ahomepage"))," ","")
 	if lcase(left(thomepage,7))<>"http://" and lcase(left(thomepage,6))<>"ftp://" and thomepage<>"" then thomepage="http://" & thomepage
 
 	set cn1=server.CreateObject("ADODB.Connection")
