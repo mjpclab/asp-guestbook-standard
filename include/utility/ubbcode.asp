@@ -172,7 +172,16 @@ else
 	strContent=replace(strContent,"width:px;","width:auto;")
 	strContent=replace(strContent,"height:px;","height:auto;")
 
-	strContent=replace(strContent,charLf,"<br/>")
+	if InStr(strContent,charCrLf)>0 then
+		strContent=replace(strContent,charCrLf,charLf)
+	end if
+	if InStr(strContent,charCr)>0 then
+		strContent=replace(strContent,charCr,charLf)
+	end if
+	if InStr(strContent,charLf)>0 then
+		strContent=replace(strContent,charLf,"<br/>")
+	end if
+
 	UBBCode=strContent
 end if
 end function
@@ -191,15 +200,19 @@ function convertstr(byref str,byval htmlflag,byval allUbbFlags)
 	end if
 
 	if tUBB then
-		str=replace(str,charCrLf,charLf)
-		str=replace(str,charCr,charLf)
 		str=ubbcode(str,allUbbFlags)
 	end if
 
 	if Not tHTML and Not tUBB and tNewline then
-		str=replace(str,charCrLf,charLf)
-		str=replace(str,charCr,charLf)
-		str=replace(str,charLf,"<br/>")
+		if InStr(str,charCrLf)>0 then
+			str=replace(str,charCrLf,charLf)
+		end if
+		if InStr(str,charCr)>0 then
+			str=replace(str,charCr,charLf)
+		end if
+		if InStr(str,charLf)>0 then
+			str=replace(str,charLf,"<br/>")
+		end if
 	end if
 end function
 %>
