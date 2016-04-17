@@ -1,5 +1,6 @@
 <!-- #include file="include/template/page_instruction.inc" -->
 <!-- #include file="config/system.asp" -->
+<!-- #include file="include/utility/string.asp" -->
 <!-- #include file="include/utility/backend.asp" -->
 <%
 if Request.QueryString("modeflag")="guest" then

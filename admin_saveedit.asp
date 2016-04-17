@@ -5,6 +5,7 @@
 <!-- #include file="include/sql/admin_verify.asp" -->
 <!-- #include file="include/sql/admin_saveedit.asp" -->
 <!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/string.asp" -->
 <!-- #include file="include/utility/backend.asp" -->
 <!-- #include file="loadconfig.asp" -->
 <!-- #include file="admin_verify.asp" -->

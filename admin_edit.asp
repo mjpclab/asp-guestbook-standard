@@ -7,6 +7,7 @@
 <!-- #include file="include/sql/admin_edit.asp" -->
 <!-- #include file="include/utility/database.asp" -->
 <!-- #include file="include/utility/ip.asp" -->
+<!-- #include file="include/utility/string.asp" -->
 <!-- #include file="include/utility/backend.asp" -->
 <!-- #include file="include/utility/ubbcode.asp" -->
 <!-- #include file="include/utility/frontend.asp" -->

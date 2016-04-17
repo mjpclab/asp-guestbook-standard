@@ -3,6 +3,7 @@
 <!-- #include file="config/database.asp" -->
 <!-- #include file="include/sql/init.asp" -->
 <!-- #include file="include/utility/database.asp" -->
+<!-- #include file="include/utility/string.asp" -->
 <!-- #include file="include/utility/ubbcode.asp" -->
 <!-- #include file="loadconfig.asp" -->
 <%

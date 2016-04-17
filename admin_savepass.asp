@@ -6,6 +6,7 @@
 <!-- #include file="include/sql/admin_savepass.asp" -->
 <!-- #include file="include/utility/database.asp" -->
 <!-- #include file="include/utility/md5.asp" -->
+<!-- #include file="include/utility/string.asp" -->
 <!-- #include file="include/utility/frontend.asp" -->
 <!-- #include file="include/utility/book.asp" -->
 <!-- #include file="loadconfig.asp" -->
