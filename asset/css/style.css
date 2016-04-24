@@ -840,14 +840,20 @@ body .narrow-mainborder {
 
 .ubb-wrapper img,
 .ubb-wrapper object,
-.ubb-wrapper embed {
+.ubb-wrapper embed,
+.ubb-wrapper video {
 	display: block;
 	max-width: 100%;
 }
 
-.ubb-wrapper embed {
+.ubb-wrapper embed,
+.ubb-wrapper video {
 	width: 100%;
 	min-height: 300px;
+}
+
+.ubb-wrapper video {
+	background: #000;
 }
 
 /**************** colors-container ****************/

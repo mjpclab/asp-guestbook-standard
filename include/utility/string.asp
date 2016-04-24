@@ -67,21 +67,31 @@ if str="" then
 else
 	dim re,strContent
 	set re=new RegExp
-	re.IgnoreCase=true
+	re.Global=true
+	re.IgnoreCase=false
 	strContent=str
 
 	if filterScript then
-		re.pattern="(?:javascript|vbscript)\s*:"
-		strContent=re.replace(strContent,"")
-
-		re.pattern="(style=.*?):expression"
-		strContent=re.replace(strContent,"$1")
-
-		re.pattern="(<.*?style\s*=.*?)behavior:([^>]*>)"
-		strContent=re.replace(strContent,"$1$2")
+		re.Pattern="([jJ][aA][vV][aA][sS][cC][rR][iI][pP][tT]):"
+		strContent=re.Replace(strContent,"$1 :")
+		re.Pattern="([vV][bB][sS][cC][rR][iI][pP][tT]):"
+		strContent=re.Replace(strContent,"$1 :")
+		re.Pattern="(:[eE][xX][pP][rR][eE][sS][sS][iI][oO][nN])\("
+		strContent=re.Replace(strContent,"$1 (")
+		re.Pattern="([bB][eE][hH][aA][vV][iI][oO][rR]\s*):"
+		strContent=re.Replace(strContent,"$1-ban:")
 	end if
 
-	strContent=replace(strContent,chr(13)&chr(10)," ")
+	if InStr(strContent,charCrLf)>0 then
+		strContent=replace(strContent,charCrLf," ")
+	end if
+	if InStr(strContent,charCr)>0 then
+		strContent=replace(strContent,charCr," ")
+	end if
+	if InStr(strContent,charLf)>0 then
+		strContent=replace(strContent,charLf," ")
+	end if
+
 	textfilter=strContent
 end if
 end function
