@@ -142,12 +142,12 @@ else
 		NeedSecureCheck=true
 
 		'http://
-		reCase.Pattern = "(^|[^>=""])((?:[hH][tT][tT][pP][sS]?|[sS][fF][tT][pP]|[fF][tT][pP]|[rR][tT][sS][pP]|[mM][mM][sS]|[eE][dD]2[kK])://([A-Za-z0-9\./=\?%\-()\[\]{}&#_|~`@':+!])+)"
-		strContent = reCase.Replace(strContent, "$1<a target=""_blank"" href=""$2"">$2</a>")
+		reCase.Pattern="(^|[^>=""])([hH][tT][tT][pP][sS]?|[sS][fF][tT][pP]|[fF][tT][pP]|[rR][tT][sS][pP]|[mM][mM][sS]|[eE][dD]2[kK])://([A-Za-z0-9\./=\?%\-()\[\]{}&#_|~`@':+!]+)"
+		strContent = reCase.Replace(strContent, "$1<a target=""_blank"" href=""$2://$3"">$2://$3</a>")
 
 		'www
-		reCase.Pattern = "(^|[^>=""/])([wW][wW][wW]\.[A-Za-z0-9\./=\?%\-()\[\]{}&#_|~`@':+!]+)"
-		strContent = reCase.Replace(strContent,"$1<a target=""_blank"" href=""http://$2"">$2</a>")
+		reCase.Pattern="(^|[^>=""/])([wW][wW][wW]\.[A-Za-z0-9\./=\?%\-()\[\]{}&#_|~`@':+!]+)"
+		strContent=reCase.Replace(strContent,"$1<a target=""_blank"" href=""http://$2"">$2</a>")
 	end if
 
 	if NeedSecureCheck then
