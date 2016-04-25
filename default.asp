@@ -1,2 +1,5 @@
 <%@ CodePage="936" Language="VBScript" %>
-<%response.redirect "index.asp"%>
+<%
+Response.Status="301 Moved Permanently"
+Response.AddHeader "Location","index.asp"
+%>
