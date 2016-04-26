@@ -103,7 +103,7 @@ else
 					reCase.Pattern="\[\/[lL][iI]\]\s*\[[lL][iI]\]"
 					strContent=reCase.Replace(strContent,"[/li][li]")
 					reCase.Pattern="\[[lL][iI]\]([^\[]+)\[\/[lL][iI]\]"
-					strContent=reCase.Replace(strContent,"<li>$1</li>")
+					strContent=reCase.Replace(strContent,"[ul]<li>$1</li>[/ul]")
 				end if
 
 				if UbbFlag_fontstyle or allUbbFlags then
@@ -137,6 +137,11 @@ else
 					if originalStr=strContent then exit for
 				end if
 			next
+			if InStr(strContent,"[ul]")>0 then
+				strContent=replace(strContent,"[/ul][ul]","")
+				strContent=replace(strContent,"[ul]","<ul>")
+				strContent=replace(strContent,"[/ul]","</ul>")
+			end if
 		end if
 
 		if UbbFlag_face or allUbbFlags then
