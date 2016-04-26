@@ -84,6 +84,13 @@ else
 
 				reCase.Pattern="\[video=(\d+),(\d+)\]([^\[]+)\[\/video]"
 				strContent=reCase.Replace(strContent,embed_prefix & "<video src=""$3"" style=""width:$1px;height:$2px;"" controls=""controls""></video>" &  embed_postfix)
+
+				'Html5 Audio
+				reCase.Pattern="\[audio\]([^\[]+)\[\/audio\]"
+				strContent=reCase.Replace(strContent,embed_prefix & "<audio src=""$1"" controls=""controls""></audio>" &  embed_postfix)
+
+				reCase.Pattern="\[audio=(\d+),(\d+)\]([^\[]+)\[\/audio]"
+				strContent=reCase.Replace(strContent,embed_prefix & "<audio src=""$3"" style=""width:$1px;height:$2px;"" controls=""controls""></audio>" &  embed_postfix)
 			end if
 
 			for i_count=1 to 5

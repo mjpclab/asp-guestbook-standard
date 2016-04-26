@@ -841,7 +841,8 @@ body .narrow-mainborder {
 .ubb-wrapper img,
 .ubb-wrapper object,
 .ubb-wrapper embed,
-.ubb-wrapper video {
+.ubb-wrapper video,
+.ubb-wrapper audio {
 	display: block;
 	max-width: 100%;
 }
@@ -853,7 +854,12 @@ body .narrow-mainborder {
 }
 
 .ubb-wrapper video {
+	width: 100%;
 	background: #000;
+}
+
+.ubb-wrapper audio {
+	width: 100%;
 }
 
 /**************** colors-container ****************/
