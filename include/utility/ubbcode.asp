@@ -79,14 +79,12 @@ else
 			'Html5 Video
 			reCase.Pattern="\[video\]([^\[]+)\[\/video\]"
 			strContent=reCase.Replace(strContent,embed_prefix & "<video src=""$1"" controls=""controls""></video>" &  embed_postfix)
-
 			reCase.Pattern="\[video=(\d+),(\d+)\]([^\[]+)\[\/video]"
 			strContent=reCase.Replace(strContent,embed_prefix & "<video src=""$3"" style=""width:$1px;height:$2px;"" controls=""controls""></video>" &  embed_postfix)
 
 			'Html5 Audio
 			reCase.Pattern="\[audio\]([^\[]+)\[\/audio\]"
 			strContent=reCase.Replace(strContent,embed_prefix & "<audio src=""$1"" controls=""controls""></audio>" &  embed_postfix)
-
 			reCase.Pattern="\[audio=(\d+),(\d+)\]([^\[]+)\[\/audio]"
 			strContent=reCase.Replace(strContent,embed_prefix & "<audio src=""$3"" style=""width:$1px;height:$2px;"" controls=""controls""></audio>" &  embed_postfix)
 		end if
@@ -140,6 +138,22 @@ else
 			reCase.Pattern="\[[fF][aA][cC][eE](\d+)\]"
 			strContent=reCase.Replace(strContent,"<img src=""asset/smallface/$1.gif"" />")
 		end if
+	end if
+
+	if UbbFlag_markdown_paragraph or allUbbFlags then
+		reCase.Multiline=True
+		reCase.Pattern="^-\s*(.*)"
+		strContent=reCase.replace(strContent,"<ul><li>$1</li></ul>")
+		reCase.Multiline=False
+		reCase.Pattern="\<\/[uU][lL]\>\s*\<[uU][lL]\>"
+		strContent=reCase.Replace(strContent,"")
+	end if
+
+	if UbbFlag_markdown_fontstyle or allUbbFlags then
+		reCase.Pattern="\*\*([^*]+(\*[^*]+)*)\*\*"
+		strContent=reCase.Replace(strContent,"<span style=""font-weight:bold"">$1</span>")
+		reCase.Pattern="__([^_]+(_[^_]+)*)__"
+		strContent=reCase.Replace(strContent,"<span style=""font-style:italic"">$1</span>")
 	end if
 
 	if UbbFlag_autourl or allUbbFlags then

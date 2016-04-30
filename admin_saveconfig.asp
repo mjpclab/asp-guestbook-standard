@@ -280,6 +280,8 @@ if Not IsEmpty(Request.Form) then
 	'if Request.Form("ubbflag_movement")="1" then tubbflag=tubbflag OR 256
 	'if Request.Form("ubbflag_cssfilter")="1" then tubbflag=tubbflag OR 512
 	if Request.Form("ubbflag_face")="1" then tubbflag=tubbflag OR 1024
+	if Request.Form("ubbflag_markdown_paragraph")="1" then tubbflag=tubbflag OR 32768
+	if Request.Form("ubbflag_markdown_fontstyle")="1" then tubbflag=tubbflag OR 65536
 
 	tpagecontrol=0
 	'if Request.Form("showborder")="1" then tpagecontrol=tpagecontrol OR 1

@@ -108,6 +108,8 @@ UbbFlag_alignment=CBool(UbbFlag and 128)
 'UbbFlag_movement=CBool(UbbFlag and 256)
 'UbbFlag_cssfilter=CBool(UbbFlag and 512)
 UbbFlag_face=CBool(UbbFlag and 1024)
+UbbFlag_markdown_paragraph=CBool(UbbFlag and 32768)
+UbbFlag_markdown_fontstyle=CBool(UbbFlag and 65536)
 
 TableWidth=lrs("tablewidth")		'表格宽度，可用百分比
 TableLeftWidth=lrs("tableleftwidth")	'表格左方宽度，可用百分比

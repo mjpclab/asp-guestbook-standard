@@ -156,6 +156,10 @@
 							<input type="checkbox" name="ubbflag_alignment" id="ubbflag_alignment" value="1"<%=cked(UbbFlag_alignment)%> /><label for="ubbflag_alignment">对齐方式</label>
 							<input type="checkbox" name="ubbflag_face" id="ubbflag_face" value="1"<%=cked(UbbFlag_face)%> /><label for="ubbflag_face">表情图标</label>
 						</span>
+						<span class="row">
+							<input type="checkbox" name="ubbflag_markdown_paragraph" id="ubbflag_markdown_paragraph" value="1"<%=cked(UbbFlag_markdown_paragraph)%> /><label for="ubbflag_markdown_paragraph">Markdown段落样式</label>
+							<input type="checkbox" name="ubbflag_markdown_fontstyle" id="ubbflag_markdown_fontstyle" value="1"<%=cked(UbbFlag_markdown_fontstyle)%> /><label for="ubbflag_markdown_fontstyle">Markdown字体样式</label>
+						</span>
 					</span>
 				</div>
 			</div>
