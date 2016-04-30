@@ -11,6 +11,7 @@ else
 	Set reCase=new RegExp
 	reCase.IgnoreCase=false
 	reCase.Global=True
+	reCase.MultiLine=False
 
 	Dim NeedSecureCheck
 	NeedSecureCheck=false
@@ -97,10 +98,10 @@ else
 				reCase.Pattern="\[[qQ][uU][oO][tT][eE]\]([^\[]+)\[\/[qQ][uU][oO][tT][eE]\]"
 				strContent=reCase.Replace(strContent,"<blockquote>$1</blockquote>")
 
-				reCase.Pattern="\[\/[lL][iI]\]\s*\[[lL][iI]\]"
-				strContent=reCase.Replace(strContent,"[/li][li]")
 				reCase.Pattern="\[[lL][iI]\]([^\[]+)\[\/[lL][iI]\]"
-				strContent=reCase.Replace(strContent,"[ul]<li>$1</li>[/ul]")
+				strContent=reCase.Replace(strContent,"<ul><li>$1</li></ul>")
+				reCase.Pattern="\<\/[uU][lL]\>\s*\<[uU][lL]\>"
+				strContent=reCase.Replace(strContent,"")
 			end if
 
 			if UbbFlag_fontstyle or allUbbFlags then
@@ -134,11 +135,6 @@ else
 				if originalStr=strContent then exit for
 			end if
 		next
-		if InStr(strContent,"[ul]")>0 then
-			strContent=replace(strContent,"[/ul][ul]","")
-			strContent=replace(strContent,"[ul]","<ul>")
-			strContent=replace(strContent,"[/ul]","</ul>")
-		end if
 
 		if UbbFlag_face or allUbbFlags then
 			reCase.Pattern="\[[fF][aA][cC][eE](\d+)\]"
