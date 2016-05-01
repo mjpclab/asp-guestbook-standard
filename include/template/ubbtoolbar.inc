@@ -1,4 +1,4 @@
-<%Sub ShowUbbToolBar(byval allflags)%>
+<%Sub ShowUbbToolBar(byval ubblimit)%>
 <%if ShowUbbTool then%>
 <div class="ubbtoolbar">
 	<div class="row">
@@ -8,7 +8,8 @@
 		<%if UbbFlag_image Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_image" onclick="sendUbbCode && sendUbbCode('img')"><img alt="Í¼Æ¬" src="asset/image/icon_ubb_img.gif"/></a><%end if%>
 		<%if UbbFlag_player Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_flash" onclick="sendUbbCode && sendUbbCode('flash')"><img alt="Flash" src="asset/image/icon_ubb_flash.gif"/></a><%end if%>
 		<%if UbbFlag_player Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_mplayer" onclick="sendUbbCode && sendUbbCode('mp')"><img alt="Windows Media Player" src="asset/image/icon_ubb_mplayer.gif"/></a><%end if%>
-		<%if UbbFlag_player Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_realplayer" onclick="sendUbbCode && sendUbbCode('rm')"><img alt="Real Player" src="asset/image/icon_ubb_realplayer.gif"/></a><%end if%>
+		<%if UbbFlag_player Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_html5_video" onclick="sendUbbCode && sendUbbCode('video')"><img alt="HTML5ÊÓÆµ" src="asset/image/icon_ubb_html5_video.gif"/></a><%end if%>
+		<%if UbbFlag_player Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_html5_audio" onclick="sendUbbCode && sendUbbCode('audio')"><img alt="HTML5ÒôÆµ" src="asset/image/icon_ubb_html5_audio.gif"/></a><%end if%>
 	</div>
 	<%if UbbFlag_face Or allflags then%>
 	<div class="row">
