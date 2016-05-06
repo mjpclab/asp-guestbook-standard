@@ -37,7 +37,7 @@ while Not rs.eof
 			<%end if%>
 		</td>
 		<td class="name"><%if Not isauditting then Response.Write rs.Fields("name")%></td>
-		<td class="date"><%=rs.Fields("logdate")%></td>
+		<td class="date"><%=UTCToDisplayTime(rs.Fields("logdate"))%></td>
 	</tr>
 	<%rs.MoveNext
 wend
