@@ -31,34 +31,26 @@ else
 	Session(InstanceName & "_vcode")=""
 end if
 
-Dim cn,rs
+Dim cn,rs,refPass
 set cn=server.CreateObject("ADODB.Connection")
 set rs=server.CreateObject("ADODB.Recordset")
 Call CreateConn(cn)
 rs.Open sql_adminverify,cn,0,1,1
+if Not rs.EOF then
+	refPass=rs.Fields(0)
+end if
+rs.Close : cn.Close : set rs=nothing : set cn=nothing
 
 Session(InstanceName & "_adminpass")=md5(request("iadminpass"),32)
-if Not rs.EOF then
-	if Session(InstanceName & "_adminpass")=rs(0) then
-		session.Timeout=clng(AdminTimeOut)
-		if referrer<>"" then
-			Response.Redirect referrer
-		else
-			Response.Redirect "admin.asp"
-		end if
+if Session(InstanceName & "_adminpass")=refPass then
+	session.Timeout=AdminTimeOut
+	if referrer<>"" then
+		Response.Redirect referrer
 	else
-		if StatusStatistics then call addstat("loginfailed")
-		Call TipsPage("密码不正确。","admin_login.asp?referrer=" & Server.UrlEncode(referrer))
-
-		rs.Close : cn.Close : set rs=nothing : set cn=nothing
-		Response.End
+		Response.Redirect "admin.asp"
 	end if
 else
 	if StatusStatistics then call addstat("loginfailed")
-	Call TipsPage("密码验证失败。","admin_login.asp?referrer=" & Server.UrlEncode(referrer))
-
-	rs.Close : cn.Close : set rs=nothing : set cn=nothing
-	Response.End
+	Call TipsPage("密码不正确。","admin_login.asp?referrer=" & Server.UrlEncode(referrer))
 end if
-rs.Close : cn.Close : set rs=nothing : set cn=nothing
 %>

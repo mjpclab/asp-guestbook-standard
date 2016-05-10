@@ -10,23 +10,18 @@ Function GetReferrer
 End Function
 
 Response.Expires=-1
-Dim cn,rs
+Dim cn,rs,refPass
 set cn=server.CreateObject("ADODB.Connection")
 set rs=server.CreateObject("ADODB.Recordset")
 Call CreateConn(cn)
 rs.Open sql_adminverify,cn,0,1,1
-
 if Not rs.EOF then
-	if Session(InstanceName & "_adminpass")<>rs(0) then
-		rs.Close : cn.Close : set rs=nothing : set cn=nothing
-		Response.Redirect "admin_login.asp?referrer=" & Server.UrlEncode(GetReferrer())
-		Response.End
-	end if
-else
-	rs.Close : cn.Close : set rs=nothing : set cn=nothing
+	refPass=rs.Fields(0)
+end if
+rs.Close : cn.Close : set rs=nothing : set cn=nothing
+
+if refPass="" Or Session(InstanceName & "_adminpass")<>refPass then
 	Response.Redirect "admin_login.asp?referrer=" & Server.UrlEncode(GetReferrer())
 	Response.End
 end if
-
-rs.Close : cn.Close : set rs=nothing : set cn=nothing
 %>
