@@ -31,26 +31,38 @@ else
 	Session(InstanceName & "_vcode")=""
 end if
 
-Dim cn,rs,refPass
-set cn=server.CreateObject("ADODB.Connection")
-set rs=server.CreateObject("ADODB.Recordset")
-Call CreateConn(cn)
-rs.Open sql_adminverify,cn,0,1,1
-if Not rs.EOF then
-	refPass=rs.Fields(0)
-end if
-rs.Close : cn.Close : set rs=nothing : set cn=nothing
-
-Session(InstanceName & "_adminpass")=md5(request("iadminpass"),32)
-if Session(InstanceName & "_adminpass")=refPass then
-	session.Timeout=AdminTimeOut
-	if referrer<>"" then
-		Response.Redirect referrer
-	else
-		Response.Redirect "admin.asp"
-	end if
-else
+Sub LoginFailed
 	if StatusStatistics then call addstat("loginfailed")
 	Call TipsPage("ÃÜÂë²»ÕýÈ·¡£","admin_login.asp?referrer=" & Server.UrlEncode(referrer))
+End Sub
+
+Dim iadminpass
+iadminpass=Request.Form("iadminpass")
+if iadminpass="" then
+	Call LoginFailed
+else
+	iadminpass=md5(iadminpass,32)
+
+	Dim cn,rs,refPass
+	set cn=server.CreateObject("ADODB.Connection")
+	set rs=server.CreateObject("ADODB.Recordset")
+	Call CreateConn(cn)
+	rs.Open sql_adminverify,cn,0,1,1
+	if Not rs.EOF then
+		refPass=rs.Fields(0)
+	end if
+	rs.Close : cn.Close : set rs=nothing : set cn=nothing
+
+	if iadminpass=refPass then
+		Session(InstanceName & "_adminpass")=refPass
+		session.Timeout=AdminTimeOut
+		if referrer<>"" then
+			Response.Redirect referrer
+		else
+			Response.Redirect "admin.asp"
+		end if
+	else
+		Call LoginFailed
+	end if
 end if
 %>
