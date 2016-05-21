@@ -847,8 +847,7 @@ body .narrow-mainborder {
 	max-width: 100%;
 }
 
-.ubb-wrapper embed,
-.ubb-wrapper video {
+.ubb-wrapper embed {
 	width: 100%;
 	min-height: 300px;
 }

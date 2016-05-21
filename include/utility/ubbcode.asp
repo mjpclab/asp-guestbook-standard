@@ -77,15 +77,15 @@ else
 					"</object>" & embed_postfix)
 
 			'Html5 Video
-			reCase.Pattern="\[video\]([^\[]+)\[\/video\]"
+			reCase.Pattern="\[[vV][iI][dD][eE][oO]\]([^\[]+)\[\/[vV][iI][dD][eE][oO]\]"
 			strContent=reCase.Replace(strContent,embed_prefix & "<video src=""$1"" controls=""controls""></video>" &  embed_postfix)
-			reCase.Pattern="\[video=(\d+),(\d+)\]([^\[]+)\[\/video]"
+			reCase.Pattern="\[[vV][iI][dD][eE][oO]=(\d+),(\d+)\]([^\[]+)\[\/[vV][iI][dD][eE][oO]]"
 			strContent=reCase.Replace(strContent,embed_prefix & "<video src=""$3"" style=""width:$1px;height:$2px;"" controls=""controls""></video>" &  embed_postfix)
 
 			'Html5 Audio
-			reCase.Pattern="\[audio\]([^\[]+)\[\/audio\]"
+			reCase.Pattern="\[[aA][uU][dD][iI][oO]\]([^\[]+)\[\/[aA][uU][dD][iI][oO]\]"
 			strContent=reCase.Replace(strContent,embed_prefix & "<audio src=""$1"" controls=""controls""></audio>" &  embed_postfix)
-			reCase.Pattern="\[audio=(\d+),(\d+)\]([^\[]+)\[\/audio]"
+			reCase.Pattern="\[[aA][uU][dD][iI][oO]=(\d+),(\d+)\]([^\[]+)\[\/[aA][uU][dD][iI][oO]]"
 			strContent=reCase.Replace(strContent,embed_prefix & "<audio src=""$3"" style=""width:$1px;height:$2px;"" controls=""controls""></audio>" &  embed_postfix)
 		end if
 
