@@ -28,6 +28,7 @@ textarea {
 textarea {
 	display: block;
 	width:100%;
+	overflow: auto;
 }
 *html textarea {
 	width:99%;

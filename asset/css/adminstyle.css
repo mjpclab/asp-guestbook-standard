@@ -69,6 +69,10 @@
 	border-radius: 5px;
 }
 
+.ipadd textarea {
+	white-space:nowrap;
+}
+
 .iplist {
 	overflow: hidden;
 }
@@ -77,5 +81,6 @@
 }
 .iplist label {
 	display: block;
-	overflow: hidden;
+	word-wrap: break-word;
+	word-break:break-all;
 }
