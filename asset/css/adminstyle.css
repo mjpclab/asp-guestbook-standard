@@ -1,3 +1,4 @@
+/**************** main menu ****************/
 .flex-box ul {
 	display: block;
 	margin:0;
@@ -43,6 +44,7 @@
 	zoom:1;
 }
 
+/**************** message ****************/
 .auditting-message .title,
 .auditting-message .title a,
 .auditting-message .words,
@@ -50,14 +52,69 @@
 	color:#777;
 }
 
+.topic .admin-message-tools {
+	margin-top: -1px;
+	padding:5px;
+	border:1px solid;
+	overflow: hidden;
+}
+*html .topic .admin-message-tools {
+	zoom:1;
+}
+.topic .detail .admin-message-tools {
+	margin:24px 0;
+	border-left: 0;
+	border-right: 0;
+}
+.topic .detail .admin-message-tools:last-child {
+	margin-bottom: 0;
+	border-bottom: 0;
+}
+
+.topic .admin-message-tools .group {
+	overflow: hidden;
+}
+*html .topic .admin-message-tools .group {
+	zoom:1;
+}
+
+.topic .admin-message-tools .name {
+	float: left;
+	width:80px;
+}
+
+.topic .admin-message-tools .tools {
+	overflow: hidden;
+}
+*html .topic .admin-message-tools .tools {
+	zoom:1;
+}
+
+.topic .admin-message-tools .tool {
+	display: block;
+	float: left;
+	margin:0 5px;
+	height: 20px;
+	line-height: 20px;
+	white-space: nowrap;
+}
+
+.topic .admin-message-tools img {
+	display: inline-block;
+	vertical-align: text-bottom;
+}
+
+/**************** callgen ****************/
 .region-callgen .field .label {
 	width:7em;
 }
 
+/**************** config ****************/
 .region-config .field .label {
 	width:11em;
 }
 
+/**************** filter ****************/
 .region-filter input[type=text] {
 	width:100%;
 }
@@ -69,6 +126,7 @@
 	border-radius: 5px;
 }
 
+/**************** ipconfig ****************/
 .ipadd textarea {
 	white-space:nowrap;
 }
