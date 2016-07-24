@@ -20,17 +20,17 @@ textarea {
 	box-shadow: inset 0 3px 3px rgba(48, 48, 48, 0.3);
 }
 
-.mainborder {
-	border-color:#333;
-	background:#000;
-	box-shadow: 0 0 20px #666;
-}
-
 .header {
 	color: #fff200;
 	border-color:#333;
 	background: #222;
 	box-shadow:0 0 3px #333;
+}
+
+.mainborder {
+	border-color:#333;
+	background:#000;
+	box-shadow: 0 0 20px #666;
 }
 
 .guest-functions .aside .function {
@@ -49,7 +49,6 @@ textarea {
 .topic .info {
 	color: #ccc;
 	border-color: #333;
-	background: #181818;
 }
 
 .topic .detail {

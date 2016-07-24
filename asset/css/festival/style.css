@@ -20,17 +20,17 @@ textarea {
 	box-shadow: none;
 }
 
-.mainborder {
-	border-color:#bd0000;
-	background:#9d0000 ;
-	box-shadow: 0 0 20px rgba(100,100,100,0.5);
-}
-
 .header {
 	color: #e3c629;
 	border-color:#e3c629;
 	background: #a00;
 	box-shadow:0 0 3px #e3c629;
+}
+
+.mainborder {
+	border-color:#bd0000;
+	background:#9d0000 ;
+	box-shadow: 0 0 20px rgba(100,100,100,0.5);
 }
 
 .guest-functions .aside .function {
@@ -50,7 +50,6 @@ textarea {
 .topic .info {
 	color: #e4d26e;
 	border-color: #e3c629;
-	background: #a00;
 }
 
 .topic .detail {
