@@ -1,17 +1,22 @@
 body {
-	background: #fff url(../../image/bg.jpg);
+	color:#4c4c4c;
+	background: #f7f7f7;
 }
 
 textarea, input, select {
-	border-color: #b6ccfc;
-	outline-color: #80a8ff;
+	border-color: #ccc;
+	outline-color: #b7b7b7;
 	background: #fff;
 }
 
 .header {
-	border-color:#b6ccfc;
-	background: #f1f5ff;
-	box-shadow:0 0 3px #b6ccfc;
+	border-color:#ccc;
+	background: #f1f1f1;
+	box-shadow:0 0 3px #ccc;
+}
+
+.mainborder {
+	background:#fbfbfb;
 }
 
 .guest-functions .aside .function {
@@ -19,34 +24,34 @@ textarea, input, select {
 }
 
 .topic {
-	border-color: #b6ccfc;
-	background-color: #eee;
+	border-color: #ddd;
+	background-color: #f7f7f7;
 }
 
 .topic .message {
-	border-color: #b6ccfc;
+	border-color: #ddd;
 }
 
 .topic .info {
-	border-color: #b6ccfc;
+	border-color: #ddd;
 }
 
 .topic .detail {
-	border-color: #b6ccfc;
+	border-color: #ddd;
 }
 
 .topic .title {
-	border-color: #b6ccfc;
-	background:#d1e0ff;
+	border-color: #ddd;
+	background:#eee;
 }
 
 .topic .inner-message {
-	border-color: #b6ccfc;
-	background-color: #f6f6f6;
+	border-color: #ccc;
+	background-color: #fff;
 }
 
 .topic .inner-message .summary {
-	border-color: #b6ccfc;
+	border-color: #ccc;
 }
 
 .topic .admin-message .title,
@@ -59,57 +64,57 @@ textarea, input, select {
 }
 
 .topic .outer-hint {
-	border-color: #b6ccfc;
+	border-color: #ccc;
 }
 
 .topic .admin-message-tools {
-	border-color: #b6ccfc;
+	border-color: #ddd;
 }
 
 .topic-list {
-	border-color: #b6ccfc;
-	background: #eee;
+	border-color: #ddd;
+	background: #f7f7f7;
 }
 
 .topic-list tbody tr:hover td {
-	background: #f6f6f6;
+	background: #fff;
 }
 
 .topic-list th,
 .topic-list td {
-	border-color: #b6ccfc;
+	border-color: #ddd;
 }
 
 .topic-list th {
-	background:#d1e0ff;
+	background:#eee;
 }
 
 .region {
-	border-color: #b6ccfc;
-	background: #eee;
+	border-color: #ddd;
+	background: #f7f7f7;
 }
 
 .region .title {
-	border-color: #b6ccfc;
-	background:#d1e0ff;
+	border-color: #ddd;
+	background:#eee;
 }
 
 .region .content table {
-	border-color: #b6ccfc;
+	border-color: #ccc;
 }
 
 .region .content table th,
 .region .content table td {
-	border-color: #b6ccfc;
+	border-color: #ccc;
 }
 
 .page-list .nav a {
-	border-color: #eee;
+	border-color: #f7f7f7;
 }
 
 .page-list .nav a:hover {
-	border-color: #80a8ff;
-	background: #f6f6f6;
+	border-color: #ccc;
+	background: #fff;
 }
 
 .page-list .pagenum,
@@ -117,12 +122,12 @@ textarea, input, select {
 .page-list .pagenum:visited,
 .page-list .pagenum:active,
 .page-list .pagenum:hover {
-	border-color: #eee;
+	border-color: #f7f7f7;
 }
 
 .page-list .pagenum:hover {
-	border-color: #80a8ff;
-	background: #f6f6f6;
+	border-color: #ccc;
+	background: #fff;
 }
 
 .page-list .pagenum-current,
@@ -134,27 +139,27 @@ textarea, input, select {
 }
 
 .tab-outer-container .tab-title-container {
-	border-color: #80a8ff;
+	border-color: #ccc;
 }
 
 .tab-outer-container .tab-title {
 	border-color: transparent;
-	border-bottom-color: #80a8ff;
+	border-bottom-color: #ccc;
 }
 
 *html .tab-outer-container .tab-title {
 	border-color: #eee;
-	border-bottom-color: #80a8ff;
+	border-bottom-color: #ccc;
 }
 
 .tab-outer-container .tab-title-selected {
-	border-color: #80a8ff;
+	border-color: #ccc;
 	border-bottom-color: transparent;
-	background: #eee;
+	background: #f7f7f7;
 }
 
 *html .tab-outer-container .tab-title-selected {
-	border-color: #80a8ff;
+	border-color: #ccc;
 	border-bottom-color: #eee;
 }
 
@@ -164,11 +169,11 @@ textarea, input, select {
 
 .ubbtoolbar .ubbbutton,
 .ubbtoolbar .ubbface {
-	border-color: #eee;
+	border-color: #f7f7f7;
 }
 
 .ubbtoolbar .ubbbutton:hover,
 .ubbtoolbar .ubbface:hover {
-	border-color: #80a8ff;
-	background: #f6f6f6;
+	border-color: #ccc;
+	background: #fff;
 }

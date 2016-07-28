@@ -1,11 +1,11 @@
 .flex-box a {
-	border-color:#ccc;
+	border-color:#ddd;
 }
 .flex-box a:hover {
-	border-color:#80a8ff;
-	background:#f6f6f6;
+	border-color:#ccc;
+	background:#fff;
 }
 
 .detail-item {
-	border-color:#b6ccfc;
+	border-color:#ccc;
 }
