@@ -46,10 +46,6 @@ while Not rs.EOF
 			rs1.close
 			set rs1=nothing
 		end if
-
-		if pagename<>"showword" and (rs.Fields("guestflag") and 96)=96 and rs.Fields("parent_id")<=0 then%>
-			<div class="outer-hint">悄悄话已预设密码，[<a href="showword.asp?id=<%=rs("id")%>">点击这里验证...</a>]</div>
-		<%end if
 	end if%>
 	</div>
 

@@ -401,6 +401,9 @@ sub innerword(byref t_rs)%>
 	<div class="words">
 		<%if iswhisper and pagename<>"showword" and Not inAdminPage then%>
 			<span class="inner-hint"><img src="asset/image/icon_whisper.gif"/>(给版主的悄悄话...)</span>
+			<%if encrypted and pagename<>"showword" and Not inAdminPage then%>
+				<br/><span class="inner-hint"><img src="asset/image/icon_key.gif"/>(需要预设的密码才能查看...)[<a href="showword.asp?id=<%=t_rs("id")%>">点击这里验证...</a>]</span>
+			<%end if%>
 		<%elseif ishidden and Not inAdminPage then%>
 			<span class="inner-hint"><img src="asset/image/icon_hide.gif"/>(留言被管理员隐藏...)</span>
 		<%else
@@ -445,6 +448,9 @@ sub outerword(byref rs)%>
 		<div class="words">
 			<%if iswhisper and pagename<>"showword" and Not inAdminPage then%>
 				<span class="inner-hint"><img src="asset/image/icon_whisper.gif"/>(给版主的悄悄话...)</span>
+				<%if encrypted and pagename<>"showword" and Not inAdminPage then%>
+					<br/><span class="inner-hint"><img src="asset/image/icon_key.gif"/>(需要预设的密码才能查看...)[<a href="showword.asp?id=<%=rs("id")%>">点击这里验证...</a>]</span>
+				<%end if%>
 			<%elseif ishidden and Not inAdminPage then%>
 				<span class="inner-hint"><img src="asset/image/icon_hide.gif"/>(留言被管理员隐藏...)</span>
 			<%else

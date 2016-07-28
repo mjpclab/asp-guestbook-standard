@@ -442,13 +442,6 @@ body .narrow-mainborder {
 	margin-bottom: 0;
 }
 
-.topic .outer-hint {
-	border:1px solid;
-	margin-top:-1px;
-	padding:5px;
-	text-align: right;
-}
-
 /**************** topic-list ****************/
 .topic-list {
 	table-layout: fixed;
