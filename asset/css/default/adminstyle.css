@@ -6,6 +6,10 @@
 	background:#fff;
 }
 
+.topic .admin-message-tools {
+	border-color: #ddd;
+}
+
 .detail-item {
 	border-color:#ccc;
 }

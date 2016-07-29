@@ -7,6 +7,10 @@
 	background: #222;
 }
 
+.topic .admin-message-tools {
+	border-color: #333;
+}
+
 .auditting-message .title,
 .auditting-message .title a,
 .auditting-message .words {
