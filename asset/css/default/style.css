@@ -24,34 +24,34 @@ textarea, input, select {
 }
 
 .topic {
-	border-color: #ddd;
+	border-color: #ccc;
 	background-color: #f7f7f7;
 }
 
 .topic .message {
-	border-color: #ddd;
+	border-color: #ccc;
 }
 
 .topic .info {
-	border-color: #ddd;
+	border-color: #ccc;
 }
 
 .topic .detail {
-	border-color: #ddd;
+	border-color: #ccc;
 }
 
 .topic .title {
-	border-color: #ddd;
-	background:#eee;
+	border-color: #ccc;
+	background:#e6e6e6;
 }
 
 .topic .inner-message {
-	border-color: #ccc;
+	border-color: #ddd;
 	background-color: #fff;
 }
 
 .topic .inner-message .summary {
-	border-color: #ccc;
+	border-color: #ddd;
 }
 
 .topic .admin-message .title,
@@ -64,7 +64,7 @@ textarea, input, select {
 }
 
 .topic-list {
-	border-color: #ddd;
+	border-color: #ccc;
 	background: #f7f7f7;
 }
 
@@ -74,21 +74,21 @@ textarea, input, select {
 
 .topic-list th,
 .topic-list td {
-	border-color: #ddd;
+	border-color: #ccc;
 }
 
 .topic-list th {
-	background:#eee;
+	background:#e6e6e6;
 }
 
 .region {
-	border-color: #ddd;
+	border-color: #ccc;
 	background: #f7f7f7;
 }
 
 .region .title {
-	border-color: #ddd;
-	background:#eee;
+	border-color: #ccc;
+	background:#e6e6e6;
 }
 
 .region .content table {
@@ -140,7 +140,7 @@ textarea, input, select {
 }
 
 *html .tab-outer-container .tab-title {
-	border-color: #eee;
+	border-color: #e6e6e6;
 	border-bottom-color: #ccc;
 }
 
@@ -152,11 +152,11 @@ textarea, input, select {
 
 *html .tab-outer-container .tab-title-selected {
 	border-color: #ccc;
-	border-bottom-color: #eee;
+	border-bottom-color: #e6e6e6;
 }
 
 *+html .tab-outer-container .tab-title-selected {
-	border-bottom-color: #eee;
+	border-bottom-color: #e6e6e6;
 }
 
 .ubbtoolbar .ubbbutton,
