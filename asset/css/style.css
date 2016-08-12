@@ -756,6 +756,7 @@ body .narrow-mainborder {
 
 /**************** ubbtoolbar ****************/
 .ubbtoolbar {
+	margin-top:2px;
 	line-height:normal;
 }
 
@@ -763,7 +764,7 @@ body .narrow-mainborder {
 .ubbtoolbar .ubbface {
 	display: inline-block;
 	border:1px solid;
-	padding:2px;
+	padding:3px;
 	cursor: pointer;
 }
 
