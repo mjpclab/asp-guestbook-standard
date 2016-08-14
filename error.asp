@@ -7,13 +7,13 @@ sub ErrorPage(errorCode)
 	case 1
 		errmsg="对不起，您的访问已被禁止。"
 	case 2
-		errmsg="抱歉，留言本已关闭，请稍候再试。"
+		errmsg="抱歉，留言本已关闭，请稍后再试。"
 	case 3
-		errmsg="抱歉，留言权限已关闭，请稍候再试。"
+		errmsg="抱歉，留言权限已关闭，请稍后再试。"
 	case 4
 		errmsg="对不起，您的留言中含有禁止出现的内容。"
 	case 5
-		errmsg="抱歉，搜索权限已关闭，请稍候再试。"
+		errmsg="抱歉，搜索权限已关闭，请稍后再试。"
 	case 6
 		errmsg="对不起，您的发言速度太快了，请休息一下。"
 	case 7
