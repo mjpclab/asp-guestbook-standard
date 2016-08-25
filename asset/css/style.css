@@ -871,10 +871,16 @@ body .narrow-mainborder {
 
 /**************** Responsible ****************/
 @media only screen and (max-width: 420px) {
+	body .header {
+		position: relative;
+	}
 	body .mainborder {
 		border-width:0 0 1px 0;
 		padding-left: 1px;
 		padding-right: 1px;
+	}
+	body .mainborder:not(.narrow-mainborder) {
+		margin-top:0;
 	}
 	body .region:first-child {
 		margin-top: 0;
