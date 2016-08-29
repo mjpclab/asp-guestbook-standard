@@ -1,6 +1,6 @@
 body {
 	color:#4c4c4c;
-	background: #f7f7f7;
+	background: #f1f1f1 url(../../image/bg_default.gif);
 }
 
 textarea, input, select {
@@ -11,7 +11,7 @@ textarea, input, select {
 
 .header {
 	border-color:#ccc;
-	background: #f1f1f1;
+	background: #f7f7f7;
 	box-shadow:0 0 3px #ccc;
 }
 
