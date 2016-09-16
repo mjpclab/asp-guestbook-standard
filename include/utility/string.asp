@@ -1,56 +1,76 @@
 <%
-Dim charCr, charLf, charCrLf, htmlBr
+const CharAmp="&"
+const CharLt="<"
+const CharGt=">"
+const CharQuot=""""
+const CharApos="'"
+
+const HtmlAmp="&amp;"
+const HtmlLt="&lt;"
+const HtmlGt="&gt;"
+const HtmlQuot="&quot;"
+const HtmlApos="&apos;"
+const HtmlAposCode="&#39;"
+const HtmlNbsp="&nbsp;"
+
+const CharSpace=" "
+const CharEmpty=""
+
+Dim charCr, charLf, charCrLf
 charCr=Chr(13)
 charLf=Chr(10)
 charCrLf=charCr & charLf
-htmlBr="<br/>"
+const htmlBr="<br/>"
 
 Function HtmlEncode(byref text)
-	if Instr(text,"&")>0 then
-		text=Replace(text,"&","&amp;")
+	if Instr(text,CharAmp)>0 then
+		text=Replace(text,CharAmp,HtmlAmp)
 	end if
-	if Instr(text,"<")>0 then
-		text=Replace(text,"<","&lt;")
+	if Instr(text,CharLt)>0 then
+		text=Replace(text,CharLt,HtmlLt)
 	end if
-	if Instr(text,">")>0 then
-		text=Replace(text,">","&gt;")
+	if Instr(text,CharGt)>0 then
+		text=Replace(text,CharGt,HtmlGt)
 	end if
-	if Instr(text,"""")>0 then
-		text=Replace(text,"""","&quot;")
+	if Instr(text,CharQuot)>0 then
+		text=Replace(text,CharQuot,HtmlQuot)
 	end if
-	if Instr(text,"'")>0 then
-		text=Replace(text,"'","&#x27;")
+	if Instr(text,CharApos)>0 then
+		text=Replace(text,CharApos,HtmlAposCode)
 	end if
 
 	HtmlEncode=text
 End Function
 
 Function HtmlDecode(byref text)
-	if Instr(text,"&quot;")>0 then
-		text = Replace(text, "&quot;", """")
+	if Instr(text,HtmlAmp)>0 then
+		text = Replace(text, HtmlAmp, CharAmp)
 	end if
-	if Instr(text,"&apos;")>0 then
-		text = Replace(text, "&apos;", "'")
+	if Instr(text,HtmlLt)>0 then
+		text = Replace(text, HtmlLt, CharLt)
 	end if
-	if Instr(text,"&lt;")>0 then
-		text = Replace(text, "&lt;"  , "<")
+	if Instr(text,HtmlGt)>0 then
+		text = Replace(text, HtmlGt, CharGt)
 	end if
-	if Instr(text,"&gt;")>0 then
-		text = Replace(text, "&gt;"  , ">")
+	if Instr(text,HtmlQuot)>0 then
+		text = Replace(text, HtmlQuot, CharQuot)
 	end if
-	if Instr(text,"&amp;")>0 then
-		text = Replace(text, "&amp;" , "&")
+	if Instr(text,HtmlApos)>0 then
+		text = Replace(text, HtmlApos, CharApos)
 	end if
-	if Instr(text,"&nbsp;")>0 then
-		text = Replace(text, "&nbsp;", " ")
+	if Instr(text,HtmlAposCode)>0 then
+		text = Replace(text, HtmlAposCode, CharApos)
+	end if
+	if Instr(text,HtmlNbsp)>0 then
+		text = Replace(text, HtmlNbsp, CharSpace)
 	end if
 
 	HtmlDecode = text
 End Function
 
 function textfilter(byref str,byval filterScript)
-if str="" then
-	textfilter=""
+if str=CharEmpty then
+	textfilter=CharEmpty
 else
 	dim re,strContent
 	set re=new RegExp
@@ -70,13 +90,13 @@ else
 	end if
 
 	if InStr(strContent,charCrLf)>0 then
-		strContent=replace(strContent,charCrLf," ")
+		strContent=replace(strContent,charCrLf,CharSpace)
 	end if
 	if InStr(strContent,charCr)>0 then
-		strContent=replace(strContent,charCr," ")
+		strContent=replace(strContent,charCr,CharSpace)
 	end if
 	if InStr(strContent,charLf)>0 then
-		strContent=replace(strContent,charLf," ")
+		strContent=replace(strContent,charLf,CharSpace)
 	end if
 
 	textfilter=strContent
