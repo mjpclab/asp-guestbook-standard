@@ -57,7 +57,7 @@
 		<h3 class="title">发布置顶公告</h3>
 		<div class="content">
 			<form method="post" action="admin_savebulletin.asp" name="form6" onsubmit="form6.submit1.disabled=true;">
-			公告内容：<br/><textarea name="abulletin" id="abulletin" onkeydown="if(!this.modified)this.modified=true; var e=event?event:arguments[0]; if(e && e.ctrlKey && e.keyCode==13 && this.form.submit1)this.form.submit1.click();" rows="<%=ReplyTextHeight%>"><%=HtmlNewLineEncode(HtmlEncode("" & rs("declare") & ""))%></textarea>
+			公告内容：<br/><textarea name="abulletin" id="abulletin" onkeydown="if(!this.modified)this.modified=true; var e=event?event:arguments[0]; if(e && e.ctrlKey && e.keyCode==13 && this.form.submit1)this.form.submit1.click();" rows="<%=ReplyTextHeight%>"><%=HtmlEncode("" & rs("declare") & "")%></textarea>
 			<!-- #include file="include/template/ubbtoolbar.inc" -->
 			<%ShowUbbToolBar(true)%>
 			<p>

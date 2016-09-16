@@ -25,20 +25,6 @@ Function HtmlEncode(byref text)
 	HtmlEncode=text
 End Function
 
-Function HtmlNewLineEncode(byref text)
-	if Instr(text,charCrLf)>0 then
-		text=Replace(text,charCrLf,"&#xd;&#xa;")
-	end if
-	if Instr(text,charCr)>0 then
-		text=Replace(text,charCr,"&#xd;")
-	end if
-	if Instr(text,charLf)>0 then
-		text=Replace(text,charLf,"&#xa;")
-	end if
-
-	HtmlNewLineEncode=text
-End Function
-
 Function HtmlDecode(byref text)
 	if Instr(text,"&quot;")>0 then
 		text = Replace(text, "&quot;", """")

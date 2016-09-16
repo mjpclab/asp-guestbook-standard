@@ -61,7 +61,6 @@ rs.Open sql_adminreply_reply &Request("id"),cn,,,1
 if Not rs.EOF then
 	t_html=rs("htmlflag")
 	c_old="" & rs("reinfo") & ""
-	c_old=HtmlNewLineEncode(HtmlEncode(c_old))
 else
 	t_html=adminlimit
 	c_old=""
