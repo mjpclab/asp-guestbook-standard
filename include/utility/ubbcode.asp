@@ -181,7 +181,7 @@ else
 
 	set re=Nothing
 
-	strContent=newLineToHtmlBr(strContent)
+	Call NewLineToHtmlBr(strContent)
 
 	UBBCode=strContent
 end if
@@ -205,7 +205,7 @@ function convertstr(byref str,byval htmlflag,byval allUbbFlags)
 	end if
 
 	if Not tHTML and Not tUBB and tNewline then
-		str=newLineToHtmlBr(str)
+		Call NewLineToHtmlBr(str)
 	end if
 end function
 %>

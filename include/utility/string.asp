@@ -83,7 +83,7 @@ else
 end if
 end function
 
-function newLineToHtmlBr(str)
+Sub NewLineToHtmlBr(byref str)
 	if InStr(str,charCrLf)>0 then
 		str=replace(str,charCrLf,htmlBr)
 	end if
@@ -93,7 +93,5 @@ function newLineToHtmlBr(str)
 	if InStr(str,charLf)>0 then
 		str=replace(str,charLf,htmlBr)
 	end if
-
-	newLineToHtmlBr=str
-end function
+End Sub
 %>
