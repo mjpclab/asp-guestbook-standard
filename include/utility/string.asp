@@ -1,8 +1,9 @@
 <%
-Dim charCr, charLf, charCrLf
+Dim charCr, charLf, charCrLf, htmlBr
 charCr=Chr(13)
 charLf=Chr(10)
 charCrLf=charCr & charLf
+htmlBr="<br/>"
 
 Function HtmlEncode(byref text)
 	if Instr(text,"&")>0 then
@@ -94,5 +95,19 @@ else
 
 	textfilter=strContent
 end if
+end function
+
+function newLineToHtmlBr(str)
+	if InStr(str,charCrLf)>0 then
+		str=replace(str,charCrLf,htmlBr)
+	end if
+	if InStr(str,charCr)>0 then
+		str=replace(str,charCr,htmlBr)
+	end if
+	if InStr(str,charLf)>0 then
+		str=replace(str,charLf,htmlBr)
+	end if
+
+	newLineToHtmlBr=str
 end function
 %>
