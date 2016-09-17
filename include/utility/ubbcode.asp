@@ -179,7 +179,7 @@ else
 		strContent=reCase.Replace(strContent,"$1-ban:")
 	end if
 
-	set re=Nothing
+	set reCase=Nothing
 
 	Call NewLineToHtmlBr(strContent)
 
