@@ -360,6 +360,10 @@ body .narrow-mainborder {
 	margin:5px auto;
 	text-align: center;
 }
+.topic .info .face {
+	max-width: 100%;
+	height: auto;
+}
 
 .topic .detail {
 	overflow: hidden;
@@ -893,10 +897,5 @@ body .narrow-mainborder {
 
 	body .topic .info {
 		width:25%;
-	}
-
-	body .topic .info img {
-		max-width: 100%;
-		height: auto;
 	}
 }
