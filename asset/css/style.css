@@ -378,6 +378,10 @@ body .narrow-mainborder {
 	word-wrap:break-word;
 }
 
+.topic .words a {
+	padding: 0.25em 0;
+}
+
 .topic .words img {
 	max-width: 100%;
 }
