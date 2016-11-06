@@ -10,6 +10,14 @@
 	border-color: #fdbdd3;
 }
 
+.topic .admin-message-tools a.tool:hover {
+	background:#fff6fb;
+}
+
+.topic .admin-message-tools .tool-status {
+	background:#fcc2d6;
+}
+
 .detail-item {
 	border-color:#fdbdd3;
 }

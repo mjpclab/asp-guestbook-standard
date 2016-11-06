@@ -10,6 +10,14 @@
 	border-color: #e3c629;
 }
 
+.topic .admin-message-tools a.tool:hover {
+	background:#c00000;
+}
+
+.topic .admin-message-tools .tool-status {
+	background:#c42912;
+}
+
 .auditting-message .title,
 .auditting-message .title a,
 .auditting-message .words {

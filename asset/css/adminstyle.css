@@ -100,6 +100,11 @@
 	white-space: nowrap;
 }
 
+.topic .admin-message-tools .tool-status {
+	margin-right: 5px;
+	border-radius:5px;
+}
+
 .topic .admin-message-tools img {
 	margin-right: 5px;
 	display: inline-block;

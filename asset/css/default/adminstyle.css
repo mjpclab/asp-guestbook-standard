@@ -10,6 +10,14 @@
 	border-color: #ccc;
 }
 
+.topic .admin-message-tools a.tool:hover {
+	background:#fff;
+}
+
+.topic .admin-message-tools .tool-status {
+	background:#e6e6e6;
+}
+
 .detail-item {
 	border-color:#ccc;
 }
