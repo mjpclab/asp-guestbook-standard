@@ -93,13 +93,15 @@
 .topic .admin-message-tools .tool {
 	display: block;
 	float: left;
-	margin:0 5px;
+	padding:2px 8px;
 	height: 20px;
 	line-height: 20px;
+	text-decoration: none;
 	white-space: nowrap;
 }
 
 .topic .admin-message-tools img {
+	margin-right: 5px;
 	display: inline-block;
 	vertical-align: text-bottom;
 }
@@ -141,4 +143,11 @@
 	display: block;
 	word-wrap: break-word;
 	word-break:break-all;
+}
+
+/**************** Responsible ****************/
+@media only screen and (max-width: 580px) {
+	.topic .admin-message-tools .name {
+		display: none;
+	}
 }
