@@ -21,7 +21,6 @@ while Not rs.eof
 	%>
 	<tr class="message<%if isauditting then%> auditting-message<%end if%>">
 		<td class="icon">
-			<a name="a<%=n_i%>" id="a<%=n_i%>"></a>
 			<%if isauditting then%><img src="asset/image/icon_wait2pass.gif" title="´ıÉóºË" alt="´ıÉóºË"/>
 			<%elseif ishidden then%><img src="asset/image/icon_hide.gif" title="±»Òş²Ø" alt="±»Òş²Ø"/>
 			<%elseif iswhisper then%><img src="asset/image/icon_whisper.gif" title="ÇÄÇÄ»°" alt="ÇÄÇÄ»°"/>

@@ -16,8 +16,6 @@ while Not rs.EOF
 	n_i=n_i+1
 	%>
 
-	<a name="a<%=n_i%>" id="a<%=n_i%>"></a>
-
 	<div class="topic"><%
 	if isauditting then
 		outeraudit(rs)
