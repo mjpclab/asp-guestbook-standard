@@ -142,7 +142,7 @@ else
 
 	if UbbFlag_markdown_paragraph or allUbbFlags then
 		reCase.Multiline=True
-		reCase.Pattern="^-\s*(.*)"
+		reCase.Pattern="^-\s*([^\r\n]*).*"
 		strContent=reCase.replace(strContent,"<ul><li>$1</li></ul>")
 		reCase.Multiline=False
 		reCase.Pattern="\<\/[uU][lL]\>\s*\<[uU][lL]\>"
