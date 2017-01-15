@@ -117,7 +117,7 @@ end if
 		</div>
 	</div>
 
-	<%if CanOpenDB and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"admin_search.asp","[搜索结果分页]","type,searchtxt"%>
+	<%if CanOpenDB and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"[搜索结果分页]","type,searchtxt"%>
 	<form method="post" action="admin_mdel.asp" name="form7">
 	<%RPage="admin_search.asp"%><!-- #include file="include/template/admin_func.inc" -->
 	<%
@@ -144,7 +144,7 @@ end if
 	<!-- #include file="include/template/admin_func.inc" -->
 	</form>
 
-	<%if CanOpenDB and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"admin_search.asp","[搜索结果分页]","type,searchtxt"%>
+	<%if CanOpenDB and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"[搜索结果分页]","type,searchtxt"%>
 	</div>
 
 	<!-- #include file="include/template/footer.inc" -->

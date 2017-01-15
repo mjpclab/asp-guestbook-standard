@@ -28,7 +28,7 @@ function refresh_pagenum(increment) {
 				var old_current = Number(pageNum.firstChild.data);
 				var new_current = old_current + delta;
 
-				pageNum.href = pageNum.href.replace(/page=\d+/i, 'page=' + new_current.toString(10));
+				pageNum.search = pageNum.search.replace(/page=\d+/i, 'page=' + new_current.toString(10));
 				pageNum.firstChild.data = new_current.toString(10);
 
 				if (new_current === CurrentPage)

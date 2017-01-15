@@ -63,7 +63,7 @@ sub get_divided_page(byref cn,byref rs,byval pk,byval countsql,byval sql,byval k
 	end if
 end sub
 
-sub show_page_list(byval CurPage,byval PagesCount,byval filename,byval pagetitle,byval param)
+sub show_page_list(byval CurPage,byval PagesCount,byval pagetitle,byval param)
 	Dim arr_param_names, arr_param_values, param_name, param_value
 	arr_param_names=split(param,",")
 	ReDim arr_param_values(UBound(arr_param_names))
@@ -104,13 +104,13 @@ sub show_page_list(byval CurPage,byval PagesCount,byval filename,byval pagetitle
 		if CurPage+AdvPageListCount>PagesCount then largenext_page_no=PagesCount else largenext_page_no=CurPage+AdvPageListCount
 		if CurPage-AdvPageListCount<1 then largeprev_page_no=1 else largeprev_page_no=CurPage-AdvPageListCount
 
-		str_first_page=		"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &first_page_no& param & """><img src=""asset/image/icon_page_first.gif"" title=""第" &first_page_no& "页"" /></a>"
-		str_largeprev_page=	"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &largeprev_page_no& param & """><img src=""asset/image/icon_page_largeprev.gif"" title=""第" &largeprev_page_no& "页"" /></a>"
-		str_prev_page=		"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &prev_page_no& param & """><img src=""asset/image/icon_page_prev.gif"" title=""第" &prev_page_no& "页"" /></a>"
+		str_first_page=		"<a class=""page-control"" name=""page-control"" href=""?page=" &first_page_no& param & """><img src=""asset/image/icon_page_first.gif"" title=""第" &first_page_no& "页"" /></a>"
+		str_largeprev_page=	"<a class=""page-control"" name=""page-control"" href=""?page=" &largeprev_page_no& param & """><img src=""asset/image/icon_page_largeprev.gif"" title=""第" &largeprev_page_no& "页"" /></a>"
+		str_prev_page=		"<a class=""page-control"" name=""page-control"" href=""?page=" &prev_page_no& param & """><img src=""asset/image/icon_page_prev.gif"" title=""第" &prev_page_no& "页"" /></a>"
 
-		str_last_page=		"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &last_page_no& param & """><img src=""asset/image/icon_page_last.gif"" title=""第" &last_page_no& "页"" /></a>"
-		str_largenext_page=	"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &largenext_page_no& param & """><img src=""asset/image/icon_page_largenext.gif"" title=""第" &largenext_page_no& "页"" /></a>"
-		str_next_page=		"<a class=""page-control"" name=""page-control"" href=""" &filename& "?page=" &next_page_no& param & """><img src=""asset/image/icon_page_next.gif"" title=""第" &next_page_no& "页"" /></a>"
+		str_last_page=		"<a class=""page-control"" name=""page-control"" href=""?page=" &last_page_no& param & """><img src=""asset/image/icon_page_last.gif"" title=""第" &last_page_no& "页"" /></a>"
+		str_largenext_page=	"<a class=""page-control"" name=""page-control"" href=""?page=" &largenext_page_no& param & """><img src=""asset/image/icon_page_largenext.gif"" title=""第" &largenext_page_no& "页"" /></a>"
+		str_next_page=		"<a class=""page-control"" name=""page-control"" href=""?page=" &next_page_no& param & """><img src=""asset/image/icon_page_next.gif"" title=""第" &next_page_no& "页"" /></a>"
 
 		str_first2_page=	"<a class=""js-page-control"" name=""js-page-control"" onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""stop_refresh_pagenum && stop_refresh_pagenum(); refresh_pagenum && refresh_pagenum(" &(-PagesCount+1)& ");"" title=""卷至首页""><img src=""asset/image/icon_page_first2.gif"" /></a>"
 		str_largeprev2_page="<a class=""js-page-control"" name=""js-page-control"" onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""stop_refresh_pagenum && stop_refresh_pagenum(); refresh_pagenum && refresh_pagenum(" &(-AdvPageListCount)& ");"" title=""上卷" &AdvPageListCount& "页""><img src=""asset/image/icon_page_largeprev2.gif"" /></a>"
@@ -128,9 +128,9 @@ sub show_page_list(byval CurPage,byval PagesCount,byval filename,byval pagetitle
 				<div class="nav backward-nav"><%=str_first_page & str_largeprev_page & str_prev_page & str_first2_page & str_largeprev2_page & str_prev2_page%></div>
 				<div class="nav forward-nav"><%=str_next_page & str_largenext_page & str_last_page & str_next2_page & str_largenext2_page & str_last2_page%></div>
 			<%end if%>
-			<form method="get" action="<%=filename%>">
+			<form method="get" action="">
 			<div class="pagenum-list">
-				<%for j=start_page to end_page%><a name="pagenum" class="pagenum<%if j=CurPage then Response.Write " pagenum-current"%>" href="<%=filename%>?page=<%=j & url_param%>"><%=j%></a><%next%>
+				<%for j=start_page to end_page%><a name="pagenum" class="pagenum<%if j=CurPage then Response.Write " pagenum-current"%>" href="?page=<%=j & url_param%>"><%=j%></a><%next%>
 			</div>
 			<div class="goto">(共<%=PagesCount%>页)　转到页数<input type="text" name="page" class="page" maxlength="10" /> <input type="submit" class="submit" value="GO" /></div>
 			<%

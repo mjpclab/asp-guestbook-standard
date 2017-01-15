@@ -71,7 +71,7 @@ get_divided_page cn,rs,sql_pk_main,local_sql_count,local_sql_query,"parent_id IN
 	<%RPage="index.asp"%><!-- #include file="include/template/guest_func.inc" -->
 	<!-- #include file="include/template/topbulletin.inc" -->
 	<!-- #include file="include/template/guest_tiphidden.inc" -->
-	<%if PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"index.asp","[ÁôÑÔ·ÖÒ³]",""%>
+	<%if PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"[ÁôÑÔ·ÖÒ³]",""%>
 	<%if ItemsCount>0 and StatusSearch and ShowTopSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
 
 	<%
@@ -92,7 +92,7 @@ get_divided_page cn,rs,sql_pk_main,local_sql_count,local_sql_query,"parent_id IN
 	
 	<!-- #include file="include/template/guest_func.inc" -->
 
-	<%if PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"index.asp","[ÁôÑÔ·ÖÒ³]",""%>
+	<%if PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"[ÁôÑÔ·ÖÒ³]",""%>
 	<%if ItemsCount>0 and StatusSearch and ShowBottomSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
 	</div>
 

@@ -82,7 +82,7 @@ end if
 	<div id="mainborder" class="mainborder">
 	<%RPage="search.asp"%><!-- #include file="include/template/guest_func.inc" -->
 	<!-- #include file="include/template/topbulletin.inc" -->
-	<%if CanOpenDB and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"search.asp","[搜索结果分页]","type,searchtxt"%>
+	<%if CanOpenDB and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"[搜索结果分页]","type,searchtxt"%>
 	<%if ShowTopSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
 
 	<%
@@ -105,7 +105,7 @@ end if
 
 	<!-- #include file="include/template/guest_func.inc" -->
 
-	<%if CanOpenDB and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"search.asp","[搜索结果分页]","type,searchtxt"%>
+	<%if CanOpenDB and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"[搜索结果分页]","type,searchtxt"%>
 	<%if ShowBottomSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
 	</div>
 
