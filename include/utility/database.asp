@@ -1,6 +1,11 @@
 <%
 function GetAccessConnStr(dbprovider)
-	GetAccessConnStr="Provider=" & dbprovider & ";Data Source=""" & server.Mappath(dbfile) & """;Jet OLEDB:Database Password=""" & Replace(dbfilepassword,"""","""""") & """;"
+	Dim connstr
+	connstr="Provider=" & dbprovider & ";Data Source=""" & server.Mappath(dbfile) & """;"
+	if dbfilepassword <> "" then
+		connstr = connstr & "Jet OLEDB:Database Password=""" & Replace(dbfilepassword,"""","""""") & """;"
+	end if
+	GetAccessConnStr = connstr
 end function
 
 function GetSqlServerConnStr(dbprovider)
@@ -41,7 +46,6 @@ function GetConnStr()
 end function
 
 function CreateConn(byref tconn)
-	tconn.ConnectionString=GetConnStr()
-	tconn.Open
+	tconn.Open GetConnStr()
 end function
 %>
