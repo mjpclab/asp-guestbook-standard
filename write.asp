@@ -246,7 +246,7 @@ logdate1=ServerTimeToUTC(now())
 
 homepage1=Trim(homepage1)
 if homepage1<>"" then
-	if InStr(homepage1,"//")=0 then homepage1="http://" & homepage1
+	if InStr(homepage1,"://")=0 then homepage1="http://" & homepage1
 	homepage1=textfilter(homepage1,true)
 	homepage1=left(homepage1,127)
 end if

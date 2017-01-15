@@ -27,14 +27,18 @@ if Not IsEmpty(Request.Form) then
 	end if
 
 	tfaceurl=replace(HtmlEncode(Request.Form("afaceurl"))," ","")
-	if lcase(left(tfaceurl,7))<>"http://" and lcase(left(tfaceurl,6))<>"ftp://" and tfaceurl<>"" then tfaceurl="http://" & tfaceurl
+	if tfaceurl<>"" then
+		if InStr(tfaceurl,"://")=0 then tfaceurl="http://" & tfaceurl
+	end if
 
 	temail=replace(HtmlEncode(Request.Form("aemail"))," ","")
 	tqqid=replace(HtmlEncode(Request.Form("aqqid"))," ","")
 	tmsnid=replace(HtmlEncode(Request.Form("amsnid"))," ","")
 
 	thomepage=replace(HtmlEncode(Request.Form("ahomepage"))," ","")
-	if lcase(left(thomepage,7))<>"http://" and lcase(left(thomepage,6))<>"ftp://" and thomepage<>"" then thomepage="http://" & thomepage
+	if thomepage<>"" then
+		if InStr(thomepage,"://")=0 then thomepage="http://" & thomepage
+	end if
 
 	set cn1=server.CreateObject("ADODB.Connection")
 	set rs1=server.CreateObject("ADODB.Recordset")
