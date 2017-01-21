@@ -48,11 +48,11 @@ end function
 	<script type="text/javascript">
 	function submitcheck(frm)
 	{
-		if (frm.ivcode && frm.ivcode.value.length===0) {alert('请输入验证码。'); if(tab){tab.selectPage(0); frm.ivcode.focus();} return false;}
-		if (frm.iname.value.length===0) {alert('请输入称呼。'); if(tab){tab.selectPage(0); frm.iname.focus();} return false;}
-		if (frm.ititle.value.length===0) {alert('请输入标题。'); if(tab){tab.selectPage(0); frm.ititle.focus();} return false;}
-		if (frm.chk_encryptwhisper && frm.chk_encryptwhisper.checked && frm.iwhisperpwd && frm.iwhisperpwd.value.length===0) {alert('请输入悄悄话密码。'); if(tab){tab.selectPage(0); frm.iwhisperpwd.focus();} return false;}
-		if (frm.imailreplyinform && frm.imailreplyinform.checked && frm.imail.value.length===0) {alert('请输入邮件地址以便回复时通知，或者去掉回复通知选项。'); if(tab){tab.selectPage(1); frm.imail.focus();} return false;}
+		if (frm.ivcode && !frm.ivcode.value) {alert('请输入验证码。'); if(tab){tab.selectPage(0); frm.ivcode.focus();} return false;}
+		if (!frm.iname.value) {alert('请输入称呼。'); if(tab){tab.selectPage(0); frm.iname.focus();} return false;}
+		if (!frm.ititle.value) {alert('请输入标题。'); if(tab){tab.selectPage(0); frm.ititle.focus();} return false;}
+		if (frm.chk_encryptwhisper && frm.chk_encryptwhisper.checked && frm.iwhisperpwd && !frm.iwhisperpwd.value) {alert('请输入悄悄话密码。'); if(tab){tab.selectPage(0); frm.iwhisperpwd.focus();} return false;}
+		if (frm.imailreplyinform && frm.imailreplyinform.checked && !frm.imail.value) {alert('请输入邮件地址以便回复时通知，或者去掉回复通知选项。'); if(tab){tab.selectPage(1); frm.imail.focus();} return false;}
 		frm.submit1.disabled=true;
 		return true;
 	}
@@ -233,7 +233,7 @@ end function
 					tab.addPage('divUbbhelp','UBB帮助');
 				</script>
 
-				<p align="center"><input type="submit" value="发表留言" name="submit1" id="submit1" />　<input type="reset" value="重写留言" />　<input type="button" value="预览留言" onclick="previewRequest(this.value);" /></p>
+				<p align="center"><input type="submit" value="发表留言" name="submit1" id="submit1" />　<input type="button" value="预览留言" onclick="previewRequest();" /></p>
 
 				<div id="divPreview"></div>
 			</form>
