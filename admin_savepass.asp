@@ -32,7 +32,7 @@ else
 		if md5(request.Form("ioldpass"),32)=rs(0) then
 			pwd=md5(request.Form("inewpass1"),32)
 			
-			cn.Execute Replace(sql_adminsavepass_update,"{0}",pwd),,1
+			cn.Execute Replace(sql_adminsavepass_update,"{0}",pwd),,129
 			rs.Close : cn.Close : set rs=nothing : set cn=nothing
 			Session(InstanceName & "_adminpass")=pwd
 			Response.Redirect "admin.asp"

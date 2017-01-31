@@ -44,15 +44,15 @@ if isnumeric(Request.Form("filterid")) and Request.Form("filterid")<>"" and (Req
 				
 				select case Request.Form("movedirection")
 				case "up","down"
-					cn.Execute sql_adminmovefilter_update_updown1 &filterid1,,1
-					cn.Execute Replace(Replace(sql_adminmovefilter_update_updown2,"{0}",qid1),"{1}",qid2),,1
-					cn.Execute Replace(sql_adminmovefilter_update_updown3,"{0}",qid2),,1
+					cn.Execute sql_adminmovefilter_update_updown1 &filterid1,,129
+					cn.Execute Replace(Replace(sql_adminmovefilter_update_updown2,"{0}",qid1),"{1}",qid2),,129
+					cn.Execute Replace(sql_adminmovefilter_update_updown3,"{0}",qid2),,129
 				case "top"
-					cn.Execute sql_adminmovefilter_update_top1 &qid1,,1
-					cn.Execute Replace(Replace(sql_adminmovefilter_update_top2,"{0}",qid2),"{1}",filterid1),,1
+					cn.Execute sql_adminmovefilter_update_top1 &qid1,,129
+					cn.Execute Replace(Replace(sql_adminmovefilter_update_top2,"{0}",qid2),"{1}",filterid1),,129
 				case "bottom"
-					cn.Execute sql_adminmovefilter_update_bottom1 &qid1,,1
-					cn.Execute Replace(Replace(sql_adminmovefilter_update_bottom2,"{0}",qid2),"{1}",filterid1),,1
+					cn.Execute sql_adminmovefilter_update_bottom1 &qid1,,129
+					cn.Execute Replace(Replace(sql_adminmovefilter_update_bottom2,"{0}",qid2),"{1}",filterid1),,129
 				end select
 									
 				cn.CommitTrans

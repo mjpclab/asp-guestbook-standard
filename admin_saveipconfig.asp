@@ -22,7 +22,7 @@ function deleteSaved(requestField,sql)
 	next
 	if listids<>"" then
 		listids=Mid(listids,2)
-		cn.Execute Replace(sql,"{0}",listids),,1
+		cn.Execute Replace(sql,"{0}",listids),,129
 	end if
 end function
 
@@ -45,7 +45,7 @@ function addNewIPv4(requestField,sql)
 		end if
 
 		if isIPv4Range(ipfrom) and isIPv4Range(ipto) then
-			cn.Execute Replace(Replace(sql,"{0}",ipv4ToHex(ipfrom,false)),"{1}",ipv4ToHex(ipto,true)),,1
+			cn.Execute Replace(Replace(sql,"{0}",ipv4ToHex(ipfrom,false)),"{1}",ipv4ToHex(ipto,true)),,129
 		end if
 	next
 end function
@@ -69,7 +69,7 @@ function addNewIPv6(requestField,sql)
 		end if
 
 		if isIPv6Range(ipfrom) and isIPv6Range(ipto) then
-			cn.Execute Replace(Replace(sql,"{0}",ipv6ToHex(ipfrom,false)),"{1}",ipv6ToHex(ipto,true)),,1
+			cn.Execute Replace(Replace(sql,"{0}",ipv6ToHex(ipfrom,false)),"{1}",ipv6ToHex(ipto,true)),,129
 		end if
 	next
 end function
@@ -81,7 +81,7 @@ if Not IsEmpty(Request.Form) then
 	'IPConStatus
 	Dim tipconstatus
 	tipconstatus=clng(Request.Form("ipv4constatus"))+clng(Request.Form("ipv6constatus"))*16
-	cn.Execute sql_adminsaveipconfig_update & tipconstatus,,1
+	cn.Execute sql_adminsaveipconfig_update & tipconstatus,,129
 
 
 	'IPv4 delete status 1

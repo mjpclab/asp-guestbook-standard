@@ -22,7 +22,7 @@ select case Request.Form("option")
 case "1"
 	if isdate(tparam) then
 		tparam=DateTimeStr(tparam)
-		cn.Execute Replace(sql_admindoadvdel_beforedate_main,"{0}",tparam),,1
+		cn.Execute Replace(sql_admindoadvdel_beforedate_main,"{0}",tparam),,129
 		Call TipsPage("删除操作完成。","admin_advdel.asp")
 	else
 		Call TipsPage("您输入的日期有误，请检查。","admin_advdel.asp")
@@ -30,7 +30,7 @@ case "1"
 case "2"
 	if isdate(tparam) then
 		tparam=DateTimeStr(tparam)
-		cn.Execute Replace(sql_admindoadvdel_afterdate_main,"{0}",tparam),,1
+		cn.Execute Replace(sql_admindoadvdel_afterdate_main,"{0}",tparam),,129
 		Call TipsPage("删除操作完成。","admin_advdel.asp")
 	else
 		Call TipsPage("您输入的日期有误，请检查。","admin_advdel.asp")
@@ -38,8 +38,8 @@ case "2"
 case "3"
 	if isnumeric(tparam) then
 		if clng(tparam)>0 then
-			'cn.Execute "delete reply.* from main,reply where main.id=reply.articleid and main.id<=(select max(id) from (select top " &tparam& " id from main order by id ASC))",,1
-			cn.Execute Replace(sql_admindoadvdel_firstn_main,"{0}",tparam),,1
+			'cn.Execute "delete reply.* from main,reply where main.id=reply.articleid and main.id<=(select max(id) from (select top " &tparam& " id from main order by id ASC))",,129
+			cn.Execute Replace(sql_admindoadvdel_firstn_main,"{0}",tparam),,129
 			Call TipsPage("删除操作完成。","admin_advdel.asp")
 		else
 			Call TipsPage("请输正确的数值。","admin_advdel.asp")
@@ -50,8 +50,8 @@ case "3"
 case "4"
 	if isnumeric(tparam) then
 		if clng(tparam)>0 then
-			'cn.Execute "delete reply.* from main,reply where main.id=reply.articleid and main.id>=(select min(id) from (select top " &tparam& " id from main order by id DESC))",,1
-			cn.Execute Replace(sql_admindoadvdel_lastn_main,"{0}",tparam),,1
+			'cn.Execute "delete reply.* from main,reply where main.id=reply.articleid and main.id>=(select min(id) from (select top " &tparam& " id from main order by id DESC))",,129
+			cn.Execute Replace(sql_admindoadvdel_lastn_main,"{0}",tparam),,129
 			Call TipsPage("删除操作完成。","admin_advdel.asp")
 		else
 			Call TipsPage("请输正确的数值。","admin_advdel.asp")
@@ -69,8 +69,8 @@ case "5"
 		tparam=left(tparam,len(tparam)-1)
 	wend
 	if tparam<>"" then
-		'cn.Execute "delete reply.* from main,reply where main.id=reply.articleid and main.name like ('%" &tparam& "%')",,1
-		cn.Execute Replace(sql_admindoadvdel_name_main,"{0}",tparam),,1
+		'cn.Execute "delete reply.* from main,reply where main.id=reply.articleid and main.name like ('%" &tparam& "%')",,129
+		cn.Execute Replace(sql_admindoadvdel_name_main,"{0}",tparam),,129
 		Call TipsPage("删除操作完成。","admin_advdel.asp")
 	else
 		Call TipsPage("不能输入空字符串或全部为通配符。","admin_advdel.asp")
@@ -85,8 +85,8 @@ case "6"
 		tparam=left(tparam,len(tparam)-1)
 	wend
 	if tparam<>"" then
-		'cn.Execute "delete reply.* from main,reply where main.id=reply.articleid and main.title like ('%" &tparam& "%')",,1
-		cn.Execute Replace(sql_admindoadvdel_title_main,"{0}",tparam),,1
+		'cn.Execute "delete reply.* from main,reply where main.id=reply.articleid and main.title like ('%" &tparam& "%')",,129
+		cn.Execute Replace(sql_admindoadvdel_title_main,"{0}",tparam),,129
 		Call TipsPage("删除操作完成。","admin_advdel.asp")
 	else
 		Call TipsPage("不能输入空字符串或全部为通配符。","admin_advdel.asp")
@@ -101,15 +101,15 @@ case "7"
 		tparam=left(tparam,len(tparam)-1)
 	wend
 	if tparam<>"" then
-		'cn.Execute "delete reply.* from main,reply where main.id=reply.articleid and main.article like ('%" &tparam& "%')",,1
-		cn.Execute Replace(sql_admindoadvdel_article_main,"{0}",tparam),,1
+		'cn.Execute "delete reply.* from main,reply where main.id=reply.articleid and main.article like ('%" &tparam& "%')",,129
+		cn.Execute Replace(sql_admindoadvdel_article_main,"{0}",tparam),,129
 		Call TipsPage("删除操作完成。","admin_advdel.asp")
 	else
 		Call TipsPage("不能输入空字符串或全部为通配符。","admin_advdel.asp")
 	end if
 case "8"
-	'cn.Execute "delete from reply",,1
-	cn.Execute Replace(sql_admindoadvdel_main,"{0}",tparam),,1
+	'cn.Execute "delete from reply",,129
+	cn.Execute Replace(sql_admindoadvdel_main,"{0}",tparam),,129
 	Call TipsPage("删除操作完成。","admin_advdel.asp")
 case else
 	cn.Close : set cn=nothing
@@ -117,8 +117,8 @@ case else
 	Response.End
 end select
 
-cn.Execute sql_admindoadvdel_clearfragment_main,,1
-cn.Execute sql_admindoadvdel_clearfragment_reply,,1
-cn.Execute sql_admindoadvdel_adjustguestreply_flag,,1
+cn.Execute sql_admindoadvdel_clearfragment_main,,129
+cn.Execute sql_admindoadvdel_clearfragment_reply,,129
+cn.Execute sql_admindoadvdel_adjustguestreply_flag,,129
 cn.Close : set cn=nothing
 %>

@@ -336,8 +336,8 @@ if isnumeric(Request.Form("follow")) and Request.Form("follow")<>"" and StatusGu
 	rs2.Open sql_write_verify_repliable & Request.Form("follow"),cn,0,1,1
 	if not rs2.EOF then
 		rs("parent_id")=Request.Form("follow")
-		cn.Execute Replace(Replace(sql_write_updatelastupdated,"{0}",logdate1),"{1}",Request.Form("follow")),,1
-		cn.Execute sql_write_updateparentflag & Request.Form("follow"),,1
+		cn.Execute Replace(Replace(sql_write_updatelastupdated,"{0}",logdate1),"{1}",Request.Form("follow")),,129
+		cn.Execute sql_write_updateparentflag & Request.Form("follow"),,129
 	end if
 	rs2.Close : set rs2=nothing
 end if

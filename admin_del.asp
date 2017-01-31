@@ -20,9 +20,9 @@ set cn=server.CreateObject("ADODB.Connection")
 Call CreateConn(cn)
 
 cn.BeginTrans
-cn.Execute Replace(sql_noguestreply_flag,"{0}",Request.QueryString("id")),,1
-cn.Execute Replace(sql_admindelmessage_reply,"{0}",Request.QueryString("id")),,1
-cn.Execute Replace(sql_admindelmessage_main,"{0}",Request.QueryString("id")),,1
+cn.Execute Replace(sql_noguestreply_flag,"{0}",Request.QueryString("id")),,129
+cn.Execute Replace(sql_admindelmessage_reply,"{0}",Request.QueryString("id")),,129
+cn.Execute Replace(sql_admindelmessage_main,"{0}",Request.QueryString("id")),,129
 cn.CommitTrans
 
 cn.close : set cn=nothing

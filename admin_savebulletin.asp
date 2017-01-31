@@ -25,7 +25,7 @@ if Not IsEmpty(Request.Form) then
 
 	set cn=server.CreateObject("ADODB.Connection")
 	Call CreateConn(cn)
-	cn.Execute Replace(Replace(sql_adminsavebulletin,"{0}",tlimit),"{1}",tbul),,1
+	cn.Execute Replace(Replace(sql_adminsavebulletin,"{0}",tlimit),"{1}",tbul),,129
 
 	cn.close : set cn=nothing
 	Response.Redirect "admin.asp"

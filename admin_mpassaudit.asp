@@ -21,7 +21,7 @@ if Request.Form("seltodel")<>"" then
 	set cn=server.CreateObject("ADODB.Connection")
 	Call CreateConn(cn)
 
-	cn.Execute Replace(sql_adminmpass,"{0}",ids),,1
+	cn.Execute Replace(sql_adminmpass,"{0}",ids),,129
 	cn.Close : set cn=nothing
 end if
 %>

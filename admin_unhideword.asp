@@ -18,7 +18,7 @@ end if
 set cn=server.CreateObject("ADODB.Connection")
 Call CreateConn(cn)
 
-cn.Execute sql_adminunhideword & Request.QueryString("id"),,1
+cn.Execute sql_adminunhideword & Request.QueryString("id"),,129
 cn.close : set cn=nothing
 %>
 <!-- #include file="include/template/admin_traceback.inc" -->

@@ -40,19 +40,19 @@ if Not IsEmpty(Request.Form) then
 		rs.Open sql_adminsavereply_reply &request.form("mainid"),cn,0,1,1
 		if rs.EOF then	'新回复
 			rs.Close
-			cn.Execute Replace(Replace(Replace(Replace(sql_adminsavereply_insert,"{0}",request.form("mainid")),"{1}",replydate1),"{2}",tlimit),"{3}",content1),,1
+			cn.Execute Replace(Replace(Replace(Replace(sql_adminsavereply_insert,"{0}",request.form("mainid")),"{1}",replydate1),"{2}",tlimit),"{3}",content1),,129
 		else	'更新回复
 			rs.Close
-			cn.Execute Replace(Replace(Replace(Replace(sql_adminsavereply_update,"{0}",replydate1),"{1}",tlimit),"{2}",content1),"{3}",Request.Form("mainid")),,1
+			cn.Execute Replace(Replace(Replace(Replace(sql_adminsavereply_update,"{0}",replydate1),"{1}",tlimit),"{2}",content1),"{3}",Request.Form("mainid")),,129
 		end if
 		cn.CommitTrans
 
 		if Request.Form("lock2top")="1" then	'置顶
-			cn.Execute Replace(sql_adminsavereply_lock2top,"{0}",Request.Form("mainid")),,1
+			cn.Execute Replace(sql_adminsavereply_lock2top,"{0}",Request.Form("mainid")),,129
 		end if
 
 		if Request.Form("bring2top")="1" then	'提前
-			cn.Execute Replace(Replace(sql_adminsavereply_bring2top,"{0}",replydate1),"{1}",Request.Form("mainid")),,1
+			cn.Execute Replace(Replace(sql_adminsavereply_bring2top,"{0}",replydate1),"{1}",Request.Form("mainid")),,129
 		end if
 
 		cn.close

@@ -34,7 +34,7 @@ set rs=server.CreateObject("ADODB.Recordset")
 Call CreateConn(cn)
 rs.open sql_adminstats_startdate,cn,0,3,1
 if rs.EOF then
-	cn.Execute Replace(sql_adminstats_insert,"{0}",now()),,1
+	cn.Execute Replace(sql_adminstats_insert,"{0}",now()),,129
 else
 	if isdate(rs(0))=false then
 		rs(0)=now()

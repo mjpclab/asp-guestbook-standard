@@ -19,8 +19,8 @@ set cn=server.CreateObject("ADODB.Connection")
 Call CreateConn(cn)
 
 cn.BeginTrans
-	cn.Execute sql_admindelreply_delete & Request.QueryString("id"),,1
-	cn.Execute sql_admindelreply_update & Request.QueryString("id"),,1
+	cn.Execute sql_admindelreply_delete & Request.QueryString("id"),,129
+	cn.Execute sql_admindelreply_update & Request.QueryString("id"),,129
 cn.CommitTrans
 
 cn.Close : set cn=nothing

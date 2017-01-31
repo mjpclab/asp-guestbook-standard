@@ -14,8 +14,8 @@ set cn=server.CreateObject("ADODB.Connection")
 Call CreateConn(cn)
 
 tnow=now()
-cn.Execute Replace(sql_adminclearstats_startdate,"{0}",now()),,1
-cn.Execute sql_adminclearstats_client,,1
+cn.Execute Replace(sql_adminclearstats_startdate,"{0}",now()),,129
+cn.Execute sql_adminclearstats_client,,129
 
 cn.close
 set cn=nothing
