@@ -102,6 +102,8 @@ end if
 </div>
 
 <%
+iPage=Request.QueryString("page")
+
 dim pagename, inAdminPage
 pagename="admin_edit"
 inAdminPage=true
