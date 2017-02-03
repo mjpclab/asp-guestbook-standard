@@ -112,14 +112,16 @@ end function
 
 	function previewArrived()
 	{
-		if(xmlHttp.readyState===4 && xmlHttp.status===200)
+		if(xmlHttp.readyState===4)
 		{
 			var divPreview=document.getElementById('divPreview');
-			if(xmlHttp && divPreview)
-			{
+			if(xmlHttp.status===200) {
 				divPreview.innerHTML=xmlHttp.responseText;
-				xmlHttp.abort();
 			}
+			else {
+				divPreview.innerHTML=xmlHttp.status + ' ' + xmlHttp.statusText;
+			}
+			xmlHttp.abort();
 		}
 	}
 	</script>
