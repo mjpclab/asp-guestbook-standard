@@ -72,19 +72,21 @@ function AdminDisplayMode
 end function
 
 function GetRequests
-	dim rvalue
+	dim itemValue, rvalue
 	rvalue=""
-	if Request.QueryString<>"" then
+	if Not IsEmpty(Request.QueryString) then
 		for each item in Request.QueryString
 			if item<>"mode" and item<>"modeflag" and item<>"rpage" then
-				if Request.QueryString(item)<>"" then rvalue=rvalue & "&" & item & "=" & Server.URLEncode(Request.QueryString(item))
+				itemValue=Request.QueryString(item)
+				if itemValue<>"" then rvalue=rvalue & "&" & item & "=" & Server.URLEncode(itemValue)
 			end if
 		next
 	end if
-	if Request.Form<>"" then
+	if  Not IsEmpty(Request.Form) then
 		for each item in Request.Form
 			if item<>"mode" and item<>"modeflag" and item<>"rpage" then
-				if Request.Form(item)<>"" then rvalue=rvalue & "&" & item & "=" & Server.URLEncode(Request.Form(item))
+				itemValue=Request.Form(item)
+				if itemValue<>"" then rvalue=rvalue & "&" & item & "=" & Server.URLEncode(itemValue)
 			end if
 		next
 	end if
