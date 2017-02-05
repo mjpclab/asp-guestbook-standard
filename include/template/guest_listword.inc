@@ -1,8 +1,6 @@
 <%
 dim guest_txt,guestflag,iswhisper,ishidden,encrypted
 dim reply_txt,reply_htmlflag
-dim n_i
-n_i=0
 
 getadmininfo()
 
@@ -12,8 +10,6 @@ while Not rs.EOF
 	ishidden=((guestflag AND 40)=8)
 	iswhisper=CBool(guestflag AND 32)
 	encrypted=((guestflag AND 96)=96)
-
-	n_i=n_i+1
 	%>
 
 	<div class="topic"><%
