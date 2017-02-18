@@ -17,15 +17,16 @@ end function
 
 sub newinform()
 	if isemail(MailReceive) and MailSmtpServer<>"" then
-		dim status_str,subject_str,body_str
+		dim status_str,book_prefix,subject_str,body_str
 		status_str=""
 		if clng(guestflag and 16)<>0 then status_str = status_str & "待审核 "
 		if clng(guestflag and 32)<>0 then status_str = status_str & "悄悄话"
 		if clng(guestflag and 32)<>0 and clng(guestflag and 64)<>0 then status_str = status_str & "(已加密)"
 		if status_str="" then status_str="普通"
 
-		subject_str=ltrim(HomeName & " 留言本 新留言通知")
-		body_str=HomeName & " 留言本 已添加一条新留言" & vbCrLf & _
+		book_prefix = ltrim(HomeName & " 留言本")
+		subject_str = book_prefix & " 新留言通知"
+		body_str=book_prefix & " 已添加一条新留言" & vbCrLf & _
 				"时间：" & cstr(logdate1) & vbCrLf & _
 				"姓名：" & getpuretext(name1) & vbCrLf & _
 				"标题：" & getpuretext(title1) & vbCrLf & _
@@ -49,15 +50,16 @@ sub replyinform()
 	if not rs.eof then
 		if isemail(rs.Fields("email")) and clng(rs.Fields("guestflag") and 128)<>0 and MailSmtpServer<>"" then
 
-			dim id,subject_str,body_str
+			dim id,book_prefix,subject_str,body_str
 			if rs.Fields("parent_id")>0 then
 				id=cstr(rs.Fields("parent_id"))
 			else
 				id=request.form("mainid")
 			end if
 
-			subject_str=ltrim(HomeName & " 留言本 回复通知")
-			body_str=HomeName & " 留言本：您的留言已回复" & vbCrLf & _
+			book_prefix = ltrim(HomeName & " 留言本")
+			subject_str=book_prefix & " 回复通知"
+			body_str=book_prefix & " 您的留言已回复" & vbCrLf & _
 					"内容(" & cstr(rs.Fields("logdate")) & ")：" & vbCrLf & getpuretext(rs.Fields("article")) & vbCrLf & vbCrLf & _
 					"回复(" & cstr(replydate1) & ")：" & vbCrLf & getpuretext(Request.Form("rcontent")) & vbCrLf & vbCrLf & _
 					"查看留言：" & geturlpath & "showword.asp?id=" & id
