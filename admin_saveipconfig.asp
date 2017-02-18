@@ -29,7 +29,7 @@ end function
 function addNewIPv4(requestField,sql)
 	Dim entries,iprange,maxIndex,ipfrom,ipto
 
-	entries=split(Request.Form(requestField),chr(13)&chr(10))
+	entries=split(Request.Form(requestField),vbCrLf)
 	for each iprange in entries
 		ips=split(iprange,"-")
 		ipfrom=""
@@ -53,7 +53,7 @@ end function
 function addNewIPv6(requestField,sql)
 	Dim entries,iprange,maxIndex,ipfrom,ipto
 
-	entries=split(Request.Form(requestField),chr(13)&chr(10))
+	entries=split(Request.Form(requestField),vbCrLf)
 	for each iprange in entries
 		ips=split(iprange,"-")
 		ipfrom=""

@@ -16,10 +16,6 @@ const HtmlNbsp="&nbsp;"
 const CharSpace=" "
 const CharEmpty=""
 
-Dim charCr, charLf, charCrLf
-charCr=Chr(13)
-charLf=Chr(10)
-charCrLf=charCr & charLf
 const htmlBr="<br/>"
 
 Function HtmlEncode(byref text)
@@ -89,14 +85,14 @@ else
 		strContent=re.Replace(strContent,"$1-ban:")
 	end if
 
-	if InStr(strContent,charCrLf)>0 then
-		strContent=replace(strContent,charCrLf,CharSpace)
+	if InStr(strContent,vbCrLf)>0 then
+		strContent=replace(strContent,vbCrLf,CharSpace)
 	end if
-	if InStr(strContent,charCr)>0 then
-		strContent=replace(strContent,charCr,CharSpace)
+	if InStr(strContent,vbCr)>0 then
+		strContent=replace(strContent,vbCr,CharSpace)
 	end if
-	if InStr(strContent,charLf)>0 then
-		strContent=replace(strContent,charLf,CharSpace)
+	if InStr(strContent,vbLf)>0 then
+		strContent=replace(strContent,vbLf,CharSpace)
 	end if
 
 	textfilter=strContent
@@ -104,14 +100,14 @@ end if
 end function
 
 Sub NewLineToHtmlBr(byref str)
-	if InStr(str,charCrLf)>0 then
-		str=replace(str,charCrLf,htmlBr)
+	if InStr(str,vbCrLf)>0 then
+		str=replace(str,vbCrLf,htmlBr)
 	end if
-	if InStr(str,charCr)>0 then
-		str=replace(str,charCr,htmlBr)
+	if InStr(str,vbCr)>0 then
+		str=replace(str,vbCr,htmlBr)
 	end if
-	if InStr(str,charLf)>0 then
-		str=replace(str,charLf,htmlBr)
+	if InStr(str,vbLf)>0 then
+		str=replace(str,vbLf,htmlBr)
 	end if
 End Sub
 %>
