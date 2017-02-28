@@ -394,6 +394,7 @@ body .narrow-mainborder {
 	display: inline-block;
 	vertical-align: bottom;
 	margin-left: 0.5em;;
+	padding: 2px 5px;
 }
 
 .topic .inner-hint {

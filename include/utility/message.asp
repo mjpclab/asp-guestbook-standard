@@ -267,7 +267,7 @@ if left(pagename,8)="showword" then url=url & "&return=showword"
 url=HtmlEncode(url)%>
 <div class="guest-message-tools">
 	<%if parent_id<0 then%><span class="tool"><img src="asset/image/icon_toplocked.gif"/>(÷√∂•)</span><%end if%>
-	<%if show_reply then%><span class="tool"><a href="<%=url%>"><img src="asset/image/icon_reply.gif"/>[ªÿ∏¥]</a></span><%end if%>
+	<%if show_reply then%><a class="tool" href="<%=url%>"><img src="asset/image/icon_reply.gif"/>[ªÿ∏¥]</a><%end if%>
 </div>
 <%end sub
 
