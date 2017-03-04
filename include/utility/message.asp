@@ -286,16 +286,16 @@ sub showGuestIcons(rs)
 	if inAdminPage then
 		ipv4addr=rs.Fields("ipv4addr")
 		if AdminShowIPv4>0 and ipv4addr<>"" then
-			ipv4addr=GetIPv4WithMask(ipv4addr,AdminShowIPv4)%><span class="icon-entry"><span class="icon" title="IP：<%=ipv4addr%>"><img src="asset/image/icon_ip.gif"/></span></span><%end if
+			ipv4addr=GetIPv4WithMask(ipv4addr,AdminShowIPv4)%><span class="icon" title="IP：<%=ipv4addr%>"><img src="asset/image/icon_ip.gif"/></span><%end if
 		ipv6addr=rs.Fields("ipv6addr")
 		if AdminShowIPv6>0 and ipv6addr<>"" then
-			ipv6addr=GetIPv6WithMask(ipv6addr,AdminShowIPv6)%><span class="icon-entry"><span class="icon" title="IP：<%=ipv6addr%>"><img src="asset/image/icon_ip.gif"/></span></span><%end if
+			ipv6addr=GetIPv6WithMask(ipv6addr,AdminShowIPv6)%><span class="icon" title="IP：<%=ipv6addr%>"><img src="asset/image/icon_ip.gif"/></span><%end if
 		originalipv4=rs.Fields("originalipv4")
 		if AdminShowOriginalIPv4>0 and originalipv4<>"" then
-			originalipv4=GetIPv4WithMask(originalipv4,AdminShowOriginalIPv4)%><span class="icon-entry"><span class="icon" title="原始IP：<%=originalipv4%>"><img src="asset/image/icon_ip2.gif"/></span></span><%end if
+			originalipv4=GetIPv4WithMask(originalipv4,AdminShowOriginalIPv4)%><span class="icon" title="原始IP：<%=originalipv4%>"><img src="asset/image/icon_ip2.gif"/></span><%end if
 		originalipv6=rs.Fields("originalipv6")
 		if AdminShowOriginalIPv6>0 and originalipv6<>"" then
-			originalipv6=GetIPv6WithMask(originalipv6,AdminShowOriginalIPv6)%><span class="icon-entry"><span class="icon" title="原始IP：<%=originalipv6%>"><img src="asset/image/icon_ip2.gif"/></span></span><%end if
+			originalipv6=GetIPv6WithMask(originalipv6,AdminShowOriginalIPv6)%><span class="icon" title="原始IP：<%=originalipv6%>"><img src="asset/image/icon_ip2.gif"/></span><%end if
 	else
 		ipv4addr=rs.Fields("ipv4addr")
 		if ShowIPv4>0 and ipv4addr<>"" then
