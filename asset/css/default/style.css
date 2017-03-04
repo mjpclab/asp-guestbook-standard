@@ -45,6 +45,13 @@ textarea, input, select {
 	background:#e6e6e6;
 }
 
+.topic .icons .icon {
+	border-color:#e6e6e6;
+}
+.topic .icons .icon .icon-image {
+	background:#e6e6e6;
+}
+
 .topic .inner-message {
 	border-color: #ddd;
 	background-color: #fff;
@@ -52,6 +59,13 @@ textarea, input, select {
 
 .topic .inner-message .summary {
 	border-color: #ddd;
+}
+
+.topic .inner-message .summary .icons .icon {
+	border-color:#f1f1f1;
+}
+.topic .inner-message .summary .icons .icon .icon-image {
+	background:#f1f1f1;
 }
 
 .topic .admin-message .title,

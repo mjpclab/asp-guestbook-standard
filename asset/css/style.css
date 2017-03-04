@@ -307,10 +307,50 @@ body .narrow-mainborder {
 	display: -moz-inline-stack;
 	display: inline-block;
 	vertical-align: bottom;
-	margin:0 2px;
+	margin:0 4px 2px 0;
+	font-weight:normal;
+
+	position: relative;
+	padding: 0 4px 0 28px;
+	border: 1px solid;
+	overflow: hidden;
+	max-width: 98%;
+	max-width: calc(100% - 2px);
+	height:2em;
+	line-height:2em;
+	border-radius:2px;
 }
-.topic .icons .icon img {
+
+.topic .icons .icon .icon-image {
+	content: '';
 	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 24px;
+	text-align: center;
+}
+.topic .icons .icon .icon-image img {
+	max-width:16px;
+	display: inline-block;
+	vertical-align: middle;
+}
+* html .topic .icons .icon .icon-image img {
+	margin-top:3px;
+}
+* + html .topic .icons .icon .icon-image img {
+	margin-top:3px;
+}
+
+.topic .icons .icon .icon-text {
+	display: block;
+	white-space: nowrap;
+	word-wrap: normal;
+}
+* html .topic .icons .icon .icon-text {
+	width:106px;
+	overflow: hidden;
 }
 
 .topic .message {
@@ -347,6 +387,7 @@ body .narrow-mainborder {
 	border-right:1px solid;
 	margin-right:-1px;
 	word-wrap:break-word;
+	overflow: hidden;
 	transition: width 100ms ease;
 }
 *html .topic .info {
@@ -359,6 +400,10 @@ body .narrow-mainborder {
 	display: block;
 	margin:5px auto;
 	text-align: center;
+}
+.topic .info .icons .icon {
+	display: block;
+	margin:4px;
 }
 .topic .info .face {
 	max-width: 100%;
@@ -424,10 +469,24 @@ body .narrow-mainborder {
 	zoom:1;
 }
 .topic .inner-message .summary .name,
-.topic .inner-message .summary .date,
-.topic .inner-message .summary .icons {
+.topic .inner-message .summary .date {
 	float: left;
 	margin-right: 5px;
+}
+
+.topic .inner-message .icons {
+	overflow: hidden;
+	clear: both;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap:wrap;
+	flex-wrap:wrap;
+}
+.topic .inner-message .icons .icon {
+	-webkit-flex-grow:1;
+	flex-grow:1;
+	-webkit-flex-shrink: 0;
+	flex-shrink: 0;
 }
 
 .topic .inner-message .title {

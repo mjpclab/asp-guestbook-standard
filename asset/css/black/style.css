@@ -61,6 +61,13 @@ textarea {
 	background: #222;
 }
 
+.topic .icons .icon {
+	border-color:#333;
+}
+.topic .icons .icon .icon-image {
+	background:#333;
+}
+
 .topic .inner-message {
 	border-color: #333;
 	background: #222;
@@ -69,6 +76,13 @@ textarea {
 .topic .inner-message .summary {
 	color: #c90;
 	border-color: #333;
+}
+
+.topic .inner-message .summary .icons .icon {
+	border-color:#373737;
+}
+.topic .inner-message .summary .icons .icon .icon-image {
+	background:#373737;
 }
 
 .topic .admin-message .title,

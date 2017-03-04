@@ -40,6 +40,13 @@ textarea, input, select {
 	background: #ffe2ca;
 }
 
+.topic .icons .icon {
+	border-color:#ffe2ca;
+}
+.topic .icons .icon .icon-image {
+	background:#ffe2ca;
+}
+
 .topic .inner-message {
 	border-color: #fdb78a;
 	background: #fff9f3;
@@ -47,6 +54,13 @@ textarea, input, select {
 
 .topic .inner-message .summary {
 	border-color: #fdb78a;
+}
+
+.topic .inner-message .summary .icons .icon {
+	border-color:#ffe8d5;
+}
+.topic .inner-message .summary .icons .icon .icon-image {
+	background:#ffe8d5;
 }
 
 .topic .admin-message .title,

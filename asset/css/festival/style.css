@@ -62,6 +62,13 @@ textarea {
 	background:#c42912;
 }
 
+.topic .icons .icon {
+	border-color:#c42912;
+}
+.topic .icons .icon .icon-image {
+	background:#c42912;
+}
+
 .topic .inner-message {
 	border-color: #e3c629;
 	background: #c00000;
@@ -70,6 +77,13 @@ textarea {
 .topic .inner-message .summary {
 	color: #e4d26e;
 	border-color: #e3c629;
+}
+
+.topic .inner-message .summary .icons .icon {
+	border-color:#9d0000;
+}
+.topic .inner-message .summary .icons .icon .icon-image {
+	background:#9d0000;
 }
 
 .topic .admin-message .title,
