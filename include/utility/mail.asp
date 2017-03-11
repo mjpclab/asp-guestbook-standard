@@ -144,18 +144,17 @@ function getpuretext(byref instr)
 	dim re,outstr
 
 	set re=new Regexp
-	re.ignoreCase=true
 	re.global=true
+	re.ignoreCase=false
 
 	re.pattern="<[^>]*>"
 	outstr=re.replace(instr,"")
-
-	re.pattern="\[[^\[]*\]"
+	re.pattern="\[[^\]]*\]"
 	outstr=re.replace(outstr,"")
 
 	outstr=replace(outstr,"&lt;","<")
 	outstr=replace(outstr,"&gt;",">")
-	'outstr=replace(outstr,"&nbsp;"," ")
+	outstr=replace(outstr,"&nbsp;"," ")
 	outstr=replace(outstr,"&quot;","""")
 	outstr=replace(outstr,"&apos;","'")
 	outstr=replace(outstr,"&#39;","'")
