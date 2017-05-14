@@ -8,7 +8,7 @@ a {
 }
 
 textarea, input, select {
-	border-color: #e3c629;
+	border-color: #e1d489;
 	outline-color: #fff200;
 	color: #e4d26e;
 	background: #a00;
@@ -21,10 +21,10 @@ textarea {
 }
 
 .header {
-	color: #e3c629;
-	border-color:#e3c629;
+	color: #e1d489;
+	border-color:#e1d489;
 	background: #a00;
-	box-shadow:0 0 3px #e3c629;
+	box-shadow:0 0 3px #e1d489;
 }
 
 .mainborder {
@@ -34,35 +34,36 @@ textarea {
 }
 
 .guest-functions .aside .function {
-	border-color: #e3c629;
+	border-color: #e1d489;
 }
 
 .topic {
-	border-color: #e3c629;
+	border-color: #e1d489;
 	background: #a00;
 }
 
 .topic .message {
-	border-color: #e3c629;
+	border-color: #e1d489;
 	color: #e4d26e;
 }
 
 .topic .info {
 	color: #e4d26e;
-	border-color: #e3c629;
+	border-color: #e1d489;
 }
 
 .topic .detail {
-	border-color: #e3c629;
+	border-color: #e1d489;
 }
 
 .topic .title {
-	border-color: #e3c629;
+	border-color: #e1d489;
 	color: #e4d26e;
 	background:#c42912;
 }
 
 .topic .icons .icon {
+	color:#d3c783;
 	border-color:#c42912;
 }
 .topic .icons .icon .icon-image {
@@ -70,13 +71,13 @@ textarea {
 }
 
 .topic .inner-message {
-	border-color: #e3c629;
+	border-color: #e1d489;
 	background: #c00000;
 }
 
 .topic .inner-message .summary {
 	color: #e4d26e;
-	border-color: #e3c629;
+	border-color: #e1d489;
 }
 
 .topic .inner-message .summary .icons .icon {
@@ -96,7 +97,7 @@ textarea {
 }
 
 .topic-list {
-	border-color: #e3c629;
+	border-color: #e1d489;
 	background: #c42912;
 }
 
@@ -106,7 +107,7 @@ textarea {
 
 .topic-list th,
 .topic-list td {
-	border-color: #e3c629;
+	border-color: #e1d489;
 }
 
 .topic-list th {
@@ -115,24 +116,24 @@ textarea {
 }
 
 .region {
-	border-color: #e3c629;
+	border-color: #e1d489;
 	color: #e4d26e;
 	background: #a00;
 }
 
 .region .title {
-	border-color: #e3c629;
+	border-color: #e1d489;
 	color: #e4d26e;
 	background:#c42912;
 }
 
 .region .content table {
-	border-color: #e3c629;
+	border-color: #e1d489;
 }
 
 .region .content table th,
 .region .content table td {
-	border-color: #e3c629;
+	border-color: #e1d489;
 }
 
 .page-list .nav a {

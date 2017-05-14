@@ -62,10 +62,14 @@ textarea {
 }
 
 .topic .icons .icon {
+	color:#999;
 	border-color:#333;
 }
 .topic .icons .icon .icon-image {
 	background:#333;
+}
+.topic .icons .icon .icon-image img {
+	opacity:0.9;
 }
 
 .topic .inner-message {
