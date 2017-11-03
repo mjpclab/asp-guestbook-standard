@@ -491,7 +491,6 @@ body .narrow-mainborder {
 }
 
 .topic .inner-message .title {
-	clear: both;
 	padding-left: 0;
 	height: auto;
 	line-height: normal;
@@ -503,6 +502,7 @@ body .narrow-mainborder {
 	display: block;
 	float: left;
 	margin:0 10px 5px 0;
+	max-width: 100%;
 }
 
 .topic .inner-message .words {
@@ -962,5 +962,10 @@ body .narrow-mainborder {
 
 	body .topic .info {
 		width:25%;
+	}
+
+	.topic .inner-message .face {
+		float: none;
+		margin: 0 auto 1em auto;
 	}
 }
