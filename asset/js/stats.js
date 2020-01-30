@@ -61,10 +61,11 @@ function getbrowsername()
 	if ((/Opera/i).test(strUserAgent)) return 'Opera';
 	else if ((/\sOPR\//i).test(strUserAgent)) return 'Opera Webkit';
 	else if ((/Trident\/7\.0/i).test(strUserAgent)) return 'MSIE 11';
-	else if (navigator.appName=='Microsoft Internet Explorer')
+	else if (navigator.appName==='Microsoft Internet Explorer')
 	{
 		return strUserAgent.substring(strUserAgent.indexOf('(')+1, strUserAgent.indexOf(')')).split(/;\s*/,2)[1];
 	}
+	else if ((/Edg/i).test(strUserAgent)) return 'Edge Webkit';
 	else if ((/Edge/i).test(strUserAgent)) return 'Edge';
 	else if ((/Chrome/i).test(strUserAgent)) return 'Chrome';
 	else if ((/Safari/i).test(strUserAgent)) return 'Safari';
