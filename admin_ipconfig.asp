@@ -16,7 +16,7 @@
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ÁôÑÔ±¾ IPÆÁ±Î²ßÂÔ</title>
+	<title><%=HomeName%> ç•™è¨€æœ¬ IPå±è”½ç­–ç•¥</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 </head>
 
@@ -24,7 +24,7 @@
 
 <div id="outerborder" class="outerborder">
 
-	<%if ShowTitle then%><%Call InitHeaderData("¹ÜÀí")%><!-- #include file="include/template/header.inc" --><%end if%>
+	<%if ShowTitle then%><%Call InitHeaderData("ç®¡ç†")%><!-- #include file="include/template/header.inc" --><%end if%>
 	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/admin_mainmenu.inc" -->
 	<%
@@ -35,7 +35,7 @@
 
 
 <div class="region form-region">
-	<h3 class="title">IPÆÁ±Î²ßÂÔ</h3>
+	<h3 class="title">IPå±è”½ç­–ç•¥</h3>
 	<div class="content">
 		<form method="post" action="admin_saveipconfig.asp" name="ipconfigform" onsubmit="submit1.disabled=true;">
 		<input type="hidden" name="tabIndex" id="tabIndex" value="<%=Request.QueryString("tabIndex")%>" />
@@ -44,14 +44,14 @@
 				<h4>IPv4</h4>
 				<table cellpadding="10">
 					<tr>
-						<td colspan="2"><input type="radio" name="ipv4constatus" value="0" id="ipv4constatus-0"<%=cked(IPv4ConStatus=0)%> /><label for="ipv4constatus-0">²»Ê¹ÓÃIPÆÁ±Î²ßÂÔ</label></td>
+						<td colspan="2"><input type="radio" name="ipv4constatus" value="0" id="ipv4constatus-0"<%=cked(IPv4ConStatus=0)%> /><label for="ipv4constatus-0">ä¸ä½¿ç”¨IPå±è”½ç­–ç•¥</label></td>
 					</tr>
 					<tr>
 						<td style="width:50%; vertical-align:top;">
-							<p class="row"><input type="radio" name="ipv4constatus" value="1" id="ipv4constatus-1"<%=cked(IPv4ConStatus=1)%> /><label for="ipv4constatus-1">Ö»ÆÁ±ÎÒÔÏÂIP¶Î£¬ÆäÓà·ÅÐÐ</label></p>
-							<p class="row">Ìí¼ÓÐÂIP¶Î,¸ñÊ½:"ÆðÊ¼IP-ÖÕÖ¹IP"</p>
+							<p class="row"><input type="radio" name="ipv4constatus" value="1" id="ipv4constatus-1"<%=cked(IPv4ConStatus=1)%> /><label for="ipv4constatus-1">åªå±è”½ä»¥ä¸‹IPæ®µï¼Œå…¶ä½™æ”¾è¡Œ</label></p>
+							<p class="row">æ·»åŠ æ–°IPæ®µ,æ ¼å¼:"èµ·å§‹IP-ç»ˆæ­¢IP"</p>
 							<p class="row ipadd"><textarea name="newipv4status1" rows="6"></textarea></p>
-							<p class="row">Ñ¡ÔñÒªÉ¾³ýµÄIP¶Î£º</p>
+							<p class="row">é€‰æ‹©è¦åˆ é™¤çš„IPæ®µï¼š</p>
 							<%rs.Open sql_adminipv4config_status1,cn,,,1
 							if Not rs.EOF then
 								while Not rs.EOF
@@ -68,10 +68,10 @@
 							%>
 						</td>
 						<td style="width:50%; vertical-align:top;">
-							<p class="row"><input type="radio" name="ipv4constatus" value="2" id="ipv4constatus-2"<%=cked(IPv4ConStatus=2)%> /><label for="ipv4constatus-2">Ö»ÔÊÐíÒÔÏÂIP¶Î£¬ÆäÓà¾ù²»·ÅÐÐ</label></p>
-							<p class="row">Ìí¼ÓÐÂIP¶Î,¸ñÊ½:"ÆðÊ¼IP-ÖÕÖ¹IP"</p>
+							<p class="row"><input type="radio" name="ipv4constatus" value="2" id="ipv4constatus-2"<%=cked(IPv4ConStatus=2)%> /><label for="ipv4constatus-2">åªå…è®¸ä»¥ä¸‹IPæ®µï¼Œå…¶ä½™å‡ä¸æ”¾è¡Œ</label></p>
+							<p class="row">æ·»åŠ æ–°IPæ®µ,æ ¼å¼:"èµ·å§‹IP-ç»ˆæ­¢IP"</p>
 							<p class="row ipadd"><textarea name="newipv4status2" rows="6"></textarea></p>
-							<p class="row">Ñ¡ÔñÒªÉ¾³ýµÄIP¶Î£º</p>
+							<p class="row">é€‰æ‹©è¦åˆ é™¤çš„IPæ®µï¼š</p>
 							<%rs.Open sql_adminipv4config_status2,cn,,,1
 							if Not rs.EOF then
 								while Not rs.EOF
@@ -94,14 +94,14 @@
 				<h4>IPv6</h4>
 				<table cellpadding="10">
 					<tr>
-						<td colspan="2"><input type="radio" name="ipv6constatus" value="0" id="ipv6constatus-0"<%=cked(IPv6ConStatus=0)%> /><label for="ipv6constatus-0">²»Ê¹ÓÃIPÆÁ±Î²ßÂÔ</label></td>
+						<td colspan="2"><input type="radio" name="ipv6constatus" value="0" id="ipv6constatus-0"<%=cked(IPv6ConStatus=0)%> /><label for="ipv6constatus-0">ä¸ä½¿ç”¨IPå±è”½ç­–ç•¥</label></td>
 					</tr>
 					<tr>
 						<td style="width:50%; vertical-align:top;">
-							<p class="row"><input type="radio" name="ipv6constatus" value="1" id="ipv6constatus-1"<%=cked(IPv6ConStatus=1)%> /><label for="ipv6constatus-1">Ö»ÆÁ±ÎÒÔÏÂIP¶Î£¬ÆäÓà·ÅÐÐ</label></p>
-							<p class="row">Ìí¼ÓÐÂIP¶Î,¸ñÊ½:"ÆðÊ¼IP-ÖÕÖ¹IP"</p>
+							<p class="row"><input type="radio" name="ipv6constatus" value="1" id="ipv6constatus-1"<%=cked(IPv6ConStatus=1)%> /><label for="ipv6constatus-1">åªå±è”½ä»¥ä¸‹IPæ®µï¼Œå…¶ä½™æ”¾è¡Œ</label></p>
+							<p class="row">æ·»åŠ æ–°IPæ®µ,æ ¼å¼:"èµ·å§‹IP-ç»ˆæ­¢IP"</p>
 							<p class="row ipadd"><textarea name="newipv6status1" rows="6"></textarea></p>
-							<p class="row">Ñ¡ÔñÒªÉ¾³ýµÄIP¶Î£º</p>
+							<p class="row">é€‰æ‹©è¦åˆ é™¤çš„IPæ®µï¼š</p>
 							<%rs.Open sql_adminipv6config_status1,cn,,,1
 							if Not rs.EOF then
 								while Not rs.EOF
@@ -118,10 +118,10 @@
 							%>
 						</td>
 						<td style="width:50%; vertical-align:top;">
-							<p class="row"><input type="radio" name="ipv6constatus" value="2" id="ipv6constatus-2"<%=cked(IPv6ConStatus=2)%> /><label for="ipv6constatus-2">Ö»ÔÊÐíÒÔÏÂIP¶Î£¬ÆäÓà¾ù²»·ÅÐÐ</label></p>
-							<p class="row">Ìí¼ÓÐÂIP¶Î,¸ñÊ½:"ÆðÊ¼IP-ÖÕÖ¹IP"</p>
+							<p class="row"><input type="radio" name="ipv6constatus" value="2" id="ipv6constatus-2"<%=cked(IPv6ConStatus=2)%> /><label for="ipv6constatus-2">åªå…è®¸ä»¥ä¸‹IPæ®µï¼Œå…¶ä½™å‡ä¸æ”¾è¡Œ</label></p>
+							<p class="row">æ·»åŠ æ–°IPæ®µ,æ ¼å¼:"èµ·å§‹IP-ç»ˆæ­¢IP"</p>
 							<p class="row ipadd"><textarea name="newipv6status2" rows="6"></textarea></p>
-							<p class="row">Ñ¡ÔñÒªÉ¾³ýµÄIP¶Î£º</p>
+							<p class="row">é€‰æ‹©è¦åˆ é™¤çš„IPæ®µï¼š</p>
 							<%rs.Open sql_adminipv6config_status2,cn,,,1
 							if Not rs.EOF then
 								while Not rs.EOF
@@ -151,7 +151,7 @@
 				tab.restoreFromField('tabIndex');
 			</script>
 		</div>
-		<div class="command"><input type="submit" name="submit1" value="¸üÐÂÊý¾Ý" /></div>
+		<div class="command"><input type="submit" name="submit1" value="æ›´æ–°æ•°æ®" /></div>
 		</form>
 	</div>
 </div>

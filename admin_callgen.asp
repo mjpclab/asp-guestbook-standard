@@ -17,7 +17,7 @@ Response.Expires=-1
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ÁôÑÔ±¾ Éú³Éµ÷ÓÃ´úÂë</title>
+	<title><%=HomeName%> ç•™è¨€æœ¬ ç”Ÿæˆè°ƒç”¨ä»£ç </title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 
 	<script type="text/javascript">
@@ -36,19 +36,19 @@ Response.Expires=-1
 
 		if(n.length===0)
 		{
-			alert('ÇëÊäÈëÏÔÊ¾ÌõÊý¡£');
+			alert('è¯·è¾“å…¥æ˜¾ç¤ºæ¡æ•°ã€‚');
 			frm_n.focus();
 			return false;
 		}
 		else if(isNaN(n))
 		{
-			alert('ÏÔÊ¾ÌõÊýÓÐÎó£¬Çë¼ì²é¡£');
+			alert('æ˜¾ç¤ºæ¡æ•°æœ‰è¯¯ï¼Œè¯·æ£€æŸ¥ã€‚');
 			frm_n.select();
 			return false;
 		}
 		else if(isNaN(len))
 		{
-			alert('×ÖÊýÏÞÖÆÓÐÎó£¬Çë¼ì²é¡£');
+			alert('å­—æ•°é™åˆ¶æœ‰è¯¯ï¼Œè¯·æ£€æŸ¥ã€‚');
 			frm_len.select();
 			return false;
 		}
@@ -72,10 +72,10 @@ Response.Expires=-1
 			frm_code.value='<iframe src="' +url+ '" frameborder="0"><\/iframe>';
 		}
 		else if(mode==='js') {
-			frm_code.value='<' + 'script type="text/javascript" src="' +url+ '" charset="gbk"><\/script>';
+			frm_code.value='<' + 'script type="text/javascript" src="' +url+ '" charset="utf-8"><\/script>';
 		}
 		else if(mode==='json') {
-			frm_code.value='ÇëÓÃGET·½Ê½·ÃÎÊÒÔÏÂURL£º\n' + url;
+			frm_code.value='è¯·ç”¨GETæ–¹å¼è®¿é—®ä»¥ä¸‹URLï¼š\n' + url;
 		}
 	}
 	</script>
@@ -85,58 +85,58 @@ Response.Expires=-1
 
 <div id="outerborder" class="outerborder">
 
-<%if ShowTitle then%><%Call InitHeaderData("¹ÜÀí")%><!-- #include file="include/template/header.inc" --><%end if%>
+<%if ShowTitle then%><%Call InitHeaderData("ç®¡ç†")%><!-- #include file="include/template/header.inc" --><%end if%>
 <div id="mainborder" class="mainborder">
 <!-- #include file="include/template/admin_mainmenu.inc" -->
 <div class="region region-longtext region-callgen">
-	<h3 class="title">Éú³Éµ÷ÓÃ´úÂë</h3>
+	<h3 class="title">ç”Ÿæˆè°ƒç”¨ä»£ç </h3>
 	<div class="content">
-		<p>´ËÒ³ÓÃÓÚÉú³ÉÁôÑÔ±¾ÁôÑÔ±êÌâµ÷ÓÃ´úÂë¡£ÇëÊäÈëµ÷ÓÃ´úÂëËùÐèµÄ²ÎÊý£¬ÆäÖÐ¡°ÏÔÊ¾ÌõÊý¡±Îª±ØÌîÏî£º</p>
+		<p>æ­¤é¡µç”¨äºŽç”Ÿæˆç•™è¨€æœ¬ç•™è¨€æ ‡é¢˜è°ƒç”¨ä»£ç ã€‚è¯·è¾“å…¥è°ƒç”¨ä»£ç æ‰€éœ€çš„å‚æ•°ï¼Œå…¶ä¸­â€œæ˜¾ç¤ºæ¡æ•°â€ä¸ºå¿…å¡«é¡¹ï¼š</p>
 
 		<form>
 		<div class="field field-mode">
-			<span class="label">Ê¹ÓÃÄ£Ê½</span>
+			<span class="label">ä½¿ç”¨æ¨¡å¼</span>
 			<span class="value">
 				<select name="frm_mode" id="frm_mode">
 					<option value="iframe">iframe</option>
-					<option value="js">JSÊä³ö</option>
-					<option value="json">JSONÊý¾Ý</option>
+					<option value="js">JSè¾“å‡º</option>
+					<option value="json">JSONæ•°æ®</option>
 				</select>
 			</span>
 		</div>
 		<div class="field field-base-url">
-			<span class="label">ÁôÑÔ±¾¸ùURL</span>
+			<span class="label">ç•™è¨€æœ¬æ ¹URL</span>
 			<span class="value"><input type="text" name="frm_baseurl" id="frm_baseurl" value="<%=geturlpath%>" /></span>
 		</div>
 		<div class="field field-n">
-			<span class="label">ÏÔÊ¾ÌõÊý<span class="required">*</span></span>
+			<span class="label">æ˜¾ç¤ºæ¡æ•°<span class="required">*</span></span>
 			<span class="value"><input type="text" name="frm_n" id="frm_n" maxlength="10" value="10"/></span>
 		</div>
 		<div class="field field-len">
-			<span class="label">±êÌâ×ÖÊýÏÞÖÆ</span>
+			<span class="label">æ ‡é¢˜å­—æ•°é™åˆ¶</span>
 			<span class="value"><input type="text" name="frm_len" id="frm_len"/></span>
 		</div>
 		<div class="field field-prefix">
-			<span class="label">±êÌâÇ°×º</span>
+			<span class="label">æ ‡é¢˜å‰ç¼€</span>
 			<span class="value"><input type="text" name="frm_prefix" id="frm_prefix"/></span>
 		</div>
 		<div class="field field-target">
-			<span class="label">´ò¿ª´°¿Ú</span>
+			<span class="label">æ‰“å¼€çª—å£</span>
 			<span class="value">
 				<select name="frm_target" id="frm_target">
-					<option value="">(Ä¬ÈÏ)</option>
-					<option value="_blank">´ò¿ªÐÂÒ³Ãæ(_blank)</option>
-					<option value="_self">ÏàÍ¬´°¿Ú»ò¿ò¼Ü´°¿Ú(_self)</option>
-					<option value="_top">Õû¸öä¯ÀÀÆ÷´°¿Ú(_top)</option>
-					<option value="_parent">¸¸¿ò¼Ü´°¿Ú(_parent)</option>
+					<option value="">(é»˜è®¤)</option>
+					<option value="_blank">æ‰“å¼€æ–°é¡µé¢(_blank)</option>
+					<option value="_self">ç›¸åŒçª—å£æˆ–æ¡†æž¶çª—å£(_self)</option>
+					<option value="_top">æ•´ä¸ªæµè§ˆå™¨çª—å£(_top)</option>
+					<option value="_parent">çˆ¶æ¡†æž¶çª—å£(_parent)</option>
 				</select>
 			</span>
 		</div>
 		<div class="field-command">
-			<input type="button" name="btn_generate" id="btn_generate" value="Éú³Éµ÷ÓÃ´úÂë" onclick="generateCallCode();" />
+			<input type="button" name="btn_generate" id="btn_generate" value="ç”Ÿæˆè°ƒç”¨ä»£ç " onclick="generateCallCode();" />
 		</div>
 		<div class="field">
-			<span class="row">ÒÑÉú³ÉµÄµ÷ÓÃ´úÂë£º</span>
+			<span class="row">å·²ç”Ÿæˆçš„è°ƒç”¨ä»£ç ï¼š</span>
 			<span class="value"><textarea readonly="readonly" name="frm_code" id="frm_code" rows="<%=ReplyTextHeight%>"></textarea></span>
 		</div>
 		</form>

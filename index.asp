@@ -37,7 +37,7 @@ if StatusStatistics then call addstat("view")
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ÁôÑÔ±¾</title>
+	<title><%=HomeName%> ç•™è¨€æœ¬</title>
 	<!-- #include file="inc_stylesheet.asp" -->
 </head>
 
@@ -71,12 +71,12 @@ get_divided_page cn,rs,sql_pk_main,local_sql_count,local_sql_query,"parent_id IN
 	<%RPage="index.asp"%><!-- #include file="include/template/guest_func.inc" -->
 	<!-- #include file="include/template/topbulletin.inc" -->
 	<!-- #include file="include/template/guest_tiphidden.inc" -->
-	<%if PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"[ÁôÑÔ·ÖÒ³]",""%>
+	<%if PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"[ç•™è¨€åˆ†é¡µ]",""%>
 	<%if ItemsCount>0 and StatusSearch and ShowTopSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
 
 	<%
 	if ItemsCount=0 then
-		Response.Write "<br/><br/><div class=""centertext"">Ä¿Ç°ÉĞÎŞÁôÑÔ£¬Çëµã»÷¡°Ç©Ğ´ÁôÑÔ¡±¡£</div><br/><br/>"
+		Response.Write "<br/><br/><div class=""centertext"">ç›®å‰å°šæ— ç•™è¨€ï¼Œè¯·ç‚¹å‡»â€œç­¾å†™ç•™è¨€â€ã€‚</div><br/><br/>"
 	else
 		dim pagename, inAdminPage
 		pagename="index"
@@ -92,7 +92,7 @@ get_divided_page cn,rs,sql_pk_main,local_sql_count,local_sql_query,"parent_id IN
 	
 	<!-- #include file="include/template/guest_func.inc" -->
 
-	<%if PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"[ÁôÑÔ·ÖÒ³]",""%>
+	<%if PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"[ç•™è¨€åˆ†é¡µ]",""%>
 	<%if ItemsCount>0 and StatusSearch and ShowBottomSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
 	</div>
 

@@ -22,7 +22,7 @@ referrer=Request.Form("referrer")
 if VcodeCount>0 and (Request.Form("ivcode")<>Session(InstanceName & "_vcode") or Session(InstanceName & "_vcode")="") then
 	Session(InstanceName & "_vcode")=""
 	if StatusStatistics then call addstat("loginfailed")
-	Call TipsPage("ÑéÖ¤Âë´íÎó¡£","admin_login.asp?referrer=" & Server.UrlEncode(referrer))
+	Call TipsPage("éªŒè¯ç é”™è¯¯ã€‚","admin_login.asp?referrer=" & Server.UrlEncode(referrer))
 
 	set rs=nothing
 	set cn=nothing
@@ -33,7 +33,7 @@ end if
 
 Sub LoginFailed
 	if StatusStatistics then call addstat("loginfailed")
-	Call TipsPage("ÃÜÂë²»ÕıÈ·¡£","admin_login.asp?referrer=" & Server.UrlEncode(referrer))
+	Call TipsPage("å¯†ç ä¸æ­£ç¡®ã€‚","admin_login.asp?referrer=" & Server.UrlEncode(referrer))
 End Sub
 
 Dim iadminpass

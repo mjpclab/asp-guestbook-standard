@@ -16,7 +16,7 @@ Sub InitHeaderData(PageName)
 	BreadcrumbItems(0,0)=HomeAddr
 	BreadcrumbItems(0,1)=HomeName
 	BreadcrumbItems(1,0)="index.asp"
-	BreadcrumbItems(1,1)="ÁôÑÔ±¾"
+	BreadcrumbItems(1,1)="ç•™è¨€æœ¬"
 	if PageName<>"" then
 		BreadcrumbItems(2,0)=""
 		BreadcrumbItems(2,1)=PageName

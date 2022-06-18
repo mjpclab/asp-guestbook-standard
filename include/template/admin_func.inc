@@ -1,12 +1,12 @@
 <div class="guest-functions">
 	<div class="main">
-		<a class="function function-multi-del" href="javascript:void 0;"><img src="asset/image/icon_mdel.gif"/>É¾³ıÑ¡¶¨ÁôÑÔ</a>
-		<a class="function function-multi-pass" href="javascript:void 0;"><img src="asset/image/icon_mpass.gif"/>Í¨¹ıÉóºËÑ¡¶¨ÁôÑÔ</a>
+		<a class="function function-multi-del" href="javascript:void 0;"><img src="asset/image/icon_mdel.gif"/>åˆ é™¤é€‰å®šç•™è¨€</a>
+		<a class="function function-multi-pass" href="javascript:void 0;"><img src="asset/image/icon_mpass.gif"/>é€šè¿‡å®¡æ ¸é€‰å®šç•™è¨€</a>
 		<%if RPage<>"" then%>
 			<%if AdminDisplayMode="book" then%>
-				<a class="function" href="setdisplaymode.asp?mode=forum&modeflag=admin&rpage=<%=RPage%><%=GetRequests()%>"><img alt="" src="asset/image/icon_mode_forum.gif" style="border-width:0px;" />ÇĞ»»µ½±êÌâÄ£Ê½</a>
+				<a class="function" href="setdisplaymode.asp?mode=forum&modeflag=admin&rpage=<%=RPage%><%=GetRequests()%>"><img alt="" src="asset/image/icon_mode_forum.gif" style="border-width:0px;" />åˆ‡æ¢åˆ°æ ‡é¢˜æ¨¡å¼</a>
 			<%elseif AdminDisplayMode="forum" then%>
-				<a class="function" href="setdisplaymode.asp?mode=book&modeflag=admin&rpage=<%=RPage%><%=GetRequests()%>"><img alt="" src="asset/image/icon_mode_book.gif" style="border-width:0px;" />ÇĞ»»µ½ÍêÕûÄ£Ê½</a>
+				<a class="function" href="setdisplaymode.asp?mode=book&modeflag=admin&rpage=<%=RPage%><%=GetRequests()%>"><img alt="" src="asset/image/icon_mode_book.gif" style="border-width:0px;" />åˆ‡æ¢åˆ°å®Œæ•´æ¨¡å¼</a>
 			<%end if%>
 		<%end if%>
 	</div>
@@ -18,8 +18,8 @@
 			var delSelTip = <%=LCase(CStr(DelSelTip))%>;
 			var $selected = $('input.seltodel:checked');
 			if (!$selected.length) {
-				alert('ÇëÏÈÑ¡¶¨ÒªÉ¾³ıµÄÁôÑÔ¡£');
-			} else if (!delSelTip || confirm('È·ÊµÒªÉ¾³ıÑ¡¶¨ÁôÑÔÂğ£¿')) {
+				alert('è¯·å…ˆé€‰å®šè¦åˆ é™¤çš„ç•™è¨€ã€‚');
+			} else if (!delSelTip || confirm('ç¡®å®è¦åˆ é™¤é€‰å®šç•™è¨€å—ï¼Ÿ')) {
 				form7.submit();
 			}
 		});
@@ -30,8 +30,8 @@
 			var passSelTip = <%=LCase(CStr(PassSelTip))%>;
 			var $selected = $('input.seltodel:checked');
 			if (!$selected.length) {
-				alert('ÇëÏÈÑ¡¶¨ÒªÍ¨¹ıÉóºËµÄÁôÑÔ¡£');
-			} else if (!passSelTip || confirm('È·ÊµÒªÍ¨¹ıÉóºËÑ¡¶¨ÁôÑÔÂğ£¿')) {
+				alert('è¯·å…ˆé€‰å®šè¦é€šè¿‡å®¡æ ¸çš„ç•™è¨€ã€‚');
+			} else if (!passSelTip || confirm('ç¡®å®è¦é€šè¿‡å®¡æ ¸é€‰å®šç•™è¨€å—ï¼Ÿ')) {
 				form7.action = 'admin_mpassaudit.asp';
 				form7.submit();
 			}

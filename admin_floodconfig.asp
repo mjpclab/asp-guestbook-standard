@@ -15,7 +15,7 @@
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ÁôÑÔ±¾ ·À¹àË®²ßÂÔ</title>
+	<title><%=HomeName%> ç•™è¨€æœ¬ é˜²çŒæ°´ç­–ç•¥</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 </head>
 
@@ -23,7 +23,7 @@
 
 <div id="outerborder" class="outerborder">
 
-	<%if ShowTitle then%><%Call InitHeaderData("¹ÜÀí")%><!-- #include file="include/template/header.inc" --><%end if%>
+	<%if ShowTitle then%><%Call InitHeaderData("ç®¡ç†")%><!-- #include file="include/template/header.inc" --><%end if%>
 	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/admin_mainmenu.inc" -->
 	<%
@@ -35,23 +35,23 @@
 	%>
 
 	<div class="region form-region">
-		<h3 class="title">·À¹àË®²ßÂÔ</h3>
+		<h3 class="title">é˜²çŒæ°´ç­–ç•¥</h3>
 		<div class="content">
 			<form method="post" action="admin_savefloodconfig.asp" name="configform" onsubmit="return check();">
-			<p>Í¬Ò»ÓÃ»§×îÐ¡·¢ÑÔÊ±¼ä¼ä¸ô£º<input type="text" name="minwait" size="10" maxlength="10" value="<%=flood_minwait%>" />Ãë (0=²»ÏÞ)</p>
+			<p>åŒä¸€ç”¨æˆ·æœ€å°å‘è¨€æ—¶é—´é—´éš”ï¼š<input type="text" name="minwait" size="10" maxlength="10" value="<%=flood_minwait%>" />ç§’ (0=ä¸é™)</p>
 
-			<p>×îÐÂ<input type="text" name="searchrange" size="10" maxlength="10" value="<%=flood_searchrange%>" />Ìõ(0=²»ÏÞ)
-			<input type="checkbox" name="flag_newword" id="flag_newword" value="1"<%=cked(flood_sfnewword)%> /><label for="flag_newword">ÐÂÁôÑÔ</label>
-			<input type="checkbox" name="flag_newreply" id="flag_newreply" value="1"<%=cked(flood_sfnewreply)%> /><label for="flag_newreply">·Ã¿Í»Ø¸´</label>
-			<br/>²»ÔÊÐí
-			<input type="radio" name="flag_include_equal" id="flag_include" value="1"<%=cked(flood_include)%> /><label for="flag_include">º¬ÓÐ</label>
-			<input type="radio" name="flag_include_equal" id="flag_equal" value="2"<%=cked(flood_equal)%> /><label for="flag_equal">¾ßÓÐ</label>
-			<br/>ÏàÍ¬µÄ
-			<input type="checkbox" name="flag_title" id="flag_title" value="1"<%=cked(flood_sititle)%> /><label for="flag_title">±êÌâ</label>
-			<input type="checkbox" name="flag_content" id="flag_content" value="1"<%=cked(flood_sicontent)%> /><label for="flag_content">ÄÚÈÝ</label>
+			<p>æœ€æ–°<input type="text" name="searchrange" size="10" maxlength="10" value="<%=flood_searchrange%>" />æ¡(0=ä¸é™)
+			<input type="checkbox" name="flag_newword" id="flag_newword" value="1"<%=cked(flood_sfnewword)%> /><label for="flag_newword">æ–°ç•™è¨€</label>
+			<input type="checkbox" name="flag_newreply" id="flag_newreply" value="1"<%=cked(flood_sfnewreply)%> /><label for="flag_newreply">è®¿å®¢å›žå¤</label>
+			<br/>ä¸å…è®¸
+			<input type="radio" name="flag_include_equal" id="flag_include" value="1"<%=cked(flood_include)%> /><label for="flag_include">å«æœ‰</label>
+			<input type="radio" name="flag_include_equal" id="flag_equal" value="2"<%=cked(flood_equal)%> /><label for="flag_equal">å…·æœ‰</label>
+			<br/>ç›¸åŒçš„
+			<input type="checkbox" name="flag_title" id="flag_title" value="1"<%=cked(flood_sititle)%> /><label for="flag_title">æ ‡é¢˜</label>
+			<input type="checkbox" name="flag_content" id="flag_content" value="1"<%=cked(flood_sicontent)%> /><label for="flag_content">å†…å®¹</label>
 			</p>
 
-			<div class="command"><input value="¸üÐÂÊý¾Ý" type="submit" name="submit1" /></div>
+			<div class="command"><input value="æ›´æ–°æ•°æ®" type="submit" name="submit1" /></div>
 			</form>
 		</div>
 	</div>

@@ -16,7 +16,7 @@
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ÁôÑÔ±¾ ·ÃÎÊÍ³¼Æ</title>
+	<title><%=HomeName%> ç•™è¨€æœ¬ è®¿é—®ç»Ÿè®¡</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 </head>
 
@@ -24,7 +24,7 @@
 
 <div id="outerborder" class="outerborder">
 
-	<%if ShowTitle then%><%Call InitHeaderData("¹ÜÀí")%><!-- #include file="include/template/header.inc" --><%end if%>
+	<%if ShowTitle then%><%Call InitHeaderData("ç®¡ç†")%><!-- #include file="include/template/header.inc" --><%end if%>
 	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/admin_mainmenu.inc" -->
 <%
@@ -62,9 +62,9 @@ on error resume next
 %>
 
 <div class="region form-region">
-	<h3 class="title">·ÃÎÊÍ³¼Æ</h3>
+	<h3 class="title">è®¿é—®ç»Ÿè®¡</h3>
 	<div class="content">
-		<h4>¿ªÊ¼Í³¼ÆÈÕÆÚ</h4>
+		<h4>å¼€å§‹ç»Ÿè®¡æ—¥æœŸ</h4>
 		<blockquote>
 			<p><%=Year(tstartdate) & "-" & Month(tstartdate) & "-" & Day(tstartdate)%></p>
 		</blockquote>
@@ -72,51 +72,51 @@ on error resume next
 		<div id="div_outer"></div>
 
 		<div id="div_words">
-			<h4>ÁôÑÔÁĞ±íÒ³Ãæ</h4>
+			<h4>ç•™è¨€åˆ—è¡¨é¡µé¢</h4>
 			<blockquote>
 				<table>
-					<tr><td style="width:120px;">·ÃÎÊ´ÎÊı</td><td><%=tview%></td></tr>
-					<tr><td style="width:120px;">Æ½¾ùÔÂ·ÃÎÊ´ÎÊı</td><td><%=formatnumber(tview/((datediff("m",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
-					<tr><td style="width:120px;">Æ½¾ùÖÜ·ÃÎÊ´ÎÊı</td><td><%=formatnumber(tview/((datediff("ww",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
-					<tr><td style="width:120px;">Æ½¾ùÈÕ·ÃÎÊ´ÎÊı</td><td><%=formatnumber(tview/((datediff("d",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
+					<tr><td style="width:120px;">è®¿é—®æ¬¡æ•°</td><td><%=tview%></td></tr>
+					<tr><td style="width:120px;">å¹³å‡æœˆè®¿é—®æ¬¡æ•°</td><td><%=formatnumber(tview/((datediff("m",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
+					<tr><td style="width:120px;">å¹³å‡å‘¨è®¿é—®æ¬¡æ•°</td><td><%=formatnumber(tview/((datediff("ww",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
+					<tr><td style="width:120px;">å¹³å‡æ—¥è®¿é—®æ¬¡æ•°</td><td><%=formatnumber(tview/((datediff("d",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
 				</table>
 			</blockquote>
 		</div>
 
 		<div id="div_search">
-			<h4>ËÑË÷Ò³Ãæ</h4>
+			<h4>æœç´¢é¡µé¢</h4>
 			<blockquote>
 				<table>
-					<tr><td style="width:120px;">ËÑË÷´ÎÊı</td><td><%=tsearch%></td></tr>
-					<tr><td style="width:120px;">Æ½¾ùÔÂËÑË÷´ÎÊı</td><td><%=formatnumber(tsearch/((datediff("m",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
-					<tr><td style="width:120px;">Æ½¾ùÖÜËÑË÷´ÎÊı</td><td><%=formatnumber(tsearch/((datediff("ww",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
-					<tr><td style="width:120px;">Æ½¾ùÈÕËÑË÷´ÎÊı</td><td><%=formatnumber(tsearch/((datediff("d",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
+					<tr><td style="width:120px;">æœç´¢æ¬¡æ•°</td><td><%=tsearch%></td></tr>
+					<tr><td style="width:120px;">å¹³å‡æœˆæœç´¢æ¬¡æ•°</td><td><%=formatnumber(tsearch/((datediff("m",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
+					<tr><td style="width:120px;">å¹³å‡å‘¨æœç´¢æ¬¡æ•°</td><td><%=formatnumber(tsearch/((datediff("ww",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
+					<tr><td style="width:120px;">å¹³å‡æ—¥æœç´¢æ¬¡æ•°</td><td><%=formatnumber(tsearch/((datediff("d",tstartdate,tnow)+1)),2,true,false,false)%></td></tr>
 				</table>
 			</blockquote>
 		</div>
 
 		<div id="div_leaveword">
-			<h4>Ğ´ÁôÑÔ/»Ø¸´Ò³Ãæ</h4>
+			<h4>å†™ç•™è¨€/å›å¤é¡µé¢</h4>
 			<blockquote>
 				<table>
-					<tr><td style="width:120px;">·ÃÎÊ´ÎÊı</td><td><%=tleaveword%></td></tr>
-					<tr><td style="width:120px;">³É¹¦ÁôÑÔ´ÎÊı</td><td><%=twritten%></td></tr>
-					<tr><td style="width:120px;">·ÅÆúÁôÑÔÂÊ</td><td><%if tleaveword=0 then Response.Write "/" else Response.Write formatpercent((tleaveword-twritten)/tleaveword,2,true)%></td></tr>
-					<tr><td style="width:120px;">ÁôÑÔ±»¹ıÂË´ÎÊı</td><td><%=tfiltered%></td></tr>
-					<tr><td style="width:120px;">¹ıÂËÂÊ</td><td><%if twritten+tfiltered+tbanned=0 then Response.Write "/" else Response.Write formatpercent(tfiltered/(twritten+tfiltered+tbanned),2,true)%></td></tr>
-					<tr><td style="width:120px;">ÁôÑÔ±»¾Ü¾ø´ÎÊı</td><td><%=tbanned%></td></tr>
-					<tr><td style="width:120px;">¾Ü¾øÂÊ</td><td><%if twritten+tfiltered+tbanned=0 then Response.Write "/" else Response.Write formatpercent(tbanned/(twritten+tfiltered+tbanned),2,true)%></td></tr>
+					<tr><td style="width:120px;">è®¿é—®æ¬¡æ•°</td><td><%=tleaveword%></td></tr>
+					<tr><td style="width:120px;">æˆåŠŸç•™è¨€æ¬¡æ•°</td><td><%=twritten%></td></tr>
+					<tr><td style="width:120px;">æ”¾å¼ƒç•™è¨€ç‡</td><td><%if tleaveword=0 then Response.Write "/" else Response.Write formatpercent((tleaveword-twritten)/tleaveword,2,true)%></td></tr>
+					<tr><td style="width:120px;">ç•™è¨€è¢«è¿‡æ»¤æ¬¡æ•°</td><td><%=tfiltered%></td></tr>
+					<tr><td style="width:120px;">è¿‡æ»¤ç‡</td><td><%if twritten+tfiltered+tbanned=0 then Response.Write "/" else Response.Write formatpercent(tfiltered/(twritten+tfiltered+tbanned),2,true)%></td></tr>
+					<tr><td style="width:120px;">ç•™è¨€è¢«æ‹’ç»æ¬¡æ•°</td><td><%=tbanned%></td></tr>
+					<tr><td style="width:120px;">æ‹’ç»ç‡</td><td><%if twritten+tfiltered+tbanned=0 then Response.Write "/" else Response.Write formatpercent(tbanned/(twritten+tfiltered+tbanned),2,true)%></td></tr>
 				</table>
 			</blockquote>
 		</div>
 
 		<div id="div_login">
-			<h4>¹ÜÀíµÇÂ¼Ò³Ãæ</h4>
+			<h4>ç®¡ç†ç™»å½•é¡µé¢</h4>
 			<blockquote>
 				<table>
-					<tr><td style="width:120px;">µÇÂ¼´ÎÊı</td><td><%=tlogin%></td></tr>
-					<tr><td style="width:120px;">µÇÂ¼Ê§°Ü´ÎÊı</td><td><%=tloginfailed%></td></tr>
-					<tr><td style="width:120px;">µÇÂ¼Ê§°ÜÂÊ</td><td><%if tlogin=0 then Response.Write "/" else Response.Write formatpercent(tloginfailed/tlogin,2,true)%></td></tr>
+					<tr><td style="width:120px;">ç™»å½•æ¬¡æ•°</td><td><%=tlogin%></td></tr>
+					<tr><td style="width:120px;">ç™»å½•å¤±è´¥æ¬¡æ•°</td><td><%=tloginfailed%></td></tr>
+					<tr><td style="width:120px;">ç™»å½•å¤±è´¥ç‡</td><td><%if tlogin=0 then Response.Write "/" else Response.Write formatpercent(tloginfailed/tlogin,2,true)%></td></tr>
 				</table>
 			</blockquote>
 		</div>
@@ -128,12 +128,12 @@ on error resume next
 		if Not rs.EOF then tclientcount=rs.Fields(0) else tclientcount=0
 
 		if tclientcount>0 then
-			'¿Í»§¶Ë²Ù×÷ÏµÍ³
+			'å®¢æˆ·ç«¯æ“ä½œç³»ç»Ÿ
 			rs.Close
 			rs.Open sql_adminstats_client_os,cn,,,1
 
 			Response.Write "<div id=""div_os"">"
-			Response.Write "<h4>¿Í»§¶Ë²Ù×÷ÏµÍ³</h4>"
+			Response.Write "<h4>å®¢æˆ·ç«¯æ“ä½œç³»ç»Ÿ</h4>"
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:180px;"">"
@@ -145,12 +145,12 @@ on error resume next
 			wend
 			Response.Write "</table></blockquote></div>"
 
-			'¿Í»§¶Ëä¯ÀÀÆ÷
+			'å®¢æˆ·ç«¯æµè§ˆå™¨
 			rs.Close
 			rs.Open sql_adminstats_client_browser,cn,0,1,1
 
 			Response.Write "<div id=""div_browser"">"
-			Response.Write "<h4>¿Í»§¶Ëä¯ÀÀÆ÷</h4>"
+			Response.Write "<h4>å®¢æˆ·ç«¯æµè§ˆå™¨</h4>"
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
@@ -162,19 +162,19 @@ on error resume next
 			wend
 			Response.Write "</table></blockquote></div>"
 
-			'¿Í»§¶ËÆÁÄ»·Ö±æÂÊ
+			'å®¢æˆ·ç«¯å±å¹•åˆ†è¾¨ç‡
 			rs.Close
 			rs.Open sql_adminstats_client_screen,cn,0,1,1
 
 			Response.Write "<div id=""div_screen"">"
-			Response.Write "<h4>¿Í»§¶ËÆÁÄ»·Ö±æÂÊ</h4>"
+			Response.Write "<h4>å®¢æˆ·ç«¯å±å¹•åˆ†è¾¨ç‡</h4>"
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
 				if rs.Fields("screenwh")<>"0*0" then
 					Response.Write HtmlEncode(rs.Fields("screenwh"))
 				else
-					Response.Write "Î´Öª£º"
+					Response.Write "æœªçŸ¥ï¼š"
 				end if
 				Response.Write "</td><td>"
 				Response.Write rs.Fields(1) & "(" & formatpercent(rs.Fields(1)/tclientcount,2,true) & ")"
@@ -183,16 +183,16 @@ on error resume next
 			wend
 			Response.Write "</table></blockquote></div>"
 
-			'·ÃÎÊÊ±¶Î
+			'è®¿é—®æ—¶æ®µ
 			rs.Close
 			rs.Open sql_adminstats_client_timesect,cn,0,1,1
 
 			Response.Write "<div id=""div_timesect"">"
-			Response.Write "<h4>·ÃÎÊÊ±¶Î</h4>"
+			Response.Write "<h4>è®¿é—®æ—¶æ®µ</h4>"
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
-				Response.Write HtmlEncode(rs.Fields(0) & ":00¡«" & rs.Fields(0) & ":59")
+				Response.Write HtmlEncode(rs.Fields(0) & ":00ï½" & rs.Fields(0) & ":59")
 				Response.Write "</td><td>"
 				Response.Write rs.Fields(1) & "(" & formatpercent(rs.Fields(1)/tclientcount,2,true) & ")"
 				Response.Write "</td></tr>"
@@ -200,15 +200,15 @@ on error resume next
 			wend
 			Response.Write "</table></blockquote></div>"
 
-			'·ÃÎÊÖÜÆÚ
+			'è®¿é—®å‘¨æœŸ
 			dim weeklist
-			weeklist=array("ĞÇÆÚÈÕ","ĞÇÆÚÒ»","ĞÇÆÚ¶ş","ĞÇÆÚÈı","ĞÇÆÚËÄ","ĞÇÆÚÎå","ĞÇÆÚÁù")
+			weeklist=array("æ˜ŸæœŸæ—¥","æ˜ŸæœŸä¸€","æ˜ŸæœŸäºŒ","æ˜ŸæœŸä¸‰","æ˜ŸæœŸå››","æ˜ŸæœŸäº”","æ˜ŸæœŸå…­")
 
 			rs.Close
 			rs.Open sql_adminstats_client_week,cn,0,1,1
 
 			Response.Write "<div id=""div_week"">"
-			Response.Write "<h4>·ÃÎÊÖÜÆÚ</h4>"
+			Response.Write "<h4>è®¿é—®å‘¨æœŸ</h4>"
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
@@ -221,12 +221,12 @@ on error resume next
 			wend
 			Response.Write "</table></blockquote></div>"
 
-			'×î½ü30Ìì·ÃÎÊÁ¿
+			'æœ€è¿‘30å¤©è®¿é—®é‡
 			rs.Close
 			rs.Open sql_adminstats_client_30day,cn,0,1,1
 
 			Response.Write "<div id=""div_30day"">"
-			Response.Write "<h4>×î½ü30Ìì·ÃÎÊÁ¿</h4>"
+			Response.Write "<h4>æœ€è¿‘30å¤©è®¿é—®é‡</h4>"
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:120px;"">"
@@ -238,12 +238,12 @@ on error resume next
 			wend
 			Response.Write "</table></blockquote></div>"
 
-			'·ÃÎÊÀ´Ô´
+			'è®¿é—®æ¥æº
 			rs.Close
 			rs.Open sql_adminstats_client_source,cn,0,1,1
 
 			Response.Write "<div id=""div_source"">"
-			Response.Write "<h4>·ÃÎÊÀ´Ô´</h4>"
+			Response.Write "<h4>è®¿é—®æ¥æº</h4>"
 			Response.Write "<blockquote><table>"
 			while Not rs.EOF
 				Response.Write "<tr><td style=""width:150px;"">"
@@ -261,8 +261,8 @@ on error resume next
 		%>
 
 	</div>
-	<form method="post" action="admin_clearstats.asp" onsubmit="if (confirm('È·ÊµÒª½«Í³¼ÆÇåÁãÂğ£¿')){submit1.disabled=true;return true;} else return false;">
-		<div class="command"><input type="submit" value="Í³¼ÆÇåÁã" name="submit1" /></div>
+	<form method="post" action="admin_clearstats.asp" onsubmit="if (confirm('ç¡®å®è¦å°†ç»Ÿè®¡æ¸…é›¶å—ï¼Ÿ')){submit1.disabled=true;return true;} else return false;">
+		<div class="command"><input type="submit" value="ç»Ÿè®¡æ¸…é›¶" name="submit1" /></div>
 	</form>
 </div>
 </div>
@@ -273,17 +273,17 @@ on error resume next
 <script type="text/javascript">
 	var tab=new TabControl('div_outer');
 
-	tab.addPage('div_words','ÁôÑÔÁĞ±íÒ³Ãæ');
-	tab.addPage('div_search','ËÑË÷Ò³Ãæ');
-	tab.addPage('div_leaveword','Ğ´ÁôÑÔ/»Ø¸´Ò³Ãæ');
-	tab.addPage('div_login','¹ÜÀíµÇÂ¼Ò³Ãæ');
-	tab.addPage('div_os','¿Í»§¶Ë²Ù×÷ÏµÍ³');
-	tab.addPage('div_browser','¿Í»§¶Ëä¯ÀÀÆ÷');
-	tab.addPage('div_screen','¿Í»§¶ËÆÁÄ»·Ö±æÂÊ');
-	tab.addPage('div_timesect','·ÃÎÊÊ±¶Î');
-	tab.addPage('div_week','·ÃÎÊÖÜÆÚ');
-	tab.addPage('div_30day','×î½ü30Ìì·ÃÎÊÁ¿');
-	tab.addPage('div_source','·ÃÎÊÀ´Ô´');
+	tab.addPage('div_words','ç•™è¨€åˆ—è¡¨é¡µé¢');
+	tab.addPage('div_search','æœç´¢é¡µé¢');
+	tab.addPage('div_leaveword','å†™ç•™è¨€/å›å¤é¡µé¢');
+	tab.addPage('div_login','ç®¡ç†ç™»å½•é¡µé¢');
+	tab.addPage('div_os','å®¢æˆ·ç«¯æ“ä½œç³»ç»Ÿ');
+	tab.addPage('div_browser','å®¢æˆ·ç«¯æµè§ˆå™¨');
+	tab.addPage('div_screen','å®¢æˆ·ç«¯å±å¹•åˆ†è¾¨ç‡');
+	tab.addPage('div_timesect','è®¿é—®æ—¶æ®µ');
+	tab.addPage('div_week','è®¿é—®å‘¨æœŸ');
+	tab.addPage('div_30day','æœ€è¿‘30å¤©è®¿é—®é‡');
+	tab.addPage('div_source','è®¿é—®æ¥æº');
 </script>
 </body>
 </html>

@@ -15,7 +15,7 @@
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ÁôÑÔ±¾ ÄÚÈÝ¹ýÂË²ßÂÔ</title>
+	<title><%=HomeName%> ç•™è¨€æœ¬ å†…å®¹è¿‡æ»¤ç­–ç•¥</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 </head>
 
@@ -23,43 +23,43 @@
 
 <div id="outerborder" class="outerborder">
 
-	<%if ShowTitle then%><%Call InitHeaderData("¹ÜÀí")%><!-- #include file="include/template/header.inc" --><%end if%>
+	<%if ShowTitle then%><%Call InitHeaderData("ç®¡ç†")%><!-- #include file="include/template/header.inc" --><%end if%>
 	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/admin_mainmenu.inc" -->
 	<div class="region form-region region-filter">
-		<h3 class="title">ÄÚÈÝ¹ýÂË²ßÂÔ</h3>
+		<h3 class="title">å†…å®¹è¿‡æ»¤ç­–ç•¥</h3>
 		<div class="content">
-			<form method="post" name="newfilter" action="admin_appendfilter.asp" onsubmit="if(findexp.value.length===0){alert('ÇëÊäÈë²éÕÒÄÚÈÝ¡£');findexp.focus();return false;}submit1.disabled=true;">
-			<h4>Ìí¼ÓÐÂ¹ýÂË²ßÂÔ£º</h4>
-			<p>²éÕÒÄÚÈÝ
+			<form method="post" name="newfilter" action="admin_appendfilter.asp" onsubmit="if(findexp.value.length===0){alert('è¯·è¾“å…¥æŸ¥æ‰¾å†…å®¹ã€‚');findexp.focus();return false;}submit1.disabled=true;">
+			<h4>æ·»åŠ æ–°è¿‡æ»¤ç­–ç•¥ï¼š</h4>
+			<p>æŸ¥æ‰¾å†…å®¹
 			<select name="searchmode" id="searchmode">
-				<option value="256">´¿ÎÄ±¾</option>
-				<option value="512">Í¨Åä·û</option>
-				<option value="1024">ÕýÔò±í´ïÊ½</option>
-				<option value="2048">ÕýÔò±í´ïÊ½(¶àÐÐÄ£Ê½)</option>
+				<option value="256">çº¯æ–‡æœ¬</option>
+				<option value="512">é€šé…ç¬¦</option>
+				<option value="1024">æ­£åˆ™è¡¨è¾¾å¼</option>
+				<option value="2048">æ­£åˆ™è¡¨è¾¾å¼(å¤šè¡Œæ¨¡å¼)</option>
 			</select>
-			<input type="checkbox" name="matchcase" id="matchcase" value="8192" /><label for="matchcase">Çø·Ö´óÐ¡Ð´</label><br/>
+			<input type="checkbox" name="matchcase" id="matchcase" value="8192" /><label for="matchcase">åŒºåˆ†å¤§å°å†™</label><br/>
 			<input type="text" name="findexp" id="findexp" /><br/>
 			</p>
-			<p>²éÕÒ·¶Î§<br/>
-			<input type="checkbox" name="findrange" id="findname" value="1" checked="checked" /><label for="findname">³Æºô</label>
-			<input type="checkbox" name="findrange" id="findmail" value="2" checked="checked" /><label for="findmail">ÓÊ¼þ</label>
-			<input type="checkbox" name="findrange" id="findqq" value="4" checked="checked" /><label for="findqq">QQºÅ</label>
+			<p>æŸ¥æ‰¾èŒƒå›´<br/>
+			<input type="checkbox" name="findrange" id="findname" value="1" checked="checked" /><label for="findname">ç§°å‘¼</label>
+			<input type="checkbox" name="findrange" id="findmail" value="2" checked="checked" /><label for="findmail">é‚®ä»¶</label>
+			<input type="checkbox" name="findrange" id="findqq" value="4" checked="checked" /><label for="findqq">QQå·</label>
 			<input type="checkbox" name="findrange" id="findmsn" value="8" checked="checked" /><label for="findmsn">Skype</label>
-			<input type="checkbox" name="findrange" id="findhome" value="16" checked="checked" /><label for="findhome">Ö÷Ò³</label>
-			<input type="checkbox" name="findrange" id="findtitle" value="32" checked="checked" /><label for="findtitle">±êÌâ</label>
-			<input type="checkbox" name="findrange" id="findcontent" value="64" checked="checked" /><label for="findcontent">ÄÚÈÝ</label>
+			<input type="checkbox" name="findrange" id="findhome" value="16" checked="checked" /><label for="findhome">ä¸»é¡µ</label>
+			<input type="checkbox" name="findrange" id="findtitle" value="32" checked="checked" /><label for="findtitle">æ ‡é¢˜</label>
+			<input type="checkbox" name="findrange" id="findcontent" value="64" checked="checked" /><label for="findcontent">å†…å®¹</label>
 			</p>
-			<p>´¦Àí·½Ê½<br/>
-			<input type="radio" name="filtermethod" id="filtermethod" value="0" checked="checked" onclick="if(typeof(newfilter.replacetxt.disabled)!=='undefined')newfilter.replacetxt.disabled=false;" /><label for="filtermethod">Ìæ»»ÎªÒÔÏÂÎÄ±¾</label>
-			<input type="radio" name="filtermethod" id="filtermethod2" value="4096" onclick="if(typeof(newfilter.replacetxt.disabled)!=='undefined')newfilter.replacetxt.disabled=true;" /><label for="filtermethod2">µÈ´ýÉóºË</label>
-			<input type="radio" name="filtermethod" id="filtermethod3" value="16384" onclick="if(typeof(newfilter.replacetxt.disabled)!=='undefined')newfilter.replacetxt.disabled=true;" /><label for="filtermethod3">¾Ü¾øÁôÑÔ</label><br/>
+			<p>å¤„ç†æ–¹å¼<br/>
+			<input type="radio" name="filtermethod" id="filtermethod" value="0" checked="checked" onclick="if(typeof(newfilter.replacetxt.disabled)!=='undefined')newfilter.replacetxt.disabled=false;" /><label for="filtermethod">æ›¿æ¢ä¸ºä»¥ä¸‹æ–‡æœ¬</label>
+			<input type="radio" name="filtermethod" id="filtermethod2" value="4096" onclick="if(typeof(newfilter.replacetxt.disabled)!=='undefined')newfilter.replacetxt.disabled=true;" /><label for="filtermethod2">ç­‰å¾…å®¡æ ¸</label>
+			<input type="radio" name="filtermethod" id="filtermethod3" value="16384" onclick="if(typeof(newfilter.replacetxt.disabled)!=='undefined')newfilter.replacetxt.disabled=true;" /><label for="filtermethod3">æ‹’ç»ç•™è¨€</label><br/>
 			<input type="text" name="replacetxt" />
 			</p>
-			<p>±¸×¢<br/>
+			<p>å¤‡æ³¨<br/>
 			<input type="text" name="memo" maxlength="25" />
 			</p>
-			<div class="field-command"><input type="submit" value="Ìí¼Ó¹ýÂË²ßÂÔ" name="submit1" /></div>
+			<div class="field-command"><input type="submit" value="æ·»åŠ è¿‡æ»¤ç­–ç•¥" name="submit1" /></div>
 			</form>
 
 			<%
@@ -74,41 +74,41 @@
 				<%tfilterid=rs("filterid")%>
 				<input type="hidden" name="filterid" value="<%=tfilterid%>" />
 				<%tfiltermode=clng(rs("filtermode"))%>
-				<p>²éÕÒÄÚÈÝ
+				<p>æŸ¥æ‰¾å†…å®¹
 				<select name="searchmode" id="searchmode<%=tfilterid%>">
-					<option value="256"<%=seled(CBool(tfiltermode AND 256))%>>´¿ÎÄ±¾</option>
-					<option value="512"<%=seled(CBool(tfiltermode AND 512))%>>Í¨Åä·û</option>
-					<option value="1024"<%=seled(CBool(tfiltermode AND 1024))%>>ÕýÔò±í´ïÊ½</option>
-					<option value="2048"<%=seled(CBool(tfiltermode AND 2048))%>>ÕýÔò±í´ïÊ½(¶àÐÐÄ£Ê½)</option>
+					<option value="256"<%=seled(CBool(tfiltermode AND 256))%>>çº¯æ–‡æœ¬</option>
+					<option value="512"<%=seled(CBool(tfiltermode AND 512))%>>é€šé…ç¬¦</option>
+					<option value="1024"<%=seled(CBool(tfiltermode AND 1024))%>>æ­£åˆ™è¡¨è¾¾å¼</option>
+					<option value="2048"<%=seled(CBool(tfiltermode AND 2048))%>>æ­£åˆ™è¡¨è¾¾å¼(å¤šè¡Œæ¨¡å¼)</option>
 				</select>
-				<input type="checkbox" name="matchcase" id="matchcase<%=tfilterid%>" value="8192"<%=cked(CBool(tfiltermode AND 8192))%> /><label for="matchcase<%=tfilterid%>">Çø·Ö´óÐ¡Ð´</label><br/>
+				<input type="checkbox" name="matchcase" id="matchcase<%=tfilterid%>" value="8192"<%=cked(CBool(tfiltermode AND 8192))%> /><label for="matchcase<%=tfilterid%>">åŒºåˆ†å¤§å°å†™</label><br/>
 				<input type="text" name="findexp" id="findexp<%=tfilterid%>" value="<%=rs("regexp")%>" /><br/>
 				</p>
-				<p>²éÕÒ·¶Î§<br/>
-				<input type="checkbox" name="findrange" id="findname<%=tfilterid%>" value="1"<%=cked(CBool(tfiltermode AND 1))%> /><label for="findname<%=tfilterid%>">³Æºô</label>
-				<input type="checkbox" name="findrange" id="findmail<%=tfilterid%>" value="2"<%=cked(CBool(tfiltermode AND 2))%> /><label for="findmail<%=tfilterid%>">ÓÊ¼þ</label>
-				<input type="checkbox" name="findrange" id="findqq<%=tfilterid%>" value="4"<%=cked(CBool(tfiltermode AND 4))%> /><label for="findqq<%=tfilterid%>">QQºÅ</label>
+				<p>æŸ¥æ‰¾èŒƒå›´<br/>
+				<input type="checkbox" name="findrange" id="findname<%=tfilterid%>" value="1"<%=cked(CBool(tfiltermode AND 1))%> /><label for="findname<%=tfilterid%>">ç§°å‘¼</label>
+				<input type="checkbox" name="findrange" id="findmail<%=tfilterid%>" value="2"<%=cked(CBool(tfiltermode AND 2))%> /><label for="findmail<%=tfilterid%>">é‚®ä»¶</label>
+				<input type="checkbox" name="findrange" id="findqq<%=tfilterid%>" value="4"<%=cked(CBool(tfiltermode AND 4))%> /><label for="findqq<%=tfilterid%>">QQå·</label>
 				<input type="checkbox" name="findrange" id="findmsn<%=tfilterid%>" value="8"<%=cked(CBool(tfiltermode AND 8))%> /><label for="findmsn<%=tfilterid%>">Skype</label>
-				<input type="checkbox" name="findrange" id="findhome<%=tfilterid%>" value="16"<%=cked(CBool(tfiltermode AND 16))%> /><label for="findhome<%=tfilterid%>">Ö÷Ò³</label>
-				<input type="checkbox" name="findrange" id="findtitle<%=tfilterid%>" value="32"<%=cked(CBool(tfiltermode AND 32))%> /><label for="findtitle<%=tfilterid%>">±êÌâ</label>
-				<input type="checkbox" name="findrange" id="findcontent<%=tfilterid%>" value="64"<%=cked(CBool(tfiltermode AND 64))%> /><label for="findcontent<%=tfilterid%>">ÄÚÈÝ</label>
+				<input type="checkbox" name="findrange" id="findhome<%=tfilterid%>" value="16"<%=cked(CBool(tfiltermode AND 16))%> /><label for="findhome<%=tfilterid%>">ä¸»é¡µ</label>
+				<input type="checkbox" name="findrange" id="findtitle<%=tfilterid%>" value="32"<%=cked(CBool(tfiltermode AND 32))%> /><label for="findtitle<%=tfilterid%>">æ ‡é¢˜</label>
+				<input type="checkbox" name="findrange" id="findcontent<%=tfilterid%>" value="64"<%=cked(CBool(tfiltermode AND 64))%> /><label for="findcontent<%=tfilterid%>">å†…å®¹</label>
 				</p>
-				<p>´¦Àí·½Ê½<br/>
-				<input type="radio" name="filtermethod" id="filtermethoda<%=tfilterid%>" value="0"<%=cked(Not CBool(tfiltermode AND 16384))%> onclick="if(typeof(this.form.replacetxt.disabled)!='undefined')this.form.replacetxt.disabled=false;" /><label for="filtermethoda<%=tfilterid%>">Ìæ»»ÎªÒÔÏÂÎÄ±¾</label>
-				<input type="radio" name="filtermethod" id="filtermethodb<%=tfilterid%>" value="4096"<%=cked(CBool(tfiltermode AND 4096))%> onclick="if(typeof(this.form.replacetxt.disabled)!='undefined')this.form.replacetxt.disabled=true;" /><label for="filtermethodb<%=tfilterid%>">µÈ´ýÉóºË</label>
-				<input type="radio" name="filtermethod" id="filtermethodc<%=tfilterid%>" value="16384"<%=cked(CBool(tfiltermode AND 16384))%> onclick="if(typeof(this.form.replacetxt.disabled)!='undefined')this.form.replacetxt.disabled=true;" /><label for="filtermethodc<%=tfilterid%>">¾Ü¾øÁôÑÔ</label><br/>
+				<p>å¤„ç†æ–¹å¼<br/>
+				<input type="radio" name="filtermethod" id="filtermethoda<%=tfilterid%>" value="0"<%=cked(Not CBool(tfiltermode AND 16384))%> onclick="if(typeof(this.form.replacetxt.disabled)!='undefined')this.form.replacetxt.disabled=false;" /><label for="filtermethoda<%=tfilterid%>">æ›¿æ¢ä¸ºä»¥ä¸‹æ–‡æœ¬</label>
+				<input type="radio" name="filtermethod" id="filtermethodb<%=tfilterid%>" value="4096"<%=cked(CBool(tfiltermode AND 4096))%> onclick="if(typeof(this.form.replacetxt.disabled)!='undefined')this.form.replacetxt.disabled=true;" /><label for="filtermethodb<%=tfilterid%>">ç­‰å¾…å®¡æ ¸</label>
+				<input type="radio" name="filtermethod" id="filtermethodc<%=tfilterid%>" value="16384"<%=cked(CBool(tfiltermode AND 16384))%> onclick="if(typeof(this.form.replacetxt.disabled)!='undefined')this.form.replacetxt.disabled=true;" /><label for="filtermethodc<%=tfilterid%>">æ‹’ç»ç•™è¨€</label><br/>
 				<input type="text" name="replacetxt" value="<%=rs("replacestr")%>"<%=dised(CBool(tfiltermode and 16384+4096))%> />
 				</p>
-				<p>±¸×¢<br/>
+				<p>å¤‡æ³¨<br/>
 				<input type="text" name="memo" maxlength="25" value="<%=rs("memo")%>" />
 				</p>
 				<div class="field-command">
-				<input type="submit" value="¸üÐÂ" onclick="if (this.form.findexp.value.length===0) {alert('ÇëÊäÈë²éÕÒÄÚÈÝ¡£');this.form.findexp.focus();return false;}" />
-				<input type="button" value="É¾³ý" onclick="if (confirm('È·ÊµÒªÉ¾³ý¸ÃÌõ²ßÂÔÂð£¿')) {this.form.action='admin_delfilter.asp';this.form.submit();}" />
-				<input type="button" value="ÉÏÒÆ" onclick="{this.form.movedirection.value='up';this.form.action='admin_movefilter.asp';this.form.submit();}" />
-				<input type="button" value="ÏÂÒÆ" onclick="{this.form.movedirection.value='down';this.form.action='admin_movefilter.asp';this.form.submit();}" />
-				<input type="button" value="ÒÆÖÁ¶¥²ã" onclick="{this.form.movedirection.value='top';this.form.action='admin_movefilter.asp';this.form.submit();}" />
-				<input type="button" value="ÒÆÖÁµ×²ã" onclick="{this.form.movedirection.value='bottom';this.form.action='admin_movefilter.asp';this.form.submit();}" />
+				<input type="submit" value="æ›´æ–°" onclick="if (this.form.findexp.value.length===0) {alert('è¯·è¾“å…¥æŸ¥æ‰¾å†…å®¹ã€‚');this.form.findexp.focus();return false;}" />
+				<input type="button" value="åˆ é™¤" onclick="if (confirm('ç¡®å®žè¦åˆ é™¤è¯¥æ¡ç­–ç•¥å—ï¼Ÿ')) {this.form.action='admin_delfilter.asp';this.form.submit();}" />
+				<input type="button" value="ä¸Šç§»" onclick="{this.form.movedirection.value='up';this.form.action='admin_movefilter.asp';this.form.submit();}" />
+				<input type="button" value="ä¸‹ç§»" onclick="{this.form.movedirection.value='down';this.form.action='admin_movefilter.asp';this.form.submit();}" />
+				<input type="button" value="ç§»è‡³é¡¶å±‚" onclick="{this.form.movedirection.value='top';this.form.action='admin_movefilter.asp';this.form.submit();}" />
+				<input type="button" value="ç§»è‡³åº•å±‚" onclick="{this.form.movedirection.value='bottom';this.form.action='admin_movefilter.asp';this.form.submit();}" />
 				<input type="hidden" name="movedirection" value="" />
 				</div>
 			</form>

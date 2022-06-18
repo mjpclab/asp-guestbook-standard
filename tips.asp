@@ -5,13 +5,13 @@ sub TipsPage(strTips,backPage)
 	<html>
 	<head>
 		<!-- #include file="include/template/metatag.inc" -->
-		<title><%=HomeName%> ÁôÑÔ±¾</title>
+		<title><%=HomeName%> ç•™è¨€æœ¬</title>
 		<!-- #include file="inc_stylesheet.asp" -->
 	</head>
 	<body>
 		<div id="mainborder" class="mainborder">
 		<p><%=HtmlEncode(strTips)%></p>
-		<p><a href="<%=backPage%>">[·µ»Ø]</a></p>
+		<p><a href="<%=backPage%>">[è¿”å›ž]</a></p>
 		</div>
 		<script type="text/javascript" defer="defer" async="async">
 			alert('<%=Replace(strTips,"'","\'")%>');window.location.replace('<%=backPage%>');

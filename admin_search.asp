@@ -29,7 +29,7 @@ Response.AddHeader "cache-control","private"
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ÁôÑÔ±¾ ËÑË÷ÁôÑÔ</title>
+	<title><%=HomeName%> ç•™è¨€æœ¬ æœç´¢ç•™è¨€</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 
 	<script type="text/javascript" src="asset/js/jquery-1.x-min.js"></script>
@@ -37,7 +37,7 @@ Response.AddHeader "cache-control","private"
 	function submitcheck()
 	{
 		if (form1.searchtxt.value.length===0) {
-			alert('ÇëÊäÈëËÑË÷ÄÚÈİ¡£');
+			alert('è¯·è¾“å…¥æœç´¢å†…å®¹ã€‚');
 			form1.searchtxt.focus();
 			return false;
 		}
@@ -62,7 +62,7 @@ while right(tparam,1)="%" or right(tparam,1)="_"
 	tparam=left(tparam,len(tparam)-1)
 wend
 if Request("type")<>"" and tparam="" then
-	Call TipsPage("²»ÄÜÊäÈë¿Õ×Ö·û´®»òÈ«²¿ÎªÍ¨Åä·û¡£","admin_search.asp")
+	Call TipsPage("ä¸èƒ½è¾“å…¥ç©ºå­—ç¬¦ä¸²æˆ–å…¨éƒ¨ä¸ºé€šé…ç¬¦ã€‚","admin_search.asp")
 	Response.End
 end if
 
@@ -89,41 +89,41 @@ end if
 
 <div id="outerborder" class="outerborder">
 
-	<%if ShowTitle then%><%Call InitHeaderData("¹ÜÀí")%><!-- #include file="include/template/header.inc" --><%end if%>
+	<%if ShowTitle then%><%Call InitHeaderData("ç®¡ç†")%><!-- #include file="include/template/header.inc" --><%end if%>
 	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/admin_mainmenu.inc" -->
 	<div class="region form-region center-region">
-		<h3 class="title">ËÑË÷ÁôÑÔ</h3>
+		<h3 class="title">æœç´¢ç•™è¨€</h3>
 		<div class="content">
 			<form method="post" action="admin_search.asp" id="form1" name="form1" onsubmit="return submitcheck();">
-			ËÑË÷£º<input type="text" name="searchtxt" size="<%=SearchTextWidth%>" value="<%=request("searchtxt")%>" />
-			<input type="submit" value="ËÑË÷" name="searchsubmit" />
+			æœç´¢ï¼š<input type="text" name="searchtxt" size="<%=SearchTextWidth%>" value="<%=request("searchtxt")%>" />
+			<input type="submit" value="æœç´¢" name="searchsubmit" />
 			<select name="type" size="1" onchange="searchtxt.focus();">
-				<option value="name" <%=seled(Request("type")="name")%>>°´ĞÕÃûËÑË÷</option>
-				<option value="title" <%=seled(Request("type")="title")%>>°´±êÌâËÑË÷</option>
-				<option value="article" <%=seled(Request("type")="article" or Request("type")="")%>>°´ÁôÑÔÄÚÈİËÑË÷</option>
-				<option value="email" <%=seled(Request("type")="email")%>>°´ÓÊ¼şµØÖ·ËÑË÷</option>
-				<option value="qqid" <%=seled(Request("type")="qqid")%>>°´QQºÅÂëËÑË÷</option>
-				<option value="msnid" <%=seled(Request("type")="msnid")%>>°´MSNËÑË÷</option>
-				<option value="homepage" <%=seled(Request("type")="homepage")%>>°´Ö÷Ò³µØÖ·ËÑË÷</option>
-				<option value="ipv4addr" <%=seled(Request("type")="ipv4addr")%>>°´IPv4µØÖ·ËÑË÷</option>
-				<option value="originalipv4" <%=seled(Request("type")="originalipv4")%>>°´Ô­Ê¼IPv4µØÖ·ËÑË÷</option>
-				<option value="ipv6addr" <%=seled(Request("type")="ipv6addr")%>>°´IPv6µØÖ·ËÑË÷</option>
-				<option value="originalipv6" <%=seled(Request("type")="originalipv6")%>>°´Ô­Ê¼IPv6µØÖ·ËÑË÷</option>
-				<option value="reply" <%=seled(Request("type")="reply")%>>°´°æÖ÷»Ø¸´ËÑË÷</option>
-				<option value="audit" <%=seled(Request("type")="audit")%>>´ıÉóºË(1:ÊÇ 0:·ñ)</option>
-			</select><br/>("%"´ú±íÈÎÒâ¸ö×Ö·û£¬"_"´ú±íÒ»¸ö×Ö·û)
+				<option value="name" <%=seled(Request("type")="name")%>>æŒ‰å§“åæœç´¢</option>
+				<option value="title" <%=seled(Request("type")="title")%>>æŒ‰æ ‡é¢˜æœç´¢</option>
+				<option value="article" <%=seled(Request("type")="article" or Request("type")="")%>>æŒ‰ç•™è¨€å†…å®¹æœç´¢</option>
+				<option value="email" <%=seled(Request("type")="email")%>>æŒ‰é‚®ä»¶åœ°å€æœç´¢</option>
+				<option value="qqid" <%=seled(Request("type")="qqid")%>>æŒ‰QQå·ç æœç´¢</option>
+				<option value="msnid" <%=seled(Request("type")="msnid")%>>æŒ‰MSNæœç´¢</option>
+				<option value="homepage" <%=seled(Request("type")="homepage")%>>æŒ‰ä¸»é¡µåœ°å€æœç´¢</option>
+				<option value="ipv4addr" <%=seled(Request("type")="ipv4addr")%>>æŒ‰IPv4åœ°å€æœç´¢</option>
+				<option value="originalipv4" <%=seled(Request("type")="originalipv4")%>>æŒ‰åŸå§‹IPv4åœ°å€æœç´¢</option>
+				<option value="ipv6addr" <%=seled(Request("type")="ipv6addr")%>>æŒ‰IPv6åœ°å€æœç´¢</option>
+				<option value="originalipv6" <%=seled(Request("type")="originalipv6")%>>æŒ‰åŸå§‹IPv6åœ°å€æœç´¢</option>
+				<option value="reply" <%=seled(Request("type")="reply")%>>æŒ‰ç‰ˆä¸»å›å¤æœç´¢</option>
+				<option value="audit" <%=seled(Request("type")="audit")%>>å¾…å®¡æ ¸(1:æ˜¯ 0:å¦)</option>
+			</select><br/>("%"ä»£è¡¨ä»»æ„ä¸ªå­—ç¬¦ï¼Œ"_"ä»£è¡¨ä¸€ä¸ªå­—ç¬¦)
 			</form>
 		</div>
 	</div>
 
-	<%if CanOpenDB and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"[ËÑË÷½á¹û·ÖÒ³]","type,searchtxt"%>
+	<%if CanOpenDB and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"[æœç´¢ç»“æœåˆ†é¡µ]","type,searchtxt"%>
 	<form method="post" action="admin_mdel.asp" name="form7">
 	<%RPage="admin_search.asp"%><!-- #include file="include/template/admin_func.inc" -->
 	<%
 	if CanOpenDB then
 		if ItemsCount=0 then
-			Response.Write "<br/><br/><div class=""centertext"">Ã»ÓĞÕÒµ½·ûºÏÌõ¼şµÄÁôÑÔ¡£</div><br/><br/>"
+			Response.Write "<br/><br/><div class=""centertext"">æ²¡æœ‰æ‰¾åˆ°ç¬¦åˆæ¡ä»¶çš„ç•™è¨€ã€‚</div><br/><br/>"
 		else
 			dim pagename, inAdminPage
 			pagename="admin_search"
@@ -144,7 +144,7 @@ end if
 	<!-- #include file="include/template/admin_func.inc" -->
 	</form>
 
-	<%if CanOpenDB and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"[ËÑË÷½á¹û·ÖÒ³]","type,searchtxt"%>
+	<%if CanOpenDB and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"[æœç´¢ç»“æœåˆ†é¡µ]","type,searchtxt"%>
 	</div>
 
 	<!-- #include file="include/template/footer.inc" -->

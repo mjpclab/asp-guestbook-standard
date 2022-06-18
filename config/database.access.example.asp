@@ -1,7 +1,7 @@
 <%
-const dbtype=2		'Êý¾Ý¿âÀàÐÍ, 1:Access97  2:Access2000-2003  3:Access 2007-2013
+const dbtype=2		'æ•°æ®åº“ç±»åž‹, 1:Access97  2:Access2000-2003  3:Access 2007-2013
 
-const dbfile="database/data.mdb.db"		'Êý¾Ý¿âÎÄ¼þÎ»ÖÃ£¬Ê¹ÓÃÏà¶ÔÂ·¾¶
-const dbfilepassword=""		'Êý¾Ý¿âÎÄ¼þÃÜÂë
-const dbprefix=""		'±íÃûÇ°×º£¬¶à¸ö³ÌÐò¹²ÓÃÒ»¸öÊý¾Ý¿âÊ±£¬Í¨¹ý±íÃûÇ°×º·ÀÖ¹³åÍ»
+const dbfile="database/data.mdb.db"		'æ•°æ®åº“æ–‡ä»¶ä½ç½®ï¼Œä½¿ç”¨ç›¸å¯¹è·¯å¾„
+const dbfilepassword=""		'æ•°æ®åº“æ–‡ä»¶å¯†ç 
+const dbprefix=""		'è¡¨åå‰ç¼€ï¼Œå¤šä¸ªç¨‹åºå…±ç”¨ä¸€ä¸ªæ•°æ®åº“æ—¶ï¼Œé€šè¿‡è¡¨åå‰ç¼€é˜²æ­¢å†²çª
 %>

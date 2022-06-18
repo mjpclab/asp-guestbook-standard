@@ -2,14 +2,14 @@
 <%if ShowUbbTool then%>
 <div class="ubbtoolbar">
 	<div class="row">
-		<%if UbbFlag_fontstyle Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_bold" onclick="sendUbbCode &&sendUbbCode('b')"><img alt="´ÖÌå" src="asset/image/icon_ubb_bold.gif"/></a><%end if%>
-		<%if UbbFlag_fontstyle Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_italic" onclick="sendUbbCode && sendUbbCode('i')"><img alt="Ð±Ìå" src="asset/image/icon_ubb_italic.gif"/></a><%end if%>
-		<%if UbbFlag_fontcolor Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_color" onclick="toggleColorPalette && toggleColorPalette(this,arguments[0]||window.event);"><img alt="ÎÄ×ÖÑÕÉ«" src="asset/image/icon_ubb_color.gif"/></a><%end if%>
-		<%if UbbFlag_image Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_image" onclick="sendUbbCode && sendUbbCode('img')"><img alt="Í¼Æ¬" src="asset/image/icon_ubb_img.gif"/></a><%end if%>
+		<%if UbbFlag_fontstyle Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_bold" onclick="sendUbbCode &&sendUbbCode('b')"><img alt="ç²—ä½“" src="asset/image/icon_ubb_bold.gif"/></a><%end if%>
+		<%if UbbFlag_fontstyle Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_italic" onclick="sendUbbCode && sendUbbCode('i')"><img alt="æ–œä½“" src="asset/image/icon_ubb_italic.gif"/></a><%end if%>
+		<%if UbbFlag_fontcolor Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_color" onclick="toggleColorPalette && toggleColorPalette(this,arguments[0]||window.event);"><img alt="æ–‡å­—é¢œè‰²" src="asset/image/icon_ubb_color.gif"/></a><%end if%>
+		<%if UbbFlag_image Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_image" onclick="sendUbbCode && sendUbbCode('img')"><img alt="å›¾ç‰‡" src="asset/image/icon_ubb_img.gif"/></a><%end if%>
 		<%if UbbFlag_player Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_flash" onclick="sendUbbCode && sendUbbCode('flash')"><img alt="Flash" src="asset/image/icon_ubb_flash.gif"/></a><%end if%>
 		<%if UbbFlag_player Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_mplayer" onclick="sendUbbCode && sendUbbCode('mp')"><img alt="Windows Media Player" src="asset/image/icon_ubb_mplayer.gif"/></a><%end if%>
-		<%if UbbFlag_player Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_html5_video" onclick="sendUbbCode && sendUbbCode('video')"><img alt="HTML5ÊÓÆµ" src="asset/image/icon_ubb_html5_video.gif"/></a><%end if%>
-		<%if UbbFlag_player Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_html5_audio" onclick="sendUbbCode && sendUbbCode('audio')"><img alt="HTML5ÒôÆµ" src="asset/image/icon_ubb_html5_audio.gif"/></a><%end if%>
+		<%if UbbFlag_player Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_html5_video" onclick="sendUbbCode && sendUbbCode('video')"><img alt="HTML5è§†é¢‘" src="asset/image/icon_ubb_html5_video.gif"/></a><%end if%>
+		<%if UbbFlag_player Or allflags then%><a name="ubbbutton" class="ubbbutton ubb_html5_audio" onclick="sendUbbCode && sendUbbCode('audio')"><img alt="HTML5éŸ³é¢‘" src="asset/image/icon_ubb_html5_audio.gif"/></a><%end if%>
 	</div>
 	<%if UbbFlag_face Or allflags then%>
 	<div class="row">
@@ -22,7 +22,7 @@
 	<div class="colorsInfo" id="colorsInfo">
 		<div class="colorsPreview" id="colorsPreview"></div>
 		<div class="colorsNumber" id="colorsNumber">#??????</div>
-		<div class="colorsCancel" id="colorsCancel" onclick="this.parentNode.parentNode.style.display='none';">¹Ø±Õ</div>
+		<div class="colorsCancel" id="colorsCancel" onclick="this.parentNode.parentNode.style.display='none';">å…³é—­</div>
 	</div>
 	<div class="colorsPalette" id="colorsPalette"></div>
 </div>

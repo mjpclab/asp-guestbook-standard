@@ -1,10 +1,10 @@
 <%if isnumeric(Session(InstanceName & "_guestflag")) and (Session(InstanceName & "_guestflag") and 48)<>0 and (HideAudit or HideWhisper) then%>
 <div class="region">
-	<h3 class="title"><img src="asset/image/icon_tip.gif" />ÁôÑÔÌáÊ¾£º</h3>
+	<h3 class="title"><img src="asset/image/icon_tip.gif" />ç•™è¨€æç¤ºï¼š</h3>
 	<div class="content">
-		<p>ÄúÒÑ³É¹¦ÁôÑÔ£¬µ«ÓÉÓÚÈçÏÂÔ­Òò£¬ÔÝÊ±»¹²»»áÏÔÊ¾£º</p>
-		<%if HideAudit and (Session(InstanceName & "_guestflag") and 16)<>0 then%><p>¡ö¡¡ÁôÑÔÕýµÈ´ýÉóºË£¬ÔÚÍ¨¹ýÖ®Ç°²»»áÏÔÊ¾¡£</p><%end if%>
-		<%if HideWhisper and (Session(InstanceName & "_guestflag") and 32)<>0 then%><p>¡ö¡¡ÄúÐ´µÄÊÇÇÄÇÄ»°£¬ÔÚ°æÖ÷»Ø¸´Ö®Ç°²»»áÏÔÊ¾¡£</p><%end if%>
+		<p>æ‚¨å·²æˆåŠŸç•™è¨€ï¼Œä½†ç”±äºŽå¦‚ä¸‹åŽŸå› ï¼Œæš‚æ—¶è¿˜ä¸ä¼šæ˜¾ç¤ºï¼š</p>
+		<%if HideAudit and (Session(InstanceName & "_guestflag") and 16)<>0 then%><p>â– ã€€ç•™è¨€æ­£ç­‰å¾…å®¡æ ¸ï¼Œåœ¨é€šè¿‡ä¹‹å‰ä¸ä¼šæ˜¾ç¤ºã€‚</p><%end if%>
+		<%if HideWhisper and (Session(InstanceName & "_guestflag") and 32)<>0 then%><p>â– ã€€æ‚¨å†™çš„æ˜¯æ‚„æ‚„è¯ï¼Œåœ¨ç‰ˆä¸»å›žå¤ä¹‹å‰ä¸ä¼šæ˜¾ç¤ºã€‚</p><%end if%>
 	</div>
 </div>
 <%

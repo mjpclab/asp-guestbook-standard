@@ -16,7 +16,7 @@
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ÁôÑÔ±¾ ·¢²¼ÖÃ¶¥¹«¸æ</title>
+	<title><%=HomeName%> ç•™è¨€æœ¬ å‘å¸ƒç½®é¡¶å…¬å‘Š</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 
 	<script type="text/javascript">
@@ -35,7 +35,7 @@
 
 <div id="outerborder" class="outerborder">
 
-	<%if ShowTitle then%><%Call InitHeaderData("¹ÜÀí")%><!-- #include file="include/template/header.inc" --><%end if%>
+	<%if ShowTitle then%><%Call InitHeaderData("ç®¡ç†")%><!-- #include file="include/template/header.inc" --><%end if%>
 	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/admin_mainmenu.inc" -->
 	<%
@@ -54,18 +54,18 @@
 	%>
 
 	<div class="region">
-		<h3 class="title">·¢²¼ÖÃ¶¥¹«¸æ</h3>
+		<h3 class="title">å‘å¸ƒç½®é¡¶å…¬å‘Š</h3>
 		<div class="content">
 			<form method="post" action="admin_savebulletin.asp" name="form6" onsubmit="form6.submit1.disabled=true;">
-			¹«¸æÄÚÈÝ£º<br/><textarea name="abulletin" id="abulletin" onkeydown="if(!this.modified)this.modified=true; var e=event?event:arguments[0]; if(e && e.ctrlKey && e.keyCode==13 && this.form.submit1)this.form.submit1.click();" rows="<%=ReplyTextHeight%>"><%=HtmlEncode("" & rs("declare") & "")%></textarea>
+			å…¬å‘Šå†…å®¹ï¼š<br/><textarea name="abulletin" id="abulletin" onkeydown="if(!this.modified)this.modified=true; var e=event?event:arguments[0]; if(e && e.ctrlKey && e.keyCode==13 && this.form.submit1)this.form.submit1.click();" rows="<%=ReplyTextHeight%>"><%=HtmlEncode("" & rs("declare") & "")%></textarea>
 			<!-- #include file="include/template/ubbtoolbar.inc" -->
 			<%ShowUbbToolBar(true)%>
 			<p>
-				<input type="checkbox" name="html2" id="html2" value="1"<%=cked(CBool(t_html AND 1))%> /><label for="html2">Ö§³ÖHTML±ê¼Ç</label><br/>
-				<input type="checkbox" name="ubb2" id="ubb2" value="1"<%=cked(CBool(t_html AND 2))%> /><label for="ubb2">Ö§³ÖUBB±ê¼Ç</label><br/>
-				<input type="checkbox" name="newline2" id="newline2" value="1"<%=cked(CBool(t_html AND 4))%> /><label for="newline2">²»Ö§³ÖHTMLºÍUBB±ê¼ÇÊ±ÔÊÐí»Ø³µ»»ÐÐ</label>
+				<input type="checkbox" name="html2" id="html2" value="1"<%=cked(CBool(t_html AND 1))%> /><label for="html2">æ”¯æŒHTMLæ ‡è®°</label><br/>
+				<input type="checkbox" name="ubb2" id="ubb2" value="1"<%=cked(CBool(t_html AND 2))%> /><label for="ubb2">æ”¯æŒUBBæ ‡è®°</label><br/>
+				<input type="checkbox" name="newline2" id="newline2" value="1"<%=cked(CBool(t_html AND 4))%> /><label for="newline2">ä¸æ”¯æŒHTMLå’ŒUBBæ ‡è®°æ—¶å…è®¸å›žè½¦æ¢è¡Œ</label>
 			</p>
-			<div class="command"><input value="¸üÐÂÊý¾Ý" type="submit" name="submit1" id="submit1" /></div>
+			<div class="command"><input value="æ›´æ–°æ•°æ®" type="submit" name="submit1" id="submit1" /></div>
 			</form>
 		</div>
 	</div>

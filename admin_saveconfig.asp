@@ -22,13 +22,13 @@ Function CheckRange(name, field, min, max)
 	Dim value
 	value=Trim(Request.Form(field))
 	if value="" then
-		errorbox name & " È±Ê§¡£"
+		errorbox name & " ç¼ºå¤±ã€‚"
 	elseif Not IsNumeric(value) then
-		errorbox name & " ±ØĞëÎªÊı×Ö¡£"
+		errorbox name & " å¿…é¡»ä¸ºæ•°å­—ã€‚"
 	else
 		value=clng(value)
 		if value<min or value>max then
-			errorbox name & " ±ØĞëÔÚ" & Cstr(min) & "¡«" & Cstr(max) & "µÄ·¶Î§ÄÚ¡£"
+			errorbox name & " å¿…é¡»åœ¨" & Cstr(min) & "ï½" & Cstr(max) & "çš„èŒƒå›´å†…ã€‚"
 		else
 			CheckRange=value
 		end if
@@ -39,16 +39,16 @@ Function CheckCssSize(name, field)
 	Dim value
 	value=Trim(Request.Form(field))
 	if value="" then
-		errorbox name & " È±Ê§¡£"
+		errorbox name & " ç¼ºå¤±ã€‚"
 	elseif Not IsNumeric(value) then
 		Dim valueLen
 		valueLen=Len(value)
 		if Right(value,1)="%" and valueLen>1 then
 			if Not IsNumeric(Left(value,valueLen-1)) then
-				errorbox name & " ±ØĞëÎªÊı×Ö»ò°Ù·Ö±È¡£"
+				errorbox name & " å¿…é¡»ä¸ºæ•°å­—æˆ–ç™¾åˆ†æ¯”ã€‚"
 			end if
 		else
-			errorbox name & " ±ØĞëÎªÊı×Ö»ò°Ù·Ö±È¡£"
+			errorbox name & " å¿…é¡»ä¸ºæ•°å­—æˆ–ç™¾åˆ†æ¯”ã€‚"
 		end if
 	end if
 
@@ -56,30 +56,30 @@ Function CheckCssSize(name, field)
 End Function
 
 if Not IsEmpty(Request.Form) then
-	Call CheckRange("¹ÜÀíÔ±µÇÂ¼³¬Ê±", "admintimeout", 1, 1440)
-	Call CheckRange("Îª·Ã¿ÍÏÔÊ¾IPv4", "showipv4", 0, 4)
-	Call CheckRange("Îª·Ã¿ÍÏÔÊ¾IPv6", "showipv6", 0, 8)
-	Call CheckRange("Îª¹ÜÀíÔ±ÏÔÊ¾IPv4", "adminshowipv4", 0, 4)
-	Call CheckRange("Îª¹ÜÀíÔ±ÏÔÊ¾IPv6", "adminshowipv6", 0, 8)
-	Call CheckRange("Îª¹ÜÀíÔ±ÏÔÊ¾Ô­IPv4", "adminshoworiginalipv4", 0, 4)
-	Call CheckRange("Îª¹ÜÀíÔ±ÏÔÊ¾Ô­IPv6", "adminshoworiginalipv6", 0, 8)
-	Call CheckRange("µÇÂ¼ÑéÖ¤Âë³¤¶È", "vcodecount", 0, 10)
-	Call CheckRange("ÁôÑÔÑéÖ¤Âë³¤¶È", "writevcodecount", 0, 10)
-	Call CheckRange("Ã¿Ò³ÏÔÊ¾µÄÁôÑÔÊı", "itemsperpage", 1, 32767)
-	Call CheckRange("Ã¿Ò³ÏÔÊ¾µÄ±êÌâÊı", "titlesperpage", 1, 32767)
-	Call CheckRange("Çø¶ÎÊ½·ÖÒ³ÏîÊı", "advpagelistcount", 1, 255)
-	Call CheckCssSize("ÁôÑÔ±¾×î´ó¿í¶È", "tablewidth")
-	Call CheckRange("´°¿ÚÇø¿é¼ä¾à", "windowspace", 1, 255)
-	Call CheckCssSize("ÁôÑÔ±¾×ó´°¸ñ¿í¶È", "tableleftwidth")
-	Call CheckRange("¡°ÁôÑÔÄÚÈİ¡±ÎÄ±¾¸ß¶È", "leavecontentheight", 1, 255)
-	Call CheckRange("ËÑË÷¿ò¿í¶È", "searchtextwidth", 1, 255)
-	Call CheckRange("»Ø¸´¡¢¹«¸æ±à¼­¿ò¸ß¶È", "replytextheight", 1, 255)
-	Call CheckRange("Í·ÏñÃ¿ĞĞÏÔÊ¾µÄÊıÄ¿", "picturesperrow", 1, 255)
-	Call CheckRange("ÉÙÁ¿ÔØÈëµÄÍ·ÏñÊı", "frequentfacecount", 0, 255)
-	Call CheckRange("·şÎñÆ÷Ê±ÇøÆ«ÒÆ", "servertimezoneoffset", -1440, 1440)
-	Call CheckRange("ÏÔÊ¾Ê±ÇøÆ«ÒÆ", "displaytimezoneoffset", -1440, 1440)
-	Call CheckRange("ÁôÑÔ×ÖÊıÏŞÖÆ", "wordslimit", 0, 2147483647)
-	Call CheckRange("ÓÊ¼ş½ô¼±³Ì¶È", "maillevel", 1, 5)
+	Call CheckRange("ç®¡ç†å‘˜ç™»å½•è¶…æ—¶", "admintimeout", 1, 1440)
+	Call CheckRange("ä¸ºè®¿å®¢æ˜¾ç¤ºIPv4", "showipv4", 0, 4)
+	Call CheckRange("ä¸ºè®¿å®¢æ˜¾ç¤ºIPv6", "showipv6", 0, 8)
+	Call CheckRange("ä¸ºç®¡ç†å‘˜æ˜¾ç¤ºIPv4", "adminshowipv4", 0, 4)
+	Call CheckRange("ä¸ºç®¡ç†å‘˜æ˜¾ç¤ºIPv6", "adminshowipv6", 0, 8)
+	Call CheckRange("ä¸ºç®¡ç†å‘˜æ˜¾ç¤ºåŸIPv4", "adminshoworiginalipv4", 0, 4)
+	Call CheckRange("ä¸ºç®¡ç†å‘˜æ˜¾ç¤ºåŸIPv6", "adminshoworiginalipv6", 0, 8)
+	Call CheckRange("ç™»å½•éªŒè¯ç é•¿åº¦", "vcodecount", 0, 10)
+	Call CheckRange("ç•™è¨€éªŒè¯ç é•¿åº¦", "writevcodecount", 0, 10)
+	Call CheckRange("æ¯é¡µæ˜¾ç¤ºçš„ç•™è¨€æ•°", "itemsperpage", 1, 32767)
+	Call CheckRange("æ¯é¡µæ˜¾ç¤ºçš„æ ‡é¢˜æ•°", "titlesperpage", 1, 32767)
+	Call CheckRange("åŒºæ®µå¼åˆ†é¡µé¡¹æ•°", "advpagelistcount", 1, 255)
+	Call CheckCssSize("ç•™è¨€æœ¬æœ€å¤§å®½åº¦", "tablewidth")
+	Call CheckRange("çª—å£åŒºå—é—´è·", "windowspace", 1, 255)
+	Call CheckCssSize("ç•™è¨€æœ¬å·¦çª—æ ¼å®½åº¦", "tableleftwidth")
+	Call CheckRange("â€œç•™è¨€å†…å®¹â€æ–‡æœ¬é«˜åº¦", "leavecontentheight", 1, 255)
+	Call CheckRange("æœç´¢æ¡†å®½åº¦", "searchtextwidth", 1, 255)
+	Call CheckRange("å›å¤ã€å…¬å‘Šç¼–è¾‘æ¡†é«˜åº¦", "replytextheight", 1, 255)
+	Call CheckRange("å¤´åƒæ¯è¡Œæ˜¾ç¤ºçš„æ•°ç›®", "picturesperrow", 1, 255)
+	Call CheckRange("å°‘é‡è½½å…¥çš„å¤´åƒæ•°", "frequentfacecount", 0, 255)
+	Call CheckRange("æœåŠ¡å™¨æ—¶åŒºåç§»", "servertimezoneoffset", -1440, 1440)
+	Call CheckRange("æ˜¾ç¤ºæ—¶åŒºåç§»", "displaytimezoneoffset", -1440, 1440)
+	Call CheckRange("ç•™è¨€å­—æ•°é™åˆ¶", "wordslimit", 0, 2147483647)
+	Call CheckRange("é‚®ä»¶ç´§æ€¥ç¨‹åº¦", "maillevel", 1, 5)
 
 
 	tstatus=0
@@ -247,10 +247,10 @@ if Not IsEmpty(Request.Form) then
 	if Request.Form("replyinword")="1" then tvisualflag=tvisualflag OR 1
 	if Request.Form("showubbtool")="1" then tvisualflag=tvisualflag OR 2
 	select case Request.Form("showpagelist") : case "1","2","3"
-		tvisualflag=tvisualflag OR clng(Request.Form("showpagelist"))*4				'×óÒÆ2Î»ºóÀÛ¼Ó
+		tvisualflag=tvisualflag OR clng(Request.Form("showpagelist"))*4				'å·¦ç§»2ä½åç´¯åŠ 
 	end select
 	select case Request.Form("showsearchbox") : case "1","2","3"
-		tvisualflag=tvisualflag OR clng(Request.Form("showsearchbox"))*16				'×óÒÆ4Î»ºóÀÛ¼Ó
+		tvisualflag=tvisualflag OR clng(Request.Form("showsearchbox"))*16				'å·¦ç§»4ä½åç´¯åŠ 
 	end select
 	if Request.Form("advpagelist")="1" then tvisualflag=tvisualflag OR 64
 	if Request.Form("hidehidden")="1" then tvisualflag=tvisualflag OR 128

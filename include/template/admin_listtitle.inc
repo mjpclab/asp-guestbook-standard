@@ -1,7 +1,7 @@
 <table class="topic-list">
 <thead>
 <tr>
-	<th class="select"><input type="checkbox" name="seltodel" class="seltodel checkbox" value=""/></th><th class="icon"></th><th class="title">±êÌâ</th><th class="name">ÐÕÃû</th><th class="date">ÁôÑÔÊ±¼ä</th>
+	<th class="select"><input type="checkbox" name="seltodel" class="seltodel checkbox" value=""/></th><th class="icon"></th><th class="title">æ ‡é¢˜</th><th class="name">å§“å</th><th class="date">ç•™è¨€æ—¶é—´</th>
 </tr>
 </thead>
 <tbody>
@@ -21,14 +21,14 @@ while Not rs.eof
 			<input type="checkbox" name="seltodel" class="seltodel checkbox" value="<%=rs.Fields("id")%>" />
 		</td>
 		<td class="icon">
-			<%if isauditting then%><img src="asset/image/icon_wait2pass.gif" title="´ýÉóºË" alt="´ýÉóºË"/>
-			<%elseif ishidden then%><img src="asset/image/icon_hide.gif" title="±»Òþ²Ø" alt="±»Òþ²Ø"/>
-			<%elseif iswhisper then%><img src="asset/image/icon_whisper.gif" title="ÇÄÇÄ»°" alt="ÇÄÇÄ»°"/>
-			<%elseif rs.Fields("parent_id")<0 then%><img src="asset/image/icon_toplocked.gif" title="ÖÃ¶¥" alt="ÖÃ¶¥"/>
+			<%if isauditting then%><img src="asset/image/icon_wait2pass.gif" title="å¾…å®¡æ ¸" alt="å¾…å®¡æ ¸"/>
+			<%elseif ishidden then%><img src="asset/image/icon_hide.gif" title="è¢«éšè—" alt="è¢«éšè—"/>
+			<%elseif iswhisper then%><img src="asset/image/icon_whisper.gif" title="æ‚„æ‚„è¯" alt="æ‚„æ‚„è¯"/>
+			<%elseif rs.Fields("parent_id")<0 then%><img src="asset/image/icon_toplocked.gif" title="ç½®é¡¶" alt="ç½®é¡¶"/>
 			<%end if%>
 		</td>
 		<td class="title">
-			<%if Trim(rs.Fields("title"))="" then%><a href="showword.asp?id=<%=rs.Fields("id") & GetRequests()%>">(ÎÞ±êÌâ)</a>
+			<%if Trim(rs.Fields("title"))="" then%><a href="showword.asp?id=<%=rs.Fields("id") & GetRequests()%>">(æ— æ ‡é¢˜)</a>
 			<%else%><a href="admin_showword.asp?id=<%=rs.Fields("id") & GetRequests()%>" title="<%=rs.Fields("title")%>"><%=rs.Fields("title")%></a>
 			<%end if%>
 		</td>

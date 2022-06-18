@@ -29,13 +29,13 @@ end if
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ÁôÑÔ±¾ »Ø¸´ÁôÑÔ</title>
+	<title><%=HomeName%> ç•™è¨€æœ¬ å›å¤ç•™è¨€</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 
 	<script type="text/javascript">
 	function submitcheck(cobject)
 	{
-		if (cobject.rcontent.value.length===0) {alert('ÇëÊäÈë»Ø¸´ÄÚÈİ¡£'); cobject.rcontent.focus(); return (false);}
+		if (cobject.rcontent.value.length===0) {alert('è¯·è¾“å…¥å›å¤å†…å®¹ã€‚'); cobject.rcontent.focus(); return (false);}
 		cobject.submit1.disabled=true;
 		return (true);
 	}
@@ -72,14 +72,14 @@ cn.close
 
 <div id="outerborder" class="outerborder">
 
-<%if ShowTitle then%><%Call InitHeaderData("¹ÜÀí")%><!-- #include file="include/template/header.inc" --><%end if%>
+<%if ShowTitle then%><%Call InitHeaderData("ç®¡ç†")%><!-- #include file="include/template/header.inc" --><%end if%>
 <div id="mainborder" class="mainborder">
 <!-- #include file="include/template/admin_mainmenu.inc" -->
 <div class="region">
-	<h3 class="title">»Ø¸´ÁôÑÔ</h3>
+	<h3 class="title">å›å¤ç•™è¨€</h3>
 	<div class="content">
 		<form method="post" action="admin_savereply.asp" onsubmit="return submitcheck(this)" name="form3">
-		»Ø¸´ÄÚÈİ£º<br/>
+		å›å¤å†…å®¹ï¼š<br/>
 		<textarea name="rcontent" id="rcontent" onkeydown="if(!this.modified)this.modified=true; var e=event?event:arguments[0]; if(e && e.ctrlKey && e.keyCode==13 && this.form.submit1)this.form.submit1.click();" rows="<%=ReplyTextHeight%>"><%=c_old%></textarea>
 		<!-- #include file="include/template/ubbtoolbar.inc" -->
 		<%ShowUbbToolBar(true)%>
@@ -89,14 +89,14 @@ cn.close
 		<input type="hidden" name="type" value="<%=request.QueryString("type")%>" />
 		<input type="hidden" name="searchtxt" value="<%=request.QueryString("searchtxt")%>" />
 		<p>
-			<input type="checkbox" name="html1" id="html1" value="1"<%if cint(t_html and 1)<>0 then Response.Write " checked=""checked"""%> /><label for="html1">Ö§³ÖHTML±ê¼Ç</label><br/>
-			<input type="checkbox" name="ubb1" id="ubb1" value="1"<%if cint(t_html and 2)<>0 then Response.Write " checked=""checked"""%> /><label for="ubb1">Ö§³ÖUBB±ê¼Ç</label><br/>
-			<input type="checkbox" name="newline1" id="newline1" value="1"<%if cint(t_html and 4)<>0 then Response.Write " checked=""checked"""%> /><label for="newline1">²»Ö§³ÖHTMLºÍUBB±ê¼ÇÊ±ÔÊĞí»Ø³µ»»ĞĞ</label><br/>
+			<input type="checkbox" name="html1" id="html1" value="1"<%if cint(t_html and 1)<>0 then Response.Write " checked=""checked"""%> /><label for="html1">æ”¯æŒHTMLæ ‡è®°</label><br/>
+			<input type="checkbox" name="ubb1" id="ubb1" value="1"<%if cint(t_html and 2)<>0 then Response.Write " checked=""checked"""%> /><label for="ubb1">æ”¯æŒUBBæ ‡è®°</label><br/>
+			<input type="checkbox" name="newline1" id="newline1" value="1"<%if cint(t_html and 4)<>0 then Response.Write " checked=""checked"""%> /><label for="newline1">ä¸æ”¯æŒHTMLå’ŒUBBæ ‡è®°æ—¶å…è®¸å›è½¦æ¢è¡Œ</label><br/>
 			<br/>
-			<input type="checkbox" name="lock2top" id="lock2top" value="1" /><label for="lock2top">»Ø¸´ºóÖÃ¶¥ÁôÑÔ</label><br/>
-			<input type="checkbox" name="bring2top" id="bring2top" value="1" /><label for="bring2top">»Ø¸´ºóÌáÇ°ÁôÑÔ</label>
+			<input type="checkbox" name="lock2top" id="lock2top" value="1" /><label for="lock2top">å›å¤åç½®é¡¶ç•™è¨€</label><br/>
+			<input type="checkbox" name="bring2top" id="bring2top" value="1" /><label for="bring2top">å›å¤åæå‰ç•™è¨€</label>
 		</p>
-		<div class="command"><input type="submit" value="·¢±í»Ø¸´" name="submit1" id="submit1" /></div>
+		<div class="command"><input type="submit" value="å‘è¡¨å›å¤" name="submit1" id="submit1" /></div>
 		</form>
 	</div>
 </div>

@@ -28,30 +28,30 @@ if Not IsEmpty(Request.Form) then
 	set rs=server.CreateObject("ADODB.Recordset")
 	Call CreateConn(cn)
 	rs.Open sql_adminsavereply_main & request.form("mainid"),cn,0,3,1
-	if Not rs.EOF then		'ÁôÑÔ´æÔÚ
+	if Not rs.EOF then		'ç•™è¨€å­˜åœ¨
 		cn.BeginTrans
 		rs("replied")=clng(rs("replied") OR 1)
-		if clng(rs("guestflag") and 16)<>0 then rs("guestflag")=rs("guestflag")-16	'Í¨¹ýÉóºË
+		if clng(rs("guestflag") and 16)<>0 then rs("guestflag")=rs("guestflag")-16	'é€šè¿‡å®¡æ ¸
 		rs.Update
 		rs.Close
 
 		replydate1=DateTimeStr(ServerTimeToUTC(now()))
 		content1=Replace(Replace(Request.Form("rcontent"),"'","''"),"<%","< %")
 		rs.Open sql_adminsavereply_reply &request.form("mainid"),cn,0,1,1
-		if rs.EOF then	'ÐÂ»Ø¸´
+		if rs.EOF then	'æ–°å›žå¤
 			rs.Close
 			cn.Execute Replace(Replace(Replace(Replace(sql_adminsavereply_insert,"{0}",request.form("mainid")),"{1}",replydate1),"{2}",tlimit),"{3}",content1),,129
-		else	'¸üÐÂ»Ø¸´
+		else	'æ›´æ–°å›žå¤
 			rs.Close
 			cn.Execute Replace(Replace(Replace(Replace(sql_adminsavereply_update,"{0}",replydate1),"{1}",tlimit),"{2}",content1),"{3}",Request.Form("mainid")),,129
 		end if
 		cn.CommitTrans
 
-		if Request.Form("lock2top")="1" then	'ÖÃ¶¥
+		if Request.Form("lock2top")="1" then	'ç½®é¡¶
 			cn.Execute Replace(sql_adminsavereply_lock2top,"{0}",Request.Form("mainid")),,129
 		end if
 
-		if Request.Form("bring2top")="1" then	'ÌáÇ°
+		if Request.Form("bring2top")="1" then	'æå‰
 			cn.Execute Replace(Replace(sql_adminsavereply_bring2top,"{0}",replydate1),"{1}",Request.Form("mainid")),,129
 		end if
 

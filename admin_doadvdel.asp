@@ -23,41 +23,41 @@ case "1"
 	if isdate(tparam) then
 		tparam=DateTimeStr(tparam)
 		cn.Execute Replace(sql_admindoadvdel_beforedate_main,"{0}",tparam),,129
-		Call TipsPage("É¾³ı²Ù×÷Íê³É¡£","admin_advdel.asp")
+		Call TipsPage("åˆ é™¤æ“ä½œå®Œæˆã€‚","admin_advdel.asp")
 	else
-		Call TipsPage("ÄúÊäÈëµÄÈÕÆÚÓĞÎó£¬Çë¼ì²é¡£","admin_advdel.asp")
+		Call TipsPage("æ‚¨è¾“å…¥çš„æ—¥æœŸæœ‰è¯¯ï¼Œè¯·æ£€æŸ¥ã€‚","admin_advdel.asp")
 	end if
 case "2"
 	if isdate(tparam) then
 		tparam=DateTimeStr(tparam)
 		cn.Execute Replace(sql_admindoadvdel_afterdate_main,"{0}",tparam),,129
-		Call TipsPage("É¾³ı²Ù×÷Íê³É¡£","admin_advdel.asp")
+		Call TipsPage("åˆ é™¤æ“ä½œå®Œæˆã€‚","admin_advdel.asp")
 	else
-		Call TipsPage("ÄúÊäÈëµÄÈÕÆÚÓĞÎó£¬Çë¼ì²é¡£","admin_advdel.asp")
+		Call TipsPage("æ‚¨è¾“å…¥çš„æ—¥æœŸæœ‰è¯¯ï¼Œè¯·æ£€æŸ¥ã€‚","admin_advdel.asp")
 	end if
 case "3"
 	if isnumeric(tparam) then
 		if clng(tparam)>0 then
 			'cn.Execute "delete reply.* from main,reply where main.id=reply.articleid and main.id<=(select max(id) from (select top " &tparam& " id from main order by id ASC))",,129
 			cn.Execute Replace(sql_admindoadvdel_firstn_main,"{0}",tparam),,129
-			Call TipsPage("É¾³ı²Ù×÷Íê³É¡£","admin_advdel.asp")
+			Call TipsPage("åˆ é™¤æ“ä½œå®Œæˆã€‚","admin_advdel.asp")
 		else
-			Call TipsPage("ÇëÊäÕıÈ·µÄÊıÖµ¡£","admin_advdel.asp")
+			Call TipsPage("è¯·è¾“æ­£ç¡®çš„æ•°å€¼ã€‚","admin_advdel.asp")
 		end if
 	else
-		Call TipsPage("ÇëÊäÕıÈ·µÄÊıÖµ¡£","admin_advdel.asp")
+		Call TipsPage("è¯·è¾“æ­£ç¡®çš„æ•°å€¼ã€‚","admin_advdel.asp")
 	end if
 case "4"
 	if isnumeric(tparam) then
 		if clng(tparam)>0 then
 			'cn.Execute "delete reply.* from main,reply where main.id=reply.articleid and main.id>=(select min(id) from (select top " &tparam& " id from main order by id DESC))",,129
 			cn.Execute Replace(sql_admindoadvdel_lastn_main,"{0}",tparam),,129
-			Call TipsPage("É¾³ı²Ù×÷Íê³É¡£","admin_advdel.asp")
+			Call TipsPage("åˆ é™¤æ“ä½œå®Œæˆã€‚","admin_advdel.asp")
 		else
-			Call TipsPage("ÇëÊäÕıÈ·µÄÊıÖµ¡£","admin_advdel.asp")
+			Call TipsPage("è¯·è¾“æ­£ç¡®çš„æ•°å€¼ã€‚","admin_advdel.asp")
 		end if
 	else
-		Call TipsPage("ÇëÊäÕıÈ·µÄÊıÖµ¡£","admin_advdel.asp")
+		Call TipsPage("è¯·è¾“æ­£ç¡®çš„æ•°å€¼ã€‚","admin_advdel.asp")
 	end if
 case "5"
 	tparam=replace(tparam,"'","''")
@@ -71,9 +71,9 @@ case "5"
 	if tparam<>"" then
 		'cn.Execute "delete reply.* from main,reply where main.id=reply.articleid and main.name like ('%" &tparam& "%')",,129
 		cn.Execute Replace(sql_admindoadvdel_name_main,"{0}",tparam),,129
-		Call TipsPage("É¾³ı²Ù×÷Íê³É¡£","admin_advdel.asp")
+		Call TipsPage("åˆ é™¤æ“ä½œå®Œæˆã€‚","admin_advdel.asp")
 	else
-		Call TipsPage("²»ÄÜÊäÈë¿Õ×Ö·û´®»òÈ«²¿ÎªÍ¨Åä·û¡£","admin_advdel.asp")
+		Call TipsPage("ä¸èƒ½è¾“å…¥ç©ºå­—ç¬¦ä¸²æˆ–å…¨éƒ¨ä¸ºé€šé…ç¬¦ã€‚","admin_advdel.asp")
 	end if
 case "6"
 	tparam=replace(tparam,"'","''")
@@ -87,9 +87,9 @@ case "6"
 	if tparam<>"" then
 		'cn.Execute "delete reply.* from main,reply where main.id=reply.articleid and main.title like ('%" &tparam& "%')",,129
 		cn.Execute Replace(sql_admindoadvdel_title_main,"{0}",tparam),,129
-		Call TipsPage("É¾³ı²Ù×÷Íê³É¡£","admin_advdel.asp")
+		Call TipsPage("åˆ é™¤æ“ä½œå®Œæˆã€‚","admin_advdel.asp")
 	else
-		Call TipsPage("²»ÄÜÊäÈë¿Õ×Ö·û´®»òÈ«²¿ÎªÍ¨Åä·û¡£","admin_advdel.asp")
+		Call TipsPage("ä¸èƒ½è¾“å…¥ç©ºå­—ç¬¦ä¸²æˆ–å…¨éƒ¨ä¸ºé€šé…ç¬¦ã€‚","admin_advdel.asp")
 	end if
 case "7"
 	tparam=replace(tparam,"'","''")
@@ -103,14 +103,14 @@ case "7"
 	if tparam<>"" then
 		'cn.Execute "delete reply.* from main,reply where main.id=reply.articleid and main.article like ('%" &tparam& "%')",,129
 		cn.Execute Replace(sql_admindoadvdel_article_main,"{0}",tparam),,129
-		Call TipsPage("É¾³ı²Ù×÷Íê³É¡£","admin_advdel.asp")
+		Call TipsPage("åˆ é™¤æ“ä½œå®Œæˆã€‚","admin_advdel.asp")
 	else
-		Call TipsPage("²»ÄÜÊäÈë¿Õ×Ö·û´®»òÈ«²¿ÎªÍ¨Åä·û¡£","admin_advdel.asp")
+		Call TipsPage("ä¸èƒ½è¾“å…¥ç©ºå­—ç¬¦ä¸²æˆ–å…¨éƒ¨ä¸ºé€šé…ç¬¦ã€‚","admin_advdel.asp")
 	end if
 case "8"
 	'cn.Execute "delete from reply",,129
 	cn.Execute Replace(sql_admindoadvdel_main,"{0}",tparam),,129
-	Call TipsPage("É¾³ı²Ù×÷Íê³É¡£","admin_advdel.asp")
+	Call TipsPage("åˆ é™¤æ“ä½œå®Œæˆã€‚","admin_advdel.asp")
 case else
 	cn.Close : set cn=nothing
 	Response.Redirect "admin_advdel.asp"

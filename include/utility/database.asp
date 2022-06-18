@@ -39,7 +39,7 @@ function GetConnStr()
 		case 13
 			dbconnstr=GetSqlServerConnStr("SQLNCLI11")
 		case else
-			Err.Raise 513,,"ÎŞĞ§µÄÊı¾İ¿âÀàĞÍºÅ(dbtype)"
+			Err.Raise 513,,"æ— æ•ˆçš„æ•°æ®åº“ç±»å‹å·(dbtype)"
 		end select
 	end if
 	GetConnStr=dbconnstr

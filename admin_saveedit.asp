@@ -27,7 +27,7 @@ if Not IsEmpty(Request.Form) then
 	set rs=server.CreateObject("ADODB.Recordset")
 	Call CreateConn(cn)
 	rs.Open sql_adminsaveedit_open & Request.Form("mainid"),cn,0,3,1
-	if Not rs.EOF then		'ÁôÑÔ´æÔÚ
+	if Not rs.EOF then		'ç•™è¨€å­˜åœ¨
 		rs.Fields("guestflag")=cbyte(rs.Fields("guestflag") and 248) + tlimit
 		if Request.Form("etitle")<>"" then rs.Fields("title")=HtmlEncode(Request.Form("etitle"))
 		rs.Fields("article")=Request.Form("econtent")

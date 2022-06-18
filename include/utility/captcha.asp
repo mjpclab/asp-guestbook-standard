@@ -371,21 +371,21 @@ next
 
 
 dim bmpHeader
-bmpHeader=chrB(&H42) & chrB(&H4D)		'Î»Í¼ÀàĞÍ BM
-bmpHeader=bmpHeader & getstr(&H36 + lenB(bmpStream),4)	'ÎÄ¼ş³¤¶È(bmpHeader+bitstream)
-bmpHeader=bmpHeader & chrB(0) & chrB(0) & chrB(0) & chrB(0)	'±£Áô
-bmpHeader=bmpHeader & getstr(&H36,4)		'Êµ¼ÊÊı¾İÆ«ÒÆ
-bmpHeader=bmpHeader & getstr(&H28,4)		'Î»Í¼ĞÅÏ¢Í·³¤¶È(win 3.x/9x/NT)
-bmpHeader=bmpHeader & getstr(i_width,4)		'Î»Í¼¿í¶È
-bmpHeader=bmpHeader & getstr(i_height,4)		'Î»Í¼¸ß¶È
-bmpHeader=bmpHeader & getstr(1,2)		'Î»ÃæÊı(³£Êı)
-bmpHeader=bmpHeader & getstr(24,2)	'Ã¿ÏóËØÎ»Êı
-bmpHeader=bmpHeader & chrB(0) & chrB(0) & chrB(0) & chrB(0)	'Ñ¹Ëõ£º²»Ñ¹Ëõ
-bmpHeader=bmpHeader & getstr(lenB(bmpStream),4)	'Î»Í¼Êı¾İ´óĞ¡,ÉáÈëÎª4µÄ±¶Êı
-bmpHeader=bmpHeader & chrB(&H12) & chrB(&H0B) & chrB(0) & chrB(0)	'Ë®Æ½·Ö±æÂÊ£ºÏóËØ/Ã×
-bmpHeader=bmpHeader & chrB(&H12) & chrB(&H0B) & chrB(0) & chrB(0)	'´¹Ö±·Ö±æÂÊ£ºÏóËØ/Ã×
-bmpHeader=bmpHeader & chrB(0) & chrB(0) & chrB(0) & chrB(0)	'Ê¹ÓÃÑÕÉ«Êı(0=È«²¿)
-bmpHeader=bmpHeader & chrB(0) & chrB(0) & chrB(0) & chrB(0)	'ÖØÒªÑÕÉ«Êı(0=È«²¿)
+bmpHeader=chrB(&H42) & chrB(&H4D)		'ä½å›¾ç±»å‹ BM
+bmpHeader=bmpHeader & getstr(&H36 + lenB(bmpStream),4)	'æ–‡ä»¶é•¿åº¦(bmpHeader+bitstream)
+bmpHeader=bmpHeader & chrB(0) & chrB(0) & chrB(0) & chrB(0)	'ä¿ç•™
+bmpHeader=bmpHeader & getstr(&H36,4)		'å®é™…æ•°æ®åç§»
+bmpHeader=bmpHeader & getstr(&H28,4)		'ä½å›¾ä¿¡æ¯å¤´é•¿åº¦(win 3.x/9x/NT)
+bmpHeader=bmpHeader & getstr(i_width,4)		'ä½å›¾å®½åº¦
+bmpHeader=bmpHeader & getstr(i_height,4)		'ä½å›¾é«˜åº¦
+bmpHeader=bmpHeader & getstr(1,2)		'ä½é¢æ•°(å¸¸æ•°)
+bmpHeader=bmpHeader & getstr(24,2)	'æ¯è±¡ç´ ä½æ•°
+bmpHeader=bmpHeader & chrB(0) & chrB(0) & chrB(0) & chrB(0)	'å‹ç¼©ï¼šä¸å‹ç¼©
+bmpHeader=bmpHeader & getstr(lenB(bmpStream),4)	'ä½å›¾æ•°æ®å¤§å°,èˆå…¥ä¸º4çš„å€æ•°
+bmpHeader=bmpHeader & chrB(&H12) & chrB(&H0B) & chrB(0) & chrB(0)	'æ°´å¹³åˆ†è¾¨ç‡ï¼šè±¡ç´ /ç±³
+bmpHeader=bmpHeader & chrB(&H12) & chrB(&H0B) & chrB(0) & chrB(0)	'å‚ç›´åˆ†è¾¨ç‡ï¼šè±¡ç´ /ç±³
+bmpHeader=bmpHeader & chrB(0) & chrB(0) & chrB(0) & chrB(0)	'ä½¿ç”¨é¢œè‰²æ•°(0=å…¨éƒ¨)
+bmpHeader=bmpHeader & chrB(0) & chrB(0) & chrB(0) & chrB(0)	'é‡è¦é¢œè‰²æ•°(0=å…¨éƒ¨)
 '=====================================================
 
 Response.ContentType="image/bmp"

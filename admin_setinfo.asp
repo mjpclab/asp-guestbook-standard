@@ -15,7 +15,7 @@
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ÁôÑÔ±¾ ÐÞ¸Ä°æÖ÷×ÊÁÏ</title>
+	<title><%=HomeName%> ç•™è¨€æœ¬ ä¿®æ”¹ç‰ˆä¸»èµ„æ–™</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 </head>
 
@@ -23,7 +23,7 @@
 
 <div id="outerborder" class="outerborder">
 
-	<%if ShowTitle then%><%Call InitHeaderData("¹ÜÀí")%><!-- #include file="include/template/header.inc" --><%end if%>
+	<%if ShowTitle then%><%Call InitHeaderData("ç®¡ç†")%><!-- #include file="include/template/header.inc" --><%end if%>
 	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/admin_mainmenu.inc" -->
 	<%
@@ -36,19 +36,19 @@
 	%>
 
 	<div class="region form-region region-longtext">
-		<h3 class="title">ÐÞ¸Ä°æÖ÷×ÊÁÏ</h3>
+		<h3 class="title">ä¿®æ”¹ç‰ˆä¸»èµ„æ–™</h3>
 		<div class="content">
 			<form method="post" action="admin_saveinfo.asp" name="form1" onsubmit="form1.submit1.disabled=true;">
 			<div class="field">
-				<span class="label">êÇ³Æ</span>
+				<span class="label">æ˜µç§°</span>
 				<span class="value"><input type="text" name="aname" maxlength="20" value="<%="" & rs("name") & ""%>" /></span>
 			</div>
 			<div class="field">
-				<span class="label">ÓÊ¼þ</span>
+				<span class="label">é‚®ä»¶</span>
 				<span class="value"><input type="text" name="aemail" maxlength="50" value="<%="" & rs("email") & ""%>" /></span>
 			</div>
 			<div class="field">
-				<span class="label">QQºÅ</span>
+				<span class="label">QQå·</span>
 				<span class="value"><input type="text" name="aqqid" maxlength="16" value="<%="" & rs("qqid") & ""%>" /></span>
 			</div>
 			<div class="field">
@@ -56,16 +56,16 @@
 				<span class="value"><input type="text" name="amsnid" maxlength="50" value="<%="" & rs("msnid") & ""%>" /></span>
 			</div>
 			<div class="field">
-				<span class="label">Ö÷Ò³</span>
+				<span class="label">ä¸»é¡µ</span>
 				<span class="value"><input type="text" name="ahomepage" maxlength="127" value="<%="" & rs("homepage") & ""%>" /></span>
 			</div>
 			<div class="field">
-				<span class="label">Í·Ïñ±àºÅ</span>
-				<span class="value"><input type="text" name="afaceid" maxlength="3" value="<%=tfaceid%>" title="ÌîÐ´Í·Ïñ±àºÅÊ±URL±ØÐëÇå¿Õ" /></span>
+				<span class="label">å¤´åƒç¼–å·</span>
+				<span class="value"><input type="text" name="afaceid" maxlength="3" value="<%=tfaceid%>" title="å¡«å†™å¤´åƒç¼–å·æ—¶URLå¿…é¡»æ¸…ç©º" /></span>
 			</div>
 			<div class="field">
-				<span class="label">»òURL</span>
-				<span class="value"><input type="text" name="afaceurl" maxlength="127" value="<%="" & rs("faceurl") & ""%>" title="ÌîÐ´URLÊ±ºöÂÔÍ·Ïñ±àºÅ" /></span>
+				<span class="label">æˆ–URL</span>
+				<span class="value"><input type="text" name="afaceurl" maxlength="127" value="<%="" & rs("faceurl") & ""%>" title="å¡«å†™URLæ—¶å¿½ç•¥å¤´åƒç¼–å·" /></span>
 			</div>
 			<div class="field">
 				<%rs.Close : cn.Close : set rs=nothing : set cn=nothing
@@ -74,7 +74,7 @@
 				defaultindex=tfaceid%>
 				<!-- #include file="include/template/listface.inc" -->
 			</div>
-			<div class="command"><input value="¸üÐÂÊý¾Ý" type="submit" name="submit1" /></div>
+			<div class="command"><input value="æ›´æ–°æ•°æ®" type="submit" name="submit1" /></div>
 			</form>
 		</div>
 	</div>

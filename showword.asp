@@ -44,13 +44,13 @@ Dim id
 id=FilterKeyword(Trim(Request.QueryString("id")))
 if id="" Or Not Isnumeric(id) then
 	Response.Status="404 Not Found"
-	showMessage="ÁôÑÔ²»´æÔÚ¡£"
+	showMessage="ç•™è¨€ä¸å­˜åœ¨ã€‚"
 Else
 	rs.Open sql_showword & id,cn,,,1
 
 	if rs.EOF then
 		Response.Status="404 Not Found"
-		showMessage="ÁôÑÔ²»´æÔÚ¡£"
+		showMessage="ç•™è¨€ä¸å­˜åœ¨ã€‚"
 	elseif Not CBool(rs.Fields("guestflag") and 32) then
 		showWord=true
 		pagename="showword"
@@ -69,11 +69,11 @@ Else
 		end if
 	elseif VcodeCount>0 and (Request.Form("ivcode")<>Session(InstanceName & "_vcode") or Session(InstanceName & "_vcode")="") then
 		showVerify=true
-		showMessage="ÑéÖ¤Âë´íÎó¡£"
+		showMessage="éªŒè¯ç é”™è¯¯ã€‚"
 		Session(InstanceName & "_vcode")=getvcode(VcodeCount)
 	elseif md5(Request.Form("ipass"),32)<>rs.Fields("whisperpwd") then
 		showVerify=true
-		showMessage="ÃÜÂë´íÎó¡£"
+		showMessage="å¯†ç é”™è¯¯ã€‚"
 		if VcodeCount>0 then
 			Session(InstanceName & "_vcode")=getvcode(VcodeCount)
 		else
@@ -93,7 +93,7 @@ End If
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ÁôÑÔ±¾ ä¯ÀÀÁôÑÔ<%if showWord and pagename="showword" then Response.Write " " & rs.Fields("title")%></title>
+	<title><%=HomeName%> ç•™è¨€æœ¬ æµè§ˆç•™è¨€<%if showWord and pagename="showword" then Response.Write " " & rs.Fields("title")%></title>
 	<!-- #include file="inc_stylesheet.asp" -->
 
 	<script type="text/javascript">
@@ -107,7 +107,7 @@ End If
 <body<%=bodylimit%> onload="<%=framecheck%>setFocus();">
 <div id="outerborder" class="outerborder">
 
-	<%if ShowTitle then%><%Call InitHeaderData("ä¯ÀÀÁôÑÔ")%><!-- #include file="include/template/header.inc" --><%end if%>
+	<%if ShowTitle then%><%Call InitHeaderData("æµè§ˆç•™è¨€")%><!-- #include file="include/template/header.inc" --><%end if%>
 
 	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/guest_func.inc" -->
@@ -116,25 +116,25 @@ End If
 
 	<%if showVerify then%>
 		<div class="region form-region">
-			<h3 class="title">ÑéÖ¤ÒÑ¼ÓÃÜÁôÑÔ</h3>
+			<h3 class="title">éªŒè¯å·²åŠ å¯†ç•™è¨€</h3>
 			<div class="content">
-				<form method="post" action="showword.asp?id=<%=id%>" name="form5" onsubmit="if(this.ipass.value==''){alert('ÇëÊäÈëÃÜÂë¡£');this.ipass.focus();return false;} else if(this.ivcode && this.ivcode.value==''){alert('ÇëÊäÈëÑéÖ¤Âë¡£');this.ivcode.focus(); return false;} else this.submit1.disabled=true;">
+				<form method="post" action="showword.asp?id=<%=id%>" name="form5" onsubmit="if(this.ipass.value==''){alert('è¯·è¾“å…¥å¯†ç ã€‚');this.ipass.focus();return false;} else if(this.ivcode && this.ivcode.value==''){alert('è¯·è¾“å…¥éªŒè¯ç ã€‚');this.ivcode.focus(); return false;} else this.submit1.disabled=true;">
 				<input type="hidden" name="ispostback" />
 
 				<div class="field">
-					<span class="label">ÃÜÂë£º</span>
+					<span class="label">å¯†ç ï¼š</span>
 					<span class="value"><input type="password" name="ipass" maxlength="16" autofocus="autofocus" /></span>
 				</div>
 
 				<%if VcodeCount>0 then%>
 				<div class="field">
-					<span class="label">ÑéÖ¤Âë£º</span>
+					<span class="label">éªŒè¯ç ï¼š</span>
 					<span class="value"><input type="text" name="ivcode" autocomplete="off"><img id="captcha" class="captcha" src="show_vcode.asp?t=0" /></span>
 				</div>
 				<%end if%>
 
 				<div class="command">
-					<input value="È·¶¨" type="submit" name="submit1" />
+					<input value="ç¡®å®š" type="submit" name="submit1" />
 				</div>
 
 				</form>

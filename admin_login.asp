@@ -19,7 +19,7 @@ if VcodeCount>0 then Session(InstanceName & "_vcode")=getvcode(VcodeCount)
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ÁôÑÔ±¾ ¹ÜÀíÔ±µÇÂ¼</title>
+	<title><%=HomeName%> ç•™è¨€æœ¬ ç®¡ç†å‘˜ç™»å½•</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 	
 	<script type="text/javascript">
@@ -27,13 +27,13 @@ if VcodeCount>0 then Session(InstanceName & "_vcode")=getvcode(VcodeCount)
 	{
 		if(obj.iadminpass.value.length===0)
 		{
-			alert('ÇëÊäÈëÃÜÂë¡£');
+			alert('è¯·è¾“å…¥å¯†ç ã€‚');
 			obj.iadminpass.focus();
 			return false;
 		}
 		else if(obj.ivcode && obj.ivcode.value.length===0)
 		{
-			alert('ÇëÊäÈëÑéÖ¤Âë¡£');
+			alert('è¯·è¾“å…¥éªŒè¯ç ã€‚');
 			obj.ivcode.focus();
 			return false;
 		}
@@ -47,26 +47,26 @@ if VcodeCount>0 then Session(InstanceName & "_vcode")=getvcode(VcodeCount)
 </head>
 
 <body onload="if(form5.iadminpass.value.length===0)form5.iadminpass.focus()">
-<%if ShowTitle then%><%Call InitHeaderData("¹ÜÀíÔ±µÇÂ¼")%><!-- #include file="include/template/header.inc" --><%end if%>
+<%if ShowTitle then%><%Call InitHeaderData("ç®¡ç†å‘˜ç™»å½•")%><!-- #include file="include/template/header.inc" --><%end if%>
 
 <div id="mainborder" class="mainborder narrow-mainborder">
 <div class="region form-region narrow-region">
-	<h3 class="title">¹ÜÀíÔ±µÇÂ¼</h3>
+	<h3 class="title">ç®¡ç†å‘˜ç™»å½•</h3>
 	<div class="content">
 		<form method="post" action="login_verify.asp" name="form5" onsubmit="return submitCheck(this);">
 			<input type="hidden" name="referrer" value="<%=Request.QueryString("referrer")%>"/>
 			<div class="field">
-				<span class="label">ÃÜÂë</span>
+				<span class="label">å¯†ç </span>
 				<span class="value"><input type="password" name="iadminpass" maxlength="32" autofocus="autofocus" /></span>
 			</div>
 			<%if VcodeCount>0 then%>
 			<div class="field">
-				<span class="label">ÑéÖ¤Âë</span>
+				<span class="label">éªŒè¯ç </span>
 				<span class="value"><input type="text" name="ivcode" autocomplete="off" /><img id="captcha" class="captcha" src="show_vcode.asp?t=0" /></span>
 			</div>
 			<%end if%>
 			<div class="command">
-				<input value="µÇÂ¼" type="submit" name="submit1" />
+				<input value="ç™»å½•" type="submit" name="submit1" />
 			</div>
 			</form>
 	</div>

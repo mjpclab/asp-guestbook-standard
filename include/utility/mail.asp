@@ -19,20 +19,20 @@ sub newinform()
 	if isemail(MailReceive) and MailSmtpServer<>"" then
 		dim status_str,book_prefix,subject_str,body_str
 		status_str=""
-		if clng(guestflag and 16)<>0 then status_str = status_str & "´ıÉóºË "
-		if clng(guestflag and 32)<>0 then status_str = status_str & "ÇÄÇÄ»°"
-		if clng(guestflag and 32)<>0 and clng(guestflag and 64)<>0 then status_str = status_str & "(ÒÑ¼ÓÃÜ)"
-		if status_str="" then status_str="ÆÕÍ¨"
+		if clng(guestflag and 16)<>0 then status_str = status_str & "å¾…å®¡æ ¸ "
+		if clng(guestflag and 32)<>0 then status_str = status_str & "æ‚„æ‚„è¯"
+		if clng(guestflag and 32)<>0 and clng(guestflag and 64)<>0 then status_str = status_str & "(å·²åŠ å¯†)"
+		if status_str="" then status_str="æ™®é€š"
 
-		book_prefix = ltrim(HomeName & " ÁôÑÔ±¾")
-		subject_str = book_prefix & " ĞÂÁôÑÔÍ¨Öª"
-		body_str=book_prefix & " ÒÑÌí¼ÓÒ»ÌõĞÂÁôÑÔ" & vbCrLf & _
-				"Ê±¼ä£º" & cstr(logdate1) & vbCrLf & _
-				"ĞÕÃû£º" & getpuretext(name1) & vbCrLf & _
-				"±êÌâ£º" & getpuretext(title1) & vbCrLf & _
-				"ÄÚÈİ£º" & vbCrLf & getpuretext(content1) & vbCrLf & vbCrLf & _
-				"×´Ì¬£º" & status_str & vbCrLf & _
-				"´ò¿ªÁôÑÔ±¾£º" & geturlpath & "index.asp"
+		book_prefix = ltrim(HomeName & " ç•™è¨€æœ¬")
+		subject_str = book_prefix & " æ–°ç•™è¨€é€šçŸ¥"
+		body_str=book_prefix & " å·²æ·»åŠ ä¸€æ¡æ–°ç•™è¨€" & vbCrLf & _
+				"æ—¶é—´ï¼š" & cstr(logdate1) & vbCrLf & _
+				"å§“åï¼š" & getpuretext(name1) & vbCrLf & _
+				"æ ‡é¢˜ï¼š" & getpuretext(title1) & vbCrLf & _
+				"å†…å®¹ï¼š" & vbCrLf & getpuretext(content1) & vbCrLf & vbCrLf & _
+				"çŠ¶æ€ï¼š" & status_str & vbCrLf & _
+				"æ‰“å¼€ç•™è¨€æœ¬ï¼š" & geturlpath & "index.asp"
 		
 		if MailComponent="jmail" then
 			sendbyjmail MailReceive,subject_str,body_str
@@ -57,12 +57,12 @@ sub replyinform()
 				id=request.form("mainid")
 			end if
 
-			book_prefix = ltrim(HomeName & " ÁôÑÔ±¾")
-			subject_str=book_prefix & " »Ø¸´Í¨Öª"
-			body_str=book_prefix & " ÄúµÄÁôÑÔÒÑ»Ø¸´" & vbCrLf & _
-					"ÄÚÈİ(" & cstr(rs.Fields("logdate")) & ")£º" & vbCrLf & getpuretext(rs.Fields("article")) & vbCrLf & vbCrLf & _
-					"»Ø¸´(" & cstr(replydate1) & ")£º" & vbCrLf & getpuretext(Request.Form("rcontent")) & vbCrLf & vbCrLf & _
-					"²é¿´ÁôÑÔ£º" & geturlpath & "showword.asp?id=" & id
+			book_prefix = ltrim(HomeName & " ç•™è¨€æœ¬")
+			subject_str=book_prefix & " å›å¤é€šçŸ¥"
+			body_str=book_prefix & " æ‚¨çš„ç•™è¨€å·²å›å¤" & vbCrLf & _
+					"å†…å®¹(" & cstr(rs.Fields("logdate")) & ")ï¼š" & vbCrLf & getpuretext(rs.Fields("article")) & vbCrLf & vbCrLf & _
+					"å›å¤(" & cstr(replydate1) & ")ï¼š" & vbCrLf & getpuretext(Request.Form("rcontent")) & vbCrLf & vbCrLf & _
+					"æŸ¥çœ‹ç•™è¨€ï¼š" & geturlpath & "showword.asp?id=" & id
 
 			if MailComponent="jmail" then
 				sendbyjmail rs.Fields("email"),subject_str,body_str
@@ -90,7 +90,7 @@ sub sendbyjmail(byref receiver,byref subject_str,byref body_str)
 		jmail.From = MailFrom
 		jmail.MailServerUserName = MailUserId
 		jmail.MailServerPassword = MailUserPass
-		jmail.Priority = MailLevel			'ÓÊ¼şµÄ½ô¼±³Ì¶È£¬1 Îª×î¿ì£¬5 Îª×îÂı£¬ 3 ÎªÄ¬ÈÏÖµ
+		jmail.Priority = MailLevel			'é‚®ä»¶çš„ç´§æ€¥ç¨‹åº¦ï¼Œ1 ä¸ºæœ€å¿«ï¼Œ5 ä¸ºæœ€æ…¢ï¼Œ 3 ä¸ºé»˜è®¤å€¼
 		jmail.AddHeader "Originating-IP", Request.ServerVariables("REMOTE_ADDR")
 
 		jmail.AddRecipient receiver

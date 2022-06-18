@@ -87,7 +87,7 @@
 				Response.Write " />"
 
 				if ihead_id=0 then
-					Response.Write FormatHeadHtml("<label onmousedown=""selhead({0})"">(ÎŞÍ·Ïñ)</label>")
+					Response.Write FormatHeadHtml("<label onmousedown=""selhead({0})"">(æ— å¤´åƒ)</label>")
 				else
 					Response.Write FormatHeadHtml("<img id=""face_{0}"" alt="""" class=""listface"" {1} {2} onmousedown=""selhead({0})"" />")
 				end if
@@ -99,7 +99,7 @@
 	%>
 	<tr>
 		<td colspan="<%=PicturesPerRow%>">
-			<a href="javascript:void 0;" onclick="loadHeadRest(this.parentNode.parentNode);">¸ü¶àÍ·Ïñ...</a>
+			<a href="javascript:void 0;" onclick="loadHeadRest(this.parentNode.parentNode);">æ›´å¤šå¤´åƒ...</a>
 		</td>
 	</tr>
 </table>

@@ -26,10 +26,10 @@ if StatusStatistics and Not IsEmpty(Session(keyGotClientInfo)) and Not Session(k
 
 		'Verify Parameters
 		if len(os)>25 then os=left(os,25)
-		if os="" then os="未知"
+		if os="" then os="鏈煡"
 
 		if len(browser)>16 then browser=left(browser,16)
-		if browser="" then browser="未知"
+		if browser="" then browser="鏈煡"
 
 		if isnumeric(screenwidth)=false or len(cstr(screenwidth))>9 then screenwidth=0 else screenwidth=abs(clng(screenwidth))
 		if isnumeric(screenheight)=false or len(cstr(screenheight))>9 then screenheight=0 else screenheight=abs(clng(screenheight))
@@ -39,10 +39,10 @@ if StatusStatistics and Not IsEmpty(Session(keyGotClientInfo)) and Not Session(k
 		end if
 
 		if len(sourceaddr)>50 then sourceaddr=left(sourceaddr,50)
-		if sourceaddr="" then sourceaddr="收藏夹或手动输入"
+		if sourceaddr="" then sourceaddr="鏀惰棌澶规垨鎵嬪姩杈撳叆"
 
 		if len(fullsource)>255 then fullsource=left(fullsource,255)
-		if fullsource="" then fullsource="收藏夹或手动输入"
+		if fullsource="" then fullsource="鏀惰棌澶规垨鎵嬪姩杈撳叆"
 
 		'Filter Parameters
 		os=replace(replace(os,"'","''"),"[","[[]")

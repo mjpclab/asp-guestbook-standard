@@ -40,7 +40,7 @@ if StatusStatistics then call addstat("search")
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ÁôÑÔ±¾ ËÑË÷½á¹û</title>
+	<title><%=HomeName%> ç•™è¨€æœ¬ æœç´¢ç»“æœ</title>
 	<!-- #include file="inc_stylesheet.asp" -->
 </head>
 
@@ -78,17 +78,17 @@ end if
 %>
 
 <div id="outerborder" class="outerborder">
-	<%if ShowTitle then%><%Call InitHeaderData("ËÑË÷½á¹û")%><!-- #include file="include/template/header.inc" --><%end if%>
+	<%if ShowTitle then%><%Call InitHeaderData("æœç´¢ç»“æœ")%><!-- #include file="include/template/header.inc" --><%end if%>
 	<div id="mainborder" class="mainborder">
 	<%RPage="search.asp"%><!-- #include file="include/template/guest_func.inc" -->
 	<!-- #include file="include/template/topbulletin.inc" -->
-	<%if CanOpenDB and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"[ËÑË÷½á¹û·ÖÒ³]","type,searchtxt"%>
+	<%if CanOpenDB and PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"[æœç´¢ç»“æœåˆ†é¡µ]","type,searchtxt"%>
 	<%if ShowTopSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
 
 	<%
 	if CanOpenDB then
 		if ItemsCount=0 then
-			Response.Write "<br/><br/><div class=""centertext"">Ã»ÓĞÕÒµ½·ûºÏÌõ¼şµÄÁôÑÔ¡£</div><br/><br/>"
+			Response.Write "<br/><br/><div class=""centertext"">æ²¡æœ‰æ‰¾åˆ°ç¬¦åˆæ¡ä»¶çš„ç•™è¨€ã€‚</div><br/><br/>"
 		else
 			dim pagename, inAdminPage
 			pagename="search"
@@ -105,7 +105,7 @@ end if
 
 	<!-- #include file="include/template/guest_func.inc" -->
 
-	<%if CanOpenDB and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"[ËÑË÷½á¹û·ÖÒ³]","type,searchtxt"%>
+	<%if CanOpenDB and PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"[æœç´¢ç»“æœåˆ†é¡µ]","type,searchtxt"%>
 	<%if ShowBottomSearchBox then%><!-- #include file="include/template/guest_searchbox.inc" --><%end if%>
 	</div>
 

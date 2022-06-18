@@ -54,7 +54,7 @@ end if
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ÁôÑÔ±¾ ¹ÜÀíÊ×Ò³ <%=rs.Fields("title")%></title>
+	<title><%=HomeName%> ç•™è¨€æœ¬ ç®¡ç†é¦–é¡µ <%=rs.Fields("title")%></title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 	<script type="text/javascript" src="asset/js/jquery-1.x-min.js"></script>
 </head>
@@ -62,7 +62,7 @@ end if
 <body<%=bodylimit%> onload="<%=framecheck%>">
 <div id="outerborder" class="outerborder">
 
-	<%if ShowTitle then%><%Call InitHeaderData("¹ÜÀí")%><!-- #include file="include/template/header.inc" --><%end if%>
+	<%if ShowTitle then%><%Call InitHeaderData("ç®¡ç†")%><!-- #include file="include/template/header.inc" --><%end if%>
 	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/admin_mainmenu.inc" -->
 	<!-- #include file="include/template/topbulletin.inc" -->

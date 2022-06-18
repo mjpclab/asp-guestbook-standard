@@ -45,7 +45,7 @@ rs.Open Replace(sql_tlist,"{0}",n),cn,0,1,1
 if mode="json" then
 	Dim firstDone
 	firstDone=false
-	Response.ContentType="application/json; Charset=gbk"
+	Response.ContentType="application/json; Charset=utf-8"
 	Response.write "{""messages"":["
 	do while not rs.EOF
 		if firstDone then
@@ -70,14 +70,14 @@ elseif mode="js" then
 
 		rs.MoveNext
 	loop
-	%></ul><p><a title="¸ü¶àÁôÑÔ..." href="<%=geturlpath & "index.asp"%>" target="<%=t%>">¸ü¶àÁôÑÔ...</a></p>');
+	%></ul><p><a title="æ›´å¤šç•™è¨€..." href="<%=geturlpath & "index.asp"%>" target="<%=t%>">æ›´å¤šç•™è¨€...</a></p>');
 <%elseif mode="iframe" then%>
 <%if t="" then t="_parent"%>
 <!-- #include file="include/template/dtd.inc" -->
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ÁôÑÔ±¾ ÁôÑÔÁĞ±í</title>
+	<title><%=HomeName%> ç•™è¨€æœ¬ ç•™è¨€åˆ—è¡¨</title>
 	<!-- #include file="inc_stylesheet.asp" -->
 </head>
 <body class="tlist"<%=bodylimit%>>
@@ -87,7 +87,7 @@ elseif mode="js" then
 		rs.MoveNext
 	loop%>
 	</ul>
-	<p><a title="¸ü¶àÁôÑÔ..." href="<%=geturlpath & "index.asp"%>" target="<%=t%>">¸ü¶àÁôÑÔ...</a></p>
+	<p><a title="æ›´å¤šç•™è¨€..." href="<%=geturlpath & "index.asp"%>" target="<%=t%>">æ›´å¤šç•™è¨€...</a></p>
 </body>
 </html>
 <%end if%>

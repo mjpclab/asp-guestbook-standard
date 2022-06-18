@@ -1,23 +1,23 @@
 <script type="text/javascript">
 function searchsubmitcheck(frm)
 {
-	if (frm.searchtxt.value.length===0) {alert('ÇëÊäÈëËÑË÷ÄÚÈİ£¡');frm.searchtxt.focus();return false;}
+	if (frm.searchtxt.value.length===0) {alert('è¯·è¾“å…¥æœç´¢å†…å®¹ï¼');frm.searchtxt.focus();return false;}
 	frm.searchsubmit.disabled=true;
 	return true;
 }
 </script>
 
 <div class="region form-region center-region">
-	<h3 class="title">[ÁôÑÔËÑË÷]</h3>
+	<h3 class="title">[ç•™è¨€æœç´¢]</h3>
 	<div class="content">
 		<form method="post" action="search.asp" onsubmit="return searchsubmitcheck(this);">
-			ËÑË÷£º<input type="text" name="searchtxt" size="<%=SearchTextWidth%>" value="<%=request("searchtxt")%>" />
-			<input type="submit" value="ËÑË÷" name="searchsubmit" />
+			æœç´¢ï¼š<input type="text" name="searchtxt" size="<%=SearchTextWidth%>" value="<%=request("searchtxt")%>" />
+			<input type="submit" value="æœç´¢" name="searchsubmit" />
 			<select name="type" size="1" onchange="searchtxt.focus();">
-				<option value="name"<%=seled(request("type")="name")%>>°´ĞÕÃûËÑË÷</option>
-				<option value="title"<%=seled(request("type")="title")%>>°´±êÌâËÑË÷</option>
-				<option value="article"<%=seled(request("type")="article" or request("type")="")%>>°´ÁôÑÔÄÚÈİËÑË÷</option>
-				<option value="reply"<%=seled(request("type")="reply")%>>°´°æÖ÷»Ø¸´ËÑË÷</option>
+				<option value="name"<%=seled(request("type")="name")%>>æŒ‰å§“åæœç´¢</option>
+				<option value="title"<%=seled(request("type")="title")%>>æŒ‰æ ‡é¢˜æœç´¢</option>
+				<option value="article"<%=seled(request("type")="article" or request("type")="")%>>æŒ‰ç•™è¨€å†…å®¹æœç´¢</option>
+				<option value="reply"<%=seled(request("type")="reply")%>>æŒ‰ç‰ˆä¸»å›å¤æœç´¢</option>
 			</select>
 		</form>
 	</div>

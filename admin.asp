@@ -28,7 +28,7 @@ Response.AddHeader "cache-control","private"
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ÁôÑÔ±¾ ¹ÜÀíÊ×Ò³</title>
+	<title><%=HomeName%> ç•™è¨€æœ¬ ç®¡ç†é¦–é¡µ</title>
 	<!-- #include file="inc_admin_stylesheet.asp" -->
 	<script type="text/javascript" src="asset/js/jquery-1.x-min.js"></script>
 </head>
@@ -53,17 +53,17 @@ get_divided_page cn,rs,sql_pk_main,sql_admin_words_count,sql_admin_words_query,"
 
 <div id="outerborder" class="outerborder">
 
-	<%if ShowTitle then%><%Call InitHeaderData("¹ÜÀí")%><!-- #include file="include/template/header.inc" --><%end if%>
+	<%if ShowTitle then%><%Call InitHeaderData("ç®¡ç†")%><!-- #include file="include/template/header.inc" --><%end if%>
 	<div id="mainborder" class="mainborder">
 	<!-- #include file="include/template/admin_mainmenu.inc" -->
 	<!-- #include file="include/template/topbulletin.inc" -->
-	<%if PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"[ÁôÑÔ·ÖÒ³]",""%>
+	<%if PagesCount>1 and ShowTopPageList then show_page_list ipage,PagesCount,"[ç•™è¨€åˆ†é¡µ]",""%>
 
 	<form method="post" action="admin_mdel.asp" name="form7">
 		<%RPage="admin.asp"%><!-- #include file="include/template/admin_func.inc" -->
 		<%
 		if ItemsCount=0 then
-			Response.Write "<br/><br/><div class=""centertext"">Ä¿Ç°ÉĞÎŞÁôÑÔ¡£</div><br/><br/>"
+			Response.Write "<br/><br/><div class=""centertext"">ç›®å‰å°šæ— ç•™è¨€ã€‚</div><br/><br/>"
 		else
 			dim pagename, inAdminPage
 			pagename="admin"
@@ -81,7 +81,7 @@ get_divided_page cn,rs,sql_pk_main,sql_admin_words_count,sql_admin_words_query,"
 		<!-- #include file="include/template/admin_func.inc" -->
 	</form>
 
-	<%if PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"[ÁôÑÔ·ÖÒ³]",""%>
+	<%if PagesCount>1 and ShowBottomPageList then show_page_list ipage,PagesCount,"[ç•™è¨€åˆ†é¡µ]",""%>
 	</div>
 
 	<!-- #include file="include/template/footer.inc" -->

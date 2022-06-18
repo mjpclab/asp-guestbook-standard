@@ -31,9 +31,9 @@ if WriteVcodeCount>0 then Session(InstanceName & "_vcode_write")=getvcode(WriteV
 
 function getstatus(isopen)
 	if isopen then
-		getstatus="<span style=""font-weight:bold; color:#008000;"">¡Ì</span>"
+		getstatus="<span style=""font-weight:bold; color:#008000;"">âˆš</span>"
 	else
-		getstatus="<span style=""font-weight:bold; color:#FF0000;"">¡Á</span>"
+		getstatus="<span style=""font-weight:bold; color:#FF0000;"">Ã—</span>"
 	end if
 end function
 %>
@@ -42,17 +42,17 @@ end function
 <html>
 <head>
 	<!-- #include file="include/template/metatag.inc" -->
-	<title><%=HomeName%> ÁôÑÔ±¾ Ç©Ğ´ÁôÑÔ</title>
+	<title><%=HomeName%> ç•™è¨€æœ¬ ç­¾å†™ç•™è¨€</title>
 	<!-- #include file="inc_stylesheet.asp" -->
 
 	<script type="text/javascript">
 	function submitcheck(frm)
 	{
-		if (frm.ivcode && !frm.ivcode.value) {alert('ÇëÊäÈëÑéÖ¤Âë¡£'); if(tab){tab.selectPage(0); frm.ivcode.focus();} return false;}
-		if (!frm.iname.value) {alert('ÇëÊäÈë³Æºô¡£'); if(tab){tab.selectPage(0); frm.iname.focus();} return false;}
-		if (!frm.ititle.value) {alert('ÇëÊäÈë±êÌâ¡£'); if(tab){tab.selectPage(0); frm.ititle.focus();} return false;}
-		if (frm.chk_encryptwhisper && frm.chk_encryptwhisper.checked && frm.iwhisperpwd && !frm.iwhisperpwd.value) {alert('ÇëÊäÈëÇÄÇÄ»°ÃÜÂë¡£'); if(tab){tab.selectPage(0); frm.iwhisperpwd.focus();} return false;}
-		if (frm.imailreplyinform && frm.imailreplyinform.checked && !frm.imail.value) {alert('ÇëÊäÈëÓÊ¼şµØÖ·ÒÔ±ã»Ø¸´Ê±Í¨Öª£¬»òÕßÈ¥µô»Ø¸´Í¨ÖªÑ¡Ïî¡£'); if(tab){tab.selectPage(1); frm.imail.focus();} return false;}
+		if (frm.ivcode && !frm.ivcode.value) {alert('è¯·è¾“å…¥éªŒè¯ç ã€‚'); if(tab){tab.selectPage(0); frm.ivcode.focus();} return false;}
+		if (!frm.iname.value) {alert('è¯·è¾“å…¥ç§°å‘¼ã€‚'); if(tab){tab.selectPage(0); frm.iname.focus();} return false;}
+		if (!frm.ititle.value) {alert('è¯·è¾“å…¥æ ‡é¢˜ã€‚'); if(tab){tab.selectPage(0); frm.ititle.focus();} return false;}
+		if (frm.chk_encryptwhisper && frm.chk_encryptwhisper.checked && frm.iwhisperpwd && !frm.iwhisperpwd.value) {alert('è¯·è¾“å…¥æ‚„æ‚„è¯å¯†ç ã€‚'); if(tab){tab.selectPage(0); frm.iwhisperpwd.focus();} return false;}
+		if (frm.imailreplyinform && frm.imailreplyinform.checked && !frm.imail.value) {alert('è¯·è¾“å…¥é‚®ä»¶åœ°å€ä»¥ä¾¿å›å¤æ—¶é€šçŸ¥ï¼Œæˆ–è€…å»æ‰å›å¤é€šçŸ¥é€‰é¡¹ã€‚'); if(tab){tab.selectPage(1); frm.imail.focus();} return false;}
 		frm.submit1.disabled=true;
 		return true;
 	}
@@ -81,7 +81,7 @@ end function
 	var bkcontent='';
 	function checklength(txtobj,max)
 	{
-		if (txtobj.value.length>max) {txtobj.value=bkcontent;alert('ÒÑ´ï×î´ó×ÖÊıÏŞÖÆ£¡');} else bkcontent=txtobj.value;
+		if (txtobj.value.length>max) {txtobj.value=bkcontent;alert('å·²è¾¾æœ€å¤§å­—æ•°é™åˆ¶ï¼');} else bkcontent=txtobj.value;
 	}
 
 	function icontent_keydown(e)
@@ -100,7 +100,7 @@ end function
 
 		if(xmlHttp && divPreview && iContent)
 		{
-			setPureText(divPreview, 'ÕıÔÚÉú³ÉÔ¤ÀÀ£¬ÇëÉÔºò¡­¡­');
+			setPureText(divPreview, 'æ­£åœ¨ç”Ÿæˆé¢„è§ˆï¼Œè¯·ç¨å€™â€¦â€¦');
 
 			xmlHttp.abort();
 			xmlHttp.onreadystatechange=previewArrived;
@@ -133,9 +133,9 @@ end function
 	<%
 	if ShowTitle then
 		if StatusGuestReply and isnumeric(request("follow")) and request("follow")<>"" then
-			InitHeaderData("»Ø¸´ÁôÑÔ")
+			InitHeaderData("å›å¤ç•™è¨€")
 		else
-			InitHeaderData("Ç©Ğ´ÁôÑÔ")
+			InitHeaderData("ç­¾å†™ç•™è¨€")
 		end if
 		%><!-- #include file="include/template/header.inc" --><%
 	end if
@@ -143,7 +143,7 @@ end function
 
 	<div id="mainborder" class="mainborder">
 	<div class="region">
-		<h3 class="title">»¶Ó­ÄúÁôÑÔ</h3>
+		<h3 class="title">æ¬¢è¿æ‚¨ç•™è¨€</h3>
 		<div class="content">
 			<form method="post" action="write.asp" onsubmit="return submitcheck(this)" name="form1">
 				<input type="hidden" name="follow" value="<%=request("follow")%>"/>
@@ -153,24 +153,24 @@ end function
 				<div id="tabContainer"></div>
 
 				<div id="divRequired">
-					<h4>±ØÌîÏîÄ¿£º</h4>
+					<h4>å¿…å¡«é¡¹ç›®ï¼š</h4>
 
 					<%if WriteVcodeCount>0 then%>
 					<div class="field">
-						<span class="label">ÑéÖ¤Âë<span class="required">*</span></span>
+						<span class="label">éªŒè¯ç <span class="required">*</span></span>
 						<span class="value"><input type="text" name="ivcode" autocomplete="off"/><img id="captcha" class="captcha" src="show_vcode.asp?type=write&t=0"/></span>
 					</div>
 					<%end if%>
 					<div class="field">
-						<span class="label">³Æºô<span class="required">*</span></span>
+						<span class="label">ç§°å‘¼<span class="required">*</span></span>
 						<span class="value"><input type="text" name="iname" class="longtext" maxlength="20" value="<%=HtmlEncode(FormOrCookie("iname"))%>" /></span>
 					</div>
 					<div class="field">
-						<span class="label">±êÌâ<span class="required">*</span></span>
+						<span class="label">æ ‡é¢˜<span class="required">*</span></span>
 						<span class="value"><input type="text" name="ititle" class="longtext" maxlength="30" value="<%=HtmlEncode(FormOrSession(InstanceName & "_ititle"))%><%if Request.Form("ititle")="" and isnumeric(Request("follow")) and Request("follow")<>"" then response.write "Re:"%>"/></span>
 					</div>
 					<div class="field">
-						<div class="row">ÄÚÈİ£º <%=getstatus(HTMLSupport)%>HTML±ê¼Ç¡¡<%=getstatus(UBBSupport)%>UBB±ê¼Ç<%if Not HTMLSupport and UBBSupport=false and AllowNewLine then Response.Write "¡¡" & getstatus(true) & "ÔÊĞí»»ĞĞ"%></div>
+						<div class="row">å†…å®¹ï¼š <%=getstatus(HTMLSupport)%>HTMLæ ‡è®°ã€€<%=getstatus(UBBSupport)%>UBBæ ‡è®°<%if Not HTMLSupport and UBBSupport=false and AllowNewLine then Response.Write "ã€€" & getstatus(true) & "å…è®¸æ¢è¡Œ"%></div>
 						<div class="row"><textarea name="icontent" id="icontent" rows="<%=LeaveContentHeight%>" onkeydown="icontent_keydown(arguments[0]);"<%if WordsLimit>0 then Response.Write " onpropertychange=""checklength(this,"&WordsLimit&");"""%>><%=HtmlEncode(FormOrSession(InstanceName & "_icontent"))%></textarea></div>
 						<!-- #include file="include/template/ubbtoolbar.inc" -->
 						<%if UBBSupport then ShowUbbToolBar(false)%>
@@ -178,25 +178,25 @@ end function
 					<%if StatusWhisper then%>
 					<div class="field">
 						<div class="row">
-							<img src="asset/image/icon_whisper.gif" class="imgicon" />¡¡
-							<input type="checkbox" name="chk_whisper" value="1" id="chk_whisper" onclick="updateWhisperField(this.form)"<%=cked(Request.Form("chk_whisper")="1")%> /><label id="lbl_whisper" for="chk_whisper">ÇÄÇÄ»°</label>
-							<%if StatusEncryptWhisper then%>¡¡<input type="checkbox" name="chk_encryptwhisper" value="1" id="chk_encryptwhisper" onclick="updateWhisperField(this.form);if(this.checked)this.form.iwhisperpwd.select();"<%=cked(Request.Form("chk_encryptwhisper")="1")%><%=dised(Request.Form("chk_whisper")<>"1")%> /><label id="lbl_encryptwhisper" for="chk_encryptwhisper"<%=dised(Request.Form("chk_whisper")<>"1")%>>¼ÓÃÜÇÄÇÄ»°</label><%end if%>
+							<img src="asset/image/icon_whisper.gif" class="imgicon" />ã€€
+							<input type="checkbox" name="chk_whisper" value="1" id="chk_whisper" onclick="updateWhisperField(this.form)"<%=cked(Request.Form("chk_whisper")="1")%> /><label id="lbl_whisper" for="chk_whisper">æ‚„æ‚„è¯</label>
+							<%if StatusEncryptWhisper then%>ã€€<input type="checkbox" name="chk_encryptwhisper" value="1" id="chk_encryptwhisper" onclick="updateWhisperField(this.form);if(this.checked)this.form.iwhisperpwd.select();"<%=cked(Request.Form("chk_encryptwhisper")="1")%><%=dised(Request.Form("chk_whisper")<>"1")%> /><label id="lbl_encryptwhisper" for="chk_encryptwhisper"<%=dised(Request.Form("chk_whisper")<>"1")%>>åŠ å¯†æ‚„æ‚„è¯</label><%end if%>
 						</div>
 						<%if StatusEncryptWhisper then%>
-						<div class="row"><img border="0" src="asset/image/icon_key.gif" class="imgicon" />¡¡<label id="lbl_whisperpwd"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%>>ÃÜÂë</label> <input type="password" name="iwhisperpwd" id="iwhisperpwd" maxlength="16" title="ÎªÇÄÇÄ»°ÉèÖÃÃÜÂëºó£¬±ØĞëÌá¹©ÃÜÂë²ÅÄÜ²é¿´»Ø¸´£¬Ò²¿ÉÒÔ²é¿´Ô­ÏÈÁôÑÔ¡£" value="<%=HtmlEncode(Request.Form("iwhisperpwd"))%>"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%> /></div>
+						<div class="row"><img border="0" src="asset/image/icon_key.gif" class="imgicon" />ã€€<label id="lbl_whisperpwd"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%>>å¯†ç </label> <input type="password" name="iwhisperpwd" id="iwhisperpwd" maxlength="16" title="ä¸ºæ‚„æ‚„è¯è®¾ç½®å¯†ç åï¼Œå¿…é¡»æä¾›å¯†ç æ‰èƒ½æŸ¥çœ‹å›å¤ï¼Œä¹Ÿå¯ä»¥æŸ¥çœ‹åŸå…ˆç•™è¨€ã€‚" value="<%=HtmlEncode(Request.Form("iwhisperpwd"))%>"<%if Request.Form("chk_whisper")<>"1" or Request.Form("chk_encryptwhisper")<>"1" then Response.Write " disabled=""disabled"""%> /></div>
 						<%end if%>
 					</div>
 					<%end if%>
 				</div>
 
 				<div id="divContact">
-					<h4>ÁªÏµ·½Ê½£º</h4>
+					<h4>è”ç³»æ–¹å¼ï¼š</h4>
 					<div class="field">
-						<span class="label"><img src="asset/image/icon_mail.gif" class="imgicon" />ÓÊ¼ş</span>
-						<span class="value"><input type="text" name="imail" class="longtext" maxlength="50" value="<%=HtmlEncode(FormOrCookie("imail"))%>"/><%if MailReplyInform then%><br/><input type="checkbox" name="imailreplyinform" id="imailreplyinform" value="1"<%=cked(Request.Form("imailreplyinform")="1")%> /><label for="imailreplyinform">°æÖ÷»Ø¸´ºóÓÃÓÊ¼şÍ¨ÖªÎÒ</label><%end if%></span>
+						<span class="label"><img src="asset/image/icon_mail.gif" class="imgicon" />é‚®ä»¶</span>
+						<span class="value"><input type="text" name="imail" class="longtext" maxlength="50" value="<%=HtmlEncode(FormOrCookie("imail"))%>"/><%if MailReplyInform then%><br/><input type="checkbox" name="imailreplyinform" id="imailreplyinform" value="1"<%=cked(Request.Form("imailreplyinform")="1")%> /><label for="imailreplyinform">ç‰ˆä¸»å›å¤åç”¨é‚®ä»¶é€šçŸ¥æˆ‘</label><%end if%></span>
 					</div>
 					<div class="field">
-						<span class="label"><img src="asset/image/icon_qq.gif" class="imgicon" />QQºÅ</span>
+						<span class="label"><img src="asset/image/icon_qq.gif" class="imgicon" />QQå·</span>
 						<span class="value"><input type="text" name="iqq" class="longtext" maxlength="16" value="<%=HtmlEncode(FormOrCookie("iqq"))%>"/></span>
 					</div>
 					<div class="field">
@@ -204,24 +204,24 @@ end function
 						<span class="value"><input type="text" name="imsn" class="longtext" maxlength="50" value="<%=HtmlEncode(FormOrCookie("imsn"))%>"/></span>
 					</div>
 					<div class="field">
-						<span class="label"><img src="asset/image/icon_homepage.gif" class="imgicon" />Ö÷Ò³</span>
+						<span class="label"><img src="asset/image/icon_homepage.gif" class="imgicon" />ä¸»é¡µ</span>
 						<span class="value"><input type="text" name="ihomepage" class="longtext" maxlength="127" value="<%=HtmlEncode(FormOrCookie("ihomepage"))%>"/></span>
 					</div>
 					<div class="field">
-						<input type="checkbox" name="hidecontact" id="hidecontact" value="1"<%=cked(request.form("hidecontact")="1")%> /><label for="hidecontact">ÁªÏµ·½Ê½½ö°æÖ÷¿É¼û</label>
+						<input type="checkbox" name="hidecontact" id="hidecontact" value="1"<%=cked(request.form("hidecontact")="1")%> /><label for="hidecontact">è”ç³»æ–¹å¼ä»…ç‰ˆä¸»å¯è§</label>
 					</div>
 				</div>
 
 				<%if StatusShowHead then%>
 				<div id="divFace">
-					<h4>Í·Ïñ£º</h4>
+					<h4>å¤´åƒï¼š</h4>
 					<%defaultindex=FormOrCookie("ihead")%>
                     <!-- #include file="include/template/listface.inc" -->
 				</div>
 				<%end if%>
 
 				<div id="divUbbhelp">
-					<h4>UBB°ïÖú£º</h4>
+					<h4>UBBå¸®åŠ©ï¼š</h4>
 					<!-- #include file="include/template/ubbhelp.inc" -->
 				</div>
 
@@ -229,13 +229,13 @@ end function
 				<script type="text/javascript">
 					var tab=new TabControl('tabContainer');
 
-					tab.addPage('divRequired','±ØÌîÏîÄ¿');
-					tab.addPage('divContact','ÁªÏµ·½Ê½');
-					tab.addPage('divFace','Í·Ïñ');
-					tab.addPage('divUbbhelp','UBB°ïÖú');
+					tab.addPage('divRequired','å¿…å¡«é¡¹ç›®');
+					tab.addPage('divContact','è”ç³»æ–¹å¼');
+					tab.addPage('divFace','å¤´åƒ');
+					tab.addPage('divUbbhelp','UBBå¸®åŠ©');
 				</script>
 
-				<p align="center"><input type="submit" value="·¢±íÁôÑÔ" name="submit1" id="submit1" />¡¡<input type="button" value="Ô¤ÀÀÁôÑÔ" onclick="previewRequest();" /></p>
+				<p align="center"><input type="submit" value="å‘è¡¨ç•™è¨€" name="submit1" id="submit1" />ã€€<input type="button" value="é¢„è§ˆç•™è¨€" onclick="previewRequest();" /></p>
 
 				<div id="divPreview"></div>
 			</form>

@@ -110,7 +110,7 @@ Session(InstanceName & "_icontent")=Request.Form("icontent")
 
 if WriteVcodeCount>0 and (Request.Form("ivcode")<>Session(InstanceName & "_vcode_write") or Session(InstanceName & "_vcode_write")="") then
 	Session(InstanceName & "_vcode_write")=""
-	Call TipsPage("ÑéÖ¤Âë´íÎó¡£", getLeaveWordUrl)
+	Call TipsPage("éªŒè¯ç é”™è¯¯ã€‚", getLeaveWordUrl)
 	Response.End
 else
 	Session(InstanceName & "_vcode_write")=""

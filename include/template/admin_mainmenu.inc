@@ -1,21 +1,21 @@
 <div class="region admin-controls">
-	<h3 class="title">¹ÜÀíÔ±¿ØÖÆÖÐÐÄ</h3>
+	<h3 class="title">ç®¡ç†å‘˜æŽ§åˆ¶ä¸­å¿ƒ</h3>
 	<div class="content flex-box">
 		<ul>
-			<li><a href="admin.asp">¹ÜÀíÊ×Ò³</a></li>
-			<li><a href="admin_search.asp">ËÑË÷ÁôÑÔ</a></li>
-			<li><a href="admin_advdel.asp">¸ß¼¶É¾³ý</a></li>
-			<li><a href="admin_setbulletin.asp">·¢²¼ÖÃ¶¥¹«¸æ</a></li>
-			<li><a href="admin_chpass.asp">ÐÞ¸ÄÃÜÂë</a></li>
-			<li><a href="admin_setinfo.asp">ÐÞ¸Ä°æÖ÷×ÊÁÏ</a></li>
-			<li><a href="admin_callgen.asp">Éú³Éµ÷ÓÃ´úÂë</a></li>
-			<li><a href="admin_config.asp?page=1">ÁôÑÔ±¾²ÎÊý</a></li>
-			<li><a href="admin_ipconfig.asp">IPÆÁ±Î²ßÂÔ</a></li>
-			<li><a href="admin_filter.asp">ÄÚÈÝ¹ýÂË²ßÂÔ</a></li>
-			<li><a href="admin_floodconfig.asp">·À¹àË®²ßÂÔ</a></li>
-			<li><a href="admin_stats.asp">·ÃÎÊÍ³¼Æ</a></li>
-			<li><a href="admin_compactdb.asp">Ñ¹ËõÊý¾Ý¿â</a></li>
-			<li><a href="admin_logoff.asp">ÍË³ö¹ÜÀí</a></li>
+			<li><a href="admin.asp">ç®¡ç†é¦–é¡µ</a></li>
+			<li><a href="admin_search.asp">æœç´¢ç•™è¨€</a></li>
+			<li><a href="admin_advdel.asp">é«˜çº§åˆ é™¤</a></li>
+			<li><a href="admin_setbulletin.asp">å‘å¸ƒç½®é¡¶å…¬å‘Š</a></li>
+			<li><a href="admin_chpass.asp">ä¿®æ”¹å¯†ç </a></li>
+			<li><a href="admin_setinfo.asp">ä¿®æ”¹ç‰ˆä¸»èµ„æ–™</a></li>
+			<li><a href="admin_callgen.asp">ç”Ÿæˆè°ƒç”¨ä»£ç </a></li>
+			<li><a href="admin_config.asp?page=1">ç•™è¨€æœ¬å‚æ•°</a></li>
+			<li><a href="admin_ipconfig.asp">IPå±è”½ç­–ç•¥</a></li>
+			<li><a href="admin_filter.asp">å†…å®¹è¿‡æ»¤ç­–ç•¥</a></li>
+			<li><a href="admin_floodconfig.asp">é˜²çŒæ°´ç­–ç•¥</a></li>
+			<li><a href="admin_stats.asp">è®¿é—®ç»Ÿè®¡</a></li>
+			<li><a href="admin_compactdb.asp">åŽ‹ç¼©æ•°æ®åº“</a></li>
+			<li><a href="admin_logoff.asp">é€€å‡ºç®¡ç†</a></li>
 		</ul>
 	</div>
 </div>

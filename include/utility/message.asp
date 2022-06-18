@@ -95,7 +95,7 @@ sub show_page_list(byval CurPage,byval PagesCount,byval pagetitle,byval param)
 		end_page=PagesCount
 	end if
 
-	'¼ÆËã¸÷·ÖÒ³¿Ø¼şÄ¿±êÒ³ºÅ
+	'è®¡ç®—å„åˆ†é¡µæ§ä»¶ç›®æ ‡é¡µå·
 	if ShowAdvPageList and PagesCount>AdvPageListCount then
 		first_page_no=1
 		last_page_no=PagesCount
@@ -104,21 +104,21 @@ sub show_page_list(byval CurPage,byval PagesCount,byval pagetitle,byval param)
 		if CurPage+AdvPageListCount>PagesCount then largenext_page_no=PagesCount else largenext_page_no=CurPage+AdvPageListCount
 		if CurPage-AdvPageListCount<1 then largeprev_page_no=1 else largeprev_page_no=CurPage-AdvPageListCount
 
-		str_first_page=		"<a class=""page-control"" name=""page-control"" href=""?page=" &first_page_no& param & """><img src=""asset/image/icon_page_first.gif"" title=""µÚ" &first_page_no& "Ò³"" /></a>"
-		str_largeprev_page=	"<a class=""page-control"" name=""page-control"" href=""?page=" &largeprev_page_no& param & """><img src=""asset/image/icon_page_largeprev.gif"" title=""µÚ" &largeprev_page_no& "Ò³"" /></a>"
-		str_prev_page=		"<a class=""page-control"" name=""page-control"" href=""?page=" &prev_page_no& param & """><img src=""asset/image/icon_page_prev.gif"" title=""µÚ" &prev_page_no& "Ò³"" /></a>"
+		str_first_page=		"<a class=""page-control"" name=""page-control"" href=""?page=" &first_page_no& param & """><img src=""asset/image/icon_page_first.gif"" title=""ç¬¬" &first_page_no& "é¡µ"" /></a>"
+		str_largeprev_page=	"<a class=""page-control"" name=""page-control"" href=""?page=" &largeprev_page_no& param & """><img src=""asset/image/icon_page_largeprev.gif"" title=""ç¬¬" &largeprev_page_no& "é¡µ"" /></a>"
+		str_prev_page=		"<a class=""page-control"" name=""page-control"" href=""?page=" &prev_page_no& param & """><img src=""asset/image/icon_page_prev.gif"" title=""ç¬¬" &prev_page_no& "é¡µ"" /></a>"
 
-		str_last_page=		"<a class=""page-control"" name=""page-control"" href=""?page=" &last_page_no& param & """><img src=""asset/image/icon_page_last.gif"" title=""µÚ" &last_page_no& "Ò³"" /></a>"
-		str_largenext_page=	"<a class=""page-control"" name=""page-control"" href=""?page=" &largenext_page_no& param & """><img src=""asset/image/icon_page_largenext.gif"" title=""µÚ" &largenext_page_no& "Ò³"" /></a>"
-		str_next_page=		"<a class=""page-control"" name=""page-control"" href=""?page=" &next_page_no& param & """><img src=""asset/image/icon_page_next.gif"" title=""µÚ" &next_page_no& "Ò³"" /></a>"
+		str_last_page=		"<a class=""page-control"" name=""page-control"" href=""?page=" &last_page_no& param & """><img src=""asset/image/icon_page_last.gif"" title=""ç¬¬" &last_page_no& "é¡µ"" /></a>"
+		str_largenext_page=	"<a class=""page-control"" name=""page-control"" href=""?page=" &largenext_page_no& param & """><img src=""asset/image/icon_page_largenext.gif"" title=""ç¬¬" &largenext_page_no& "é¡µ"" /></a>"
+		str_next_page=		"<a class=""page-control"" name=""page-control"" href=""?page=" &next_page_no& param & """><img src=""asset/image/icon_page_next.gif"" title=""ç¬¬" &next_page_no& "é¡µ"" /></a>"
 
-		str_first2_page=	"<a class=""js-page-control"" name=""js-page-control"" onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""stop_refresh_pagenum && stop_refresh_pagenum(); refresh_pagenum && refresh_pagenum(" &(-PagesCount+1)& ");"" title=""¾íÖÁÊ×Ò³""><img src=""asset/image/icon_page_first2.gif"" /></a>"
-		str_largeprev2_page="<a class=""js-page-control"" name=""js-page-control"" onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""stop_refresh_pagenum && stop_refresh_pagenum(); refresh_pagenum && refresh_pagenum(" &(-AdvPageListCount)& ");"" title=""ÉÏ¾í" &AdvPageListCount& "Ò³""><img src=""asset/image/icon_page_largeprev2.gif"" /></a>"
-		str_prev2_page=		"<a class=""js-page-control"" name=""js-page-control"" onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""stop_refresh_pagenum && stop_refresh_pagenum(); refresh_pagenum && refresh_pagenum(" &(-1)& ");"" title=""ÉÏ¾í1Ò³""><img src=""asset/image/icon_page_prev2.gif"" /></a>"
+		str_first2_page=	"<a class=""js-page-control"" name=""js-page-control"" onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""stop_refresh_pagenum && stop_refresh_pagenum(); refresh_pagenum && refresh_pagenum(" &(-PagesCount+1)& ");"" title=""å·è‡³é¦–é¡µ""><img src=""asset/image/icon_page_first2.gif"" /></a>"
+		str_largeprev2_page="<a class=""js-page-control"" name=""js-page-control"" onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""stop_refresh_pagenum && stop_refresh_pagenum(); refresh_pagenum && refresh_pagenum(" &(-AdvPageListCount)& ");"" title=""ä¸Šå·" &AdvPageListCount& "é¡µ""><img src=""asset/image/icon_page_largeprev2.gif"" /></a>"
+		str_prev2_page=		"<a class=""js-page-control"" name=""js-page-control"" onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""stop_refresh_pagenum && stop_refresh_pagenum(); refresh_pagenum && refresh_pagenum(" &(-1)& ");"" title=""ä¸Šå·1é¡µ""><img src=""asset/image/icon_page_prev2.gif"" /></a>"
 
-		str_last2_page=		"<a class=""js-page-control"" name=""js-page-control"" onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""stop_refresh_pagenum && stop_refresh_pagenum(); refresh_pagenum && refresh_pagenum(" &(PagesCount-1)& ");"" title=""¾íÖÁÄ©Ò³""><img src=""asset/image/icon_page_last2.gif"" /></a>"
-		str_largenext2_page="<a class=""js-page-control"" name=""js-page-control"" onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""stop_refresh_pagenum && stop_refresh_pagenum(); refresh_pagenum && refresh_pagenum(" &(AdvPageListCount)& ");"" title=""ÏÂ¾í" &AdvPageListCount& "Ò³""><img src=""asset/image/icon_page_largenext2.gif"" /></a>"
-		str_next2_page=		"<a class=""js-page-control"" name=""js-page-control"" onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""stop_refresh_pagenum && stop_refresh_pagenum(); refresh_pagenum && refresh_pagenum(" &(1)& ");"" title=""ÏÂ¾í1Ò³""><img src=""asset/image/icon_page_next2.gif"" /></a>"
+		str_last2_page=		"<a class=""js-page-control"" name=""js-page-control"" onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""stop_refresh_pagenum && stop_refresh_pagenum(); refresh_pagenum && refresh_pagenum(" &(PagesCount-1)& ");"" title=""å·è‡³æœ«é¡µ""><img src=""asset/image/icon_page_last2.gif"" /></a>"
+		str_largenext2_page="<a class=""js-page-control"" name=""js-page-control"" onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""stop_refresh_pagenum && stop_refresh_pagenum(); refresh_pagenum && refresh_pagenum(" &(AdvPageListCount)& ");"" title=""ä¸‹å·" &AdvPageListCount& "é¡µ""><img src=""asset/image/icon_page_largenext2.gif"" /></a>"
+		str_next2_page=		"<a class=""js-page-control"" name=""js-page-control"" onmouseup=""stop_refresh_pagenum && stop_refresh_pagenum();"" onmousedown=""stop_refresh_pagenum && stop_refresh_pagenum(); refresh_pagenum && refresh_pagenum(" &(1)& ");"" title=""ä¸‹å·1é¡µ""><img src=""asset/image/icon_page_next2.gif"" /></a>"
 	end if%>
 
 	<div class="region page-list">
@@ -132,7 +132,7 @@ sub show_page_list(byval CurPage,byval PagesCount,byval pagetitle,byval param)
 			<div class="pagenum-list">
 				<%for j=start_page to end_page%><a name="pagenum" class="pagenum<%if j=CurPage then Response.Write " pagenum-current"%>" href="?page=<%=j & url_param%>"><%=j%></a><%next%>
 			</div>
-			<div class="goto">(¹²<%=PagesCount%>Ò³)¡¡×ªµ½Ò³Êı<input type="text" name="page" class="page" maxlength="10" /> <input type="submit" class="submit" value="GO" /></div>
+			<div class="goto">(å…±<%=PagesCount%>é¡µ)ã€€è½¬åˆ°é¡µæ•°<input type="text" name="page" class="page" maxlength="10" /> <input type="submit" class="submit" value="GO" /></div>
 			<%
 			for i=0 to ubound(arr_param_names)
 				param_name=arr_param_names(i)
@@ -186,9 +186,9 @@ function GetHiddenWordCondition()
 end function
 
 sub showAdminIcons()
-	if admin_email<>"" then%><a class="icon" href="mailto:<%=admin_email%>" title="°æÖ÷ÓÊÏä£º<%=admin_email%>"><span class="icon-image"><img src="asset/image/icon_mail.gif"/></span><span class="icon-text"><%=admin_email%></span></a><%end if
-	if admin_qqid<>"" then%><span class="icon" title="°æÖ÷QQ£º<%=admin_qqid%>"><span class="icon-image"><img src="asset/image/icon_qq.gif"/></span><span class="icon-text"><%=admin_qqid%></span></span><%end if
-	if admin_msnid<>"" then%><span class="icon" title="°æÖ÷Skype£º<%=admin_msnid%>"><span class="icon-image"><img src="asset/image/icon_skype.gif"/></span><span class="icon-text"><%=admin_msnid%></span></span><%end if
+	if admin_email<>"" then%><a class="icon" href="mailto:<%=admin_email%>" title="ç‰ˆä¸»é‚®ç®±ï¼š<%=admin_email%>"><span class="icon-image"><img src="asset/image/icon_mail.gif"/></span><span class="icon-text"><%=admin_email%></span></a><%end if
+	if admin_qqid<>"" then%><span class="icon" title="ç‰ˆä¸»QQï¼š<%=admin_qqid%>"><span class="icon-image"><img src="asset/image/icon_qq.gif"/></span><span class="icon-text"><%=admin_qqid%></span></span><%end if
+	if admin_msnid<>"" then%><span class="icon" title="ç‰ˆä¸»Skypeï¼š<%=admin_msnid%>"><span class="icon-image"><img src="asset/image/icon_skype.gif"/></span><span class="icon-text"><%=admin_msnid%></span></span><%end if
 	if admin_homepage<>"" then
 		Dim admin_homepage_main
 		if LCase(Left(admin_homepage,7))="http://" then
@@ -198,7 +198,7 @@ sub showAdminIcons()
 		else
 			admin_homepage_main=admin_homepage
 		end if
-		%><a class="icon" href="<%=admin_homepage%>" target="_blank" title="°æÖ÷Ö÷Ò³£º<%=admin_homepage%>"><span class="icon-image"><img src="asset/image/icon_homepage.gif"/></span><span class="icon-text"><%=admin_homepage_main%></span></a><%
+		%><a class="icon" href="<%=admin_homepage%>" target="_blank" title="ç‰ˆä¸»ä¸»é¡µï¼š<%=admin_homepage%>"><span class="icon-image"><img src="asset/image/icon_homepage.gif"/></span><span class="icon-text"><%=admin_homepage_main%></span></a><%
 	end if
 end sub
 
@@ -212,58 +212,58 @@ param_url=HtmlEncode(param_url)
 
 <div class="admin-message-tools">
 	<div class="group">
-		<div class="name">Ñ¡¶¨ÁôÑÔ£º</div>
+		<div class="name">é€‰å®šç•™è¨€ï¼š</div>
 		<div class="tools">
-			<label class="tool" for="c<%=rs.Fields("id")%>"><input type="checkbox" name="seltodel" class="seltodel checkbox" id="c<%=rs.Fields("id")%>" value="<%=rs("id")%>" />(Ñ¡¶¨)</label>
+			<label class="tool" for="c<%=rs.Fields("id")%>"><input type="checkbox" name="seltodel" class="seltodel checkbox" id="c<%=rs.Fields("id")%>" value="<%=rs("id")%>" />(é€‰å®š)</label>
 		</div>
 	</div>
 	<div class="group">
-		<div class="name">·Ã¿ÍÁôÑÔ£º</div>
+		<div class="name">è®¿å®¢ç•™è¨€ï¼š</div>
 		<div class="tools">
-			<%if CBool(guestflag AND 16) then%><a class="tool" href="admin_passaudit.asp<%=param_url%>" title="Í¨¹ıÉóºË"<%if PassAuditTip then response.Write " onclick=""return confirm('È·ÊµÒªÍ¨¹ıÉóºËÂğ£¿');"""%>><img src="asset/image/icon_pass.gif" />Í¨¹ıÉóºË</a><%end if%>
-			<a class="tool" href="admin_edit.asp<%=param_url%>" title="±à¼­·Ã¿ÍÁôÑÔ"><img src="asset/image/icon_edit.gif" />±à¼­ÁôÑÔ</a>
-			<%if CBool(guestflag AND 32) then%><a class="tool" href="admin_pubwhisper.asp<%=param_url%>" title="¹«¿ªÇÄÇÄ»°"<%if PubWhisperTip then response.Write " onclick=""return confirm('È·ÊµÒª¹«¿ªÇÄÇÄ»°Âğ£¿');"""%>><img src="asset/image/icon_pub.gif" />¹«¿ªÇÄÇÄ»°</a><%end if%>
-			<%if Not CBool(guestflag AND 256) then%><a class="tool" href="admin_hidecontact.asp<%=param_url%>" title="Òş²Ø·Ã¿ÍÁªÏµ·½Ê½"><img src="asset/image/icon_hidecontact.gif" />Òş²ØÁªÏµ</a><%end if%>
-			<%if CBool(guestflag AND 256) then%><a class="tool" href="admin_unhidecontact.asp<%=param_url%>" title="¹«¿ª·Ã¿ÍÁªÏµ·½Ê½"><img src="asset/image/icon_unhidecontact.gif" />¹«¿ªÁªÏµ</a><%end if%>
-			<%if Not CBool(guestflag AND 40) then%><a class="tool" href="admin_hideword.asp<%=param_url%>" title="Òş²Ø·Ã¿ÍÁôÑÔÄÚÈİ"><img src="asset/image/icon_hide.gif" />Òş²ØÄÚÈİ</a><%end if%>
-			<%if (guestflag AND 40)=8 then%><a class="tool" href="admin_unhideword.asp<%=param_url%>" title="¹«¿ª·Ã¿ÍÁôÑÔÄÚÈİ"><img src="asset/image/icon_unhide.gif" />¹«¿ªÄÚÈİ</a><%end if%>
+			<%if CBool(guestflag AND 16) then%><a class="tool" href="admin_passaudit.asp<%=param_url%>" title="é€šè¿‡å®¡æ ¸"<%if PassAuditTip then response.Write " onclick=""return confirm('ç¡®å®è¦é€šè¿‡å®¡æ ¸å—ï¼Ÿ');"""%>><img src="asset/image/icon_pass.gif" />é€šè¿‡å®¡æ ¸</a><%end if%>
+			<a class="tool" href="admin_edit.asp<%=param_url%>" title="ç¼–è¾‘è®¿å®¢ç•™è¨€"><img src="asset/image/icon_edit.gif" />ç¼–è¾‘ç•™è¨€</a>
+			<%if CBool(guestflag AND 32) then%><a class="tool" href="admin_pubwhisper.asp<%=param_url%>" title="å…¬å¼€æ‚„æ‚„è¯"<%if PubWhisperTip then response.Write " onclick=""return confirm('ç¡®å®è¦å…¬å¼€æ‚„æ‚„è¯å—ï¼Ÿ');"""%>><img src="asset/image/icon_pub.gif" />å…¬å¼€æ‚„æ‚„è¯</a><%end if%>
+			<%if Not CBool(guestflag AND 256) then%><a class="tool" href="admin_hidecontact.asp<%=param_url%>" title="éšè—è®¿å®¢è”ç³»æ–¹å¼"><img src="asset/image/icon_hidecontact.gif" />éšè—è”ç³»</a><%end if%>
+			<%if CBool(guestflag AND 256) then%><a class="tool" href="admin_unhidecontact.asp<%=param_url%>" title="å…¬å¼€è®¿å®¢è”ç³»æ–¹å¼"><img src="asset/image/icon_unhidecontact.gif" />å…¬å¼€è”ç³»</a><%end if%>
+			<%if Not CBool(guestflag AND 40) then%><a class="tool" href="admin_hideword.asp<%=param_url%>" title="éšè—è®¿å®¢ç•™è¨€å†…å®¹"><img src="asset/image/icon_hide.gif" />éšè—å†…å®¹</a><%end if%>
+			<%if (guestflag AND 40)=8 then%><a class="tool" href="admin_unhideword.asp<%=param_url%>" title="å…¬å¼€è®¿å®¢ç•™è¨€å†…å®¹"><img src="asset/image/icon_unhide.gif" />å…¬å¼€å†…å®¹</a><%end if%>
 		</div>
 	</div>
 	<div class="group">
-		<div class="name">°æÖ÷¹¦ÄÜ£º</div>
+		<div class="name">ç‰ˆä¸»åŠŸèƒ½ï¼š</div>
 		<div class="tools">
-			<a class="tool" href="admin_reply.asp<%=param_url%>" title="<%if CBool(guestflag AND 16) then response.write "Í¨¹ıÉóºË²¢"%>»Ø¸´´ËÁôÑÔ"<%if CBool(guestflag AND 16) and PassAuditTip then response.Write " onclick=""return confirm('È·ÊµÒªÍ¨¹ıÉóºËÂğ£¿');"""%>><img src="asset/image/icon_reply.gif" /><%if CBool(guestflag AND 16) then response.write "Í¨¹ıÉóºË²¢"%>»Ø¸´ÁôÑÔ</a>
-			<a class="tool" href="admin_del.asp<%=param_url%>" title="É¾³ıÁôÑÔ(°üÀ¨»Ø¸´)"<%if DelTip then Response.Write " onclick=""return confirm('È·ÊµÒªÉ¾³ıÁôÑÔÂğ£¿');"""%>><img src="asset/image/icon_del.gif" />É¾³ıÁôÑÔ</a>
-			<%if CBool(rs.Fields("replied") AND 1) then %><a class="tool" href="admin_delreply.asp<%=param_url%>" title="É¾³ı»Ø¸´"<%if DelReTip then Response.Write " onclick=""return confirm('È·ÊµÒªÉ¾³ı»Ø¸´Âğ£¿');"""%>><img src="asset/image/icon_delreply.gif" />É¾³ı»Ø¸´</a><%end if%>
+			<a class="tool" href="admin_reply.asp<%=param_url%>" title="<%if CBool(guestflag AND 16) then response.write "é€šè¿‡å®¡æ ¸å¹¶"%>å›å¤æ­¤ç•™è¨€"<%if CBool(guestflag AND 16) and PassAuditTip then response.Write " onclick=""return confirm('ç¡®å®è¦é€šè¿‡å®¡æ ¸å—ï¼Ÿ');"""%>><img src="asset/image/icon_reply.gif" /><%if CBool(guestflag AND 16) then response.write "é€šè¿‡å®¡æ ¸å¹¶"%>å›å¤ç•™è¨€</a>
+			<a class="tool" href="admin_del.asp<%=param_url%>" title="åˆ é™¤ç•™è¨€(åŒ…æ‹¬å›å¤)"<%if DelTip then Response.Write " onclick=""return confirm('ç¡®å®è¦åˆ é™¤ç•™è¨€å—ï¼Ÿ');"""%>><img src="asset/image/icon_del.gif" />åˆ é™¤ç•™è¨€</a>
+			<%if CBool(rs.Fields("replied") AND 1) then %><a class="tool" href="admin_delreply.asp<%=param_url%>" title="åˆ é™¤å›å¤"<%if DelReTip then Response.Write " onclick=""return confirm('ç¡®å®è¦åˆ é™¤å›å¤å—ï¼Ÿ');"""%>><img src="asset/image/icon_delreply.gif" />åˆ é™¤å›å¤</a><%end if%>
 		</div>
 	</div>
 	<%if rs.Fields("parent_id")<=0 then%>
 	<div class="group">
-		<div class="name">ÁôÑÔ¿ØÖÆ£º</div>
+		<div class="name">ç•™è¨€æ§åˆ¶ï¼š</div>
 		<div class="tools">
-			<%if rs.Fields("parent_id")=0 then%><a class="tool" href="admin_lock2top.asp<%=param_url%>" title="½«ÁôÑÔÊ¼ÖÕÏÔÊ¾ÔÚ¶¥¶Ë"<%if Lock2TopTip then Response.Write " onclick=""return confirm('È·ÊµÒªÖÃ¶¥ÁôÑÔÂğ£¿');"""%>><img src="asset/image/icon_toplocked.gif" />ÖÃ¶¥ÁôÑÔ</a><%end if%>
-			<%if rs.Fields("parent_id")<0 then%><a class="tool" href="admin_unlock2top.asp<%=param_url%>" title="È¡ÏûÁôÑÔÖÃ¶¥"<%if Lock2TopTip then Response.Write " onclick=""return confirm('È·ÊµÒªÖÃ¶¥ÁôÑÔÂğ£¿');"""%>><img src="asset/image/icon_untoplocked.gif" />È¡ÏûÖÃ¶¥</a><%end if%>
-			<a class="tool" href="admin_bring2top.asp<%=param_url%>" title="ÌáÇ°ÁôÑÔµ½×îÇ°"<%if Bring2TopTip then Response.Write " onclick=""return confirm('È·ÊµÒªÌáÇ°ÁôÑÔÂğ£¿');"""%>><img src="asset/image/icon_top.gif" />ÌáÇ°ÁôÑÔ</a>
-			<%if rs.Fields("parent_id")<0 or rs.Fields("logdate")<>rs.Fields("lastupdated") then%><a class="tool" href="admin_reorder.asp<%=param_url%>" title="Ê¹ÁôÑÔ»Ö¸´µ½Ô­Ê¼ÅÅĞòÎ»ÖÃ"<%if ReorderTip then Response.Write " onclick=""return confirm('È·ÊµÒªÖØÖÃÁôÑÔË³ĞòÂğ£¿');"""%>><img src="asset/image/icon_reorder.gif" />ÖØÖÃË³Ğò</a><%end if%>
+			<%if rs.Fields("parent_id")=0 then%><a class="tool" href="admin_lock2top.asp<%=param_url%>" title="å°†ç•™è¨€å§‹ç»ˆæ˜¾ç¤ºåœ¨é¡¶ç«¯"<%if Lock2TopTip then Response.Write " onclick=""return confirm('ç¡®å®è¦ç½®é¡¶ç•™è¨€å—ï¼Ÿ');"""%>><img src="asset/image/icon_toplocked.gif" />ç½®é¡¶ç•™è¨€</a><%end if%>
+			<%if rs.Fields("parent_id")<0 then%><a class="tool" href="admin_unlock2top.asp<%=param_url%>" title="å–æ¶ˆç•™è¨€ç½®é¡¶"<%if Lock2TopTip then Response.Write " onclick=""return confirm('ç¡®å®è¦ç½®é¡¶ç•™è¨€å—ï¼Ÿ');"""%>><img src="asset/image/icon_untoplocked.gif" />å–æ¶ˆç½®é¡¶</a><%end if%>
+			<a class="tool" href="admin_bring2top.asp<%=param_url%>" title="æå‰ç•™è¨€åˆ°æœ€å‰"<%if Bring2TopTip then Response.Write " onclick=""return confirm('ç¡®å®è¦æå‰ç•™è¨€å—ï¼Ÿ');"""%>><img src="asset/image/icon_top.gif" />æå‰ç•™è¨€</a>
+			<%if rs.Fields("parent_id")<0 or rs.Fields("logdate")<>rs.Fields("lastupdated") then%><a class="tool" href="admin_reorder.asp<%=param_url%>" title="ä½¿ç•™è¨€æ¢å¤åˆ°åŸå§‹æ’åºä½ç½®"<%if ReorderTip then Response.Write " onclick=""return confirm('ç¡®å®è¦é‡ç½®ç•™è¨€é¡ºåºå—ï¼Ÿ');"""%>><img src="asset/image/icon_reorder.gif" />é‡ç½®é¡ºåº</a><%end if%>
 			<%if CBool(guestflag AND 512) then%>
-				<a class="tool" href="admin_unlockreply.asp<%=param_url%>" title="ÔÊĞí·Ã¿Í»Ø¸´"><img src="asset/image/icon_reply.gif" />ÔÊĞí»Ø¸´</a>
+				<a class="tool" href="admin_unlockreply.asp<%=param_url%>" title="å…è®¸è®¿å®¢å›å¤"><img src="asset/image/icon_reply.gif" />å…è®¸å›å¤</a>
 			<%else%>
-				<a class="tool" href="admin_lockreply.asp<%=param_url%>" title="Ëø¶¨·Ã¿Í»Ø¸´"><img src="asset/image/icon_lockreply.gif" />Ëø¶¨»Ø¸´</a>
+				<a class="tool" href="admin_lockreply.asp<%=param_url%>" title="é”å®šè®¿å®¢å›å¤"><img src="asset/image/icon_lockreply.gif" />é”å®šå›å¤</a>
 			<%end if%>
 		</div>
 	</div>
 	<%end if%>
 	<%if CBool(guestflag AND 952) OR rs.Fields("parent_id")<0 then%>
 	<div class="group">
-		<div class="name">ÆäËü×´Ì¬£º</div>
+		<div class="name">å…¶å®ƒçŠ¶æ€ï¼š</div>
 		<div class="tools">
-			<%if CBool(guestflag AND 16) then%><span class="tool tool-status"><img src="asset/image/icon_wait2pass.gif" />µÈ´ıÉóºË</span><%end if%>
-			<%if CBool(guestflag AND 32) then%><span class="tool tool-status"><img src="asset/image/icon_whisper.gif" />ÇÄÇÄ»°<%if CBool(guestflag AND 64) then response.write ",ÒÑ¼ÓÃÜ"%></span><%end if%>
-			<%if rs.Fields("parent_id")<0 then%><span class="tool tool-status"><img src="asset/image/icon_toplocked.gif" />ÁôÑÔÒÑÖÃ¶¥</span><%end if%>
-			<%if CBool(guestflag AND 512) and rs.Fields("parent_id")<=0 then%><span class="tool tool-status"><img src="asset/image/icon_lockreply.gif" />»Ø¸´ÒÑËø¶¨</span><%end if%>
-			<%if CBool(guestflag AND 256) then%><span class="tool tool-status"><img src="asset/image/icon_hidecontact.gif" />ÁªÏµÒÑÒş²Ø</span><%end if%>
-			<%if (guestflag AND 40)=8 then%><span class="tool tool-status"><img src="asset/image/icon_hide.gif" />ÄÚÈİÒÑÒş²Ø</span><%end if%>
-			<%if CBool(guestflag AND 128) then%><span class="tool tool-status"><img src="asset/image/icon_mail.gif" />»Ø¸´Í¨Öª<%if Not MailReplyInform then response.write ",ÒÑ½ûÓÃ"%></span><%end if%>
+			<%if CBool(guestflag AND 16) then%><span class="tool tool-status"><img src="asset/image/icon_wait2pass.gif" />ç­‰å¾…å®¡æ ¸</span><%end if%>
+			<%if CBool(guestflag AND 32) then%><span class="tool tool-status"><img src="asset/image/icon_whisper.gif" />æ‚„æ‚„è¯<%if CBool(guestflag AND 64) then response.write ",å·²åŠ å¯†"%></span><%end if%>
+			<%if rs.Fields("parent_id")<0 then%><span class="tool tool-status"><img src="asset/image/icon_toplocked.gif" />ç•™è¨€å·²ç½®é¡¶</span><%end if%>
+			<%if CBool(guestflag AND 512) and rs.Fields("parent_id")<=0 then%><span class="tool tool-status"><img src="asset/image/icon_lockreply.gif" />å›å¤å·²é”å®š</span><%end if%>
+			<%if CBool(guestflag AND 256) then%><span class="tool tool-status"><img src="asset/image/icon_hidecontact.gif" />è”ç³»å·²éšè—</span><%end if%>
+			<%if (guestflag AND 40)=8 then%><span class="tool tool-status"><img src="asset/image/icon_hide.gif" />å†…å®¹å·²éšè—</span><%end if%>
+			<%if CBool(guestflag AND 128) then%><span class="tool tool-status"><img src="asset/image/icon_mail.gif" />å›å¤é€šçŸ¥<%if Not MailReplyInform then response.write ",å·²ç¦ç”¨"%></span><%end if%>
 		</div>
 	</div>
 	<%end if%>
@@ -276,8 +276,8 @@ url="leaveword.asp?follow=" & follow_id
 if left(pagename,8)="showword" then url=url & "&return=showword"
 url=HtmlEncode(url)%>
 <div class="guest-message-tools">
-	<%if parent_id<0 then%><span class="tool"><img src="asset/image/icon_toplocked.gif"/>(ÖÃ¶¥)</span><%end if%>
-	<%if show_reply then%><a class="tool" href="<%=url%>"><img src="asset/image/icon_reply.gif"/>[»Ø¸´]</a><%end if%>
+	<%if parent_id<0 then%><span class="tool"><img src="asset/image/icon_toplocked.gif"/>(ç½®é¡¶)</span><%end if%>
+	<%if show_reply then%><a class="tool" href="<%=url%>"><img src="asset/image/icon_reply.gif"/>[å›å¤]</a><%end if%>
 </div>
 <%end sub
 
@@ -285,11 +285,11 @@ sub showGuestIcons(rs)
 	Dim email,qqid,msnid,homepage,ipv4addr,ipv6addr,originalipv4,originalipv6
 
 	email=rs.Fields("email")
-	if email<>"" then%><a class="icon" href="mailto:<%=email%>" title="×÷ÕßÓÊÏä£º<%=email%>"><span class="icon-image"><img src="asset/image/icon_mail.gif"/></span><span class="icon-text"><%=email%></span></a><%end if
+	if email<>"" then%><a class="icon" href="mailto:<%=email%>" title="ä½œè€…é‚®ç®±ï¼š<%=email%>"><span class="icon-image"><img src="asset/image/icon_mail.gif"/></span><span class="icon-text"><%=email%></span></a><%end if
 	qqid=rs.Fields("qqid")
-	if qqid<>"" then%><span class="icon" title="×÷ÕßQQ£º<%=qqid%>"><span class="icon-image"><img src="asset/image/icon_qq.gif"/></span><span class="icon-text"><%=qqid%></span></span><%end if
+	if qqid<>"" then%><span class="icon" title="ä½œè€…QQï¼š<%=qqid%>"><span class="icon-image"><img src="asset/image/icon_qq.gif"/></span><span class="icon-text"><%=qqid%></span></span><%end if
 	msnid=rs.Fields("msnid")
-	if msnid<>"" then%><span class="icon" title="×÷ÕßSkype£º<%=msnid%>"><span class="icon-image"><img src="asset/image/icon_skype.gif"/></span><span class="icon-text"><%=msnid%></span></span><%end if
+	if msnid<>"" then%><span class="icon" title="ä½œè€…Skypeï¼š<%=msnid%>"><span class="icon-image"><img src="asset/image/icon_skype.gif"/></span><span class="icon-text"><%=msnid%></span></span><%end if
 	homepage=rs.Fields("homepage")
 	if homepage<>"" then
 		Dim homepage_main
@@ -300,43 +300,43 @@ sub showGuestIcons(rs)
 		else
 			homepage_main=homepage
 		end if
-		%><a class="icon" href="<%=homepage%>" target="_blank" title="×÷ÕßÖ÷Ò³£º<%=homepage%>"><span class="icon-image"><img src="asset/image/icon_homepage.gif" /></span><span class="icon-text"><%=homepage_main%></span></a><%
+		%><a class="icon" href="<%=homepage%>" target="_blank" title="ä½œè€…ä¸»é¡µï¼š<%=homepage%>"><span class="icon-image"><img src="asset/image/icon_homepage.gif" /></span><span class="icon-text"><%=homepage_main%></span></a><%
 	end if
 
 	if inAdminPage then
 		ipv4addr=rs.Fields("ipv4addr")
 		if AdminShowIPv4>0 and ipv4addr<>"" then
-			ipv4addr=GetIPv4WithMask(ipv4addr,AdminShowIPv4)%><span class="icon" title="IP£º<%=ipv4addr%>"><span class="icon-image"><img src="asset/image/icon_ip.gif"/></span><span class="icon-text"><%=ipv4addr%></span></span><%end if
+			ipv4addr=GetIPv4WithMask(ipv4addr,AdminShowIPv4)%><span class="icon" title="IPï¼š<%=ipv4addr%>"><span class="icon-image"><img src="asset/image/icon_ip.gif"/></span><span class="icon-text"><%=ipv4addr%></span></span><%end if
 		ipv6addr=rs.Fields("ipv6addr")
 		if AdminShowIPv6>0 and ipv6addr<>"" then
-			ipv6addr=GetIPv6WithMask(ipv6addr,AdminShowIPv6)%><span class="icon" title="IP£º<%=ipv6addr%>"><span class="icon-image"><img src="asset/image/icon_ip.gif"/></span><span class="icon-text"><%=ipv6addr%></span></span><%end if
+			ipv6addr=GetIPv6WithMask(ipv6addr,AdminShowIPv6)%><span class="icon" title="IPï¼š<%=ipv6addr%>"><span class="icon-image"><img src="asset/image/icon_ip.gif"/></span><span class="icon-text"><%=ipv6addr%></span></span><%end if
 		originalipv4=rs.Fields("originalipv4")
 		if AdminShowOriginalIPv4>0 and originalipv4<>"" then
-			originalipv4=GetIPv4WithMask(originalipv4,AdminShowOriginalIPv4)%><span class="icon" title="Ô­Ê¼IP£º<%=originalipv4%>"><span class="icon-image"><img src="asset/image/icon_ip2.gif"/></span><span class="icon-text"><%=originalipv4%></span></span><%end if
+			originalipv4=GetIPv4WithMask(originalipv4,AdminShowOriginalIPv4)%><span class="icon" title="åŸå§‹IPï¼š<%=originalipv4%>"><span class="icon-image"><img src="asset/image/icon_ip2.gif"/></span><span class="icon-text"><%=originalipv4%></span></span><%end if
 		originalipv6=rs.Fields("originalipv6")
 		if AdminShowOriginalIPv6>0 and originalipv6<>"" then
-			originalipv6=GetIPv6WithMask(originalipv6,AdminShowOriginalIPv6)%><span class="icon" title="Ô­Ê¼IP£º<%=originalipv6%>"><span class="icon-image"><img src="asset/image/icon_ip2.gif"/></span><span class="icon-text"><%=originalipv6%></span></span><%end if
+			originalipv6=GetIPv6WithMask(originalipv6,AdminShowOriginalIPv6)%><span class="icon" title="åŸå§‹IPï¼š<%=originalipv6%>"><span class="icon-image"><img src="asset/image/icon_ip2.gif"/></span><span class="icon-text"><%=originalipv6%></span></span><%end if
 	else
 		ipv4addr=rs.Fields("ipv4addr")
 		if ShowIPv4>0 and ipv4addr<>"" then
-			ipv4addr=GetIPv4WithMask(ipv4addr,ShowIPv4)%><span class="icon" title="IP£º<%=ipv4addr%>"><span class="icon-image"><img src="asset/image/icon_ip.gif"/></span><span class="icon-text"><%=ipv4addr%></span></span><%end if
+			ipv4addr=GetIPv4WithMask(ipv4addr,ShowIPv4)%><span class="icon" title="IPï¼š<%=ipv4addr%>"><span class="icon-image"><img src="asset/image/icon_ip.gif"/></span><span class="icon-text"><%=ipv4addr%></span></span><%end if
 		ipv6addr=rs.Fields("ipv6addr")
 		if ShowIPv6>0 and ipv6addr<>"" then
-			ipv6addr=GetIPv6WithMask(ipv6addr,ShowIPv6)%><span class="icon" title="IP£º<%=ipv6addr%>"><span class="icon-image"><img src="asset/image/icon_ip.gif"/></span><span class="icon-text"><%=ipv6addr%></span></span><%end if
+			ipv6addr=GetIPv6WithMask(ipv6addr,ShowIPv6)%><span class="icon" title="IPï¼š<%=ipv6addr%>"><span class="icon-image"><img src="asset/image/icon_ip.gif"/></span><span class="icon-text"><%=ipv6addr%></span></span><%end if
 	end if
 end sub
 
 sub inneradminreply(byref rs2)%>
 <div class="message inner-message admin-message">
 	<div class="summary">
-		<div class="name">°æÖ÷<%if admin_name<>"" then response.write "(" & admin_name & ")"%>»Ø¸´£º</div>
+		<div class="name">ç‰ˆä¸»<%if admin_name<>"" then response.write "(" & admin_name & ")"%>å›å¤ï¼š</div>
 		<div class="date">(<%=UTCToDisplayTime(rs2("replydate"))%>)</div>
 		<div class="icons"><%showAdminIcons()%></div>
 	</div>
 	<%if admin_faceurl<>"" then%><img class="face" src="<%=admin_faceurl%>"/><%end if%>
 	<div class="words">
 		<%if encrypted and pagename<>"showword" and Not inAdminPage then%>
-			<span class="inner-hint"><img src="asset/image/icon_key.gif"/>(ĞèÒªÔ¤ÉèµÄÃÜÂë²ÅÄÜ²é¿´...)[<a href="showword.asp?id=<%=rs2("id")%>">µã»÷ÕâÀïÑéÖ¤...</a>]</span>
+			<span class="inner-hint"><img src="asset/image/icon_key.gif"/>(éœ€è¦é¢„è®¾çš„å¯†ç æ‰èƒ½æŸ¥çœ‹...)[<a href="showword.asp?id=<%=rs2("id")%>">ç‚¹å‡»è¿™é‡ŒéªŒè¯...</a>]</span>
 		<%else
 			reply_htmlflag=rs2("htmlflag")
 			reply_txt=rs2("reinfo")
@@ -350,7 +350,7 @@ sub inneradminreply(byref rs2)%>
 
 sub outeradminreply(byref rs2)%>
 <div class="message outer-message admin-message">
-	<h2 class="title">[°æÖ÷»Ø¸´£º]</h2>
+	<h2 class="title">[ç‰ˆä¸»å›å¤ï¼š]</h2>
 	<div class="info">
 		<%if admin_faceurl<>"" then%><img class="face" src="<%=admin_faceurl%>"/><%end if%>
 		<%if admin_email<>"" or admin_qqid<>"" or admin_msnid<>"" or admin_homepage<>"" then%>
@@ -361,7 +361,7 @@ sub outeradminreply(byref rs2)%>
 	<div class="detail">
 		<div class="words">
 			<%if encrypted and pagename<>"showword" and Not inAdminPage then%>
-				<span class="inner-hint"><img src="asset/image/icon_key.gif"/>(ĞèÒªÔ¤ÉèµÄÃÜÂë²ÅÄÜ²é¿´...)[<a href="showword.asp?id=<%=rs2("id")%>">µã»÷ÕâÀïÑéÖ¤...</a>]</span>
+				<span class="inner-hint"><img src="asset/image/icon_key.gif"/>(éœ€è¦é¢„è®¾çš„å¯†ç æ‰èƒ½æŸ¥çœ‹...)[<a href="showword.asp?id=<%=rs2("id")%>">ç‚¹å‡»è¿™é‡ŒéªŒè¯...</a>]</span>
 			<%else
 				reply_htmlflag=rs2("htmlflag")
 				reply_txt=rs2("reinfo")
@@ -377,10 +377,10 @@ sub outeradminreply(byref rs2)%>
 sub inneraudit()%>
 <div class="message inner-message guest-message auditing-message">
 	<div class="summary">
-		<h2 class="title">(ÁôÑÔ´ıÉóºË...)</h2>
+		<h2 class="title">(ç•™è¨€å¾…å®¡æ ¸...)</h2>
 	</div>
 	<div class="words">
-		<span class="inner-hint"><img src="asset/image/icon_wait2pass.gif"/>(ÁôÑÔ´ıÉóºË...)</span>
+		<span class="inner-hint"><img src="asset/image/icon_wait2pass.gif"/>(ç•™è¨€å¾…å®¡æ ¸...)</span>
 	</div>
 </div>
 <%end sub
@@ -398,10 +398,10 @@ sub outeraudit(t_rs)%>
 		<div class="date"><%=UTCToDisplayTime(t_rs("logdate"))%></div>
 	</div>
 	<div class="detail">
-		<h2 class="title">(ÁôÑÔ´ıÉóºË...)</h2>
+		<h2 class="title">(ç•™è¨€å¾…å®¡æ ¸...)</h2>
 		<%if rs.Fields("parent_id")<=0 and Not inAdminPage then showGuestMessageTools rs.Fields("id"),rs.Fields("parent_id"),StatusWrite and StatusGuestReply and Not CBool(rs.Fields("guestflag") AND 512)%>
 		<div class="words">
-			<span class="inner-hint"><img src="asset/image/icon_wait2pass.gif" />(ÁôÑÔ´ıÉóºË...)</span>
+			<span class="inner-hint"><img src="asset/image/icon_wait2pass.gif" />(ç•™è¨€å¾…å®¡æ ¸...)</span>
 		</div>
 	</div>
 </div>
@@ -410,22 +410,22 @@ sub outeraudit(t_rs)%>
 sub innerword(byref t_rs)%>
 <div class="message inner-message guest-message<%if isauditting then%> auditting-message<%end if%>">
 	<div class="summary">
-		<div class="name"><%=t_rs("name")%>£º</div>
+		<div class="name"><%=t_rs("name")%>ï¼š</div>
 		<div class="date">(<%=UTCToDisplayTime(t_rs("logdate"))%>)</div>
 			<%if (Not iswhisper and Not CBool(guestflag AND 256)) or (pagename="showword" and needverify) or inAdminPage then%>
 				<div class="icons"><%showGuestIcons(t_rs)%></div>
 			<%end if%>
 	</div>
 	<%if StatusShowHead and t_rs.Fields("faceid")>=1 and t_rs.Fields("faceid")<=FaceCount then%><img class="face" src="asset/face/<%=t_rs.Fields("faceid")%>.gif"/><%end if%>
-	<h2 class="title"><%if iswhisper and pagename<>"showword" and Not inAdminPage then response.write "(¸ø°æÖ÷µÄÇÄÇÄ»°...)" else response.write t_rs("title")%></h2>
+	<h2 class="title"><%if iswhisper and pagename<>"showword" and Not inAdminPage then response.write "(ç»™ç‰ˆä¸»çš„æ‚„æ‚„è¯...)" else response.write t_rs("title")%></h2>
 	<div class="words">
 		<%if iswhisper and pagename<>"showword" and Not inAdminPage then%>
-			<span class="inner-hint"><img src="asset/image/icon_whisper.gif"/>(¸ø°æÖ÷µÄÇÄÇÄ»°...)</span>
+			<span class="inner-hint"><img src="asset/image/icon_whisper.gif"/>(ç»™ç‰ˆä¸»çš„æ‚„æ‚„è¯...)</span>
 			<%if encrypted and pagename<>"showword" and Not inAdminPage then%>
-				<br/><span class="inner-hint"><img src="asset/image/icon_key.gif"/>(ĞèÒªÔ¤ÉèµÄÃÜÂë²ÅÄÜ²é¿´...)[<a href="showword.asp?id=<%=t_rs("id")%>">µã»÷ÕâÀïÑéÖ¤...</a>]</span>
+				<br/><span class="inner-hint"><img src="asset/image/icon_key.gif"/>(éœ€è¦é¢„è®¾çš„å¯†ç æ‰èƒ½æŸ¥çœ‹...)[<a href="showword.asp?id=<%=t_rs("id")%>">ç‚¹å‡»è¿™é‡ŒéªŒè¯...</a>]</span>
 			<%end if%>
 		<%elseif ishidden and Not inAdminPage then%>
-			<span class="inner-hint"><img src="asset/image/icon_hide.gif"/>(ÁôÑÔ±»¹ÜÀíÔ±Òş²Ø...)</span>
+			<span class="inner-hint"><img src="asset/image/icon_hide.gif"/>(ç•™è¨€è¢«ç®¡ç†å‘˜éšè—...)</span>
 		<%else
 			guest_txt="" & t_rs("article") & ""
 			if inAdminPage and AdminViewCode then
@@ -437,7 +437,7 @@ sub innerword(byref t_rs)%>
 			if guest_txt<>"" then
 				Response.Write guest_txt
 			else
-				Response.Write "(ÎŞÄÚÈİ)"
+				Response.Write "(æ— å†…å®¹)"
 			end if
 		end if%>
 	</div>
@@ -463,16 +463,16 @@ sub outerword(byref rs)%>
 		<div class="date"><%=UTCToDisplayTime(rs("logdate"))%></div>
 	</div>
 	<div class="detail">
-		<h2 class="title"><%if iswhisper and pagename<>"showword" and Not inAdminPage then response.write "(¸ø°æÖ÷µÄÇÄÇÄ»°...)" else response.write rs("title")%></h2>
+		<h2 class="title"><%if iswhisper and pagename<>"showword" and Not inAdminPage then response.write "(ç»™ç‰ˆä¸»çš„æ‚„æ‚„è¯...)" else response.write rs("title")%></h2>
 		<%if rs.Fields("parent_id")<=0 and Not inAdminPage then showGuestMessageTools rs.Fields("id"),rs.Fields("parent_id"),StatusWrite and StatusGuestReply and Not CBool(rs.Fields("guestflag") and 512)%>
 		<div class="words">
 			<%if iswhisper and pagename<>"showword" and Not inAdminPage then%>
-				<span class="inner-hint"><img src="asset/image/icon_whisper.gif"/>(¸ø°æÖ÷µÄÇÄÇÄ»°...)</span>
+				<span class="inner-hint"><img src="asset/image/icon_whisper.gif"/>(ç»™ç‰ˆä¸»çš„æ‚„æ‚„è¯...)</span>
 				<%if encrypted and pagename<>"showword" and Not inAdminPage then%>
-					<br/><span class="inner-hint"><img src="asset/image/icon_key.gif"/>(ĞèÒªÔ¤ÉèµÄÃÜÂë²ÅÄÜ²é¿´...)[<a href="showword.asp?id=<%=rs("id")%>">µã»÷ÕâÀïÑéÖ¤...</a>]</span>
+					<br/><span class="inner-hint"><img src="asset/image/icon_key.gif"/>(éœ€è¦é¢„è®¾çš„å¯†ç æ‰èƒ½æŸ¥çœ‹...)[<a href="showword.asp?id=<%=rs("id")%>">ç‚¹å‡»è¿™é‡ŒéªŒè¯...</a>]</span>
 				<%end if%>
 			<%elseif ishidden and Not inAdminPage then%>
-				<span class="inner-hint"><img src="asset/image/icon_hide.gif"/>(ÁôÑÔ±»¹ÜÀíÔ±Òş²Ø...)</span>
+				<span class="inner-hint"><img src="asset/image/icon_hide.gif"/>(ç•™è¨€è¢«ç®¡ç†å‘˜éšè—...)</span>
 			<%else
 				guest_txt="" & rs("article") & ""
 				if inAdminPage and AdminViewCode then
@@ -484,14 +484,14 @@ sub outerword(byref rs)%>
 				if guest_txt<>"" then
 					Response.Write guest_txt
 				else
-					Response.Write "(ÎŞÄÚÈİ)"
+					Response.Write "(æ— å†…å®¹)"
 				end if
 			end if
 			%>
 		</div>
 
 		<%
-		if CBool(rs.Fields("replied") AND 1) and ReplyInWord then inneradminreply(rs)	'ÄÚÇ¶
+		if CBool(rs.Fields("replied") AND 1) and ReplyInWord then inneradminreply(rs)	'å†…åµŒ
 
 		if inAdminPage and ReplyInWord then
 			Call showAdminMessageTools(rs)

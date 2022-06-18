@@ -10,7 +10,7 @@ set rs2=nothing
 if pub<>"" then
 %>
 <div class="region">
-	<h3 class="title"><img alt="" src="asset/image/icon_bulletin.gif" class="imgicon" />ÖÃ¶¥¹«¸æ£º</h3>
+	<h3 class="title"><img alt="" src="asset/image/icon_bulletin.gif" class="imgicon" />ç½®é¡¶å…¬å‘Šï¼š</h3>
 	<div class="content"><%=pub%></div>
 </div>
 <%end if%>

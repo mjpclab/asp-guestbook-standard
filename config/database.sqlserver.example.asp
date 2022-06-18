@@ -1,11 +1,11 @@
 <%
-const dbtype=10		'Êý¾Ý¿âÀàÐÍ, 10:MSSQL  11:SQLNCLI  12:SQLNCLI10  13:SQLNCLI11
+const dbtype=10		'æ•°æ®åº“ç±»åž‹, 10:MSSQL  11:SQLNCLI  12:SQLNCLI10  13:SQLNCLI11
 
-const dbserver="127.0.0.1"		'Êý¾Ý¿â·þÎñÆ÷µØÖ·£¬¿ÉÎªip£¬Ö÷»úÃû»òÃüÃû¹ÜµÀ
-const dbport=""		'Êý¾Ý¿â·þÎñÆ÷¶Ë¿ÚºÅ£¬Ä¬ÈÏ¿ÉÁô¿Õ
-const dbuserid="user"		'ÓÃ»§Ãû
-const dbpassword="pass"		'ÃÜÂë
-const dbcatalog="dbname"    'Êý¾Ý¿âÃû
-const dbschema="dbo"		'¼Ü¹¹/ËùÓÐÕß£¬Èç²»Çå³þÓÃÍ¾ÔòÉèÎª"dbo"
-const dbprefix=""		'±íÃûÇ°×º£¬¶à¸ö³ÌÐò¹²ÓÃÒ»¸öÊý¾Ý¿âÊ±£¬Í¨¹ý±íÃûÇ°×º·ÀÖ¹³åÍ»
+const dbserver="127.0.0.1"		'æ•°æ®åº“æœåŠ¡å™¨åœ°å€ï¼Œå¯ä¸ºipï¼Œä¸»æœºåæˆ–å‘½åç®¡é“
+const dbport=""		'æ•°æ®åº“æœåŠ¡å™¨ç«¯å£å·ï¼Œé»˜è®¤å¯ç•™ç©º
+const dbuserid="user"		'ç”¨æˆ·å
+const dbpassword="pass"		'å¯†ç 
+const dbcatalog="dbname"    'æ•°æ®åº“å
+const dbschema="dbo"		'æž¶æž„/æ‰€æœ‰è€…ï¼Œå¦‚ä¸æ¸…æ¥šç”¨é€”åˆ™è®¾ä¸º"dbo"
+const dbprefix=""		'è¡¨åå‰ç¼€ï¼Œå¤šä¸ªç¨‹åºå…±ç”¨ä¸€ä¸ªæ•°æ®åº“æ—¶ï¼Œé€šè¿‡è¡¨åå‰ç¼€é˜²æ­¢å†²çª
 %>

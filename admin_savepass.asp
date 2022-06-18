@@ -17,10 +17,10 @@ Response.Expires=-1
 if IsEmpty(Request.Form) then
 	Response.Redirect "admin_chpass.asp"
 elseif request.Form("inewpass1")<> request.Form("inewpass2") then
-	Call TipsPage("ĞÂÃÜÂë²»Ò»ÖÂ£¬Çë¼ì²é¡£","admin_chpass.asp")
+	Call TipsPage("æ–°å¯†ç ä¸ä¸€è‡´ï¼Œè¯·æ£€æŸ¥ã€‚","admin_chpass.asp")
 	Response.End
 elseif request.Form("inewpass1")="" then
-	Call TipsPage("ÃÜÂë²»ÄÜÎª¿Õ£¬ÇëÖØĞÂÊäÈë¡£","admin_chpass.asp")
+	Call TipsPage("å¯†ç ä¸èƒ½ä¸ºç©ºï¼Œè¯·é‡æ–°è¾“å…¥ã€‚","admin_chpass.asp")
 	Response.End
 else
 	set cn=server.CreateObject("ADODB.Connection")
@@ -38,12 +38,12 @@ else
 			Response.Redirect "admin.asp"
 		else
 			rs.Close : cn.Close : set rs=nothing : set cn=nothing
-			Call TipsPage("Ô­ÃÜÂë´íÎó£¬Çë¼ì²é¡£","admin_chpass.asp")
+			Call TipsPage("åŸå¯†ç é”™è¯¯ï¼Œè¯·æ£€æŸ¥ã€‚","admin_chpass.asp")
 			Response.End
 		end if
 	else
 		rs.Close : cn.Close : set rs=nothing : set cn=nothing
-		Call TipsPage("ÃÜÂëÑéÖ¤Ê§°Ü£¬Çë¼ì²é¡£","admin_chpass.asp")
+		Call TipsPage("å¯†ç éªŒè¯å¤±è´¥ï¼Œè¯·æ£€æŸ¥ã€‚","admin_chpass.asp")
 		Response.End
 	end if
 end if
