@@ -44,8 +44,8 @@
 			<p>查找范围<br/>
 			<input type="checkbox" name="findrange" id="findname" value="1" checked="checked" /><label for="findname">称呼</label>
 			<input type="checkbox" name="findrange" id="findmail" value="2" checked="checked" /><label for="findmail">邮件</label>
-			<input type="checkbox" name="findrange" id="findqq" value="4" checked="checked" /><label for="findqq">QQ号</label>
-			<input type="checkbox" name="findrange" id="findmsn" value="8" checked="checked" /><label for="findmsn">Skype</label>
+			<input type="checkbox" name="findrange" id="findqq" value="4" checked="checked" /><label for="findqq">QQ</label>
+			<input type="checkbox" name="findrange" id="findmsn" value="8" checked="checked" /><label for="findmsn">微信</label>
 			<input type="checkbox" name="findrange" id="findhome" value="16" checked="checked" /><label for="findhome">主页</label>
 			<input type="checkbox" name="findrange" id="findtitle" value="32" checked="checked" /><label for="findtitle">标题</label>
 			<input type="checkbox" name="findrange" id="findcontent" value="64" checked="checked" /><label for="findcontent">内容</label>
@@ -87,8 +87,8 @@
 				<p>查找范围<br/>
 				<input type="checkbox" name="findrange" id="findname<%=tfilterid%>" value="1"<%=cked(CBool(tfiltermode AND 1))%> /><label for="findname<%=tfilterid%>">称呼</label>
 				<input type="checkbox" name="findrange" id="findmail<%=tfilterid%>" value="2"<%=cked(CBool(tfiltermode AND 2))%> /><label for="findmail<%=tfilterid%>">邮件</label>
-				<input type="checkbox" name="findrange" id="findqq<%=tfilterid%>" value="4"<%=cked(CBool(tfiltermode AND 4))%> /><label for="findqq<%=tfilterid%>">QQ号</label>
-				<input type="checkbox" name="findrange" id="findmsn<%=tfilterid%>" value="8"<%=cked(CBool(tfiltermode AND 8))%> /><label for="findmsn<%=tfilterid%>">Skype</label>
+				<input type="checkbox" name="findrange" id="findqq<%=tfilterid%>" value="4"<%=cked(CBool(tfiltermode AND 4))%> /><label for="findqq<%=tfilterid%>">QQ</label>
+				<input type="checkbox" name="findrange" id="findmsn<%=tfilterid%>" value="8"<%=cked(CBool(tfiltermode AND 8))%> /><label for="findmsn<%=tfilterid%>">微信</label>
 				<input type="checkbox" name="findrange" id="findhome<%=tfilterid%>" value="16"<%=cked(CBool(tfiltermode AND 16))%> /><label for="findhome<%=tfilterid%>">主页</label>
 				<input type="checkbox" name="findrange" id="findtitle<%=tfilterid%>" value="32"<%=cked(CBool(tfiltermode AND 32))%> /><label for="findtitle<%=tfilterid%>">标题</label>
 				<input type="checkbox" name="findrange" id="findcontent<%=tfilterid%>" value="64"<%=cked(CBool(tfiltermode AND 64))%> /><label for="findcontent<%=tfilterid%>">内容</label>

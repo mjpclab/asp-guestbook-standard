@@ -196,11 +196,11 @@ end function
 						<span class="value"><input type="text" name="imail" class="longtext" maxlength="50" value="<%=HtmlEncode(FormOrCookie("imail"))%>"/><%if MailReplyInform then%><br/><input type="checkbox" name="imailreplyinform" id="imailreplyinform" value="1"<%=cked(Request.Form("imailreplyinform")="1")%> /><label for="imailreplyinform">版主回复后用邮件通知我</label><%end if%></span>
 					</div>
 					<div class="field">
-						<span class="label"><img src="asset/image/icon_qq.gif" class="imgicon" />QQ号</span>
+						<span class="label"><img src="asset/image/icon_qq.gif" class="imgicon" />QQ</span>
 						<span class="value"><input type="text" name="iqq" class="longtext" maxlength="16" value="<%=HtmlEncode(FormOrCookie("iqq"))%>"/></span>
 					</div>
 					<div class="field">
-						<span class="label"><img src="asset/image/icon_skype.gif" class="imgicon" />Skype</span>
+						<span class="label"><img src="asset/image/icon_wechat.gif" class="imgicon" />微信</span>
 						<span class="value"><input type="text" name="imsn" class="longtext" maxlength="50" value="<%=HtmlEncode(FormOrCookie("imsn"))%>"/></span>
 					</div>
 					<div class="field">

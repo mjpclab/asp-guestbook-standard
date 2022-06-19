@@ -103,8 +103,8 @@ end if
 				<option value="title" <%=seled(Request("type")="title")%>>按标题搜索</option>
 				<option value="article" <%=seled(Request("type")="article" or Request("type")="")%>>按留言内容搜索</option>
 				<option value="email" <%=seled(Request("type")="email")%>>按邮件地址搜索</option>
-				<option value="qqid" <%=seled(Request("type")="qqid")%>>按QQ号码搜索</option>
-				<option value="msnid" <%=seled(Request("type")="msnid")%>>按MSN搜索</option>
+				<option value="qqid" <%=seled(Request("type")="qqid")%>>按QQ搜索</option>
+				<option value="msnid" <%=seled(Request("type")="msnid")%>>按微信搜索</option>
 				<option value="homepage" <%=seled(Request("type")="homepage")%>>按主页地址搜索</option>
 				<option value="ipv4addr" <%=seled(Request("type")="ipv4addr")%>>按IPv4地址搜索</option>
 				<option value="originalipv4" <%=seled(Request("type")="originalipv4")%>>按原始IPv4地址搜索</option>

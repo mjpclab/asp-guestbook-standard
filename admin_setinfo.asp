@@ -48,11 +48,11 @@
 				<span class="value"><input type="text" name="aemail" maxlength="50" value="<%="" & rs("email") & ""%>" /></span>
 			</div>
 			<div class="field">
-				<span class="label">QQ号</span>
+				<span class="label">QQ</span>
 				<span class="value"><input type="text" name="aqqid" maxlength="16" value="<%="" & rs("qqid") & ""%>" /></span>
 			</div>
 			<div class="field">
-				<span class="label">Skype</span>
+				<span class="label">微信</span>
 				<span class="value"><input type="text" name="amsnid" maxlength="50" value="<%="" & rs("msnid") & ""%>" /></span>
 			</div>
 			<div class="field">
