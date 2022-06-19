@@ -187,7 +187,7 @@ end function
 
 sub showAdminIcons()
 	if admin_email<>"" then%><a class="icon" href="mailto:<%=admin_email%>" title="版主邮箱：<%=admin_email%>"><span class="icon-image"><img src="asset/image/icon_mail.gif"/></span><span class="icon-text"><%=admin_email%></span></a><%end if
-	if admin_qqid<>"" then%><span class="icon" title="版主QQ：<%=admin_qqid%>"><span class="icon-image"><img src="asset/image/icon_qq.gif"/></span><span class="icon-text"><%=admin_qqid%></span></span><%end if
+	if admin_qqid<>"" then%><a class="icon" href="tencent://message/?uin=<%=admin_qqid%>" title="版主QQ：<%=admin_qqid%>"><span class="icon-image"><img src="asset/image/icon_qq.gif"/></span><span class="icon-text"><%=admin_qqid%></span></a><%end if
 	if admin_msnid<>"" then%><span class="icon" title="版主微信：<%=admin_msnid%>"><span class="icon-image"><img src="asset/image/icon_wechat.gif"/></span><span class="icon-text"><%=admin_msnid%></span></span><%end if
 	if admin_homepage<>"" then
 		Dim admin_homepage_main
@@ -287,7 +287,7 @@ sub showGuestIcons(rs)
 	email=rs.Fields("email")
 	if email<>"" then%><a class="icon" href="mailto:<%=email%>" title="作者邮箱：<%=email%>"><span class="icon-image"><img src="asset/image/icon_mail.gif"/></span><span class="icon-text"><%=email%></span></a><%end if
 	qqid=rs.Fields("qqid")
-	if qqid<>"" then%><span class="icon" title="作者QQ：<%=qqid%>"><span class="icon-image"><img src="asset/image/icon_qq.gif"/></span><span class="icon-text"><%=qqid%></span></span><%end if
+	if qqid<>"" then%><a class="icon" href="tencent://message/?uin=<%=qqid%>" title="作者QQ：<%=qqid%>"><span class="icon-image"><img src="asset/image/icon_qq.gif"/></span><span class="icon-text"><%=qqid%></span></a><%end if
 	msnid=rs.Fields("msnid")
 	if msnid<>"" then%><span class="icon" title="作者微信：<%=msnid%>"><span class="icon-image"><img src="asset/image/icon_wechat.gif"/></span><span class="icon-text"><%=msnid%></span></span><%end if
 	homepage=rs.Fields("homepage")
